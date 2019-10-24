@@ -16,5 +16,20 @@ namespace DavesBlackjack
         {
             InitializeComponent();
         }
+
+
+
+        /// <summary>
+        /// On player login, call game loop, all visual event handlers should be happening here.
+        /// </summary>
+        public void gameLoop()
+        {
+
+
+
+
+
+        }
+
     }
 }
