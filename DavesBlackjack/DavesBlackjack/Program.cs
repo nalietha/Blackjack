@@ -16,7 +16,7 @@ namespace DavesBlackjack
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BlackJack());
+            Application.Run(new Form1());
         }
     }
 }
