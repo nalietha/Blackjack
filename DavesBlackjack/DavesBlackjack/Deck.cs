@@ -12,9 +12,9 @@ namespace DavesBlackjack
     class Deck
     {
         
-        private List<Card> Cards;
+        private List<Card> _cards;
         private const int CARDS_PER_DECK = 52;
-        private int CurrentIndex;
+        private int _currentIndex;
 
 
         public Deck()
@@ -28,11 +28,11 @@ namespace DavesBlackjack
         /// </summary>
         private void InitializeDeck()
         {
-            this.Cards.Clear();
+            this._cards.Clear();
             for (int x = 0; x < CARDS_PER_DECK; x++ )
             {
                 
-                this.Cards.Add(new Card(x));
+                this._cards.Add(new Card(x));
             }
 
             //Shuffling the deck goes here
@@ -52,16 +52,16 @@ namespace DavesBlackjack
 
 
             //Shuffling the Deck into ShuffledDeck
-            while(Cards.Count != 0)
+            while(_cards.Count != 0)
             {
-                int num = rand.Next() % Cards.Count;
-                ShuffledDeck.Add(Cards[num]);
-                Cards.RemoveAt(num);
+                int num = rand.Next() % _cards.Count;
+                ShuffledDeck.Add(_cards[num]);
+                _cards.RemoveAt(num);
             }
 
             //Setting the new Deck
-            Cards = ShuffledDeck;
-            CurrentIndex = 0;
+            _cards = ShuffledDeck;
+            _currentIndex = 0;
         }
 
         /// <summary>
@@ -71,12 +71,12 @@ namespace DavesBlackjack
         public Card GetNextCard()
         {
             //No next card
-            if (CurrentIndex >= CARDS_PER_DECK)
+            if (_currentIndex >= CARDS_PER_DECK)
                 return null;
 
             //Get next card
-            Card card = Cards[CurrentIndex];
-            CurrentIndex++;
+            Card card = _cards[_currentIndex];
+            _currentIndex++;
             return card;
         }
 
@@ -86,7 +86,7 @@ namespace DavesBlackjack
         /// <returns>An int of the number of Cards left</returns>
         public int GetNumOfCardsLeft()
         {
-            return CARDS_PER_DECK - CurrentIndex;
+            return CARDS_PER_DECK - _currentIndex;
         }
     }
 }
