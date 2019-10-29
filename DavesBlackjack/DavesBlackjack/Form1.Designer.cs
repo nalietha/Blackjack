@@ -31,6 +31,7 @@ namespace DavesBlackjack
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             this.p1 = new System.Windows.Forms.PictureBox();
             this.p2 = new System.Windows.Forms.PictureBox();
             this.p3 = new System.Windows.Forms.PictureBox();
@@ -340,6 +341,18 @@ namespace DavesBlackjack
             ((System.ComponentModel.ISupportInitialize)(this.d1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+=======
+            this.SuspendLayout();
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1798, 895);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.ResumeLayout(false);
+>>>>>>> 921b0e839f19701add744d1fb246c7c2b04cb0af
 
         }
 

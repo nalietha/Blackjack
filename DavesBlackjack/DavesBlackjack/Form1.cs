@@ -46,6 +46,7 @@ namespace DavesBlackjack
             InitializeComponent();
         }
 
+<<<<<<< HEAD
         List<PictureBox> playerHand = new List<PictureBox>();
         List<PictureBox> dealerHand = new List<PictureBox>();
         
@@ -91,6 +92,22 @@ namespace DavesBlackjack
             dealCard(playerHand, "AS");
 
         }
+=======
+
+
+        /// <summary>
+        /// On player login, call game loop, all visual event handlers should be happening here.
+        /// </summary>
+        public void gameLoop()
+        {
+
+
+
+
+
+        }
+
+>>>>>>> 921b0e839f19701add744d1fb246c7c2b04cb0af
     }
 
    
