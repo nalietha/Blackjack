@@ -46,7 +46,6 @@ namespace DavesBlackjack
             InitializeComponent();
         }
 
-<<<<<<< HEAD
         List<PictureBox> playerHand = new List<PictureBox>();
         List<PictureBox> dealerHand = new List<PictureBox>();
         
@@ -90,9 +89,7 @@ namespace DavesBlackjack
         private void hitButton_Click(object sender, EventArgs e)
         {
             dealCard(playerHand, "AS");
-
         }
-=======
 
 
         /// <summary>
@@ -107,7 +104,6 @@ namespace DavesBlackjack
 
         }
 
->>>>>>> 921b0e839f19701add744d1fb246c7c2b04cb0af
     }
 
    
