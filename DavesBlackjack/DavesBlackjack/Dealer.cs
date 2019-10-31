@@ -14,9 +14,9 @@ namespace DavesBlackjack
 
         private int _dealerHandValue = 0;
 
-        public Dealer(List<DealerDeck> currCard)
+        public Dealer(/*List<DealerDeck> currCard*/)
         {
-            _dealersCardList.Add(currCard);
+            //_dealersCardList.Add(currCard);
         }
 
         private void Choice()
