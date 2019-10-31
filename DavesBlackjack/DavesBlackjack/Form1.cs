@@ -22,6 +22,7 @@ namespace DavesBlackjack
         public void ChangeCard(PictureBox p, String cardString)
         {
             p.Load(".\\PNG\\"+ cardString + ".png");
+            p.BringToFront();
             p.Visible = true;
         }
 
@@ -46,6 +47,7 @@ namespace DavesBlackjack
             InitializeComponent();
         }
 
+
         List<PictureBox> playerHand = new List<PictureBox>();
         List<PictureBox> dealerHand = new List<PictureBox>();
         
@@ -69,8 +71,8 @@ namespace DavesBlackjack
             dealerHand.Add(d7);
             dealerHand.Add(d8);
 
-            
-            playerTotal.Text = "Total: 9 hardcode";
+            ChangeCard(dealerHand[0], "AD");
+            pTotalString.Text = "Total: 9 hardcode";
             clearCards(dealerHand);
         }
 
@@ -78,9 +80,10 @@ namespace DavesBlackjack
         {
             for(int i = 0; i < p.Count; i++)
             {
-                if(p[i].InitialImage == null)
+                if(p[i].Visible == false)
                 {
-                    Console.WriteLine("Hi there");
+                    ChangeCard(p[i], cardString);
+                    break;
                 }
                 Console.WriteLine("nope");
             }
@@ -90,6 +93,7 @@ namespace DavesBlackjack
         {
             dealCard(playerHand, "AS");
         }
+
 
 
         /// <summary>
