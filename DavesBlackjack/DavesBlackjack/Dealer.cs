@@ -8,7 +8,7 @@ namespace DavesBlackjack
 {
     class Dealer : Player
     {
-        // private int[] _dealerHand = { 0 };
+
         private List<Card> _dealersCardList = new List<Card>();
         private int currentHand = 0;
 
@@ -21,7 +21,7 @@ namespace DavesBlackjack
 
         private void Choice()
         {
-            currentHand = CalcuateCurrentHand(_dealersCardList);
+            currentHand = CalcuateCurrentHand();
             // check hand
             if (currentHand < 17)
                 Hit();
@@ -31,7 +31,7 @@ namespace DavesBlackjack
 
         public override void Hit()
         {
-            _dealersCardList.Add(Deck.GetNextCard());
+            _dealersCardList.Add(GetNextCard());
         }
 
     }

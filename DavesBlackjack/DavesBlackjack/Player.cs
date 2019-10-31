@@ -62,7 +62,7 @@ namespace DavesBlackjack
         public virtual void Hit()
         {
             // Deck call for next card
-            _playersCardList.Add(Deck.GetNextCard());
+            _playersCardList.Add(GetNextCard());
             
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace DavesBlackjack
         public void Stay()
         {
             // Go to next player choice
-            NextTurn();
+            // NextTurn();
          
         }
         /// <summary>
