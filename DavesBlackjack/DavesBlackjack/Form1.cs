@@ -89,7 +89,6 @@ namespace DavesBlackjack
         private void hitButton_Click(object sender, EventArgs e)
         {
             dealCard(playerHand, "AS");
-
         }
 
 
