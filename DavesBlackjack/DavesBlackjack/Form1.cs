@@ -90,6 +90,9 @@ namespace DavesBlackjack
             hitButton.Enabled = true;
             stayButton.Enabled = true;
 
+            //locking restart button
+            restartButton.Enabled = false;
+
             //Set total labels
             playerScore.Text = "XX";
             dealerScore.Text = "XX";
@@ -204,6 +207,7 @@ namespace DavesBlackjack
                 dealerWins++;
             }
 
+            restartButton.Enabled = true;
             winLabel.Text = playerWins.ToString();
             lossLabel.Text = dealerWins.ToString();
         }
@@ -250,6 +254,7 @@ namespace DavesBlackjack
             {
                 RunDealer();
                 hitButton.Enabled = false;
+                stayButton.Enabled = false;
             }
 
 
