@@ -6,16 +6,41 @@ using System.Threading.Tasks;
 
 namespace DavesBlackjack
 {
-    class Player : Deck
+    class Player 
     {
         private List<Card> _playersCardList = new List<Card>();
+        private Deck deck;
 
         private decimal PlayerMoney = 1000.00m;
         private int _playerValue = 0;
 
-        public Player()
+        /// <summary>
+        /// Returns the number of cards in the players hand
+        /// </summary>
+        public int NumOfCards { get { return _playersCardList.Count(); } }
+
+        public Player(Deck deck)
         {
+            this.deck = deck;
             _playerValue = CalcuateCurrentHand();
+        }
+
+        /// <summary>
+        /// Resets the cards in the players hand
+        /// </summary>
+        public virtual void ResetCards()
+        {
+            _playersCardList.Clear();
+        }
+
+        /// <summary>
+        /// Returns the card in the players hand at the given index
+        /// </summary>
+        /// <param name="index">Index of the card</param>
+        /// <returns></returns>
+        public virtual Card GetCard(int index)
+        {
+            return _playersCardList[index];
         }
 
         /// <summary>
@@ -50,7 +75,7 @@ namespace DavesBlackjack
 
         public bool Busted()
         {
-            if (_playerValue > 21)
+            if (CalcuateCurrentHand() > 21)
                 return true;
             else
                 return false;
@@ -62,7 +87,7 @@ namespace DavesBlackjack
         public virtual void Hit()
         {
             // Deck call for next card
-            _playersCardList.Add(GetNextCard());
+            _playersCardList.Add(deck.GetNextCard());
             
         }
         /// <summary>

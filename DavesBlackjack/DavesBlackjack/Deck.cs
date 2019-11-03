@@ -12,7 +12,7 @@ namespace DavesBlackjack
     class Deck
     {
         
-        private List<Card> _cards;
+        private static List<Card> _cards = new List<Card>();
         private const int CARDS_PER_DECK = 52;
         private int _currentIndex;
 
@@ -28,11 +28,11 @@ namespace DavesBlackjack
         /// </summary>
         private void InitializeDeck()
         {
-            this._cards.Clear();
+            _cards.Clear();
             for (int x = 0; x < CARDS_PER_DECK; x++ )
             {
                 
-                this._cards.Add(new Card(x));
+                _cards.Add(new Card(x));
             }
 
             //Shuffling the deck goes here
