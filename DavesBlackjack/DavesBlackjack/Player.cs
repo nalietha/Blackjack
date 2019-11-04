@@ -8,14 +8,14 @@ namespace DavesBlackjack
 {
     class Player : Deck
     {
-        private List<Card> _playersCardList = new List<Card>();
+        public List<Card> CardList = new List<Card>();
 
         private decimal PlayerMoney = 1000.00m;
-        private int _playerValue = 0;
+        public int _handValue = 0;
 
         public Player()
         {
-            _playerValue = CalcuateCurrentHand();
+            _handValue = CalcuateCurrentHand();
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace DavesBlackjack
             int sum = 0;
             int softAces = 0;
 
-            foreach (var Card in _playersCardList)
+            foreach (var Card in CardList)
             {
                 if (Card.Value == 1)
                 {
@@ -48,9 +48,9 @@ namespace DavesBlackjack
             return sum;
         }
 
-        public bool Busted()
+        public bool Busted(int handSum)
         {
-            if (_playerValue > 21)
+            if (handSum > 21)
                 return true;
             else
                 return false;
@@ -59,10 +59,12 @@ namespace DavesBlackjack
         /// <summary>
         /// Hit Function for the players, also used by dealer
         /// </summary>
-        public virtual void Hit()
+        public virtual bool Hit()
         {
             // Deck call for next card
-            _playersCardList.Add(GetNextCard());
+            CardList.Add(GetNextCard());
+            _handValue = CalcuateCurrentHand();
+            return Busted(CalcuateCurrentHand());
             
         }
         /// <summary>
@@ -71,7 +73,7 @@ namespace DavesBlackjack
         public void Stay()
         {
             // Go to next player choice
-            // NextTurn();
+            // not needed
          
         }
         /// <summary>
@@ -91,6 +93,18 @@ namespace DavesBlackjack
                 // Place Bet
 
             }
+
+        }
+
+        /// <summary>
+        /// Clears CardList, and sets hands to zero
+        /// </summary>
+        public void ClearHand()
+        {
+            CardList.Clear();
+            _handValue = 0;
+
+            
 
         }
 

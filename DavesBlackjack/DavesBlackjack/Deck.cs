@@ -28,7 +28,7 @@ namespace DavesBlackjack
         /// </summary>
         private void InitializeDeck()
         {
-            this._cards.Clear();
+            //this._cards.Clear();
             for (int x = 0; x < CARDS_PER_DECK; x++ )
             {
                 

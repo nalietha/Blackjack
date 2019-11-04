@@ -13,7 +13,11 @@ using System.Windows.Forms;
 namespace DavesBlackjack
 {
     public partial class Form1 : Form
-    {
+    { 
+        // Create dealer and player objects
+        Dealer houseDealer = new Dealer();
+        Player player_01 = new Player();
+
         /// <summary>
         /// 
         /// </summary>
@@ -45,6 +49,7 @@ namespace DavesBlackjack
         public Form1()
         {
             InitializeComponent();
+
         }
 
 
@@ -74,6 +79,7 @@ namespace DavesBlackjack
             ChangeCard(dealerHand[0], "AD");
             pTotalString.Text = "Total: 9 hardcode";
             clearCards(dealerHand);
+
         }
 
         public void dealCard(List<PictureBox> p, string cardString)
@@ -91,22 +97,81 @@ namespace DavesBlackjack
 
         private void hitButton_Click(object sender, EventArgs e)
         {
-            dealCard(playerHand, "AS");
+            PlayersTurn();
+            
+
+            DealersTurn();
+
         }
 
+        private void stayButton_Click(object sender, EventArgs e)
+        {
+            DealersTurn();
 
-
+        }
         /// <summary>
-        /// On player login, call game loop, all visual event handlers should be happening here.
+        /// Dealers Turn
         /// </summary>
-        public void gameLoop()
+        /// <returns>Returns message string, if message is not null, dealer loses</returns>
+        public string DealersTurn()
+        {
+            // returns string, hit or stay
+            // Display dealers choice
+            lblDealersChoice.Visible = true;
+            lblDealersChoice.Text = houseDealer.Choice();
+            dealerScore.Text = houseDealer._handValue.ToString();
+            string msg = "";
+            
+            // Check for game ending on bust
+            if (houseDealer.Busted(houseDealer.CalcuateCurrentHand()))
+            {
+                
+                msg = "Dealer Busts!\nYOU WIN!\n\nPlay Again?";
+
+                DialogResult result = MessageBox.Show(msg, "Game Over", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                    RestartGame();
+                // Close game
+
+            }
+            return msg;
+        }
+        /// <summary>
+        /// The players turn, also checks if the player busts. 
+        /// </summary>
+        /// <returns></returns>
+        public string PlayersTurn()
         {
 
+            player_01.Hit();
+            playerScore.Text = player_01._handValue.ToString();
+            string msg = "";
+            //Player
+            if (player_01.Busted(houseDealer.CalcuateCurrentHand()))
+            {
+                msg = "You busted!\nYOU LOSE!";
+            }
+            else if(lblDealersChoice.Text != "Dealer Hits" && player_01._handValue > houseDealer._handValue )
+            {
 
 
+                msg = "Dealer Stayed";
+            }
+            return msg;
+        }
 
+        public void RestartGame()
+        {
+            player_01.ClearHand();
+            houseDealer.ClearHand();
+
+            playerScore.Text = "";
+            dealerScore.Text = "";
+            lblDealersChoice.Text = "";
 
         }
+
+
 
     }
 

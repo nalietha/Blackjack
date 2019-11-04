@@ -9,29 +9,31 @@ namespace DavesBlackjack
     class Dealer : Player
     {
 
-        private List<Card> _dealersCardList = new List<Card>();
-        private int currentHand = 0;
-
-        private int _dealerHandValue = 0;
-
-        public Dealer(/*List<DealerDeck> currCard*/)
+        public Dealer()
         {
-            //_dealersCardList.Add(currCard);
+            _handValue = CalcuateCurrentHand();
         }
 
-        private void Choice()
+        public string Choice()
         {
-            currentHand = CalcuateCurrentHand();
+            _handValue = CalcuateCurrentHand();
             // check hand
-            if (currentHand < 17)
+            if (_handValue < 17)
+            {
                 Hit();
+                return "Dealer Hits";
+            }
             else
-                Stay();
+            { 
+                return "Dealer Stays";
+            }
         }
 
-        public override void Hit()
+        public override bool Hit()
         {
-            _dealersCardList.Add(GetNextCard());
+            CardList.Add(GetNextCard());
+            _handValue = CalcuateCurrentHand();
+            return Busted(CalcuateCurrentHand());
         }
 
     }
