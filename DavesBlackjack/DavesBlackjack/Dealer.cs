@@ -31,7 +31,7 @@ namespace DavesBlackjack
 
         public override bool Hit()
         {
-            CardList.Add(GetNextCard());
+            CardList.Add(Deck.GetNextCard());
             _handValue = CalcuateCurrentHand();
             return Busted(CalcuateCurrentHand());
         }

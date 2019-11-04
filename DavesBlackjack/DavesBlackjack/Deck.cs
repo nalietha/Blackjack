@@ -12,9 +12,9 @@ namespace DavesBlackjack
     class Deck
     {
         
-        private List<Card> _cards;
+        private static List<Card> _cards = new List<Card>();
         private const int CARDS_PER_DECK = 52;
-        private int _currentIndex;
+        private static int _currentIndex;
 
 
         public Deck()
@@ -32,7 +32,7 @@ namespace DavesBlackjack
             for (int x = 0; x < CARDS_PER_DECK; x++ )
             {
                 
-                this._cards.Add(new Card(x));
+                _cards.Add(new Card(x));
             }
 
             //Shuffling the deck goes here
@@ -43,7 +43,7 @@ namespace DavesBlackjack
         /// <summary>
         /// Sets the DeckInUse array as a shuffled version of the cards array
         /// </summary>
-        public void Shuffle()
+        public static void Shuffle()
         {
             //Temporary new deck to store the shuffled deck
             List<Card> ShuffledDeck = new List<Card>();
@@ -68,7 +68,7 @@ namespace DavesBlackjack
         /// Gets the next card in the deck or NULL if there is no next card.
         /// </summary>
         /// <returns>Returns a Card class of the next card or NULL if there is no next card</returns>
-        public Card GetNextCard()
+        public static Card GetNextCard()
         {
             //No next card
             if (_currentIndex >= CARDS_PER_DECK)
@@ -84,7 +84,7 @@ namespace DavesBlackjack
         /// Returns the number of Cards left in the Deck.
         /// </summary>
         /// <returns>An int of the number of Cards left</returns>
-        public int GetNumOfCardsLeft()
+        public static int GetNumOfCardsLeft()
         {
             return CARDS_PER_DECK - _currentIndex;
         }

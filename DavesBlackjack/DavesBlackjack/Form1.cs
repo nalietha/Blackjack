@@ -17,6 +17,7 @@ namespace DavesBlackjack
         // Create dealer and player objects
         Dealer houseDealer = new Dealer();
         Player player_01 = new Player();
+        Deck deck = new Deck();
 
         /// <summary>
         /// 

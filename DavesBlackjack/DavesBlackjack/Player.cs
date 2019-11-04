@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DavesBlackjack
 {
-    class Player : Deck
+    class Player 
     {
         public List<Card> CardList = new List<Card>();
 
@@ -62,7 +62,7 @@ namespace DavesBlackjack
         public virtual bool Hit()
         {
             // Deck call for next card
-            CardList.Add(GetNextCard());
+            CardList.Add(Deck.GetNextCard());
             _handValue = CalcuateCurrentHand();
             return Busted(CalcuateCurrentHand());
             
