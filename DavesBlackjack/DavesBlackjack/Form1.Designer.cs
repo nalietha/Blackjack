@@ -81,10 +81,10 @@ namespace DavesBlackjack
             // 
             // p1
             // 
-            this.p1.Location = new System.Drawing.Point(13, 23);
-            this.p1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.p1.Location = new System.Drawing.Point(60, 80);
+            this.p1.Margin = new System.Windows.Forms.Padding(2);
             this.p1.Name = "p1";
-            this.p1.Size = new System.Drawing.Size(56, 79);
+            this.p1.Size = new System.Drawing.Size(130, 185);
             this.p1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p1.TabIndex = 1;
             this.p1.TabStop = false;
@@ -92,10 +92,10 @@ namespace DavesBlackjack
             // 
             // p2
             // 
-            this.p2.Location = new System.Drawing.Point(21, 23);
-            this.p2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.p2.Location = new System.Drawing.Point(90, 80);
+            this.p2.Margin = new System.Windows.Forms.Padding(2);
             this.p2.Name = "p2";
-            this.p2.Size = new System.Drawing.Size(56, 79);
+            this.p2.Size = new System.Drawing.Size(130, 185);
             this.p2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p2.TabIndex = 2;
             this.p2.TabStop = false;
@@ -103,10 +103,10 @@ namespace DavesBlackjack
             // 
             // p3
             // 
-            this.p3.Location = new System.Drawing.Point(28, 23);
-            this.p3.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.p3.Location = new System.Drawing.Point(120, 80);
+            this.p3.Margin = new System.Windows.Forms.Padding(2);
             this.p3.Name = "p3";
-            this.p3.Size = new System.Drawing.Size(56, 79);
+            this.p3.Size = new System.Drawing.Size(130, 185);
             this.p3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p3.TabIndex = 3;
             this.p3.TabStop = false;
@@ -114,10 +114,10 @@ namespace DavesBlackjack
             // 
             // p4
             // 
-            this.p4.Location = new System.Drawing.Point(35, 23);
-            this.p4.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.p4.Location = new System.Drawing.Point(150, 80);
+            this.p4.Margin = new System.Windows.Forms.Padding(2);
             this.p4.Name = "p4";
-            this.p4.Size = new System.Drawing.Size(56, 79);
+            this.p4.Size = new System.Drawing.Size(130, 185);
             this.p4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p4.TabIndex = 4;
             this.p4.TabStop = false;
@@ -125,10 +125,10 @@ namespace DavesBlackjack
             // 
             // p5
             // 
-            this.p5.Location = new System.Drawing.Point(42, 23);
-            this.p5.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.p5.Location = new System.Drawing.Point(180, 80);
+            this.p5.Margin = new System.Windows.Forms.Padding(2);
             this.p5.Name = "p5";
-            this.p5.Size = new System.Drawing.Size(56, 79);
+            this.p5.Size = new System.Drawing.Size(130, 185);
             this.p5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p5.TabIndex = 5;
             this.p5.TabStop = false;
@@ -136,10 +136,10 @@ namespace DavesBlackjack
             // 
             // p6
             // 
-            this.p6.Location = new System.Drawing.Point(49, 23);
-            this.p6.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.p6.Location = new System.Drawing.Point(210, 80);
+            this.p6.Margin = new System.Windows.Forms.Padding(2);
             this.p6.Name = "p6";
-            this.p6.Size = new System.Drawing.Size(56, 79);
+            this.p6.Size = new System.Drawing.Size(130, 185);
             this.p6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p6.TabIndex = 6;
             this.p6.TabStop = false;
@@ -147,10 +147,10 @@ namespace DavesBlackjack
             // 
             // p7
             // 
-            this.p7.Location = new System.Drawing.Point(56, 23);
-            this.p7.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.p7.Location = new System.Drawing.Point(240, 80);
+            this.p7.Margin = new System.Windows.Forms.Padding(2);
             this.p7.Name = "p7";
-            this.p7.Size = new System.Drawing.Size(56, 79);
+            this.p7.Size = new System.Drawing.Size(130, 185);
             this.p7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p7.TabIndex = 7;
             this.p7.TabStop = false;
@@ -158,10 +158,10 @@ namespace DavesBlackjack
             // 
             // p8
             // 
-            this.p8.Location = new System.Drawing.Point(63, 23);
-            this.p8.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.p8.Location = new System.Drawing.Point(270, 80);
+            this.p8.Margin = new System.Windows.Forms.Padding(2);
             this.p8.Name = "p8";
-            this.p8.Size = new System.Drawing.Size(56, 79);
+            this.p8.Size = new System.Drawing.Size(130, 185);
             this.p8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.p8.TabIndex = 8;
             this.p8.TabStop = false;
@@ -169,10 +169,10 @@ namespace DavesBlackjack
             // 
             // d8
             // 
-            this.d8.Location = new System.Drawing.Point(176, 23);
-            this.d8.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.d8.Location = new System.Drawing.Point(810, 80);
+            this.d8.Margin = new System.Windows.Forms.Padding(2);
             this.d8.Name = "d8";
-            this.d8.Size = new System.Drawing.Size(56, 79);
+            this.d8.Size = new System.Drawing.Size(130, 185);
             this.d8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.d8.TabIndex = 16;
             this.d8.TabStop = false;
@@ -180,10 +180,10 @@ namespace DavesBlackjack
             // 
             // d7
             // 
-            this.d7.Location = new System.Drawing.Point(169, 23);
-            this.d7.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.d7.Location = new System.Drawing.Point(780, 80);
+            this.d7.Margin = new System.Windows.Forms.Padding(2);
             this.d7.Name = "d7";
-            this.d7.Size = new System.Drawing.Size(56, 79);
+            this.d7.Size = new System.Drawing.Size(130, 185);
             this.d7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.d7.TabIndex = 15;
             this.d7.TabStop = false;
@@ -191,10 +191,10 @@ namespace DavesBlackjack
             // 
             // d6
             // 
-            this.d6.Location = new System.Drawing.Point(162, 23);
-            this.d6.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.d6.Location = new System.Drawing.Point(750, 80);
+            this.d6.Margin = new System.Windows.Forms.Padding(2);
             this.d6.Name = "d6";
-            this.d6.Size = new System.Drawing.Size(56, 79);
+            this.d6.Size = new System.Drawing.Size(130, 185);
             this.d6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.d6.TabIndex = 14;
             this.d6.TabStop = false;
@@ -202,10 +202,10 @@ namespace DavesBlackjack
             // 
             // d5
             // 
-            this.d5.Location = new System.Drawing.Point(155, 23);
-            this.d5.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.d5.Location = new System.Drawing.Point(720, 80);
+            this.d5.Margin = new System.Windows.Forms.Padding(2);
             this.d5.Name = "d5";
-            this.d5.Size = new System.Drawing.Size(56, 79);
+            this.d5.Size = new System.Drawing.Size(130, 185);
             this.d5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.d5.TabIndex = 13;
             this.d5.TabStop = false;
@@ -213,10 +213,10 @@ namespace DavesBlackjack
             // 
             // d4
             // 
-            this.d4.Location = new System.Drawing.Point(148, 23);
-            this.d4.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.d4.Location = new System.Drawing.Point(690, 80);
+            this.d4.Margin = new System.Windows.Forms.Padding(2);
             this.d4.Name = "d4";
-            this.d4.Size = new System.Drawing.Size(56, 79);
+            this.d4.Size = new System.Drawing.Size(130, 185);
             this.d4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.d4.TabIndex = 12;
             this.d4.TabStop = false;
@@ -224,10 +224,10 @@ namespace DavesBlackjack
             // 
             // d3
             // 
-            this.d3.Location = new System.Drawing.Point(141, 23);
-            this.d3.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.d3.Location = new System.Drawing.Point(660, 80);
+            this.d3.Margin = new System.Windows.Forms.Padding(2);
             this.d3.Name = "d3";
-            this.d3.Size = new System.Drawing.Size(56, 79);
+            this.d3.Size = new System.Drawing.Size(130, 185);
             this.d3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.d3.TabIndex = 11;
             this.d3.TabStop = false;
@@ -235,10 +235,10 @@ namespace DavesBlackjack
             // 
             // d2
             // 
-            this.d2.Location = new System.Drawing.Point(134, 23);
-            this.d2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.d2.Location = new System.Drawing.Point(630, 80);
+            this.d2.Margin = new System.Windows.Forms.Padding(2);
             this.d2.Name = "d2";
-            this.d2.Size = new System.Drawing.Size(56, 79);
+            this.d2.Size = new System.Drawing.Size(130, 185);
             this.d2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.d2.TabIndex = 10;
             this.d2.TabStop = false;
@@ -246,10 +246,10 @@ namespace DavesBlackjack
             // 
             // d1
             // 
-            this.d1.Location = new System.Drawing.Point(127, 23);
-            this.d1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.d1.Location = new System.Drawing.Point(600, 80);
+            this.d1.Margin = new System.Windows.Forms.Padding(2);
             this.d1.Name = "d1";
-            this.d1.Size = new System.Drawing.Size(56, 79);
+            this.d1.Size = new System.Drawing.Size(130, 185);
             this.d1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.d1.TabIndex = 9;
             this.d1.TabStop = false;
@@ -258,10 +258,10 @@ namespace DavesBlackjack
             // 
             this.playerName.AutoSize = true;
             this.playerName.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerName.Location = new System.Drawing.Point(12, 14);
-            this.playerName.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.playerName.Location = new System.Drawing.Point(55, 22);
+            this.playerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.playerName.Name = "playerName";
-            this.playerName.Size = new System.Drawing.Size(67, 21);
+            this.playerName.Size = new System.Drawing.Size(94, 30);
             this.playerName.TabIndex = 17;
             this.playerName.Text = "Player";
             // 
@@ -269,10 +269,10 @@ namespace DavesBlackjack
             // 
             this.dealerName.AutoSize = true;
             this.dealerName.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dealerName.Location = new System.Drawing.Point(125, 13);
-            this.dealerName.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.dealerName.Location = new System.Drawing.Point(595, 22);
+            this.dealerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dealerName.Name = "dealerName";
-            this.dealerName.Size = new System.Drawing.Size(68, 21);
+            this.dealerName.Size = new System.Drawing.Size(94, 30);
             this.dealerName.TabIndex = 18;
             this.dealerName.Text = "Dealer";
             // 
@@ -281,10 +281,10 @@ namespace DavesBlackjack
             this.pTotalString.AccessibleDescription = "Total: __(score)";
             this.pTotalString.AutoSize = true;
             this.pTotalString.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pTotalString.Location = new System.Drawing.Point(12, 103);
-            this.pTotalString.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.pTotalString.Location = new System.Drawing.Point(56, 310);
+            this.pTotalString.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.pTotalString.Name = "pTotalString";
-            this.pTotalString.Size = new System.Drawing.Size(44, 13);
+            this.pTotalString.Size = new System.Drawing.Size(59, 20);
             this.pTotalString.TabIndex = 19;
             this.pTotalString.Text = "Total: ";
             // 
@@ -293,20 +293,20 @@ namespace DavesBlackjack
             this.dealerString.AccessibleDescription = "Total: __(score)";
             this.dealerString.AutoSize = true;
             this.dealerString.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dealerString.Location = new System.Drawing.Point(126, 103);
-            this.dealerString.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.dealerString.Location = new System.Drawing.Point(596, 310);
+            this.dealerString.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dealerString.Name = "dealerString";
-            this.dealerString.Size = new System.Drawing.Size(44, 13);
+            this.dealerString.Size = new System.Drawing.Size(59, 20);
             this.dealerString.TabIndex = 20;
             this.dealerString.Text = "Total: ";
             // 
             // hitButton
             // 
             this.hitButton.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hitButton.Location = new System.Drawing.Point(11, 119);
-            this.hitButton.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.hitButton.Location = new System.Drawing.Point(230, 368);
+            this.hitButton.Margin = new System.Windows.Forms.Padding(2);
             this.hitButton.Name = "hitButton";
-            this.hitButton.Size = new System.Drawing.Size(40, 24);
+            this.hitButton.Size = new System.Drawing.Size(152, 61);
             this.hitButton.TabIndex = 21;
             this.hitButton.Text = "Hit";
             this.hitButton.UseVisualStyleBackColor = true;
@@ -315,10 +315,10 @@ namespace DavesBlackjack
             // stayButton
             // 
             this.stayButton.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stayButton.Location = new System.Drawing.Point(11, 145);
-            this.stayButton.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.stayButton.Location = new System.Drawing.Point(230, 445);
+            this.stayButton.Margin = new System.Windows.Forms.Padding(2);
             this.stayButton.Name = "stayButton";
-            this.stayButton.Size = new System.Drawing.Size(40, 27);
+            this.stayButton.Size = new System.Drawing.Size(152, 61);
             this.stayButton.TabIndex = 22;
             this.stayButton.Text = "Stay";
             this.stayButton.UseVisualStyleBackColor = true;
@@ -327,88 +327,89 @@ namespace DavesBlackjack
             // playerScore
             // 
             this.playerScore.AutoSize = true;
-            this.playerScore.Location = new System.Drawing.Point(26, 103);
-            this.playerScore.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.playerScore.Location = new System.Drawing.Point(146, 310);
+            this.playerScore.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.playerScore.Name = "playerScore";
-            this.playerScore.Size = new System.Drawing.Size(21, 13);
+            this.playerScore.Size = new System.Drawing.Size(31, 20);
             this.playerScore.TabIndex = 24;
             this.playerScore.Text = "XX";
             // 
             // dealerScore
             // 
             this.dealerScore.AutoSize = true;
-            this.dealerScore.Location = new System.Drawing.Point(140, 103);
-            this.dealerScore.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.dealerScore.Location = new System.Drawing.Point(686, 310);
+            this.dealerScore.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dealerScore.Name = "dealerScore";
-            this.dealerScore.Size = new System.Drawing.Size(21, 13);
+            this.dealerScore.Size = new System.Drawing.Size(31, 20);
             this.dealerScore.TabIndex = 25;
             this.dealerScore.Text = "XX";
             // 
             // label420
             // 
             this.label420.AutoSize = true;
-            this.label420.Location = new System.Drawing.Point(126, 119);
-            this.label420.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label420.Location = new System.Drawing.Point(497, 399);
+            this.label420.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label420.Name = "label420";
-            this.label420.Size = new System.Drawing.Size(31, 13);
+            this.label420.Size = new System.Drawing.Size(44, 20);
             this.label420.TabIndex = 26;
             this.label420.Text = "Wins";
             // 
             // wins
             // 
             this.wins.AutoSize = true;
-            this.wins.Location = new System.Drawing.Point(136, 119);
-            this.wins.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.wins.Location = new System.Drawing.Point(556, 399);
+            this.wins.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.wins.Name = "wins";
-            this.wins.Size = new System.Drawing.Size(21, 13);
+            this.wins.Size = new System.Drawing.Size(31, 20);
             this.wins.TabIndex = 27;
             this.wins.Text = "XX";
             // 
             // losses
             // 
             this.losses.AutoSize = true;
-            this.losses.Location = new System.Drawing.Point(145, 119);
-            this.losses.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.losses.Location = new System.Drawing.Point(635, 399);
+            this.losses.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.losses.Name = "losses";
-            this.losses.Size = new System.Drawing.Size(21, 13);
+            this.losses.Size = new System.Drawing.Size(31, 20);
             this.losses.TabIndex = 29;
             this.losses.Text = "XX";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(143, 119);
-            this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label3.Location = new System.Drawing.Point(601, 399);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(9, 13);
+            this.label3.Size = new System.Drawing.Size(14, 20);
             this.label3.TabIndex = 28;
             this.label3.Text = "|";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(152, 119);
-            this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label4.Location = new System.Drawing.Point(705, 399);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.Size = new System.Drawing.Size(60, 20);
             this.label4.TabIndex = 30;
             this.label4.Text = "Losses";
             // 
             // lblDealersChoice
             // 
             this.lblDealersChoice.AutoSize = true;
-            this.lblDealersChoice.Location = new System.Drawing.Point(12, 173);
+            this.lblDealersChoice.Location = new System.Drawing.Point(233, 544);
+            this.lblDealersChoice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDealersChoice.Name = "lblDealersChoice";
-            this.lblDealersChoice.Size = new System.Drawing.Size(21, 13);
+            this.lblDealersChoice.Size = new System.Drawing.Size(31, 20);
             this.lblDealersChoice.TabIndex = 31;
             this.lblDealersChoice.Text = "XX";
             this.lblDealersChoice.Visible = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 375);
+            this.ClientSize = new System.Drawing.Size(1078, 644);
             this.Controls.Add(this.lblDealersChoice);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.losses);
@@ -439,7 +440,7 @@ namespace DavesBlackjack
             this.Controls.Add(this.p3);
             this.Controls.Add(this.p2);
             this.Controls.Add(this.p1);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

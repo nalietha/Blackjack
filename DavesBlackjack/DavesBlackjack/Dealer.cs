@@ -14,18 +14,18 @@ namespace DavesBlackjack
             _handValue = CalcuateCurrentHand();
         }
 
-        public string Choice()
+        public bool Choice()
         {
             _handValue = CalcuateCurrentHand();
             // check hand
             if (_handValue < 17)
             {
                 Hit();
-                return "Dealer Hits";
+                return true;
             }
             else
             { 
-                return "Dealer Stays";
+                return false;
             }
         }
 
