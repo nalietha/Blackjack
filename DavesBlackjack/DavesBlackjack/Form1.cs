@@ -26,7 +26,7 @@ namespace DavesBlackjack
         /// <param name="url"></param>
         public void ChangeCard(PictureBox p, String cardString)
         {
-            p.Load(".\\PNG\\"+ cardString + ".png");
+            p.Load("..\\..\\PNG\\"+ cardString + ".png");
             p.BringToFront();
             p.Visible = true;
         }
