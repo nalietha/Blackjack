@@ -20,7 +20,7 @@ namespace DavesBlackjack
         Deck deck = new Deck();
         int playerWins = 0;
         int dealerWins = 0;
-
+        string cardLocation = "PNG\\";
         List<PictureBox> playerHand = new List<PictureBox>();
         List<PictureBox> dealerHand = new List<PictureBox>();
 
@@ -79,7 +79,7 @@ namespace DavesBlackjack
         /// <param name="url">Link of the PNG. This is just the file name with no extention</param>
         public void ChangeCard(PictureBox p, String cardString)
         {
-            p.Load("PNG\\"+ cardString + ".png");
+            p.Load(cardLocation + cardString + ".png");
             p.BringToFront();
             p.Visible = true;
         }
@@ -108,7 +108,7 @@ namespace DavesBlackjack
         /// <param name="cardString">file location of PNG of back of card image</param>
         private void HideCard(List<PictureBox> p, string cardString)
         {
-            p[0].Load("..\\..\\PNG\\" + cardString + ".png");
+            p[0].Load(cardLocation + cardString + ".png");
             p[0].Visible = true;
         }
 
@@ -119,7 +119,7 @@ namespace DavesBlackjack
         /// <param name="cardString">file location of PNG of the hidden card</param>
         private void UnhideCard(List<PictureBox> p, string cardString)
         {
-            p[0].Load("..\\..\\PNG\\" + cardString + ".png");
+            p[0].Load(cardLocation + cardString + ".png");
             p[0].Visible = true;
         }
 
