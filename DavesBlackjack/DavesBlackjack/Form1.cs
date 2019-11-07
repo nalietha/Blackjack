@@ -79,7 +79,7 @@ namespace DavesBlackjack
         /// <param name="url">Link of the PNG. This is just the file name with no extention</param>
         public void ChangeCard(PictureBox p, String cardString)
         {
-            p.Load("..\\..\\PNG\\"+ cardString + ".png");
+            p.Load("PNG\\"+ cardString + ".png");
             p.BringToFront();
             p.Visible = true;
         }
