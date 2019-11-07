@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace DavesBlackjack
 {
-    partial class Form1
+    partial class GameBoard
     {
         /// <summary>
         /// Required designer variable.
@@ -405,7 +405,7 @@ namespace DavesBlackjack
             this.lblDealersChoice.Text = "XX";
             this.lblDealersChoice.Visible = false;
             // 
-            // Form1
+            // GameBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -441,8 +441,10 @@ namespace DavesBlackjack
             this.Controls.Add(this.p2);
             this.Controls.Add(this.p1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "GameBoard";
+            this.Text = "BlackJack";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.p1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2)).EndInit();

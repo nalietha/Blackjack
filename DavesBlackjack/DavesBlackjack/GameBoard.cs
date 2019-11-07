@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace DavesBlackjack
 {
-    public partial class Form1 : Form
+    public partial class GameBoard : Form
     { 
         // Create dealer and player objects
         Dealer houseDealer = new Dealer();
@@ -25,7 +25,7 @@ namespace DavesBlackjack
         List<PictureBox> dealerHand = new List<PictureBox>();
 
 
-        public Form1()
+        public GameBoard()
         {
             InitializeComponent();
 
