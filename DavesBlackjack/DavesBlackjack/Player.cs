@@ -11,11 +11,12 @@ namespace DavesBlackjack
         public List<Card> CardList = new List<Card>();
 
         private decimal PlayerMoney = 1000.00m;
-        public int _handValue = 0;
+        private int _handValue = 0;
+        public int handValue { get { return _handValue; } }
 
         public Player()
         {
-            _handValue = CalcuateCurrentHand();
+            CalcuateCurrentHand();
         }
 
         /// <summary>
@@ -23,7 +24,7 @@ namespace DavesBlackjack
         /// Called at the start of each round
         /// </summary>
         /// <returns>sum of the cards in hand</returns>
-        public int CalcuateCurrentHand()
+        public void CalcuateCurrentHand()
         {
             int sum = 0;
             int softAces = 0;
@@ -45,12 +46,13 @@ namespace DavesBlackjack
                     sum -= 10;
                 }
             }
-            return sum;
+            _handValue = sum;
         }
 
-        public bool Busted(int handSum)
+        public bool CheckBusted()
         {
-            if (handSum > 21)
+            CalcuateCurrentHand();
+            if (_handValue > 21)
                 return true;
             else
                 return false;
@@ -63,9 +65,8 @@ namespace DavesBlackjack
         {
             // Deck call for next card
             CardList.Add(Deck.GetNextCard());
-            _handValue = CalcuateCurrentHand();
-            return Busted(CalcuateCurrentHand());
-            
+            CalcuateCurrentHand();
+            return CheckBusted();
         }
         /// <summary>
         /// Stay function, used by player and dealer

@@ -20,18 +20,14 @@ namespace DavesBlackjack
         Deck deck = new Deck();
         int playerWins = 0;
         int dealerWins = 0;
-        string cardLocation = "PNG\\";
+        string cardLocation = "Resources\\Cards\\";
         List<PictureBox> playerHand = new List<PictureBox>();
         List<PictureBox> dealerHand = new List<PictureBox>();
-
 
         public GameBoard()
         {
             InitializeComponent();
-
         }
-
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -53,7 +49,6 @@ namespace DavesBlackjack
             dealerHand.Add(d7);
             dealerHand.Add(d8);
 
-
             //dealers cards
             houseDealer.Hit();
             HideCard(dealerHand, "green_back");
@@ -65,12 +60,8 @@ namespace DavesBlackjack
             dealCard(playerHand, player_01.CardList[0].ImageFilePath);
             player_01.Hit();
             dealCard(playerHand, player_01.CardList[1].ImageFilePath);
-            playerScore.Text = player_01.CalcuateCurrentHand().ToString();
-
-
-
+            playerScore.Text = player_01.handValue.ToString();
         }
-
 
         /// <summary>
         /// Function to change the image in the given PictureBox. 
@@ -90,16 +81,12 @@ namespace DavesBlackjack
         /// <param name="pictures">List of Picture Boxes to clear</param>
         public void clearCards(List<PictureBox> pictures)
         {
-            int i = 0;
             foreach(PictureBox p in pictures)
             {
-                
                 p.InitialImage = null;
                 p.Visible = false;
-                  
             }
         }
-
 
         /// <summary>
         /// Hides the dealers first card
@@ -123,7 +110,6 @@ namespace DavesBlackjack
             p[0].Visible = true;
         }
 
-
         /// <summary>
         /// Sets the visuals for drawing a card
         /// </summary>
@@ -138,17 +124,12 @@ namespace DavesBlackjack
                     ChangeCard(p[i], cardString);
                     break;
                 }
-               
             }
         }
 
         private void hitButton_Click(object sender, EventArgs e)
         {
             PlayersTurn();
-            
-
-            //DealersTurn();
-
         }
 
         private void stayButton_Click(object sender, EventArgs e)
@@ -156,51 +137,36 @@ namespace DavesBlackjack
             hitButton.Enabled = false;
             stayButton.Enabled = false;
             DealersTurn();
-
         }
+        
         /// <summary>
-        /// Dealers Turn
+        /// Call this function when a player busts, or when the dealer is done taking cards. Shows the win/lose/tie message.
         /// </summary>
-        /// <returns>Returns message string, if message is not null, dealer loses</returns>
-        public string DealersTurn()
+        /// <returns></returns>
+        public void CheckForWin()
         {
-            // returns string, hit or stay
-            // Display dealers choice
-            //lblDealersChoice.Visible = true;
-
-            UnhideCard(dealerHand, houseDealer.CardList[0].ImageFilePath);
-            while (houseDealer.Choice())
-            {
-                dealCard(dealerHand, houseDealer.CardList[houseDealer.CardList.Count() - 1].ImageFilePath);
-
-            }
-
-            dealerScore.Text = houseDealer._handValue.ToString();
             string msg = "";
-            
-
-
             // Sees who won the game
-            if (houseDealer.Busted(houseDealer.CalcuateCurrentHand()) && !player_01.Busted(player_01.CalcuateCurrentHand()))
+            if (houseDealer.CheckBusted() && !player_01.CheckBusted())
             {
-                msg = "Dealer Busts!\nYOU WIN!\n\nPlay Again?";
+                msg = "Dealer Busts!\nYOU WIN!\nPlay Again?";
                 playerWins++;
             }
-            else if(!houseDealer.Busted(houseDealer.CalcuateCurrentHand()) && player_01.Busted(player_01.CalcuateCurrentHand()))
+            else if (!houseDealer.CheckBusted() && player_01.CheckBusted())
             {
                 msg = "Player Busts!\nYOU LOSE!\nPlay Again?";
                 dealerWins++;
             }
-            else if(houseDealer.Busted(houseDealer.CalcuateCurrentHand()) && player_01.Busted(player_01.CalcuateCurrentHand()))
+            else if (houseDealer.CheckBusted() && player_01.CheckBusted())
             {
                 msg = "Both Bust\nITS A TIE!\nPlay Again?";
             }
-            else if(houseDealer.CalcuateCurrentHand() > player_01.CalcuateCurrentHand())
+            else if (houseDealer.handValue > player_01.handValue)
             {
                 msg = "Dealer has a higher hand!\nYOU LOSE!\nPlay Again?";
                 dealerWins++;
             }
-            else if(houseDealer.CalcuateCurrentHand() < player_01.CalcuateCurrentHand())
+            else if (houseDealer.handValue < player_01.handValue)
             {
                 msg = "Player has a higher hand!\nYOU WIN!\nPlay Again?";
                 playerWins++;
@@ -217,33 +183,48 @@ namespace DavesBlackjack
                 RestartGame();
             else
                 this.Close();
-            return msg;
         }
+
+        /// <summary>
+        /// Dealers Turn
+        /// </summary>
+        /// <returns>Returns message string, if message is not null, dealer loses</returns>
+        public void DealersTurn()
+        {
+            // returns string, hit or stay
+            // Display dealers choice
+            //lblDealersChoice.Visible = true;
+
+            UnhideCard(dealerHand, houseDealer.CardList[0].ImageFilePath);
+            while (houseDealer.Choice())
+            {
+                dealCard(dealerHand, houseDealer.CardList[houseDealer.CardList.Count() - 1].ImageFilePath);
+            }
+            dealerScore.Text = houseDealer.handValue.ToString();
+            CheckForWin();
+        }
+
         /// <summary>
         /// The players turn, also checks if the player busts. 
         /// </summary>
         /// <returns></returns>
-        public string PlayersTurn()
+        public void PlayersTurn()
         {
-
             player_01.Hit();
             dealCard(playerHand, player_01.CardList[player_01.CardList.Count() - 1].ImageFilePath);
-            playerScore.Text = player_01._handValue.ToString();
-            string msg = "";
+            playerScore.Text = player_01.handValue.ToString();
             //Player
-            if (player_01.Busted(player_01.CalcuateCurrentHand()))
+            if (player_01.CheckBusted())
             {
-                //lblDealersChoice.Text = "You busted!\nYOU LOSE!";
-                //lblDealersChoice.Visible = true;
                 hitButton.Enabled = false;
                 stayButton.Enabled = false;
-
-                DealersTurn();
+                CheckForWin();
             }
-           
-            return msg;
         }
 
+        /// <summary>
+        /// Clears everyone's hand, clear the board, payout all bets, and shuffle the deck
+        /// </summary>
         public void RestartGame()
         {
             //clearing the actual hand
@@ -277,14 +258,8 @@ namespace DavesBlackjack
             dealCard(playerHand, player_01.CardList[0].ImageFilePath);
             player_01.Hit();
             dealCard(playerHand, player_01.CardList[1].ImageFilePath);
-            playerScore.Text = player_01.CalcuateCurrentHand().ToString();
-
+            playerScore.Text = player_01.handValue.ToString();
         }
-
-
     }
-
-   
-
 }
 

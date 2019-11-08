@@ -11,14 +11,14 @@ namespace DavesBlackjack
 
         public Dealer()
         {
-            _handValue = CalcuateCurrentHand();
+            CalcuateCurrentHand();
         }
 
         public bool Choice()
         {
-            _handValue = CalcuateCurrentHand();
-            // check hand
-            if (_handValue < 17)
+            CalcuateCurrentHand();
+            // check hand value
+            if (handValue < 17)
             {
                 Hit();
                 return true;
@@ -32,8 +32,8 @@ namespace DavesBlackjack
         public override bool Hit()
         {
             CardList.Add(Deck.GetNextCard());
-            _handValue = CalcuateCurrentHand();
-            return Busted(CalcuateCurrentHand());
+            CalcuateCurrentHand();
+            return CheckBusted();
         }
 
     }
