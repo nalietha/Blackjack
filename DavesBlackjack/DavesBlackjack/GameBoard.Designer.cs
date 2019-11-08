@@ -410,6 +410,7 @@ namespace DavesBlackjack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Green;
             this.ClientSize = new System.Drawing.Size(811, 458);
             this.Controls.Add(this.lblDealersChoice);
             this.Controls.Add(this.label4);

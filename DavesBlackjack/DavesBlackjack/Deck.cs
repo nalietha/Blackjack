@@ -22,21 +22,6 @@ namespace DavesBlackjack
 
         public Deck()
         {
-            this.InitializeDeck();
-        }
-        
-        /// <summary>
-        /// Initializes the deck by adding one of each card to the deck, and then shuffling the deck
-        /// </summary>
-        private void InitializeDeck()
-        {
-            //this._cards.Clear();
-            for (int x = 0; x < CARDS_PER_DECK; x++ )
-            {
-                _cards.Add(new Card(x));
-            }
-
-            //Shuffling the deck goes here
             Shuffle();
         }
 
@@ -45,11 +30,20 @@ namespace DavesBlackjack
         /// </summary>
         public static void Shuffle()
         {
+            //Clear all the cards
+            _cards.Clear();
+
+            //Add in one of every card
+            for (int x = 0; x < CARDS_PER_DECK; x++)
+            {
+                _cards.Add(new Card(x));
+            }
+
             //Temporary new deck to store the shuffled deck
             List<Card> ShuffledDeck = new List<Card>();
-            //random number generator
-            Random rand = new Random();
 
+            //Random number generator
+            Random rand = new Random();
 
             //Shuffling the Deck into ShuffledDeck
             while(_cards.Count != 0)
