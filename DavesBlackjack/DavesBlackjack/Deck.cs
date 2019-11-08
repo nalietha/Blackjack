@@ -11,17 +11,19 @@ namespace DavesBlackjack
     /// </summary>
     class Deck
     {
-        
+        /// <summary>
+        /// A list of card objects that represents the cards in the deck
+        /// </summary>
         private static List<Card> _cards = new List<Card>();
+        /// <summary>
+        /// The maximum number of cards per deck
+        /// </summary>
         private const int CARDS_PER_DECK = 52;
-        private static int _currentIndex;
-
 
         public Deck()
         {
             this.InitializeDeck();
         }
-       
         
         /// <summary>
         /// Initializes the deck by adding one of each card to the deck, and then shuffling the deck
@@ -31,14 +33,12 @@ namespace DavesBlackjack
             //this._cards.Clear();
             for (int x = 0; x < CARDS_PER_DECK; x++ )
             {
-                
                 _cards.Add(new Card(x));
             }
 
             //Shuffling the deck goes here
             Shuffle();
         }
-
 
         /// <summary>
         /// Sets the DeckInUse array as a shuffled version of the cards array
@@ -61,7 +61,6 @@ namespace DavesBlackjack
 
             //Setting the new Deck
             _cards = ShuffledDeck;
-            _currentIndex = 0;
         }
 
         /// <summary>
@@ -71,22 +70,13 @@ namespace DavesBlackjack
         public static Card GetNextCard()
         {
             //No next card
-            if (_currentIndex >= CARDS_PER_DECK)
+            if (_cards.Count == 0)
                 return null;
 
             //Get next card
-            Card card = _cards[_currentIndex];
-            _currentIndex++;
+            Card card = _cards.First();
+            _cards.Remove(_cards.First());
             return card;
-        }
-
-        /// <summary>
-        /// Returns the number of Cards left in the Deck.
-        /// </summary>
-        /// <returns>An int of the number of Cards left</returns>
-        public static int GetNumOfCardsLeft()
-        {
-            return CARDS_PER_DECK - _currentIndex;
         }
     }
 }

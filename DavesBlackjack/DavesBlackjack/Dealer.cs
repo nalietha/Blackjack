@@ -8,12 +8,15 @@ namespace DavesBlackjack
 {
     class Dealer : Player
     {
-
         public Dealer()
         {
             CalcuateCurrentHand();
         }
 
+        /// <summary>
+        /// Dealer chooses to take a card based on hand value
+        /// </summary>
+        /// <returns>True if card taken, otherwise falss</returns>
         public bool Choice()
         {
             CalcuateCurrentHand();
@@ -28,13 +31,5 @@ namespace DavesBlackjack
                 return false;
             }
         }
-
-        public override bool Hit()
-        {
-            CardList.Add(Deck.GetNextCard());
-            CalcuateCurrentHand();
-            return CheckBusted();
-        }
-
     }
 }

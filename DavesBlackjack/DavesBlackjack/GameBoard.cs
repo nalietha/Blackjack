@@ -53,13 +53,13 @@ namespace DavesBlackjack
             houseDealer.Hit();
             HideCard(dealerHand, "green_back");
             houseDealer.Hit();
-            dealCard(dealerHand, houseDealer.CardList[1].ImageFilePath);
+            DealCard(dealerHand, houseDealer.CardList[1].imageName);
 
             //players cards
             player_01.Hit();
-            dealCard(playerHand, player_01.CardList[0].ImageFilePath);
+            DealCard(playerHand, player_01.CardList[0].imageName);
             player_01.Hit();
-            dealCard(playerHand, player_01.CardList[1].ImageFilePath);
+            DealCard(playerHand, player_01.CardList[1].imageName);
             playerScore.Text = player_01.handValue.ToString();
         }
 
@@ -79,7 +79,7 @@ namespace DavesBlackjack
         /// Resets the images in the given deck of cards
         /// </summary>
         /// <param name="pictures">List of Picture Boxes to clear</param>
-        public void clearCards(List<PictureBox> pictures)
+        public void ClearCards(List<PictureBox> pictures)
         {
             foreach(PictureBox p in pictures)
             {
@@ -115,7 +115,7 @@ namespace DavesBlackjack
         /// </summary>
         /// <param name="p"></param>
         /// <param name="cardString"></param>
-        public void dealCard(List<PictureBox> p, string cardString)
+        public void DealCard(List<PictureBox> p, string cardString)
         {
             for(int i = 0; i < p.Count; i++)
             {
@@ -195,10 +195,10 @@ namespace DavesBlackjack
             // Display dealers choice
             //lblDealersChoice.Visible = true;
 
-            UnhideCard(dealerHand, houseDealer.CardList[0].ImageFilePath);
+            UnhideCard(dealerHand, houseDealer.CardList[0].imageName);
             while (houseDealer.Choice())
             {
-                dealCard(dealerHand, houseDealer.CardList[houseDealer.CardList.Count() - 1].ImageFilePath);
+                DealCard(dealerHand, houseDealer.CardList[houseDealer.CardList.Count() - 1].imageName);
             }
             dealerScore.Text = houseDealer.handValue.ToString();
             CheckForWin();
@@ -211,7 +211,7 @@ namespace DavesBlackjack
         public void PlayersTurn()
         {
             player_01.Hit();
-            dealCard(playerHand, player_01.CardList[player_01.CardList.Count() - 1].ImageFilePath);
+            DealCard(playerHand, player_01.CardList[player_01.CardList.Count() - 1].imageName);
             playerScore.Text = player_01.handValue.ToString();
             //Player
             if (player_01.CheckBusted())
@@ -232,8 +232,8 @@ namespace DavesBlackjack
             houseDealer.ClearHand();
 
             //clearing the images
-            clearCards(playerHand);
-            clearCards(dealerHand);
+            ClearCards(playerHand);
+            ClearCards(dealerHand);
 
             //labels
             playerScore.Text = "XX";
@@ -251,13 +251,13 @@ namespace DavesBlackjack
             houseDealer.Hit();
             HideCard(dealerHand, "green_back");
             houseDealer.Hit();
-            dealCard(dealerHand, houseDealer.CardList[1].ImageFilePath);
+            DealCard(dealerHand, houseDealer.CardList[1].imageName);
 
             //players cards
             player_01.Hit();
-            dealCard(playerHand, player_01.CardList[0].ImageFilePath);
+            DealCard(playerHand, player_01.CardList[0].imageName);
             player_01.Hit();
-            dealCard(playerHand, player_01.CardList[1].ImageFilePath);
+            DealCard(playerHand, player_01.CardList[1].imageName);
             playerScore.Text = player_01.handValue.ToString();
         }
     }

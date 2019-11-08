@@ -11,71 +11,73 @@ namespace DavesBlackjack
     /// </summary>
     public class Card
     {
-        public readonly int id; //Used mainly for card creation
-        private int _value; //The value the card has during gameplay
-        private string _suit; //The suit of the card
-        private string _imageFilePath; // The filepath for the card's image
-
-        public string ImageFilePath { get { return _imageFilePath; } }
-        public int Value { get { return _value; } }
-
+        /// <summary>
+        /// Used for card creation
+        /// </summary>
+        public int id;
+        /// <summary>
+        /// The value of the card when held by a player
+        /// </summary>
+        public int value { get; private set; }
+        /// <summary>
+        /// The suit of the card
+        /// </summary>
+        public string suit { get; private set; }
+        /// <summary>
+        /// Filename for the image that represents the card
+        /// </summary>
+        public string imageName { get; private set; }
         public Card(int id)
         {
             this.id = id;
-            this.ParseCardId();
-
+            ParseCardId();
         }
 
         /// <summary>
-        /// Takes the id of the card that called this function, and assigns card values based on the id
+        /// Takes the id of the card that called this function, and assigns card information based on the id
         /// </summary>
         private void ParseCardId()
         {
-        
-
-            int parsevalue = ( this.id) % 13 + 1;
+            int parsevalue = id % 13 + 1;
             if (parsevalue > 0 && parsevalue <= 10)
             {
-               
-                this._value = parsevalue;
+                value = parsevalue;
                 if (parsevalue == 1)
-                    _imageFilePath = "A";
+                    imageName = "A";
                 else
-                    _imageFilePath = parsevalue.ToString();
+                    imageName = parsevalue.ToString();
             }
             else
             {
-             
-                this._value = 10;
+                value = 10;
                 if(parsevalue == 11)
-                    _imageFilePath = "J";
+                    imageName = "J";
                 if (parsevalue == 12)
-                    _imageFilePath = "Q";
+                    imageName = "Q";
                 if (parsevalue == 13)
-                    _imageFilePath = "K";
-
+                    imageName = "K";
             }
 
             int suit = id / 13;
             if (suit == 0)
             {
-                this._suit = "Clubs";
-                _imageFilePath += "C";
+                this.suit = "Clubs";
+                imageName += "C";
             }
             else if (suit == 1)
             {
-                this._suit = "Spades";
-                _imageFilePath += "S";
+                this.suit = "Spades";
+                imageName += "S";
             }
             else if (suit == 2)
             {
-                this._suit = "Hearts";
-                _imageFilePath += "H";
+                this.suit = "Hearts";
+                imageName += "H";
             }
             else
             {
-                this._suit = "Diamonds";
-                _imageFilePath += "D";
+                this.suit = "Diamonds";
+                imageName += "D";
             }
         }
     }

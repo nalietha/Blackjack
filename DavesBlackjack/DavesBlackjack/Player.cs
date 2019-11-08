@@ -8,12 +8,18 @@ namespace DavesBlackjack
 {
     class Player 
     {
+        /// <summary>
+        /// A list of card objects that represents the cards in the players hand
+        /// </summary>
         public List<Card> CardList = new List<Card>();
-
-        private decimal PlayerMoney = 1000.00m;
-        private int _handValue = 0;
-        public int handValue { get { return _handValue; } }
-
+        /// <summary>
+        /// The amount of money the player has
+        /// </summary>
+        private decimal playerMoney = 1000.00m;
+        /// <summary>
+        /// The sum value of all the cards in the players hand
+        /// </summary>
+        public int handValue { get; private set; } = 0;
         public Player()
         {
             CalcuateCurrentHand();
@@ -31,14 +37,14 @@ namespace DavesBlackjack
 
             foreach (var Card in CardList)
             {
-                if (Card.Value == 1)
+                if (Card.value == 1)
                 {
                     sum += 11;
                     softAces++;
                 }
                 else
                 {
-                    sum += Card.Value;
+                    sum += Card.value;
                 }
                 while (sum > 21 && softAces > 0)
                 {
@@ -46,13 +52,17 @@ namespace DavesBlackjack
                     sum -= 10;
                 }
             }
-            _handValue = sum;
+            handValue = sum;
         }
 
+        /// <summary>
+        /// Checks if the player that called the function has a hand value over 21
+        /// </summary>
+        /// <returns></returns>
         public bool CheckBusted()
         {
             CalcuateCurrentHand();
-            if (_handValue > 21)
+            if (handValue > 21)
                 return true;
             else
                 return false;
@@ -61,13 +71,14 @@ namespace DavesBlackjack
         /// <summary>
         /// Hit Function for the players, also used by dealer
         /// </summary>
-        public virtual bool Hit()
+        public bool Hit()
         {
             // Deck call for next card
             CardList.Add(Deck.GetNextCard());
             CalcuateCurrentHand();
             return CheckBusted();
         }
+
         /// <summary>
         /// Stay function, used by player and dealer
         /// </summary>
@@ -75,8 +86,8 @@ namespace DavesBlackjack
         {
             // Go to next player choice
             // not needed
-         
         }
+
         /// <summary>
         /// Bet function for the player to increase his bet.
         /// </summary>
@@ -84,7 +95,7 @@ namespace DavesBlackjack
         public void Bet(decimal amount)
         {
             
-            if(PlayerMoney-amount < 0)
+            if(playerMoney-amount < 0)
             {
                 // Insignifant Money
                 // Display and cancel bet
@@ -92,9 +103,7 @@ namespace DavesBlackjack
             else
             {
                 // Place Bet
-
             }
-
         }
 
         /// <summary>
@@ -103,11 +112,7 @@ namespace DavesBlackjack
         public void ClearHand()
         {
             CardList.Clear();
-            _handValue = 0;
-
-            
-
+            handValue = 0;
         }
-
     }
 }
