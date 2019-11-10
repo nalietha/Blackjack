@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DavesBlackjack
 {
@@ -16,10 +17,18 @@ namespace DavesBlackjack
         /// The amount of money the player has
         /// </summary>
         private decimal playerMoney = 1000.00m;
+  
+        /// <summary>
+        /// Minimum amount you could bet
+        /// </summary>
+        public static decimal MinBet = 10.00m;
         /// <summary>
         /// The sum value of all the cards in the players hand
         /// </summary>
         public int handValue { get; private set; } = 0;
+
+        public decimal PlayerMoney { get { return playerMoney; } set { playerMoney = value; } }
+
         public Player()
         {
             CalcuateCurrentHand();
@@ -92,17 +101,20 @@ namespace DavesBlackjack
         /// Bet function for the player to increase his bet.
         /// </summary>
         /// <param name="amount">amount the player is betting.</param>
-        public void Bet(decimal amount)
+        public bool Bet(decimal amount)
         {
             
             if(playerMoney-amount < 0)
             {
                 // Insignifant Money
                 // Display and cancel bet
+                return false;
             }
             else
             {
                 // Place Bet
+                playerMoney -= amount;
+                return true;
             }
         }
 
