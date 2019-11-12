@@ -58,6 +58,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs" />
     <EmbeddedResource Include="GameBoard.resx">
       <DependentUpon>GameBoard.cs</DependentUpon>
     </EmbeddedResource>
