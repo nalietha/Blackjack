@@ -43,17 +43,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(178, 55);
+            this.label1.Location = new System.Drawing.Point(158, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(436, 46);
+            this.label1.Size = new System.Drawing.Size(370, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome to Blackjack";
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(371, 262);
+            this.loginButton.Location = new System.Drawing.Point(330, 210);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(180, 41);
+            this.loginButton.Size = new System.Drawing.Size(160, 33);
             this.loginButton.TabIndex = 1;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
@@ -61,9 +62,10 @@
             // 
             // forgotPasswordButton
             // 
-            this.forgotPasswordButton.Location = new System.Drawing.Point(371, 315);
+            this.forgotPasswordButton.Location = new System.Drawing.Point(330, 252);
+            this.forgotPasswordButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.forgotPasswordButton.Name = "forgotPasswordButton";
-            this.forgotPasswordButton.Size = new System.Drawing.Size(180, 41);
+            this.forgotPasswordButton.Size = new System.Drawing.Size(160, 33);
             this.forgotPasswordButton.TabIndex = 2;
             this.forgotPasswordButton.Text = "Forgot Password";
             this.forgotPasswordButton.UseVisualStyleBackColor = true;
@@ -71,25 +73,29 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(348, 141);
+            this.textBox1.Location = new System.Drawing.Point(309, 113);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(226, 26);
+            this.textBox1.Size = new System.Drawing.Size(201, 22);
             this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(348, 183);
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(309, 146);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(226, 26);
+            this.textBox2.PasswordChar = '*';
+            this.textBox2.Size = new System.Drawing.Size(201, 22);
             this.textBox2.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(221, 140);
+            this.label2.Location = new System.Drawing.Point(196, 112);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 25);
+            this.label2.Size = new System.Drawing.Size(86, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Username";
             // 
@@ -97,17 +103,18 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(221, 182);
+            this.label3.Location = new System.Drawing.Point(196, 146);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 25);
+            this.label3.Size = new System.Drawing.Size(83, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "Password";
             // 
             // createAccountButton
             // 
-            this.createAccountButton.Location = new System.Drawing.Point(371, 368);
+            this.createAccountButton.Location = new System.Drawing.Point(330, 294);
+            this.createAccountButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.createAccountButton.Name = "createAccountButton";
-            this.createAccountButton.Size = new System.Drawing.Size(180, 41);
+            this.createAccountButton.Size = new System.Drawing.Size(160, 33);
             this.createAccountButton.TabIndex = 7;
             this.createAccountButton.Text = "Create Account";
             this.createAccountButton.UseVisualStyleBackColor = true;
@@ -117,18 +124,18 @@
             // 
             this.errorLabel.AutoSize = true;
             this.errorLabel.ForeColor = System.Drawing.Color.Black;
-            this.errorLabel.Location = new System.Drawing.Point(348, 223);
+            this.errorLabel.Location = new System.Drawing.Point(309, 178);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(154, 20);
+            this.errorLabel.Size = new System.Drawing.Size(142, 17);
             this.errorLabel.TabIndex = 8;
             this.errorLabel.Text = "This is the error label";
             // 
             // TitleForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 360);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.createAccountButton);
             this.Controls.Add(this.label3);
@@ -138,6 +145,7 @@
             this.Controls.Add(this.forgotPasswordButton);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TitleForm";
             this.Text = "TitleForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TitleForm_FormClosing);

@@ -28,7 +28,7 @@ namespace DavesBlackjack
 
             this.Close();
         }
-
+        
         private void forgotPasswordButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Haha you forgot", "lol", MessageBoxButtons.OK);

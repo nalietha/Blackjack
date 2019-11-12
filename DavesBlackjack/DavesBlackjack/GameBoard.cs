@@ -54,6 +54,8 @@ namespace DavesBlackjack
             //set all values
             playerBalance.Text = player_01.PlayerMoney.ToString();
 
+            betUpDown.Maximum = player_01.PlayerMoney;
+
             TitleForm titleForm = new TitleForm(this);
             titleForm.ShowDialog();
             
@@ -181,6 +183,7 @@ namespace DavesBlackjack
             {
                 betUpDown.Enabled = true;
                 betButton.Enabled = true;
+                betUpDown.Maximum = player_01.PlayerMoney;
             }
             else
                 this.Close();
@@ -196,7 +199,7 @@ namespace DavesBlackjack
             // Display dealers choice
             //lblDealersChoice.Visible = true;
           
-            UnhideCard(dealerHand, houseDealer.CardList[0].imageName);
+            UnhideCard(dealerHand, houseDealer.CardList[1].imageName);
             while (houseDealer.Choice())
             {
                 DealCard(dealerHand, houseDealer.CardList[houseDealer.CardList.Count() - 1].imageName);
@@ -266,6 +269,8 @@ namespace DavesBlackjack
             player_01.Hit();
             DealCard(playerHand, player_01.CardList[1].imageName);
             playerScore.Text = player_01.handValue.ToString();
+
+
 
             //insurance
             if(houseDealer.CardList[0].value == 1)
