@@ -195,8 +195,8 @@ namespace DavesBlackjack
             // returns string, hit or stay
             // Display dealers choice
             //lblDealersChoice.Visible = true;
-            if (dealerHand[1].Visible == false)
-                UnhideCard(dealerHand, houseDealer.CardList[0].imageName);
+          
+            UnhideCard(dealerHand, houseDealer.CardList[0].imageName);
             while (houseDealer.Choice())
             {
                 DealCard(dealerHand, houseDealer.CardList[houseDealer.CardList.Count() - 1].imageName);
