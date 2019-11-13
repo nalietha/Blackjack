@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TitleForm));
             this.label1 = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
             this.forgotPasswordButton = new System.Windows.Forms.Button();
@@ -145,6 +146,7 @@
             this.Controls.Add(this.forgotPasswordButton);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TitleForm";
             this.Text = "TitleForm";
