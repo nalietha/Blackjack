@@ -21,6 +21,7 @@ namespace DavesBlackjack
         int playerWins = 0;
         int dealerWins = 0;
         string cardLocation = "Resources\\Cards\\";
+        string cardBack = "blue_back";
         List<PictureBox> playerHand = new List<PictureBox>();
         List<PictureBox> dealerHand = new List<PictureBox>();
 
@@ -261,7 +262,7 @@ namespace DavesBlackjack
             //houseDealer.CardList.Add(new Card(13));
             //houseDealer.CardList.Add(new Card(8));
             DealCard(dealerHand, houseDealer.CardList[0].imageName);
-            HideCard(dealerHand, "green_back");
+            HideCard(dealerHand, cardBack);
 
             //players cards
             player_01.Hit();
