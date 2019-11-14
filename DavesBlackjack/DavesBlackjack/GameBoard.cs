@@ -21,6 +21,7 @@ namespace DavesBlackjack
         int playerWins = 0;
         int dealerWins = 0;
         string cardLocation = "Resources\\Cards\\";
+        string cardBack = "blue_back";
         List<PictureBox> playerHand = new List<PictureBox>();
         List<PictureBox> dealerHand = new List<PictureBox>();
 
@@ -53,6 +54,10 @@ namespace DavesBlackjack
 
             //set all values
             playerBalance.Text = player_01.PlayerMoney.ToString();
+            playerBalance.BackColor = Color.Transparent;
+            
+
+            betUpDown.Maximum = player_01.PlayerMoney;
 
             TitleForm titleForm = new TitleForm(this);
             titleForm.ShowDialog();
@@ -132,6 +137,7 @@ namespace DavesBlackjack
 
         private void stayButton_Click(object sender, EventArgs e)
         {
+            
             hitButton.Enabled = false;
             stayButton.Enabled = false;
             DealersTurn();
@@ -174,6 +180,7 @@ namespace DavesBlackjack
                 msg = "Both have the same value!\nITS A TIE!\nPlay Again?";
             }
             playerBalance.Text = player_01.PlayerMoney.ToString();
+            playerBalance.BackColor = Color.Transparent;
             wins.Text = playerWins.ToString();
             losses.Text = dealerWins.ToString();
             DialogResult result = MessageBox.Show(msg, "Game Over", MessageBoxButtons.YesNo);
@@ -181,6 +188,7 @@ namespace DavesBlackjack
             {
                 betUpDown.Enabled = true;
                 betButton.Enabled = true;
+                betUpDown.Maximum = player_01.PlayerMoney;
             }
             else
                 this.Close();
@@ -196,7 +204,7 @@ namespace DavesBlackjack
             // Display dealers choice
             //lblDealersChoice.Visible = true;
           
-            UnhideCard(dealerHand, houseDealer.CardList[0].imageName);
+            UnhideCard(dealerHand, houseDealer.CardList[1].imageName);
             while (houseDealer.Choice())
             {
                 DealCard(dealerHand, houseDealer.CardList[houseDealer.CardList.Count() - 1].imageName);
@@ -258,7 +266,7 @@ namespace DavesBlackjack
             //houseDealer.CardList.Add(new Card(13));
             //houseDealer.CardList.Add(new Card(8));
             DealCard(dealerHand, houseDealer.CardList[0].imageName);
-            HideCard(dealerHand, "green_back");
+            HideCard(dealerHand, cardBack);
 
             //players cards
             player_01.Hit();
@@ -266,6 +274,8 @@ namespace DavesBlackjack
             player_01.Hit();
             DealCard(playerHand, player_01.CardList[1].imageName);
             playerScore.Text = player_01.handValue.ToString();
+
+
 
             //insurance
             if(houseDealer.CardList[0].value == 1)
@@ -342,6 +352,8 @@ namespace DavesBlackjack
             ProfileInfo profileInfo = new ProfileInfo();
             profileInfo.ShowDialog();
         }
+
+        
     }
 }
 

@@ -12,6 +12,7 @@ namespace DavesBlackjack
 {
     public partial class TitleForm : Form
     {
+        
         GameBoard gameBoard;
         private bool validated = false;
 
@@ -28,7 +29,7 @@ namespace DavesBlackjack
 
             this.Close();
         }
-
+        
         private void forgotPasswordButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Haha you forgot", "lol", MessageBoxButtons.OK);

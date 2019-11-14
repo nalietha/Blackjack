@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateProfile));
             this.label1 = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
             this.btnCreateAccount = new System.Windows.Forms.Button();
@@ -43,19 +44,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(414, 59);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Location = new System.Drawing.Point(207, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(453, 76);
+            this.label1.Size = new System.Drawing.Size(239, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Create Profile";
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(794, 590);
-            this.backButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.backButton.Location = new System.Drawing.Point(258, 226);
+            this.backButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(185, 67);
+            this.backButton.Size = new System.Drawing.Size(92, 34);
             this.backButton.TabIndex = 1;
             this.backButton.Text = "back";
             this.backButton.UseVisualStyleBackColor = true;
@@ -120,7 +120,7 @@
             // 
             // CreateProfile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
             this.ClientSize = new System.Drawing.Size(1422, 697);
@@ -133,7 +133,8 @@
             this.Controls.Add(this.btnCreateAccount);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CreateProfile";
             this.Text = "CreateProfile";
             this.ResumeLayout(false);
