@@ -12,6 +12,7 @@ namespace DavesBlackjack
 {
     public partial class TitleForm : Form
     {
+        
         GameBoard gameBoard;
         private bool validated = false;
 

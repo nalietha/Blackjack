@@ -112,7 +112,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-   <Content Include="Database.xml" />
+    <Content Include="Database.xml" />
+    <None Include="Resources\titlescreen.jpg" />
+    <None Include="Resources\background3.jpg" />
     <Content Include="Resources\Cards\10C.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

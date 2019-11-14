@@ -54,6 +54,8 @@ namespace DavesBlackjack
 
             //set all values
             playerBalance.Text = player_01.PlayerMoney.ToString();
+            playerBalance.BackColor = Color.Transparent;
+            
 
             betUpDown.Maximum = player_01.PlayerMoney;
 
@@ -135,6 +137,7 @@ namespace DavesBlackjack
 
         private void stayButton_Click(object sender, EventArgs e)
         {
+            
             hitButton.Enabled = false;
             stayButton.Enabled = false;
             DealersTurn();
@@ -177,6 +180,7 @@ namespace DavesBlackjack
                 msg = "Both have the same value!\nITS A TIE!\nPlay Again?";
             }
             playerBalance.Text = player_01.PlayerMoney.ToString();
+            playerBalance.BackColor = Color.Transparent;
             wins.Text = playerWins.ToString();
             losses.Text = dealerWins.ToString();
             DialogResult result = MessageBox.Show(msg, "Game Over", MessageBoxButtons.YesNo);
@@ -348,6 +352,8 @@ namespace DavesBlackjack
             ProfileInfo profileInfo = new ProfileInfo();
             profileInfo.ShowDialog();
         }
+
+        
     }
 }
 
