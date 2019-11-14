@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database.xml" />
+    <None Include="Resources\stay.png" />
     <None Include="Resources\titlescreen.jpg" />
     <None Include="Resources\background3.jpg" />
     <Content Include="Resources\Cards\10C.png">
@@ -307,6 +308,7 @@
     <Content Include="Resources\Cards\yellow_back.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\hit.png" />
     <Content Include="Resources\Misc\blackjack.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
