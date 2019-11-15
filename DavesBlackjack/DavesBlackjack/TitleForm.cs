@@ -15,11 +15,18 @@ namespace DavesBlackjack
         
         GameBoard gameBoard;
         private bool validated = false;
+        private readonly Music Music;
 
-        public TitleForm(GameBoard gameBoard)
+        public TitleForm(GameBoard gameBoard, Music Music)
         {
             InitializeComponent();
             this.gameBoard = gameBoard;
+            this.Music = Music;
+        }
+
+        private void TitleForm_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -46,6 +53,25 @@ namespace DavesBlackjack
         {
             CreateProfile createProfile = new CreateProfile();
             createProfile.ShowDialog();
+        }
+
+        private void muteButton_Click(object sender, EventArgs e)
+        {
+            if(Music.isPlaying)
+            {
+                Music.Stop();
+                muteButton.BackgroundImage = Image.FromFile(Music.OffIcon);
+            }
+            else
+            {
+                Music.Resume();
+                muteButton.BackgroundImage = Image.FromFile(Music.OnIcon);
+            }
+        }
+
+        private void skipButton_Click(object sender, EventArgs e)
+        {
+            Music.Skip();
         }
     }
 }

@@ -114,6 +114,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database.xml" />
+    <Content Include="Resources\Misc\skip.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Misc\soundOff.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Misc\soundOn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\stay.png" />
     <None Include="Resources\titlescreen.jpg" />
     <None Include="Resources\background3.jpg" />

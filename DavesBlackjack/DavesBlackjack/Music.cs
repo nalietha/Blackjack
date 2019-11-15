@@ -17,6 +17,9 @@ namespace DavesBlackjack
         /// The title of the currently playing song
         /// </summary>
         public string currentSong { get; private set; }
+        public string OnIcon { get; private set; }
+        public string OffIcon { get; private set; }
+
         private const string songOne = "Lobby Time";
         private const string songTwo = "Bossa Antigua";
         private const string songThree = "Intractable";
@@ -34,6 +37,8 @@ namespace DavesBlackjack
         public Music()
         {
             isPlaying = false;
+            OnIcon = "Resources/Misc/soundOn";
+            OffIcon = "Resources/Misc/soundOff";
         }
 
         /// <summary>

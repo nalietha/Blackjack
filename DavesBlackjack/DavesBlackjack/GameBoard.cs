@@ -24,6 +24,7 @@ namespace DavesBlackjack
         string cardBack = "blue_back";
         List<PictureBox> playerHand = new List<PictureBox>();
         List<PictureBox> dealerHand = new List<PictureBox>();
+        Music Music = new Music();
 
         public GameBoard()
         {
@@ -53,13 +54,11 @@ namespace DavesBlackjack
             //Start login information
 
             //set all values
-            playerBalance.Text = player_01.PlayerMoney.ToString();
-            playerBalance.BackColor = Color.Transparent;
-            
+            playerBalance.Text = "$" + player_01.PlayerMoney.ToString();
 
             betUpDown.Maximum = player_01.PlayerMoney;
 
-            TitleForm titleForm = new TitleForm(this);
+            TitleForm titleForm = new TitleForm(this, Music);
             titleForm.ShowDialog();
             
 
@@ -179,8 +178,7 @@ namespace DavesBlackjack
             {
                 msg = "Both have the same value!\nITS A TIE!\nPlay Again?";
             }
-            playerBalance.Text = player_01.PlayerMoney.ToString();
-            playerBalance.BackColor = Color.Transparent;
+            playerBalance.Text = "$" + player_01.PlayerMoney.ToString();
             wins.Text = playerWins.ToString();
             losses.Text = dealerWins.ToString();
             DialogResult result = MessageBox.Show(msg, "Game Over", MessageBoxButtons.YesNo);
@@ -230,10 +228,6 @@ namespace DavesBlackjack
                 CheckForWin();
             }
         }
-
-
-
-
 
         /// <summary>
         /// Clears everyone's hand, clear the board, payout all bets, and shuffle the deck
@@ -353,7 +347,24 @@ namespace DavesBlackjack
             profileInfo.ShowDialog();
         }
 
-        
+        private void muteButton_Click(object sender, EventArgs e)
+        {
+            if (Music.isPlaying)
+            {
+                Music.Stop();
+                muteButton.BackgroundImage = Image.FromFile(Music.OffIcon);
+            }
+            else
+            {
+                Music.Resume();
+                muteButton.BackgroundImage = Image.FromFile(Music.OnIcon);
+            }
+        }
+
+        private void skipButton_Click(object sender, EventArgs e)
+        {
+            Music.Skip();
+        }
     }
 }
 
