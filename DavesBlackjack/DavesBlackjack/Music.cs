@@ -36,9 +36,10 @@ namespace DavesBlackjack
 
         public Music()
         {
+            currentSong = songOne;
             isPlaying = false;
-            OnIcon = "Resources/Misc/soundOn";
-            OffIcon = "Resources/Misc/soundOff";
+            OnIcon = "Resources/Misc/soundOn.png";
+            OffIcon = "Resources/Misc/soundOff.png";
         }
 
         /// <summary>

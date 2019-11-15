@@ -60,7 +60,14 @@ namespace DavesBlackjack
 
             TitleForm titleForm = new TitleForm(this, Music);
             titleForm.ShowDialog();
-            
+            if (Music.isPlaying)
+            {
+                muteButton.BackgroundImage = Image.FromFile(Music.OnIcon);
+            }
+            else
+            {
+                muteButton.BackgroundImage = Image.FromFile(Music.OffIcon);
+            }
 
         }
 
