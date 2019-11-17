@@ -67,6 +67,8 @@ namespace DavesBlackjack
             this.insuranceUpDown = new System.Windows.Forms.NumericUpDown();
             this.insuranceButton = new System.Windows.Forms.Button();
             this.profileButton = new System.Windows.Forms.Button();
+            this.skipButton = new System.Windows.Forms.Button();
+            this.muteButton = new System.Windows.Forms.Button();
             label420 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.p1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2)).BeginInit();
@@ -93,8 +95,8 @@ namespace DavesBlackjack
             label420.AutoSize = true;
             label420.BackColor = System.Drawing.Color.Transparent;
             label420.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label420.ForeColor = System.Drawing.Color.LightSteelBlue;
-            label420.Location = new System.Drawing.Point(225, 330);
+            label420.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            label420.Location = new System.Drawing.Point(183, 370);
             label420.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label420.Name = "label420";
             label420.Size = new System.Drawing.Size(55, 25);
@@ -297,6 +299,7 @@ namespace DavesBlackjack
             this.playerName.AutoSize = true;
             this.playerName.BackColor = System.Drawing.Color.Transparent;
             this.playerName.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.playerName.Location = new System.Drawing.Point(13, 6);
             this.playerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.playerName.Name = "playerName";
@@ -309,6 +312,7 @@ namespace DavesBlackjack
             this.dealerName.AutoSize = true;
             this.dealerName.BackColor = System.Drawing.Color.Transparent;
             this.dealerName.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dealerName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.dealerName.Location = new System.Drawing.Point(488, 6);
             this.dealerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dealerName.Name = "dealerName";
@@ -322,6 +326,7 @@ namespace DavesBlackjack
             this.pTotalString.AutoSize = true;
             this.pTotalString.BackColor = System.Drawing.Color.Transparent;
             this.pTotalString.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pTotalString.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.pTotalString.Location = new System.Drawing.Point(11, 223);
             this.pTotalString.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.pTotalString.Name = "pTotalString";
@@ -335,6 +340,7 @@ namespace DavesBlackjack
             this.dealerString.AutoSize = true;
             this.dealerString.BackColor = System.Drawing.Color.Transparent;
             this.dealerString.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dealerString.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.dealerString.Location = new System.Drawing.Point(491, 223);
             this.dealerString.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dealerString.Name = "dealerString";
@@ -344,8 +350,10 @@ namespace DavesBlackjack
             // 
             // hitButton
             // 
+            this.hitButton.BackColor = System.Drawing.Color.Transparent;
             this.hitButton.BackgroundImage = global::DavesBlackjack.Properties.Resources.hit;
             this.hitButton.Enabled = false;
+            this.hitButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.hitButton.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hitButton.Location = new System.Drawing.Point(22, 285);
             this.hitButton.Margin = new System.Windows.Forms.Padding(2);
@@ -353,13 +361,15 @@ namespace DavesBlackjack
             this.hitButton.Size = new System.Drawing.Size(135, 49);
             this.hitButton.TabIndex = 21;
             this.hitButton.Text = "Hit";
-            this.hitButton.UseVisualStyleBackColor = true;
+            this.hitButton.UseVisualStyleBackColor = false;
             this.hitButton.Click += new System.EventHandler(this.hitButton_Click);
             // 
             // stayButton
             // 
+            this.stayButton.BackColor = System.Drawing.Color.Transparent;
             this.stayButton.BackgroundImage = global::DavesBlackjack.Properties.Resources.stay;
             this.stayButton.Enabled = false;
+            this.stayButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stayButton.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stayButton.Location = new System.Drawing.Point(22, 346);
             this.stayButton.Margin = new System.Windows.Forms.Padding(2);
@@ -367,7 +377,7 @@ namespace DavesBlackjack
             this.stayButton.Size = new System.Drawing.Size(135, 49);
             this.stayButton.TabIndex = 22;
             this.stayButton.Text = "Stay";
-            this.stayButton.UseVisualStyleBackColor = true;
+            this.stayButton.UseVisualStyleBackColor = false;
             this.stayButton.Click += new System.EventHandler(this.stayButton_Click);
             // 
             // playerScore
@@ -375,6 +385,7 @@ namespace DavesBlackjack
             this.playerScore.AutoSize = true;
             this.playerScore.BackColor = System.Drawing.Color.Transparent;
             this.playerScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerScore.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.playerScore.Location = new System.Drawing.Point(89, 223);
             this.playerScore.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.playerScore.Name = "playerScore";
@@ -387,6 +398,7 @@ namespace DavesBlackjack
             this.dealerScore.AutoSize = true;
             this.dealerScore.BackColor = System.Drawing.Color.Transparent;
             this.dealerScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dealerScore.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.dealerScore.Location = new System.Drawing.Point(569, 223);
             this.dealerScore.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dealerScore.Name = "dealerScore";
@@ -399,34 +411,34 @@ namespace DavesBlackjack
             this.wins.AutoSize = true;
             this.wins.BackColor = System.Drawing.Color.Transparent;
             this.wins.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wins.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.wins.Location = new System.Drawing.Point(283, 333);
+            this.wins.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.wins.Location = new System.Drawing.Point(251, 371);
             this.wins.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.wins.Name = "wins";
-            this.wins.Size = new System.Drawing.Size(34, 24);
+            this.wins.Size = new System.Drawing.Size(21, 24);
             this.wins.TabIndex = 27;
-            this.wins.Text = "XX";
+            this.wins.Text = "0";
             // 
             // losses
             // 
             this.losses.AutoSize = true;
             this.losses.BackColor = System.Drawing.Color.Transparent;
             this.losses.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.losses.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.losses.Location = new System.Drawing.Point(351, 333);
+            this.losses.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.losses.Location = new System.Drawing.Point(307, 371);
             this.losses.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.losses.Name = "losses";
-            this.losses.Size = new System.Drawing.Size(34, 24);
+            this.losses.Size = new System.Drawing.Size(21, 24);
             this.losses.TabIndex = 29;
-            this.losses.Text = "XX";
+            this.losses.Text = "0";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label3.Location = new System.Drawing.Point(323, 333);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(291, 371);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(12, 24);
@@ -438,8 +450,8 @@ namespace DavesBlackjack
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label4.Location = new System.Drawing.Point(409, 333);
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Location = new System.Drawing.Point(349, 371);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 24);
@@ -487,11 +499,14 @@ namespace DavesBlackjack
             // playerBalance
             // 
             this.playerBalance.AutoSize = true;
+            this.playerBalance.BackColor = System.Drawing.Color.Transparent;
             this.playerBalance.Font = new System.Drawing.Font("Wide Latin", 9.857143F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerBalance.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.playerBalance.Location = new System.Drawing.Point(272, 15);
             this.playerBalance.Name = "playerBalance";
-            this.playerBalance.Size = new System.Drawing.Size(0, 21);
+            this.playerBalance.Size = new System.Drawing.Size(156, 21);
             this.playerBalance.TabIndex = 34;
+            this.playerBalance.Text = "$1000.00";
             // 
             // insuranceUpDown
             // 
@@ -526,6 +541,34 @@ namespace DavesBlackjack
             this.profileButton.UseVisualStyleBackColor = true;
             this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
             // 
+            // skipButton
+            // 
+            this.skipButton.BackColor = System.Drawing.Color.Transparent;
+            this.skipButton.BackgroundImage = global::DavesBlackjack.Properties.Resources.skip;
+            this.skipButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.skipButton.FlatAppearance.BorderSize = 0;
+            this.skipButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.skipButton.Location = new System.Drawing.Point(778, 12);
+            this.skipButton.Name = "skipButton";
+            this.skipButton.Size = new System.Drawing.Size(32, 32);
+            this.skipButton.TabIndex = 39;
+            this.skipButton.UseVisualStyleBackColor = false;
+            this.skipButton.Click += new System.EventHandler(this.skipButton_Click);
+            // 
+            // muteButton
+            // 
+            this.muteButton.BackColor = System.Drawing.Color.Transparent;
+            this.muteButton.BackgroundImage = global::DavesBlackjack.Properties.Resources.soundOff;
+            this.muteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.muteButton.FlatAppearance.BorderSize = 0;
+            this.muteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.muteButton.Location = new System.Drawing.Point(740, 12);
+            this.muteButton.Name = "muteButton";
+            this.muteButton.Size = new System.Drawing.Size(32, 32);
+            this.muteButton.TabIndex = 38;
+            this.muteButton.UseVisualStyleBackColor = false;
+            this.muteButton.Click += new System.EventHandler(this.muteButton_Click);
+            // 
             // GameBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -534,6 +577,8 @@ namespace DavesBlackjack
             this.BackgroundImage = global::DavesBlackjack.Properties.Resources.background3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 473);
+            this.Controls.Add(this.skipButton);
+            this.Controls.Add(this.muteButton);
             this.Controls.Add(this.profileButton);
             this.Controls.Add(this.insuranceButton);
             this.Controls.Add(this.insuranceUpDown);
@@ -634,6 +679,8 @@ namespace DavesBlackjack
         private NumericUpDown insuranceUpDown;
         private Button insuranceButton;
         private Button profileButton;
+        private Button skipButton;
+        private Button muteButton;
     }
 }
 
