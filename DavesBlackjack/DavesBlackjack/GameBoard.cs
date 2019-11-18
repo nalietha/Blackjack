@@ -25,6 +25,7 @@ namespace DavesBlackjack
         List<PictureBox> playerHand = new List<PictureBox>();
         List<PictureBox> dealerHand = new List<PictureBox>();
         Music Music = new Music();
+        bool previousGame = false;
 
         public GameBoard()
         {
@@ -56,8 +57,29 @@ namespace DavesBlackjack
             //set all values
             playerBalance.Text = "$" + player_01.PlayerMoney.ToString();
 
-            betUpDown.Maximum = player_01.PlayerMoney;
+            if (previousGame)
+            {
+                /*
+                //Testing for set state
 
+                List<Card> p = new List<Card>();
+                p.Add(new Card(0));
+                p.Add(new Card(33));
+                List<Card> d = new List<Card>();
+                d.Add(new Card(5));
+                d.Add(new Card(4));
+                List<Card> deck = new List<Card>();
+                for (int i = 0; i < 52; i++)
+                    deck.Add(new Card(i));
+                
+
+                SetState(d, p, deck, 10, true);
+                */
+            }
+            else
+            {
+                betUpDown.Maximum = player_01.PlayerMoney;
+            }
             TitleForm titleForm = new TitleForm(this, Music);
             titleForm.ShowDialog();
             if (Music.isPlaying)
@@ -371,6 +393,84 @@ namespace DavesBlackjack
         private void skipButton_Click(object sender, EventArgs e)
         {
             Music.Skip();
+        }
+
+        /// <summary>
+        /// Sets the blackjack game. This should be used when a previous save game is found.
+        /// </summary>
+        /// <param name="dealerHand">List of Cards for the dealer</param>
+        /// <param name="playerHand">List of Cards for the player</param>
+        /// <param name="deck">List of Cards for the deck</param>
+        /// <param name="bet">The amount bet on the game.(Not insurance)</param>
+        /// <param name="beforeInsurance">A boolean value to determine what buttons to disable. Should be true if insurance is in play and the insurance bet hasnt been placed</param>
+        public void SetState(List<Card> dealerH, List<Card> playerH, List<Card> deck, int bet, bool beforeInsurance)
+        {
+            //clearing images
+            ClearCards(playerHand);
+            ClearCards(dealerHand);
+
+            //setting players hand
+            player_01.CardList = playerH;
+            for (int i = 0; i < player_01.CardList.Count; i++)
+                DealCard(playerHand, player_01.CardList[i].imageName);
+            player_01.CalcuateCurrentHand();
+            playerScore.Text = player_01.handValue.ToString();
+
+            //setting dealers hand
+            houseDealer.CardList = dealerH;
+            DealCard(dealerHand, houseDealer.CardList[0].imageName);
+            HideCard(dealerHand, cardBack);
+            houseDealer.CalcuateCurrentHand();
+
+            //setting the deck
+            Deck.SetDeck(deck);
+            betUpDown.Value = bet;
+
+
+            //disabling buttons
+            betUpDown.Enabled = false;
+            betButton.Enabled = false;
+
+
+            //calling appropiate next step
+            if(beforeInsurance)
+            {
+                insuranceButton.Visible = true;
+                insuranceUpDown.Visible = true;
+                
+
+                insuranceUpDown.Value = 0;
+                insuranceUpDown.Maximum = betUpDown.Value / 2;
+                hitButton.Enabled = false;
+                stayButton.Enabled = false;
+               
+            }
+            else
+            {
+                if (houseDealer.CardList[0].value == 1)
+                    UnhideCard(dealerHand, houseDealer.CardList[1].imageName);
+                hitButton.Enabled = true;
+                stayButton.Enabled = true;
+            }
+
+        }
+
+        private void betUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (betUpDown.Value > betUpDown.Maximum)
+                betUpDown.Value = betUpDown.Maximum;
+            if (betUpDown.Value < betUpDown.Minimum)
+                betUpDown.Value = betUpDown.Minimum;
+            betUpDown.Value = (int)betUpDown.Value;
+        }
+
+        private void insuranceUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (insuranceUpDown.Value > insuranceUpDown.Maximum)
+                insuranceUpDown.Value = insuranceUpDown.Maximum;
+            if (insuranceUpDown.Value < insuranceUpDown.Minimum)
+                insuranceUpDown.Value = insuranceUpDown.Minimum;
+            insuranceUpDown.Value = (int)insuranceUpDown.Value;
         }
     }
 }

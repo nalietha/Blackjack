@@ -72,5 +72,10 @@ namespace DavesBlackjack
             _cards.Remove(_cards.First());
             return card;
         }
+
+        public static void SetDeck(List<Card> deck)
+        {
+            _cards = deck;
+        }
     }
 }
