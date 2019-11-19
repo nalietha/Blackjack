@@ -199,5 +199,35 @@ namespace DavesBlackjack
         {
             DebugUser();
         }
+
+        private void LblUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblUsernameError_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblConfirmPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblSecuirtyQuestionChoice_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblSecurityQuestionAnswer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
