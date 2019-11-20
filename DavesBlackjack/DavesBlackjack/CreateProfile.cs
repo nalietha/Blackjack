@@ -31,6 +31,8 @@ namespace DavesBlackjack
         public string PASSWORD_INVALID_CHARECTERS = "Password cannot contain spaces.";
         public string SECURITY_QUESTION_EMPTY = "Secuirty question cannot be blank.";
         public string USERNAME_INVAILD_CHARECTER = "Username cannot contain spaces.";
+        public string FIX_ERRORS = "Fix Highlighted errors.";
+
 
         public void DebugUser()
         {
@@ -101,11 +103,23 @@ namespace DavesBlackjack
         }
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            CreateNewUser();
+            if (CheckForErrors())
+            {
+                lblErrorsExist.Text = FIX_ERRORS;
+                lblErrorsExist.Visible = true;
 
+            }
+            else
+                CreateNewUser();
         }
-        private void CheckForErrors()
+        private bool CheckForErrors()
         {
+            CheckForUsernameErrors();
+            CheckForPasswordErrors();
+            CheckForSecuirtyErrors();
+
+
+
             bool errorsExist = false;
             // Reset Errors
             ResetErrors();
@@ -117,10 +131,13 @@ namespace DavesBlackjack
                 pnlUsername.BackColor = Color.Red;
                 errorsExist = true;
             }
+            // Username contains invalid charectors. 
             else if (tbUsername.Text.Contains(" "))
             {
                 lblUsernameError.Text = USERNAME_INVAILD_CHARECTER;
                 lblUsernameError.Visible = true;
+                pnlUsername.Visible = true;
+                errorsExist = true;
             }
             // Check if username is already used (case insesitive)
             else if (FindUser(tbUsername.Text))
@@ -129,7 +146,15 @@ namespace DavesBlackjack
                 lblUsernameError.Visible = true;
                 errorsExist = true;
             }
-            else if (tbPassword.Text == "")
+            // No username errors exist
+            else
+            {
+                lblUsernameError.Text = "";
+                pnlUsername.Visible = false;
+                errorsExist = false;
+            }
+            // Password Validation
+            if (tbPassword.Text == "")
             {
                 // Password
                 // Not Empty
@@ -153,27 +178,49 @@ namespace DavesBlackjack
                 errorsExist = true;
 
             }
-            // Matches Second
-            else if (tbPassword.Text == tbPasswordConfirm.Text)
+            else
             {
-                lblConfirmPassword.Text = PASSWORD_MISMATCH;
-                lblConfirmPassword.Visible = true;
+                lblPasswordError.Text = "";
+
+                errorsExist = false;
+            }
+            // Matches Second
+            if (tbPassword.Text == tbPasswordConfirm.Text)
+            {
+                lblConfirmError.Text = PASSWORD_MISMATCH;
+                lblConfirmError.Visible = true;
                 errorsExist = true;
 
             }
+            else
+            {
+                lblConfirmError.Text = "";
+                errorsExist = false;
+            }
             // Security Question
-            else if (tbSecuirtyQuestionAnswer.Text == "")
+            if (tbSecuirtyQuestionAnswer.Text == "")
             {
                 lblSecuirtyQuestionError.Text = SECURITY_QUESTION_EMPTY;
                 lblSecuirtyQuestionError.Visible = true;
                 errorsExist = true;
 
             }
-
-            if (!errorsExist)
-                btnCreateAccount.Enabled = false;
             else
-                btnCreateAccount.Enabled = true;
+            {
+                lblSecuirtyQuestionError.Text = "";
+                errorsExist = false;
+            }
+            // return true false
+            if (!errorsExist)
+            {
+                //btnCreateAccount.Enabled = false;
+                return true;
+            }
+            else
+            {
+                //btnCreateAccount.Enabled = true;
+                return false;
+            }
     
 
         }
@@ -195,9 +242,19 @@ namespace DavesBlackjack
             return false;
         }
 
-        private void btnDebugPopulate_Click(object sender, EventArgs e)
+        private void CheckForUsernameErrors()
         {
-            DebugUser();
+
         }
+        private void CheckForPasswordErrors()
+        {
+
+        }
+        private void CheckForSecuirtyErrors()
+        {
+
+        }
+
+
     }
 }

@@ -49,6 +49,7 @@
             this.lblSelectSecuirtyError = new System.Windows.Forms.Label();
             this.pnlUsername = new System.Windows.Forms.Panel();
             this.btnDebugPopulate = new System.Windows.Forms.Button();
+            this.lblErrorsExist = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -241,13 +242,22 @@
             // 
             // btnDebugPopulate
             // 
-            this.btnDebugPopulate.Location = new System.Drawing.Point(594, 820);
+            this.btnDebugPopulate.Location = new System.Drawing.Point(48, 752);
             this.btnDebugPopulate.Name = "btnDebugPopulate";
             this.btnDebugPopulate.Size = new System.Drawing.Size(295, 54);
             this.btnDebugPopulate.TabIndex = 19;
             this.btnDebugPopulate.Text = "Populate";
             this.btnDebugPopulate.UseVisualStyleBackColor = true;
-            this.btnDebugPopulate.Click += new System.EventHandler(this.btnDebugPopulate_Click);
+            // 
+            // lblErrorsExist
+            // 
+            this.lblErrorsExist.AutoSize = true;
+            this.lblErrorsExist.Location = new System.Drawing.Point(398, 820);
+            this.lblErrorsExist.Name = "lblErrorsExist";
+            this.lblErrorsExist.Size = new System.Drawing.Size(34, 32);
+            this.lblErrorsExist.TabIndex = 20;
+            this.lblErrorsExist.Text = "X";
+            this.lblErrorsExist.Visible = false;
             // 
             // CreateProfile
             // 
@@ -255,6 +265,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
             this.ClientSize = new System.Drawing.Size(1471, 1036);
+            this.Controls.Add(this.lblErrorsExist);
             this.Controls.Add(this.btnDebugPopulate);
             this.Controls.Add(this.lblSelectSecuirtyError);
             this.Controls.Add(this.lblSecuirtyQuestionError);
@@ -309,5 +320,6 @@
         private System.Windows.Forms.Label lblSelectSecuirtyError;
         private System.Windows.Forms.Panel pnlUsername;
         private System.Windows.Forms.Button btnDebugPopulate;
+        private System.Windows.Forms.Label lblErrorsExist;
     }
 }
