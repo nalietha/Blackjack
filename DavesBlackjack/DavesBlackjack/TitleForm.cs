@@ -33,7 +33,6 @@ namespace DavesBlackjack
         {
             //validate stuff
             validated = true;
-
             this.Close();
         }
         

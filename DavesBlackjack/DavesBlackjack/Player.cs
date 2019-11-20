@@ -7,7 +7,8 @@ using System.Windows.Forms;
 
 namespace DavesBlackjack
 {
-    class Player 
+
+    public class Player 
     {
         /// <summary>
         /// A list of card objects that represents the cards in the players hand
@@ -25,8 +26,8 @@ namespace DavesBlackjack
         /// <summary>
         /// The sum value of all the cards in the players hand
         /// </summary>
-        public int handValue { get; private set; } = 0;
-
+        public int handValue { get; set; } = 0;
+        public int wins { get; set; } = 0;
         public decimal PlayerMoney { get { return playerMoney; } set { playerMoney = value; } }
 
         public Player()
@@ -80,10 +81,10 @@ namespace DavesBlackjack
         /// <summary>
         /// Hit Function for the players, also used by dealer
         /// </summary>
-        public bool Hit()
+        public bool Hit(Deck deck)
         {
             // Deck call for next card
-            CardList.Add(Deck.GetNextCard());
+            CardList.Add(deck.GetNextCard());
             CalcuateCurrentHand();
             return CheckBusted();
         }

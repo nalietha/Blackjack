@@ -61,6 +61,7 @@
     <Compile Include="GameBoard.Designer.cs">
       <DependentUpon>GameBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameState.cs" />
     <Compile Include="Music.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="ProfileInfo.cs">
