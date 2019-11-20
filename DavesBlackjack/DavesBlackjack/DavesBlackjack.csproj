@@ -139,6 +139,7 @@
     <Content Include="Resources\Music\Lobby Time.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\profilescreen.jpg" />
     <None Include="Resources\stay.png" />
     <None Include="Resources\titlescreen.jpg" />
     <None Include="Resources\background3.jpg" />
