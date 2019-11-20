@@ -23,4 +23,27 @@
       </PlayerSave>
     </GameInProgress>
   </Username>
+  <Username id="2" uName="martinerck" Password="ajXvjrzy1bO8yMcNXkALNcJTRIYf99YA+R5gBWlmiVWVskcX">
+    <PlayerName>MartinErck</PlayerName>
+    <SecurityQuestions>
+      <Question>In what town or city was your first full time job?</Question>
+      <Answer>Rapid City</Answer>
+    </SecurityQuestions>
+    <PaymentInfo>
+      <CardNumber />
+      <NameOnCard />
+      <SecurityCode />
+      <ExpireDate />
+    </PaymentInfo>
+    <GamesWon>0</GamesWon>
+    <Cash>0</Cash>
+    <GameInProgress>
+      <Status>false</Status>
+      <PlayerSave>
+        <SaveState />
+        <DealerSave />
+        <SaveState />
+      </PlayerSave>
+    </GameInProgress>
+  </Username>
 </Users>
