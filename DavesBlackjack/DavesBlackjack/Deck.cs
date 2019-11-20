@@ -9,12 +9,12 @@ namespace DavesBlackjack
     /// <summary>
     /// Holds the 52 cards used during gameplay
     /// </summary>
-    class Deck
+    public class Deck
     {
         /// <summary>
         /// A list of card objects that represents the cards in the deck
         /// </summary>
-        private static List<Card> _cards = new List<Card>();
+        public List<Card> _cards = new List<Card>();
         /// <summary>
         /// The maximum number of cards per deck
         /// </summary>
@@ -28,7 +28,7 @@ namespace DavesBlackjack
         /// <summary>
         /// Sets the DeckInUse array as a shuffled version of the cards array
         /// </summary>
-        public static void Shuffle()
+        public void Shuffle()
         {
             //Clear all the cards
             _cards.Clear();
@@ -61,7 +61,7 @@ namespace DavesBlackjack
         /// Gets the next card in the deck or NULL if there is no next card.
         /// </summary>
         /// <returns>Returns a Card class of the next card or NULL if there is no next card</returns>
-        public static Card GetNextCard()
+        public Card GetNextCard()
         {
             //No next card
             if (_cards.Count == 0)
@@ -73,9 +73,9 @@ namespace DavesBlackjack
             return card;
         }
 
-        public static void SetDeck(List<Card> deck)
+        public void SetDeck(Deck deck)
         {
-            _cards = deck;
+            _cards = deck._cards;
         }
     }
 }

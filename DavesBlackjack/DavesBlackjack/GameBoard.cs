@@ -15,17 +15,16 @@ namespace DavesBlackjack
     public partial class GameBoard : Form
     { 
         // Create dealer and player objects
-        Dealer houseDealer = new Dealer();
-        Player player_01 = new Player();
-        Deck deck = new Deck();
-        int playerWins = 0;
-        int dealerWins = 0;
+        private Dealer houseDealer = new Dealer();
+        private Player player_01 = new Player();
+        private Deck deck = new Deck();
         string cardLocation = "Resources\\Cards\\";
         string cardBack = "blue_back";
+        string SaveFileName = "Save1";
+        string SaveFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Blackjack Saves//";
         List<PictureBox> playerHand = new List<PictureBox>();
         List<PictureBox> dealerHand = new List<PictureBox>();
         Music Music = new Music();
-        bool previousGame = false;
 
         public GameBoard()
         {
@@ -52,34 +51,6 @@ namespace DavesBlackjack
             dealerHand.Add(d7);
             dealerHand.Add(d8);
 
-            //Start login information
-
-            //set all values
-            playerBalance.Text = "$" + player_01.PlayerMoney.ToString();
-
-            if (previousGame)
-            {
-                /*
-                //Testing for set state
-
-                List<Card> p = new List<Card>();
-                p.Add(new Card(0));
-                p.Add(new Card(33));
-                List<Card> d = new List<Card>();
-                d.Add(new Card(5));
-                d.Add(new Card(4));
-                List<Card> deck = new List<Card>();
-                for (int i = 0; i < 52; i++)
-                    deck.Add(new Card(i));
-                
-
-                SetState(d, p, deck, 10, true);
-                */
-            }
-            else
-            {
-                betUpDown.Maximum = player_01.PlayerMoney;
-            }
             TitleForm titleForm = new TitleForm(this, Music);
             titleForm.ShowDialog();
             if (Music.isPlaying)
@@ -91,6 +62,33 @@ namespace DavesBlackjack
                 muteButton.BackgroundImage = Image.FromFile(Music.OffIcon);
             }
 
+            if (System.IO.File.Exists(SaveFilePath + SaveFileName + ".xml"))
+            {
+                DialogResult result = MessageBox.Show("Would you like to load your last save?", "Load Game", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    //Read the save file
+                    var path = SaveFilePath + SaveFileName + ".xml";
+                    Type[] extratypes = new Type[0];
+                    System.Xml.Serialization.XmlSerializer reader =
+                        new System.Xml.Serialization.XmlSerializer(typeof(GameState), extratypes);
+                    System.IO.StreamReader file = new System.IO.StreamReader(@path);
+
+                    GameState gamestate = (GameState)reader.Deserialize(file);
+                    SetState(gamestate);
+                    file.Close();
+                    //Delete File After Loading?
+                }
+                else
+                {
+                    betUpDown.Maximum = player_01.PlayerMoney;
+                    //Delete file because the player has chosen not to load the save?
+                }
+            }
+
+            //Start login information
+            //set all values
+            playerBalance.Text = "$" + player_01.PlayerMoney.ToString();
         }
 
         /// <summary>
@@ -177,30 +175,31 @@ namespace DavesBlackjack
         /// <returns></returns>
         public void CheckForWin()
         {
+            saveButton.Enabled = false;
             string msg = "";
             // Sees who won the game
             if (houseDealer.CheckBusted() && !player_01.CheckBusted())
             {
                 msg = "Dealer Busts!\nYOU WIN!\nPlay Again?";
-                playerWins++;
+                player_01.wins++;
                 player_01.PlayerMoney += betUpDown.Value;
             }
             else if (player_01.CheckBusted())
             {
                 msg = "Player Busts!\nYOU LOSE!\nPlay Again?";
-                dealerWins++;
+                houseDealer.wins++;
                 player_01.PlayerMoney -= betUpDown.Value;
             }
             else if (houseDealer.handValue > player_01.handValue)
             {
                 msg = "Dealer has a higher hand!\nYOU LOSE!\nPlay Again?";
-                dealerWins++;
+                houseDealer.wins++;
                 player_01.PlayerMoney -= betUpDown.Value;
             }
             else if (houseDealer.handValue < player_01.handValue)
             {
                 msg = "Player has a higher hand!\nYOU WIN!\nPlay Again?";
-                playerWins++;
+                player_01.wins++;
                 player_01.PlayerMoney += betUpDown.Value;
             }
             else
@@ -208,8 +207,8 @@ namespace DavesBlackjack
                 msg = "Both have the same value!\nITS A TIE!\nPlay Again?";
             }
             playerBalance.Text = "$" + player_01.PlayerMoney.ToString();
-            wins.Text = playerWins.ToString();
-            losses.Text = dealerWins.ToString();
+            wins.Text = player_01.wins.ToString();
+            losses.Text = houseDealer.wins.ToString();
             DialogResult result = MessageBox.Show(msg, "Game Over", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
@@ -232,7 +231,7 @@ namespace DavesBlackjack
             //lblDealersChoice.Visible = true;
           
             UnhideCard(dealerHand, houseDealer.CardList[1].imageName);
-            while (houseDealer.Choice())
+            while (houseDealer.Choice(deck))
             {
                 DealCard(dealerHand, houseDealer.CardList[houseDealer.CardList.Count() - 1].imageName);
             }
@@ -246,7 +245,7 @@ namespace DavesBlackjack
         /// <returns></returns>
         public void PlayersTurn()
         {
-            player_01.Hit();
+            player_01.Hit(deck);
             DealCard(playerHand, player_01.CardList[player_01.CardList.Count() - 1].imageName);
             playerScore.Text = player_01.handValue.ToString();
             //Player
@@ -263,6 +262,7 @@ namespace DavesBlackjack
         /// </summary>
         public void RestartGame()
         {
+            saveButton.Enabled = true;
             //clearing the actual hand
             player_01.ClearHand();
             houseDealer.ClearHand();
@@ -281,20 +281,20 @@ namespace DavesBlackjack
             stayButton.Enabled = true;
 
             //shuffle
-            Deck.Shuffle();
+            deck.Shuffle();
 
             //setting up dealer
-            houseDealer.Hit();
-            houseDealer.Hit();
+            houseDealer.Hit(deck);
+            houseDealer.Hit(deck);
             //houseDealer.CardList.Add(new Card(13));
             //houseDealer.CardList.Add(new Card(8));
             DealCard(dealerHand, houseDealer.CardList[0].imageName);
             HideCard(dealerHand, cardBack);
 
             //players cards
-            player_01.Hit();
+            player_01.Hit(deck);
             DealCard(playerHand, player_01.CardList[0].imageName);
-            player_01.Hit();
+            player_01.Hit(deck);
             DealCard(playerHand, player_01.CardList[1].imageName);
             playerScore.Text = player_01.handValue.ToString();
 
@@ -305,6 +305,7 @@ namespace DavesBlackjack
             {
                 insuranceButton.Visible = true;
                 insuranceUpDown.Visible = true;
+                insuranceButton.Enabled = true;
                 insuranceUpDown.Value = 0;
                 insuranceUpDown.Maximum = betUpDown.Value / 2;
                 hitButton.Enabled = false;
@@ -316,7 +317,6 @@ namespace DavesBlackjack
 
         private void betButton_Click(object sender, EventArgs e)
         {
-
             betUpDown.Enabled = false;
             betButton.Enabled = false;
             RestartGame();
@@ -326,6 +326,7 @@ namespace DavesBlackjack
         {
             UnhideCard(dealerHand, houseDealer.CardList[1].imageName);
             insuranceButton.Visible = false;
+            insuranceButton.Enabled = false;
             insuranceUpDown.Visible = false;
             if (houseDealer.CardList[1].value == 10)
             {
@@ -340,11 +341,11 @@ namespace DavesBlackjack
                     msg = "House has a blackjack. Player losses. Insurance will be paid out. Play again?";
                     player_01.PlayerMoney -= betUpDown.Value;
                     player_01.PlayerMoney += 2 * insuranceUpDown.Value;
-                    dealerWins++;
+                    houseDealer.wins++;
                 }
                 playerBalance.Text = player_01.PlayerMoney.ToString();
-                wins.Text = playerWins.ToString();
-                losses.Text = dealerWins.ToString();
+                wins.Text = player_01.wins.ToString();
+                losses.Text = houseDealer.wins.ToString();
                 DialogResult result = MessageBox.Show(msg, "Game Over", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
@@ -403,29 +404,30 @@ namespace DavesBlackjack
         /// <param name="deck">List of Cards for the deck</param>
         /// <param name="bet">The amount bet on the game.(Not insurance)</param>
         /// <param name="beforeInsurance">A boolean value to determine what buttons to disable. Should be true if insurance is in play and the insurance bet hasnt been placed</param>
-        public void SetState(List<Card> dealerH, List<Card> playerH, List<Card> deck, int bet, bool beforeInsurance)
+        public void SetState(GameState gamestate)
         {
             //clearing images
             ClearCards(playerHand);
             ClearCards(dealerHand);
 
             //setting players hand
-            player_01.CardList = playerH;
+            player_01 = gamestate.player;
             for (int i = 0; i < player_01.CardList.Count; i++)
                 DealCard(playerHand, player_01.CardList[i].imageName);
             player_01.CalcuateCurrentHand();
             playerScore.Text = player_01.handValue.ToString();
+            wins.Text = player_01.wins.ToString();
 
             //setting dealers hand
-            houseDealer.CardList = dealerH;
+            houseDealer = gamestate.dealer;
             DealCard(dealerHand, houseDealer.CardList[0].imageName);
             HideCard(dealerHand, cardBack);
             houseDealer.CalcuateCurrentHand();
+            losses.Text = houseDealer.wins.ToString();
 
-            //setting the deck
-            Deck.SetDeck(deck);
-            betUpDown.Value = bet;
-
+            //setting the deck and bet
+            deck.SetDeck(gamestate.deck);
+            betUpDown.Value = gamestate.bet;
 
             //disabling buttons
             betUpDown.Enabled = false;
@@ -433,20 +435,22 @@ namespace DavesBlackjack
 
 
             //calling appropiate next step
-            if(beforeInsurance)
+            if(gamestate.beforeInsurance)
             {
                 insuranceButton.Visible = true;
                 insuranceUpDown.Visible = true;
-                
+                insuranceButton.Enabled = true;
 
                 insuranceUpDown.Value = 0;
                 insuranceUpDown.Maximum = betUpDown.Value / 2;
                 hitButton.Enabled = false;
                 stayButton.Enabled = false;
-               
             }
             else
             {
+                insuranceButton.Visible = false;
+                insuranceUpDown.Visible = false;
+                insuranceButton.Enabled = false;
                 if (houseDealer.CardList[0].value == 1)
                     UnhideCard(dealerHand, houseDealer.CardList[1].imageName);
                 hitButton.Enabled = true;
@@ -471,6 +475,12 @@ namespace DavesBlackjack
             if (insuranceUpDown.Value < insuranceUpDown.Minimum)
                 insuranceUpDown.Value = insuranceUpDown.Minimum;
             insuranceUpDown.Value = (int)insuranceUpDown.Value;
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            GameState gameState = new GameState(houseDealer, player_01, deck, betUpDown.Value, insuranceButton.Visible);
+            gameState.SaveGame(SaveFileName, SaveFilePath);
         }
     }
 }
