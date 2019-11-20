@@ -1,25 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Users>
-  <Username id="0" uName="Name" password="HASHEDPASSWORD">
-    <SecurityQuestion>
-      <Question></Question>
-      <Answer></Answer>
-    </SecurityQuestion>
+  <Username id="2" uName="nalietha" Password="uBDeam+rSa5cKQrflpvJn17h0E2Qj0evtGm/5+Rnm70HLhcv">
+    <PlayerName>nalietha</PlayerName>
+    <SecurityQuestions>
+      <Question>What was the house number and street name you lived in as a child?</Question>
+      <Answer>111, Fake Ave</Answer>
+    </SecurityQuestions>
     <PaymentInfo>
-      <CardNumber></CardNumber>
-      <NameOnCard></NameOnCard>
-      <SecurityCode></SecurityCode>
-      <ExpireDate></ExpireDate>
+      <CardNumber />
+      <NameOnCard />
+      <SecurityCode />
+      <ExpireDate />
     </PaymentInfo>
     <GamesWon>0</GamesWon>
-    <Cash>1000.00</Cash>
+    <Cash>0</Cash>
     <GameInProgress>
-      <Status>NO</Status>
-      <!--YES or NO-->
-      <SaveState>
-        <!--Add Cards array here-->
-      </SaveState>
+      <Status>false</Status>
+      <PlayerSave>
+        <SaveState />
+        <DealerSave />
+        <SaveState />
+      </PlayerSave>
     </GameInProgress>
   </Username>
-  
 </Users>
