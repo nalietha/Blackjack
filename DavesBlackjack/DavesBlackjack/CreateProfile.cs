@@ -155,13 +155,18 @@ namespace DavesBlackjack
             name = name.ToLower();
             var userExists = doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == name).Select(x => (string)x.Attribute("uName")).FirstOrDefault();
 
-
             if(userExists == null)
                 return false;
             else
                 return true;
         }
-
+        /// <summary>
+        /// Checks if there are any username errors present
+        /// </summary>
+        /// <returns>
+        /// true if there are errors
+        /// false if there are no errors
+        /// </returns>
         private bool CheckForUsernameErrors()
         {
             // Username
@@ -197,6 +202,13 @@ namespace DavesBlackjack
                 return false;
             }
         }
+        /// <summary>
+        /// Checks if there are password errors present.
+        /// </summary>
+        /// <returns>
+        /// true if there are errors
+        /// false if there are no errors
+        /// </returns>
         private bool CheckForPasswordErrors()
         {
             // Password Validation
@@ -234,6 +246,13 @@ namespace DavesBlackjack
                 return false;
             }
         }
+        /// <summary>
+        /// Checks for second password errors
+        /// </summary>
+        /// <returns>
+        /// true if there are errors
+        /// false if there are no errors
+        /// </returns>
         private bool CheckForConfirmErrors()
         {
             // Matches Second
@@ -252,6 +271,13 @@ namespace DavesBlackjack
                 return false;
             }
         }
+        /// <summary>
+        /// Checks if the user entred a secuirty error.
+        /// </summary>
+        /// <returns>
+        /// true if there are errors
+        /// false if there are no errors
+        /// </returns>
         private bool CheckForSecuirtyErrors()
         {
             // Security Question

@@ -71,7 +71,7 @@
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(149, 313);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(69, 28);
             this.btnCancel.TabIndex = 1;
@@ -105,6 +105,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(324, 20);
             this.tbPassword.TabIndex = 4;
+            this.tbPassword.UseSystemPasswordChar = true;
             // 
             // lblUsername
             // 
@@ -147,8 +148,10 @@
             this.tbPasswordConfirm.Location = new System.Drawing.Point(13, 186);
             this.tbPasswordConfirm.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbPasswordConfirm.Name = "tbPasswordConfirm";
+            this.tbPasswordConfirm.PasswordChar = '1';
             this.tbPasswordConfirm.Size = new System.Drawing.Size(324, 20);
             this.tbPasswordConfirm.TabIndex = 8;
+            this.tbPasswordConfirm.UseSystemPasswordChar = true;
             // 
             // cbSecurityQuestion
             // 
@@ -165,7 +168,7 @@
             "What is your spouse or partner\'s mother\'s maiden name?",
             "In what town or city did your mother and father meet?"});
             this.cbSecurityQuestion.Location = new System.Drawing.Point(13, 232);
-            this.cbSecurityQuestion.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cbSecurityQuestion.Margin = new System.Windows.Forms.Padding(1);
             this.cbSecurityQuestion.Name = "cbSecurityQuestion";
             this.cbSecurityQuestion.Size = new System.Drawing.Size(324, 21);
             this.cbSecurityQuestion.TabIndex = 9;
@@ -197,7 +200,7 @@
             // tbSecuirtyQuestionAnswer
             // 
             this.tbSecuirtyQuestionAnswer.Location = new System.Drawing.Point(13, 281);
-            this.tbSecuirtyQuestionAnswer.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.tbSecuirtyQuestionAnswer.Margin = new System.Windows.Forms.Padding(1);
             this.tbSecuirtyQuestionAnswer.Name = "tbSecuirtyQuestionAnswer";
             this.tbSecuirtyQuestionAnswer.Size = new System.Drawing.Size(321, 20);
             this.tbSecuirtyQuestionAnswer.TabIndex = 12;
@@ -271,7 +274,7 @@
             // 
             this.pnlUsername.BackColor = System.Drawing.Color.Red;
             this.pnlUsername.Location = new System.Drawing.Point(13, 92);
-            this.pnlUsername.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pnlUsername.Margin = new System.Windows.Forms.Padding(1);
             this.pnlUsername.Name = "pnlUsername";
             this.pnlUsername.Size = new System.Drawing.Size(322, 23);
             this.pnlUsername.TabIndex = 18;
@@ -280,7 +283,7 @@
             // btnDebugPopulate
             // 
             this.btnDebugPopulate.Location = new System.Drawing.Point(223, 344);
-            this.btnDebugPopulate.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.btnDebugPopulate.Margin = new System.Windows.Forms.Padding(1);
             this.btnDebugPopulate.Name = "btnDebugPopulate";
             this.btnDebugPopulate.Size = new System.Drawing.Size(111, 23);
             this.btnDebugPopulate.TabIndex = 19;
@@ -357,7 +360,7 @@
             this.Controls.Add(this.pnlConfirmPass);
             this.Controls.Add(this.pnlPassword);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CreateProfile";
