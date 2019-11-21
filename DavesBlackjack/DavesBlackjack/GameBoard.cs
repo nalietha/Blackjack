@@ -414,57 +414,64 @@ namespace DavesBlackjack
         /// <param name="beforeInsurance">A boolean value to determine what buttons to disable. Should be true if insurance is in play and the insurance bet hasnt been placed</param>
         public void SetState(GameState gamestate)
         {
-            //clearing images
-            ClearCards(playerHand);
-            ClearCards(dealerHand);
-
-            //setting players hand
-            player_01 = gamestate.player;
-            for (int i = 0; i < player_01.CardList.Count; i++)
-                DealCard(playerHand, player_01.CardList[i].imageName);
-            player_01.CalcuateCurrentHand();
-            playerScore.Text = player_01.handValue.ToString();
-            wins.Text = player_01.wins.ToString();
-
-            //setting dealers hand
-            houseDealer = gamestate.dealer;
-            DealCard(dealerHand, houseDealer.CardList[0].imageName);
-            HideCard(dealerHand, cardBack);
-            houseDealer.CalcuateCurrentHand();
-            losses.Text = houseDealer.wins.ToString();
-
-            //setting the deck and bet
-            deck.SetDeck(gamestate.deck);
-            betUpDown.Value = gamestate.bet;
-
-            //disabling buttons
-            betUpDown.Enabled = false;
-            betButton.Enabled = false;
-
-
-            //calling appropiate next step
-            if(gamestate.beforeInsurance)
+            if (gamestate.dealer.CardList.Count > 0 && gamestate.dealer.CardList.Count > 0)
             {
-                insuranceButton.Visible = true;
-                insuranceUpDown.Visible = true;
-                insuranceButton.Enabled = true;
+                //clearing images
+                ClearCards(playerHand);
+                ClearCards(dealerHand);
 
-                insuranceUpDown.Value = 0;
-                insuranceUpDown.Maximum = betUpDown.Value / 2;
-                hitButton.Enabled = false;
-                stayButton.Enabled = false;
+                //setting players hand
+                player_01 = gamestate.player;
+                for (int i = 0; i < player_01.CardList.Count; i++)
+                    DealCard(playerHand, player_01.CardList[i].imageName);
+                player_01.CalcuateCurrentHand();
+                playerScore.Text = player_01.handValue.ToString();
+                wins.Text = player_01.wins.ToString();
+
+                //setting dealers hand
+                houseDealer = gamestate.dealer;
+                DealCard(dealerHand, houseDealer.CardList[0].imageName);
+                HideCard(dealerHand, cardBack);
+                houseDealer.CalcuateCurrentHand();
+                losses.Text = houseDealer.wins.ToString();
+
+                //setting the deck and bet
+                deck.SetDeck(gamestate.deck);
+                betUpDown.Value = gamestate.bet;
+
+                //disabling buttons
+                betUpDown.Enabled = false;
+                betButton.Enabled = false;
+
+
+                //calling appropiate next step
+                if (gamestate.beforeInsurance)
+                {
+                    insuranceButton.Visible = true;
+                    insuranceUpDown.Visible = true;
+                    insuranceButton.Enabled = true;
+
+                    insuranceUpDown.Value = 0;
+                    insuranceUpDown.Maximum = betUpDown.Value / 2;
+                    hitButton.Enabled = false;
+                    stayButton.Enabled = false;
+                }
+                else
+                {
+                    insuranceButton.Visible = false;
+                    insuranceUpDown.Visible = false;
+                    insuranceButton.Enabled = false;
+                    if (houseDealer.CardList[0].value == 1)
+                        UnhideCard(dealerHand, houseDealer.CardList[1].imageName);
+                    hitButton.Enabled = true;
+                    stayButton.Enabled = true;
+                }
             }
             else
             {
-                insuranceButton.Visible = false;
-                insuranceUpDown.Visible = false;
-                insuranceButton.Enabled = false;
-                if (houseDealer.CardList[0].value == 1)
-                    UnhideCard(dealerHand, houseDealer.CardList[1].imageName);
-                hitButton.Enabled = true;
-                stayButton.Enabled = true;
+                betButton.Enabled = true;
+                playerBalance.Text = gamestate.player.PlayerMoney.ToString();
             }
-
         }
 
         private void betUpDown_ValueChanged(object sender, EventArgs e)
