@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DavesBlackjack.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,10 +19,13 @@ namespace DavesBlackjack
         {
             InitializeComponent();
         }
+
         
 
         private static string DatabaseFile = "..\\..\\Database.xml";
         XDocument doc = XDocument.Load(DatabaseFile);
+        // Command Object, Move to third sprint
+        // XMLCommands XCom = new XMLCommands();
 
         // Error Messages
         public string EMPTY_USER_NAME = "Please enter a username";
@@ -109,7 +113,11 @@ namespace DavesBlackjack
 
             }
             else
+            {
                 CreateNewUser();
+                PaymentInfo NewUser = new PaymentInfo();
+                NewUser.Show();
+            }
         }
         private bool CheckForErrors()
         {
@@ -140,22 +148,6 @@ namespace DavesBlackjack
         }
 
         /// <summary>
-        /// Finds if username exists in database
-        /// </summary>
-        /// <param name="name">Name to check for, make lowercase for seach compare. stored as userentered.</param>
-        /// <returns>boolen</returns>
-        private bool FindUser(string name)
-        {
-            name = name.ToLower();
-            var userExists = doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == name).Select(x => (string)x.Attribute("uName")).FirstOrDefault();
-
-            if(userExists == null)
-                return false;
-            else
-                return true;
-        }
-
-        /// <summary>
         /// Checks if there are any username errors present
         /// </summary>
         /// <returns>
@@ -182,7 +174,7 @@ namespace DavesBlackjack
                 return true;
             }
             // Check if username is already used (case insesitive)
-            else if (FindUser(tbUsername.Text))
+            else if (DoesUserExist(tbUsername.Text))
             {
                 lblUsernameError.Text = USER_ALREADY_EXISTS;
                 lblUsernameError.Visible = true;
@@ -197,6 +189,18 @@ namespace DavesBlackjack
                 return false;
             }
         }
+        public bool DoesUserExist(string username)
+        {
+            username = username.ToLower();
+            var userExists = doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == username).Select(x => (string)x.Attribute("uName")).FirstOrDefault();
+
+            if (userExists == null)
+                return false;
+            else
+                return true;
+        }
+
+
         /// <summary>
         /// Checks if there are password errors present.
         /// </summary>

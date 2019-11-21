@@ -15,17 +15,49 @@ namespace DavesBlackjack
         public PaymentInfo()
         {
             InitializeComponent();
+            this.CenterToParent();
         }
 
-        private void CheckForRequired()
+        private bool CheckForRequired()
         {
             // Card number
-
+            if(mtbCardNumber.Text == "" || mtbCardNumber.Text.Length > 16)
+            {
+                // Display errors
+            }
+            else
+            {
+                // Remove errors
+            }
             // CSC
+            if(mtbCSCNumber.Text == "" || mtbCSCNumber.Text.Length > 3)
+            {
+                // Display errors
+            }
+            else
+            {
+                // Remove errors
+            }
 
             // Name
+            if (tbName.Text == "")
+            {
+                // Display errors
+            }
+            else
+            {
+                // Remove errors
+            }
 
             // ExpireDate
+            if()
+            {
+                // Display errors
+            }
+            else
+            {
+                // Remove errors
+            }
 
             // Billing Address
 
@@ -48,6 +80,18 @@ namespace DavesBlackjack
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            if (CheckForRequired())
+            {
+                // Do nothing
+            }
+            else
+                AddPaymentInfo();
+
+
         }
     }
 }
