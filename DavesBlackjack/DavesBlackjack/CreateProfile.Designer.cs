@@ -52,6 +52,10 @@
             this.pnlQuestionAnswer = new System.Windows.Forms.Panel();
             this.pnlConfirmPass = new System.Windows.Forms.Panel();
             this.pnlPassword = new System.Windows.Forms.Panel();
+            this.lblDisplayEmail = new System.Windows.Forms.Label();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.lblEmailError = new System.Windows.Forms.Label();
+            this.pnlEmailError = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
@@ -69,7 +73,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(149, 313);
+            this.btnCancel.Location = new System.Drawing.Point(153, 371);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(69, 28);
@@ -80,7 +84,7 @@
             // 
             // btnCreateAccount
             // 
-            this.btnCreateAccount.Location = new System.Drawing.Point(223, 313);
+            this.btnCreateAccount.Location = new System.Drawing.Point(226, 371);
             this.btnCreateAccount.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnCreateAccount.Name = "btnCreateAccount";
             this.btnCreateAccount.Size = new System.Drawing.Size(111, 27);
@@ -91,19 +95,19 @@
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(13, 97);
+            this.tbUsername.Location = new System.Drawing.Point(16, 155);
             this.tbUsername.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(324, 20);
-            this.tbUsername.TabIndex = 3;
+            this.tbUsername.TabIndex = 2;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(13, 140);
+            this.tbPassword.Location = new System.Drawing.Point(16, 198);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(324, 20);
-            this.tbPassword.TabIndex = 4;
+            this.tbPassword.TabIndex = 3;
             this.tbPassword.UseSystemPasswordChar = true;
             // 
             // lblUsername
@@ -111,7 +115,7 @@
             this.lblUsername.AutoSize = true;
             this.lblUsername.BackColor = System.Drawing.Color.Transparent;
             this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(13, 77);
+            this.lblUsername.Location = new System.Drawing.Point(16, 135);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(58, 13);
@@ -123,7 +127,7 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword.ForeColor = System.Drawing.Color.White;
-            this.lblPassword.Location = new System.Drawing.Point(13, 122);
+            this.lblPassword.Location = new System.Drawing.Point(16, 180);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(56, 13);
@@ -135,7 +139,7 @@
             this.lblConfirmPassword.AutoSize = true;
             this.lblConfirmPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblConfirmPassword.ForeColor = System.Drawing.Color.White;
-            this.lblConfirmPassword.Location = new System.Drawing.Point(13, 169);
+            this.lblConfirmPassword.Location = new System.Drawing.Point(16, 227);
             this.lblConfirmPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblConfirmPassword.Name = "lblConfirmPassword";
             this.lblConfirmPassword.Size = new System.Drawing.Size(91, 13);
@@ -144,7 +148,7 @@
             // 
             // tbPasswordConfirm
             // 
-            this.tbPasswordConfirm.Location = new System.Drawing.Point(13, 186);
+            this.tbPasswordConfirm.Location = new System.Drawing.Point(16, 244);
             this.tbPasswordConfirm.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbPasswordConfirm.Name = "tbPasswordConfirm";
             this.tbPasswordConfirm.PasswordChar = '1';
@@ -156,28 +160,30 @@
             // 
             this.cbSecurityQuestion.FormattingEnabled = true;
             this.cbSecurityQuestion.Items.AddRange(new object[] {
-            "What was the house number and street name you lived in as a child?",
-            "What were the last four digits of your childhood telephone number?",
-            "What primary school did you attend?",
-            "In what town or city was your first full time job?",
+            "What was your first class with Tom?",
+            "What dorm did you stay in freshman year?",
             "In what town or city did you meet your spouse/partner?",
-            "What is the middle name of your oldest child?",
+            "In what town or city did your mother and father meet?",
+            "In what town or city was your first full time job?",
             "What are the last five digits of your driver\'s licence number?",
+            "What is the middle name of your oldest child?",
             "What is your grandmother\'s (on your mother\'s side) maiden name?",
             "What is your spouse or partner\'s mother\'s maiden name?",
-            "In what town or city did your mother and father meet?"});
-            this.cbSecurityQuestion.Location = new System.Drawing.Point(13, 232);
+            "What primary school did you attend?",
+            "What was the house number and street name you lived in as a child?",
+            "What were the last four digits of your childhood telephone number?"});
+            this.cbSecurityQuestion.Location = new System.Drawing.Point(16, 290);
             this.cbSecurityQuestion.Margin = new System.Windows.Forms.Padding(1);
             this.cbSecurityQuestion.Name = "cbSecurityQuestion";
             this.cbSecurityQuestion.Size = new System.Drawing.Size(324, 21);
-            this.cbSecurityQuestion.TabIndex = 9;
+            this.cbSecurityQuestion.TabIndex = 4;
             // 
             // lblSecuirtyQuestionChoice
             // 
             this.lblSecuirtyQuestionChoice.AutoSize = true;
             this.lblSecuirtyQuestionChoice.BackColor = System.Drawing.Color.Transparent;
             this.lblSecuirtyQuestionChoice.ForeColor = System.Drawing.Color.White;
-            this.lblSecuirtyQuestionChoice.Location = new System.Drawing.Point(13, 216);
+            this.lblSecuirtyQuestionChoice.Location = new System.Drawing.Point(16, 274);
             this.lblSecuirtyQuestionChoice.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblSecuirtyQuestionChoice.Name = "lblSecuirtyQuestionChoice";
             this.lblSecuirtyQuestionChoice.Size = new System.Drawing.Size(123, 13);
@@ -189,7 +195,7 @@
             this.lblSecurityQuestionAnswer.AutoSize = true;
             this.lblSecurityQuestionAnswer.BackColor = System.Drawing.Color.Transparent;
             this.lblSecurityQuestionAnswer.ForeColor = System.Drawing.Color.White;
-            this.lblSecurityQuestionAnswer.Location = new System.Drawing.Point(13, 263);
+            this.lblSecurityQuestionAnswer.Location = new System.Drawing.Point(16, 321);
             this.lblSecurityQuestionAnswer.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblSecurityQuestionAnswer.Name = "lblSecurityQuestionAnswer";
             this.lblSecurityQuestionAnswer.Size = new System.Drawing.Size(45, 13);
@@ -198,11 +204,11 @@
             // 
             // tbSecuirtyQuestionAnswer
             // 
-            this.tbSecuirtyQuestionAnswer.Location = new System.Drawing.Point(13, 281);
+            this.tbSecuirtyQuestionAnswer.Location = new System.Drawing.Point(16, 339);
             this.tbSecuirtyQuestionAnswer.Margin = new System.Windows.Forms.Padding(1);
             this.tbSecuirtyQuestionAnswer.Name = "tbSecuirtyQuestionAnswer";
             this.tbSecuirtyQuestionAnswer.Size = new System.Drawing.Size(321, 20);
-            this.tbSecuirtyQuestionAnswer.TabIndex = 12;
+            this.tbSecuirtyQuestionAnswer.TabIndex = 5;
             this.tbSecuirtyQuestionAnswer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSecuirtyQuestionAnswer_KeyDown);
             // 
             // lblUsernameError
@@ -210,7 +216,7 @@
             this.lblUsernameError.AutoSize = true;
             this.lblUsernameError.BackColor = System.Drawing.Color.Transparent;
             this.lblUsernameError.ForeColor = System.Drawing.Color.White;
-            this.lblUsernameError.Location = new System.Drawing.Point(337, 93);
+            this.lblUsernameError.Location = new System.Drawing.Point(340, 151);
             this.lblUsernameError.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblUsernameError.Name = "lblUsernameError";
             this.lblUsernameError.Size = new System.Drawing.Size(14, 13);
@@ -223,7 +229,7 @@
             this.lblPasswordError.AutoSize = true;
             this.lblPasswordError.BackColor = System.Drawing.Color.Transparent;
             this.lblPasswordError.ForeColor = System.Drawing.Color.White;
-            this.lblPasswordError.Location = new System.Drawing.Point(339, 140);
+            this.lblPasswordError.Location = new System.Drawing.Point(342, 198);
             this.lblPasswordError.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblPasswordError.Name = "lblPasswordError";
             this.lblPasswordError.Size = new System.Drawing.Size(14, 13);
@@ -236,7 +242,7 @@
             this.lblConfirmError.AutoSize = true;
             this.lblConfirmError.BackColor = System.Drawing.Color.Transparent;
             this.lblConfirmError.ForeColor = System.Drawing.Color.White;
-            this.lblConfirmError.Location = new System.Drawing.Point(339, 186);
+            this.lblConfirmError.Location = new System.Drawing.Point(342, 244);
             this.lblConfirmError.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblConfirmError.Name = "lblConfirmError";
             this.lblConfirmError.Size = new System.Drawing.Size(14, 13);
@@ -249,7 +255,7 @@
             this.lblSecuirtyQuestionError.AutoSize = true;
             this.lblSecuirtyQuestionError.BackColor = System.Drawing.Color.Transparent;
             this.lblSecuirtyQuestionError.ForeColor = System.Drawing.Color.White;
-            this.lblSecuirtyQuestionError.Location = new System.Drawing.Point(339, 281);
+            this.lblSecuirtyQuestionError.Location = new System.Drawing.Point(342, 339);
             this.lblSecuirtyQuestionError.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblSecuirtyQuestionError.Name = "lblSecuirtyQuestionError";
             this.lblSecuirtyQuestionError.Size = new System.Drawing.Size(14, 13);
@@ -262,7 +268,7 @@
             this.lblSelectSecuirtyError.AutoSize = true;
             this.lblSelectSecuirtyError.BackColor = System.Drawing.Color.Transparent;
             this.lblSelectSecuirtyError.ForeColor = System.Drawing.Color.White;
-            this.lblSelectSecuirtyError.Location = new System.Drawing.Point(337, 233);
+            this.lblSelectSecuirtyError.Location = new System.Drawing.Point(340, 291);
             this.lblSelectSecuirtyError.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblSelectSecuirtyError.Name = "lblSelectSecuirtyError";
             this.lblSelectSecuirtyError.Size = new System.Drawing.Size(14, 13);
@@ -273,7 +279,7 @@
             // pnlUsername
             // 
             this.pnlUsername.BackColor = System.Drawing.Color.Red;
-            this.pnlUsername.Location = new System.Drawing.Point(13, 92);
+            this.pnlUsername.Location = new System.Drawing.Point(16, 150);
             this.pnlUsername.Margin = new System.Windows.Forms.Padding(1);
             this.pnlUsername.Name = "pnlUsername";
             this.pnlUsername.Size = new System.Drawing.Size(322, 23);
@@ -293,7 +299,7 @@
             // pnlQuestionAnswer
             // 
             this.pnlQuestionAnswer.BackColor = System.Drawing.Color.Red;
-            this.pnlQuestionAnswer.Location = new System.Drawing.Point(13, 277);
+            this.pnlQuestionAnswer.Location = new System.Drawing.Point(16, 335);
             this.pnlQuestionAnswer.Name = "pnlQuestionAnswer";
             this.pnlQuestionAnswer.Size = new System.Drawing.Size(321, 23);
             this.pnlQuestionAnswer.TabIndex = 20;
@@ -302,7 +308,7 @@
             // pnlConfirmPass
             // 
             this.pnlConfirmPass.BackColor = System.Drawing.Color.Red;
-            this.pnlConfirmPass.Location = new System.Drawing.Point(13, 182);
+            this.pnlConfirmPass.Location = new System.Drawing.Point(16, 240);
             this.pnlConfirmPass.Name = "pnlConfirmPass";
             this.pnlConfirmPass.Size = new System.Drawing.Size(324, 20);
             this.pnlConfirmPass.TabIndex = 21;
@@ -311,11 +317,54 @@
             // pnlPassword
             // 
             this.pnlPassword.BackColor = System.Drawing.Color.Red;
-            this.pnlPassword.Location = new System.Drawing.Point(13, 136);
+            this.pnlPassword.Location = new System.Drawing.Point(16, 194);
             this.pnlPassword.Name = "pnlPassword";
             this.pnlPassword.Size = new System.Drawing.Size(324, 18);
             this.pnlPassword.TabIndex = 22;
             this.pnlPassword.Visible = false;
+            // 
+            // lblDisplayEmail
+            // 
+            this.lblDisplayEmail.AutoSize = true;
+            this.lblDisplayEmail.BackColor = System.Drawing.Color.Transparent;
+            this.lblDisplayEmail.ForeColor = System.Drawing.Color.White;
+            this.lblDisplayEmail.Location = new System.Drawing.Point(13, 79);
+            this.lblDisplayEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDisplayEmail.Name = "lblDisplayEmail";
+            this.lblDisplayEmail.Size = new System.Drawing.Size(35, 13);
+            this.lblDisplayEmail.TabIndex = 24;
+            this.lblDisplayEmail.Text = "Email:";
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.Location = new System.Drawing.Point(16, 100);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(324, 20);
+            this.tbEmail.TabIndex = 1;
+            // 
+            // lblEmailError
+            // 
+            this.lblEmailError.AutoSize = true;
+            this.lblEmailError.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmailError.ForeColor = System.Drawing.Color.White;
+            this.lblEmailError.Location = new System.Drawing.Point(340, 96);
+            this.lblEmailError.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.lblEmailError.Name = "lblEmailError";
+            this.lblEmailError.Size = new System.Drawing.Size(14, 13);
+            this.lblEmailError.TabIndex = 26;
+            this.lblEmailError.Text = "X";
+            this.lblEmailError.Visible = false;
+            // 
+            // pnlEmailError
+            // 
+            this.pnlEmailError.BackColor = System.Drawing.Color.Red;
+            this.pnlEmailError.Location = new System.Drawing.Point(16, 95);
+            this.pnlEmailError.Margin = new System.Windows.Forms.Padding(1);
+            this.pnlEmailError.Name = "pnlEmailError";
+            this.pnlEmailError.Size = new System.Drawing.Size(322, 23);
+            this.pnlEmailError.TabIndex = 27;
+            this.pnlEmailError.Visible = false;
             // 
             // CreateProfile
             // 
@@ -325,6 +374,10 @@
             this.BackgroundImage = global::DavesBlackjack.Properties.Resources.profilescreen;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(551, 434);
+            this.Controls.Add(this.tbEmail);
+            this.Controls.Add(this.lblEmailError);
+            this.Controls.Add(this.pnlEmailError);
+            this.Controls.Add(this.lblDisplayEmail);
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.lblSelectSecuirtyError);
             this.Controls.Add(this.lblSecuirtyQuestionError);
@@ -384,5 +437,9 @@
         private System.Windows.Forms.Panel pnlQuestionAnswer;
         private System.Windows.Forms.Panel pnlConfirmPass;
         private System.Windows.Forms.Panel pnlPassword;
+        private System.Windows.Forms.Label lblDisplayEmail;
+        private System.Windows.Forms.TextBox tbEmail;
+        private System.Windows.Forms.Label lblEmailError;
+        private System.Windows.Forms.Panel pnlEmailError;
     }
 }

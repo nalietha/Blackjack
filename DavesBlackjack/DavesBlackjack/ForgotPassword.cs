@@ -86,9 +86,9 @@ namespace DavesBlackjack
 
         private void btnSQEnter_Click(object sender, EventArgs e)
         {
-            if(GetUserSecurityAnswer(tbUsernameRecovery.Text.ToLower()) == tbSQAnswer.Text.ToLower()))
+            if(GetUserSecurityAnswer(tbUsernameRecovery.Text.ToLower()) == tbSQAnswer.Text.ToLower())
             {
-                lblPassword.Text = GetPassword
+                
                 pnlPasswordDisplay.Visible = true;
             }
         }

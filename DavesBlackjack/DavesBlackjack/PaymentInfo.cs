@@ -17,6 +17,28 @@ namespace DavesBlackjack
             InitializeComponent();
         }
 
+        private void CheckForRequired()
+        {
+            // Card number
+
+            // CSC
+
+            // Name
+
+            // ExpireDate
+
+            // Billing Address
+
+            // City
+
+            // State
+
+            // Zip
+
+            // Email
+
+
+        }
 
 
 

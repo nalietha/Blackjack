@@ -41,13 +41,13 @@
             this.lblSQError = new System.Windows.Forms.Label();
             this.pnlSecurityQuestionError = new System.Windows.Forms.Panel();
             this.pnlPasswordDisplay = new System.Windows.Forms.Panel();
-            this.lblUserErrorDisplay = new System.Windows.Forms.Label();
-            this.pnlUsername = new System.Windows.Forms.Panel();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.lblPasswordError = new System.Windows.Forms.Label();
             this.btnChangePass = new System.Windows.Forms.Button();
             this.tbChangePass = new System.Windows.Forms.TextBox();
             this.pnlChangePasswordError = new System.Windows.Forms.Panel();
-            this.lblPasswordError = new System.Windows.Forms.Label();
+            this.lblUserErrorDisplay = new System.Windows.Forms.Label();
+            this.pnlUsername = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.pnlSecQuestions.SuspendLayout();
             this.pnlPasswordDisplay.SuspendLayout();
             this.SuspendLayout();
@@ -181,6 +181,42 @@
             this.pnlPasswordDisplay.TabIndex = 11;
             this.pnlPasswordDisplay.Visible = false;
             // 
+            // lblPasswordError
+            // 
+            this.lblPasswordError.AutoSize = true;
+            this.lblPasswordError.ForeColor = System.Drawing.Color.Red;
+            this.lblPasswordError.Location = new System.Drawing.Point(324, 33);
+            this.lblPasswordError.Name = "lblPasswordError";
+            this.lblPasswordError.Size = new System.Drawing.Size(14, 13);
+            this.lblPasswordError.TabIndex = 17;
+            this.lblPasswordError.Text = "X";
+            this.lblPasswordError.Visible = false;
+            // 
+            // btnChangePass
+            // 
+            this.btnChangePass.Location = new System.Drawing.Point(245, 24);
+            this.btnChangePass.Name = "btnChangePass";
+            this.btnChangePass.Size = new System.Drawing.Size(75, 23);
+            this.btnChangePass.TabIndex = 18;
+            this.btnChangePass.Text = "Enter";
+            this.btnChangePass.UseVisualStyleBackColor = true;
+            // 
+            // tbChangePass
+            // 
+            this.tbChangePass.Location = new System.Drawing.Point(13, 26);
+            this.tbChangePass.Name = "tbChangePass";
+            this.tbChangePass.Size = new System.Drawing.Size(226, 20);
+            this.tbChangePass.TabIndex = 17;
+            // 
+            // pnlChangePasswordError
+            // 
+            this.pnlChangePasswordError.BackColor = System.Drawing.Color.Red;
+            this.pnlChangePasswordError.Location = new System.Drawing.Point(13, 22);
+            this.pnlChangePasswordError.Name = "pnlChangePasswordError";
+            this.pnlChangePasswordError.Size = new System.Drawing.Size(226, 15);
+            this.pnlChangePasswordError.TabIndex = 19;
+            this.pnlChangePasswordError.Visible = false;
+            // 
             // lblUserErrorDisplay
             // 
             this.lblUserErrorDisplay.AutoSize = true;
@@ -210,42 +246,6 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnChangePass
-            // 
-            this.btnChangePass.Location = new System.Drawing.Point(245, 24);
-            this.btnChangePass.Name = "btnChangePass";
-            this.btnChangePass.Size = new System.Drawing.Size(75, 23);
-            this.btnChangePass.TabIndex = 18;
-            this.btnChangePass.Text = "Enter";
-            this.btnChangePass.UseVisualStyleBackColor = true;
-            // 
-            // tbChangePass
-            // 
-            this.tbChangePass.Location = new System.Drawing.Point(13, 26);
-            this.tbChangePass.Name = "tbChangePass";
-            this.tbChangePass.Size = new System.Drawing.Size(226, 20);
-            this.tbChangePass.TabIndex = 17;
-            // 
-            // pnlChangePasswordError
-            // 
-            this.pnlChangePasswordError.BackColor = System.Drawing.Color.Red;
-            this.pnlChangePasswordError.Location = new System.Drawing.Point(13, 22);
-            this.pnlChangePasswordError.Name = "pnlChangePasswordError";
-            this.pnlChangePasswordError.Size = new System.Drawing.Size(226, 15);
-            this.pnlChangePasswordError.TabIndex = 19;
-            this.pnlChangePasswordError.Visible = false;
-            // 
-            // lblPasswordError
-            // 
-            this.lblPasswordError.AutoSize = true;
-            this.lblPasswordError.ForeColor = System.Drawing.Color.Red;
-            this.lblPasswordError.Location = new System.Drawing.Point(324, 33);
-            this.lblPasswordError.Name = "lblPasswordError";
-            this.lblPasswordError.Size = new System.Drawing.Size(39, 13);
-            this.lblPasswordError.TabIndex = 17;
-            this.lblPasswordError.Text = "Wrong";
-            this.lblPasswordError.Visible = false;
             // 
             // ForgotPassword
             // 
