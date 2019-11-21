@@ -215,6 +215,8 @@ namespace DavesBlackjack
                 betUpDown.Enabled = true;
                 betButton.Enabled = true;
                 betUpDown.Maximum = player_01.PlayerMoney;
+                ClearCards(dealerHand);
+                ClearCards(playerHand);
             }
             else
                 this.Close();
@@ -373,8 +375,10 @@ namespace DavesBlackjack
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            ProfileInfo profileInfo = new ProfileInfo();
+            ProfileInfo profileInfo = new ProfileInfo(player_01);
+
             profileInfo.ShowDialog();
+            playerBalance.Text = "$" + player_01.PlayerMoney.ToString();
         }
 
         private void muteButton_Click(object sender, EventArgs e)
@@ -463,15 +467,20 @@ namespace DavesBlackjack
         {
             if (betUpDown.Value > betUpDown.Maximum)
                 betUpDown.Value = betUpDown.Maximum;
+            if(betUpDown.Value > player_01.PlayerMoney)
+                betUpDown.Value = player_01.PlayerMoney;
             if (betUpDown.Value < betUpDown.Minimum)
                 betUpDown.Value = betUpDown.Minimum;
             betUpDown.Value = (int)betUpDown.Value;
+            
         }
 
         private void insuranceUpDown_ValueChanged(object sender, EventArgs e)
         {
             if (insuranceUpDown.Value > insuranceUpDown.Maximum)
                 insuranceUpDown.Value = insuranceUpDown.Maximum;
+            if (insuranceUpDown.Value > player_01.PlayerMoney)
+                insuranceUpDown.Value = player_01.PlayerMoney;
             if (insuranceUpDown.Value < insuranceUpDown.Minimum)
                 insuranceUpDown.Value = insuranceUpDown.Minimum;
             insuranceUpDown.Value = (int)insuranceUpDown.Value;
