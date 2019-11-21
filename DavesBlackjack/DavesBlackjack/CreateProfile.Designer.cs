@@ -114,7 +114,6 @@
             this.lblUsername.Size = new System.Drawing.Size(108, 25);
             this.lblUsername.TabIndex = 5;
             this.lblUsername.Text = "Username:";
-            this.lblUsername.Click += new System.EventHandler(this.LblUsername_Click);
             // 
             // lblPassword
             // 
@@ -127,7 +126,6 @@
             this.lblPassword.Size = new System.Drawing.Size(104, 25);
             this.lblPassword.TabIndex = 6;
             this.lblPassword.Text = "Password:";
-            this.lblPassword.Click += new System.EventHandler(this.LblPassword_Click);
             // 
             // lblConfirmPassword
             // 
@@ -140,7 +138,6 @@
             this.lblConfirmPassword.Size = new System.Drawing.Size(171, 25);
             this.lblConfirmPassword.TabIndex = 7;
             this.lblConfirmPassword.Text = "Confirm Password";
-            this.lblConfirmPassword.Click += new System.EventHandler(this.LblConfirmPassword_Click);
             // 
             // tbPasswordConfirm
             // 
@@ -181,7 +178,6 @@
             this.lblSecuirtyQuestionChoice.Size = new System.Drawing.Size(227, 25);
             this.lblSecuirtyQuestionChoice.TabIndex = 10;
             this.lblSecuirtyQuestionChoice.Text = "Select Secuirty Question";
-            this.lblSecuirtyQuestionChoice.Click += new System.EventHandler(this.LblSecuirtyQuestionChoice_Click);
             // 
             // lblSecurityQuestionAnswer
             // 
@@ -194,7 +190,6 @@
             this.lblSecurityQuestionAnswer.Size = new System.Drawing.Size(84, 25);
             this.lblSecurityQuestionAnswer.TabIndex = 11;
             this.lblSecurityQuestionAnswer.Text = "Answer:";
-            this.lblSecurityQuestionAnswer.Click += new System.EventHandler(this.LblSecurityQuestionAnswer_Click);
             // 
             // tbSecuirtyQuestionAnswer
             // 
@@ -216,7 +211,6 @@
             this.lblUsernameError.TabIndex = 13;
             this.lblUsernameError.Text = "X";
             this.lblUsernameError.Visible = false;
-            this.lblUsernameError.Click += new System.EventHandler(this.LblUsernameError_Click);
             // 
             // lblPasswordError
             // 
