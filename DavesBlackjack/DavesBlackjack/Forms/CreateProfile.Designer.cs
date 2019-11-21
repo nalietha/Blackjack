@@ -77,7 +77,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(69, 28);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.backButton_Click);
@@ -88,7 +88,7 @@
             this.btnCreateAccount.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnCreateAccount.Name = "btnCreateAccount";
             this.btnCreateAccount.Size = new System.Drawing.Size(111, 27);
-            this.btnCreateAccount.TabIndex = 2;
+            this.btnCreateAccount.TabIndex = 7;
             this.btnCreateAccount.Text = "Create";
             this.btnCreateAccount.UseVisualStyleBackColor = true;
             this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
@@ -153,7 +153,7 @@
             this.tbPasswordConfirm.Name = "tbPasswordConfirm";
             this.tbPasswordConfirm.PasswordChar = '1';
             this.tbPasswordConfirm.Size = new System.Drawing.Size(324, 20);
-            this.tbPasswordConfirm.TabIndex = 8;
+            this.tbPasswordConfirm.TabIndex = 4;
             this.tbPasswordConfirm.UseSystemPasswordChar = true;
             // 
             // cbSecurityQuestion
@@ -176,7 +176,7 @@
             this.cbSecurityQuestion.Margin = new System.Windows.Forms.Padding(1);
             this.cbSecurityQuestion.Name = "cbSecurityQuestion";
             this.cbSecurityQuestion.Size = new System.Drawing.Size(324, 21);
-            this.cbSecurityQuestion.TabIndex = 4;
+            this.cbSecurityQuestion.TabIndex = 5;
             // 
             // lblSecuirtyQuestionChoice
             // 
@@ -208,7 +208,7 @@
             this.tbSecuirtyQuestionAnswer.Margin = new System.Windows.Forms.Padding(1);
             this.tbSecuirtyQuestionAnswer.Name = "tbSecuirtyQuestionAnswer";
             this.tbSecuirtyQuestionAnswer.Size = new System.Drawing.Size(321, 20);
-            this.tbSecuirtyQuestionAnswer.TabIndex = 5;
+            this.tbSecuirtyQuestionAnswer.TabIndex = 6;
             this.tbSecuirtyQuestionAnswer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSecuirtyQuestionAnswer_KeyDown);
             // 
             // lblUsernameError

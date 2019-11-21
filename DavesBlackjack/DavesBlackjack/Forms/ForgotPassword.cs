@@ -22,6 +22,10 @@ namespace DavesBlackjack
         }
         public static string USERNAME_EMPTY = "Please enter a username.";
         public static string USERNAME_NOT_FOUND = "Username does not exist.";
+        public static string PASSWORD_EMPTY = "New password cannot be blank.";
+        public static string PASSWORD_INVALID_CHARECTORS = "Password cannot contain spaces";
+        public static string PASSWORD_TOO_SHORT = "Password must be longer then 8 characters";
+
 
         private static string DatabaseFile = "..\\..\\Database.xml";
         static XDocument doc = XDocument.Load(DatabaseFile);
@@ -29,14 +33,12 @@ namespace DavesBlackjack
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            if (CheckUsernameErrors())
+            if (!CheckUsernameErrors())
             {
                 // Fix Errors
-            }
-            else
-            {
                 lblSecurityQuestion.Text = GetUserSecurityQuestion(tbUsernameRecovery.Text.ToLower());
                 pnlSecQuestions.Visible = true;
+                tbSQAnswer.Focus();
             }
         }
 
@@ -67,8 +69,37 @@ namespace DavesBlackjack
             }
 
         }
-
-
+        public bool CheckNewPasswordErrors()
+        {
+            // Empty Check
+            if (tbChangePass.Text == "")
+            {
+                pnlChangePasswordError.Visible = true;
+                lblPasswordError.Text = PASSWORD_EMPTY;
+                lblPasswordError.Visible = true;
+                return true;
+            }
+            else if (tbChangePass.Text.Contains(" "))
+            {
+                pnlChangePasswordError.Visible = true;
+                lblPasswordError.Text = PASSWORD_INVALID_CHARECTORS;
+                lblPasswordError.Visible = true;
+                return true;
+            }
+            else if (tbChangePass.Text.Length < 8)
+            {
+                pnlChangePasswordError.Visible = true;
+                lblPasswordError.Text = PASSWORD_TOO_SHORT;
+                lblPasswordError.Visible = true;
+                return true;
+            }
+            else
+            {
+                pnlChangePasswordError.Visible = false;
+                lblPasswordError.Visible = false;
+                return false;
+            }
+        }
 
         private bool UserExists(string username)
         {
@@ -80,6 +111,14 @@ namespace DavesBlackjack
                 return false;
         }
 
+        private void ChangePassword()
+        {
+            throw new NotImplementedException();
+            // Display Message saying password has been changed
+            //close form
+            this.Close();
+        }
+
 
         private string GetUserSecurityQuestion(string username)=> doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == username).Select(x => (string)x.Element("SecurityQuestions").Element("Question")).FirstOrDefault();
         private string GetUserSecurityAnswer(string username) => doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == username).Select(x => (string)x.Element("SecurityQuestions").Element("Answer")).FirstOrDefault();
@@ -88,17 +127,19 @@ namespace DavesBlackjack
         {
             if(GetUserSecurityAnswer(tbUsernameRecovery.Text.ToLower()) == tbSQAnswer.Text.ToLower())
             {
-                
                 pnlPasswordDisplay.Visible = true;
+                tbSQAnswer.ReadOnly = true;
+                tbChangePass.Focus();
+                pnlSecurityQuestionError.Visible = false;
+                lblSQError.Visible = false;
+            }
+            else
+            {
+                pnlSecurityQuestionError.Visible = true;
+                lblSQError.Visible = true;
             }
         }
-        private bool CheckAnswer()
-        {
-            // Empty Check
 
-            // Compare to saved answer
-            throw new NotImplementedException();
-        }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -117,9 +158,22 @@ namespace DavesBlackjack
                 btnSQEnter.PerformClick();
         }
 
+        private void tbChangePass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnChangePass.PerformClick();
+        }
 
+        private void btnChangePass_Click(object sender, EventArgs e)
+        {
+            if(!CheckNewPasswordErrors())
+            {
+                pnlChangePasswordError.Visible = false;
+                lblPasswordError.Visible = false;
+                //ChangePassword()
 
+            }
 
-
+        }
     }
 }

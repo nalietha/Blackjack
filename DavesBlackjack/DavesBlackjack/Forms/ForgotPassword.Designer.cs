@@ -200,6 +200,7 @@
             this.btnChangePass.TabIndex = 18;
             this.btnChangePass.Text = "Enter";
             this.btnChangePass.UseVisualStyleBackColor = true;
+            this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
             // 
             // tbChangePass
             // 
@@ -207,6 +208,8 @@
             this.tbChangePass.Name = "tbChangePass";
             this.tbChangePass.Size = new System.Drawing.Size(226, 20);
             this.tbChangePass.TabIndex = 17;
+            this.tbChangePass.UseSystemPasswordChar = true;
+            this.tbChangePass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbChangePass_KeyDown);
             // 
             // pnlChangePasswordError
             // 

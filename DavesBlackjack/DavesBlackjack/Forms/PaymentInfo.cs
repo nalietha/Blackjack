@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace DavesBlackjack
 {
@@ -18,45 +19,55 @@ namespace DavesBlackjack
             this.CenterToParent();
         }
 
+        XDocument doc = XDocument.Load("..\\..\\Database.xml");
+
         private bool CheckForRequired()
         {
             // Card number
             if(mtbCardNumber.Text == "" || mtbCardNumber.Text.Length > 16)
             {
                 // Display errors
+                return true;
             }
             else
             {
                 // Remove errors
+                return false;
             }
             // CSC
-            if(mtbCSCNumber.Text == "" || mtbCSCNumber.Text.Length > 3)
+            if (mtbCSCNumber.Text == "" || mtbCSCNumber.Text.Length > 3)
             {
                 // Display errors
+                return true;
             }
             else
             {
                 // Remove errors
+                return false;
             }
 
             // Name
             if (tbName.Text == "")
             {
                 // Display errors
+                return true;
             }
             else
             {
                 // Remove errors
+                return false;
             }
 
             // ExpireDate
-            if()
+            if (mtbExpires.Text == "")
             {
                 // Display errors
+                return true;
             }
             else
             {
                 // Remove errors
+                return false;
             }
 
             // Billing Address
@@ -93,5 +104,16 @@ namespace DavesBlackjack
 
 
         }
+        private void AddPaymentInfo()
+        {
+            // get all payment info
+            //XElement UserInfo = doc.Descendants("Username")
+            //    .Where(x => (string)x.Attribute("uName") == username)
+            //    .Select(x => (string)x.Element("SecurityQuestions")
+            //    .Element("Answer")).FirstOrDefault();
+
+
+        }
+
     }
 }
