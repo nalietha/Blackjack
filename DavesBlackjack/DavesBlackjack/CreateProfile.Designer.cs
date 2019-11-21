@@ -48,7 +48,6 @@
             this.lblSecuirtyQuestionError = new System.Windows.Forms.Label();
             this.lblSelectSecuirtyError = new System.Windows.Forms.Label();
             this.pnlUsername = new System.Windows.Forms.Panel();
-            this.btnDebugPopulate = new System.Windows.Forms.Button();
             this.lblErrorsExist = new System.Windows.Forms.Label();
             this.pnlQuestionAnswer = new System.Windows.Forms.Panel();
             this.pnlConfirmPass = new System.Windows.Forms.Panel();
@@ -204,6 +203,7 @@
             this.tbSecuirtyQuestionAnswer.Name = "tbSecuirtyQuestionAnswer";
             this.tbSecuirtyQuestionAnswer.Size = new System.Drawing.Size(321, 20);
             this.tbSecuirtyQuestionAnswer.TabIndex = 12;
+            this.tbSecuirtyQuestionAnswer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSecuirtyQuestionAnswer_KeyDown);
             // 
             // lblUsernameError
             // 
@@ -280,17 +280,6 @@
             this.pnlUsername.TabIndex = 18;
             this.pnlUsername.Visible = false;
             // 
-            // btnDebugPopulate
-            // 
-            this.btnDebugPopulate.Location = new System.Drawing.Point(223, 344);
-            this.btnDebugPopulate.Margin = new System.Windows.Forms.Padding(1);
-            this.btnDebugPopulate.Name = "btnDebugPopulate";
-            this.btnDebugPopulate.Size = new System.Drawing.Size(111, 23);
-            this.btnDebugPopulate.TabIndex = 19;
-            this.btnDebugPopulate.Text = "Populate";
-            this.btnDebugPopulate.UseVisualStyleBackColor = true;
-            this.btnDebugPopulate.Click += new System.EventHandler(this.btnDebugPopulate_Click);
-            // 
             // lblErrorsExist
             // 
             this.lblErrorsExist.AutoSize = true;
@@ -337,7 +326,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(551, 434);
             this.Controls.Add(this.tbUsername);
-            this.Controls.Add(this.btnDebugPopulate);
             this.Controls.Add(this.lblSelectSecuirtyError);
             this.Controls.Add(this.lblSecuirtyQuestionError);
             this.Controls.Add(this.lblConfirmError);
@@ -392,7 +380,6 @@
         private System.Windows.Forms.Label lblSecuirtyQuestionError;
         private System.Windows.Forms.Label lblSelectSecuirtyError;
         private System.Windows.Forms.Panel pnlUsername;
-        private System.Windows.Forms.Button btnDebugPopulate;
         private System.Windows.Forms.Label lblErrorsExist;
         private System.Windows.Forms.Panel pnlQuestionAnswer;
         private System.Windows.Forms.Panel pnlConfirmPass;

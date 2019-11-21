@@ -35,14 +35,6 @@ namespace DavesBlackjack
         public string FIX_ERRORS = "Fix Highlighted errors.";
 
 
-        public void DebugUser()
-        {
-            tbUsername.Text = "default";
-            tbPassword.Text = "Password1!";
-            tbPasswordConfirm.Text = "Password1!";
-            tbSecuirtyQuestionAnswer.Text = "Answer";
-        }
-
 
         private void backButton_Click(object sender, EventArgs e)
         {
@@ -61,7 +53,7 @@ namespace DavesBlackjack
                 new XElement("PlayerName", tbUsername.Text),
                 new XElement("SecurityQuestions",
                     new XElement("Question", cbSecurityQuestion.Text ),
-                    new XElement("Answer", tbSecuirtyQuestionAnswer.Text)),
+                    new XElement("Answer", tbSecuirtyQuestionAnswer.Text.ToLower())),
                 new XElement("PaymentInfo",
                     new XElement("CardNumber", null),
                     new XElement("NameOnCard", null),
@@ -82,7 +74,7 @@ namespace DavesBlackjack
             doc.Save(DatabaseFile);
 
             // If any errors are present, return "Failure" with msg.
-            MessageBox.Show("User Created!", "Successfully created user " + tbUsername.Text);
+            MessageBox.Show("Successfully created user " + tbUsername.Text, "User Created!" );
             this.Close();
             return "Success";
         }
@@ -121,14 +113,16 @@ namespace DavesBlackjack
         }
         private bool CheckForErrors()
         {
-            //CheckForUsernameErrors();
-            //CheckForPasswordErrors();
-            //CheckForConfirmErrors();
-            //CheckForSecuirtyErrors();
+
 
             // check if errors exist
             if ( CheckForUsernameErrors() || CheckForPasswordErrors() || CheckForConfirmErrors() || CheckForSecuirtyErrors() )
             {
+                // Run though error checks to display all errors
+                CheckForUsernameErrors();
+                CheckForPasswordErrors();
+                CheckForConfirmErrors();
+                CheckForSecuirtyErrors();
                 //btnCreateAccount.Enabled = false;
                 return true;
             }
@@ -160,6 +154,7 @@ namespace DavesBlackjack
             else
                 return true;
         }
+
         /// <summary>
         /// Checks if there are any username errors present
         /// </summary>
@@ -216,7 +211,7 @@ namespace DavesBlackjack
             {
                 // Password
                 // Not Empty
-                lblPasswordError.Text = PASSWORD_MISMATCH;
+                lblPasswordError.Text = PASSWORD_EMPTY;
                 lblPasswordError.Visible = true;
                 pnlPassword.Visible = true;
                 return true;
@@ -297,9 +292,12 @@ namespace DavesBlackjack
             }
         }
 
-        private void btnDebugPopulate_Click(object sender, EventArgs e)
+        private void tbSecuirtyQuestionAnswer_KeyDown(object sender, KeyEventArgs e)
         {
-            DebugUser();
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnCreateAccount.PerformClick();
+            }
         }
     }
 }

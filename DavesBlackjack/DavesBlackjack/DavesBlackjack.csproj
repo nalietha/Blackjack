@@ -55,6 +55,12 @@
     </Compile>
     <Compile Include="Deck.cs" />
     <Compile Include="Dealer.cs" />
+    <Compile Include="ForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.Designer.cs">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,12 @@
       <DependentUpon>GameBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Music.cs" />
+    <Compile Include="PaymentInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentInfo.Designer.cs">
+      <DependentUpon>PaymentInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="ProfileInfo.cs">
       <SubType>Form</SubType>
@@ -80,8 +92,14 @@
     <EmbeddedResource Include="CreateProfile.resx">
       <DependentUpon>CreateProfile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ForgotPassword.resx">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GameBoard.resx">
       <DependentUpon>GameBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentInfo.resx">
+      <DependentUpon>PaymentInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfileInfo.resx">
       <DependentUpon>ProfileInfo.cs</DependentUpon>

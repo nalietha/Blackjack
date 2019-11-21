@@ -62,7 +62,6 @@ namespace DavesBlackjack
                     if (hashBytes[i + 16] != hash[i])
                         validated = false;
 
-
             }
 
             /* Fetch the stored value */
@@ -94,7 +93,11 @@ namespace DavesBlackjack
         
         private void forgotPasswordButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Haha you forgot", "lol", MessageBoxButtons.OK);
+            ForgotPassword fForm = new ForgotPassword();
+            fForm.ShowDialog();
+
+            // MessageBox.Show("Haha you forgot", "lol", MessageBoxButtons.OK);
+
         }
 
         private void TitleForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -127,6 +130,14 @@ namespace DavesBlackjack
         private void skipButton_Click(object sender, EventArgs e)
         {
             Music.Skip();
+        }
+
+        private void tbPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                loginButton.PerformClick();
+            }
         }
     }
 }

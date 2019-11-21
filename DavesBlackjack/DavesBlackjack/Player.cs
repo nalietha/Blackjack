@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace DavesBlackjack
 {
     class Player 
     {
+        public static string DatabaseFile = "..\\..\\Database.xml";
+        XDocument doc = XDocument.Load(DatabaseFile);
         /// <summary>
         /// A list of card objects that represents the cards in the players hand
         /// </summary>
@@ -31,8 +34,18 @@ namespace DavesBlackjack
 
         public Player()
         {
+            //this._username = GetUsername();
+            //this._playerWins = GetPlayerWins();
+
             CalcuateCurrentHand();
         }
+        public Player(string username)
+        {
+            this._username = username;
+        }
+
+        public string _username;
+        public string _playerWins;
 
         /// <summary>
         /// Gets the value that the player currently has in their hand
@@ -126,5 +139,10 @@ namespace DavesBlackjack
             CardList.Clear();
             handValue = 0;
         }
+
+        //public string GetUsername() => doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == _username.ToLower()).Select(x => (string)x.Element("GamesWon")).FirstOrDefault();
+        //public string GetPlayerWins() => doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == _username.ToLower()).Select(x => (string)x.Element("GamesWon")).FirstOrDefault();
+        //public string GetCurrentMoneyCount() => doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == _username.ToLower()).Select(x => (string)x.Element("Cash")).FirstOrDefault();
+
     }
 }

@@ -4,7 +4,7 @@
     <PlayerName>nalietha</PlayerName>
     <SecurityQuestions>
       <Question>What was the house number and street name you lived in as a child?</Question>
-      <Answer>111, Fake Ave</Answer>
+      <Answer>111, fake ave</Answer>
     </SecurityQuestions>
     <PaymentInfo>
       <CardNumber />
@@ -23,4 +23,29 @@
       </PlayerSave>
     </GameInProgress>
   </Username>
+  
+  <Username id="2" uName="default" Password="BQqQBw8uM66oEUXp8IFFOU3H6x4Xohb2OeGZfQBAlHpDN2kN">
+    <PlayerName>Default</PlayerName>
+    <SecurityQuestions>
+      <Question>What was the house number and street name you lived in as a child?</Question>
+      <Answer>answer</Answer>
+    </SecurityQuestions>
+    <PaymentInfo>
+      <CardNumber />
+      <NameOnCard />
+      <SecurityCode />
+      <ExpireDate />
+    </PaymentInfo>
+    <GamesWon>0</GamesWon>
+    <Cash>0</Cash>
+    <GameInProgress>
+      <Status>false</Status>
+      <PlayerSave>
+        <SaveState />
+        <DealerSave />
+        <SaveState />
+      </PlayerSave>
+    </GameInProgress>
+  </Username>
+  
 </Users>
