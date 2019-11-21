@@ -1,9 +1,11 @@
-﻿using System;
+﻿using DavesBlackjack.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,14 +19,17 @@ namespace DavesBlackjack
         {
             InitializeComponent();
         }
+
         
 
         private static string DatabaseFile = "..\\..\\Database.xml";
         XDocument doc = XDocument.Load(DatabaseFile);
+        // Command Object, Move to third sprint
+        // XMLCommands XCom = new XMLCommands();
 
         // Error Messages
         public string EMPTY_USER_NAME = "Please enter a username";
-        public string USER_ALREADY_EXISTS = "ERROR: User already exists, try another username";
+        public string USER_ALREADY_EXISTS = "User already exists, try another username";
         public string PASSWORD_TOO_SHORT = "Password is too short, try a longer password";
         public string PASSWORD_MISMATCH = "Passwords do not match";
         public string PASSWORD_EMPTY = "Please enter password";
@@ -33,14 +38,6 @@ namespace DavesBlackjack
         public string USERNAME_INVAILD_CHARECTER = "Username cannot contain spaces.";
         public string FIX_ERRORS = "Fix Highlighted errors.";
 
-
-        public void DebugUser()
-        {
-            tbUsername.Text = "NaLietha";
-            tbPassword.Text = "Password1!";
-            tbPasswordConfirm.Text = "Password1!";
-            tbSecuirtyQuestionAnswer.Text = "Answer";
-        }
 
 
         private void backButton_Click(object sender, EventArgs e)
@@ -51,24 +48,16 @@ namespace DavesBlackjack
 
         public string CreateNewUser()
         {
-            string saltVal = "Hello";
-
-            // Hash Password
-            var hashPass = tbPassword.Text;
-
             // Build XML tree
-            // Generate Salt for user
-
             int currentUsers = doc.Descendants("Users").Count();
             XElement newUser = new XElement("Username",
                 new XAttribute("id", currentUsers + 1),
                 new XAttribute("uName", tbUsername.Text.ToLower()),
-                new XAttribute("Salt", saltVal),
-                new XAttribute("password", tbPassword.Text),
+                new XAttribute("Password", HashPassword(tbPassword.Text)),
                 new XElement("PlayerName", tbUsername.Text),
                 new XElement("SecurityQuestions",
-                    new XElement("Question", cbSecurityQuestion.SelectedValue.ToString() ),
-                    new XElement("Answer", tbSecuirtyQuestionAnswer.Text)),
+                    new XElement("Question", cbSecurityQuestion.Text ),
+                    new XElement("Answer", tbSecuirtyQuestionAnswer.Text.ToLower())),
                 new XElement("PaymentInfo",
                     new XElement("CardNumber", null),
                     new XElement("NameOnCard", null),
@@ -89,18 +78,32 @@ namespace DavesBlackjack
             doc.Save(DatabaseFile);
 
             // If any errors are present, return "Failure" with msg.
-            MessageBox.Show("User Created!", "Successfully created user " + tbUsername.Text);
+            MessageBox.Show("Successfully created user " + tbUsername.Text, "User Created!" );
             this.Close();
             return "Success";
         }
-        private void ResetErrors()
+
+        private string HashPassword(string plainPass)
         {
-            // labels
+            // Generate a random salt
+            byte[] salt;
+            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+
+            // build hash
+            var derive = new Rfc2898DeriveBytes(plainPass, salt, 10000);
+            byte[] hash = derive.GetBytes(20);
+
+            // Combine Salt/hash
+            byte[] hashBytes = new byte[36];
+            Array.Copy(salt, 0, hashBytes, 0, 16);
+            Array.Copy(hash, 0, hashBytes, 16, 20);
+
+            string savedPasswordHash = Convert.ToBase64String(hashBytes);
+            return savedPasswordHash;
 
 
-
-            // Panels
         }
+
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
             if (CheckForErrors())
@@ -110,109 +113,24 @@ namespace DavesBlackjack
 
             }
             else
+            {
                 CreateNewUser();
+                PaymentInfo NewUser = new PaymentInfo();
+                NewUser.Show();
+            }
         }
         private bool CheckForErrors()
         {
-            CheckForUsernameErrors();
-            CheckForPasswordErrors();
-            CheckForSecuirtyErrors();
 
 
-
-            bool errorsExist = false;
-            // Reset Errors
-            ResetErrors();
-            // Username
-            if (tbUsername.Text == "")
+            // check if errors exist
+            if ( CheckForUsernameErrors() || CheckForPasswordErrors() || CheckForConfirmErrors() || CheckForSecuirtyErrors() )
             {
-                lblUsernameError.Text = EMPTY_USER_NAME;
-                lblUsernameError.Visible = true;
-                pnlUsername.BackColor = Color.Red;
-                errorsExist = true;
-            }
-            // Username contains invalid charectors. 
-            else if (tbUsername.Text.Contains(" "))
-            {
-                lblUsernameError.Text = USERNAME_INVAILD_CHARECTER;
-                lblUsernameError.Visible = true;
-                pnlUsername.Visible = true;
-                errorsExist = true;
-            }
-            // Check if username is already used (case insesitive)
-            else if (FindUser(tbUsername.Text))
-            {
-                lblUsernameError.Text = USER_ALREADY_EXISTS;
-                lblUsernameError.Visible = true;
-                errorsExist = true;
-            }
-            // No username errors exist
-            else
-            {
-                lblUsernameError.Text = "";
-                pnlUsername.Visible = false;
-                errorsExist = false;
-            }
-            // Password Validation
-            if (tbPassword.Text == "")
-            {
-                // Password
-                // Not Empty
-                lblPasswordError.Text = PASSWORD_MISMATCH;
-                lblPasswordError.Visible = true;
-                errorsExist = true;
-            }
-            // Minimum Length
-            else if (tbPassword.Text.Length < 8)
-            {
-                lblPasswordError.Text = PASSWORD_TOO_SHORT;
-                lblPasswordError.Visible = true;
-                errorsExist = true;
-
-            }
-            // Check Password longer then 8 charecters and no spaces
-            else if (tbPassword.Text.Contains(' '))
-            {
-                lblPasswordError.Text = PASSWORD_INVALID_CHARECTERS;
-                lblPasswordError.Visible = true;
-                errorsExist = true;
-
-            }
-            else
-            {
-                lblPasswordError.Text = "";
-
-                errorsExist = false;
-            }
-            // Matches Second
-            if (tbPassword.Text == tbPasswordConfirm.Text)
-            {
-                lblConfirmError.Text = PASSWORD_MISMATCH;
-                lblConfirmError.Visible = true;
-                errorsExist = true;
-
-            }
-            else
-            {
-                lblConfirmError.Text = "";
-                errorsExist = false;
-            }
-            // Security Question
-            if (tbSecuirtyQuestionAnswer.Text == "")
-            {
-                lblSecuirtyQuestionError.Text = SECURITY_QUESTION_EMPTY;
-                lblSecuirtyQuestionError.Visible = true;
-                errorsExist = true;
-
-            }
-            else
-            {
-                lblSecuirtyQuestionError.Text = "";
-                errorsExist = false;
-            }
-            // return true false
-            if (!errorsExist)
-            {
+                // Run though error checks to display all errors
+                CheckForUsernameErrors();
+                CheckForPasswordErrors();
+                CheckForConfirmErrors();
+                CheckForSecuirtyErrors();
                 //btnCreateAccount.Enabled = false;
                 return true;
             }
@@ -222,39 +140,168 @@ namespace DavesBlackjack
                 return false;
             }
     
-
         }
 
         private void CreateProfile_Load(object sender, EventArgs e)
         {
             cbSecurityQuestion.SelectedIndex = 0;
         }
+
         /// <summary>
-        /// Finds if username exists in database
+        /// Checks if there are any username errors present
         /// </summary>
-        /// <param name="name">Name to check for, make lowercase for seach compare. stored as userentered.</param>
-        /// <returns>boolen</returns>
-        private bool FindUser(string name)
+        /// <returns>
+        /// true if there are errors
+        /// false if there are no errors
+        /// </returns>
+        private bool CheckForUsernameErrors()
         {
-            var user = doc.Descendants("Users").Where(s => (string)s.Attribute("Username") == name.ToLower());
+            // Username
+            if (tbUsername.Text == "")
+            {
+                lblUsernameError.Text = EMPTY_USER_NAME;
+                lblUsernameError.Visible = true;
+                pnlUsername.Visible = true;
 
+                return true;
+            }
+            // Username contains invalid charectors. 
+            else if (tbUsername.Text.Contains(" "))
+            {
+                lblUsernameError.Text = USERNAME_INVAILD_CHARECTER;
+                lblUsernameError.Visible = true;
+                pnlUsername.Visible = true;
+                return true;
+            }
+            // Check if username is already used (case insesitive)
+            else if (DoesUserExist(tbUsername.Text))
+            {
+                lblUsernameError.Text = USER_ALREADY_EXISTS;
+                lblUsernameError.Visible = true;
+                pnlUsername.Visible = true;
+                return true;
+            }
+            // No username errors exist
+            else
+            {
+                lblUsernameError.Text = "";
+                pnlUsername.Visible = false;
+                return false;
+            }
+        }
+        public bool DoesUserExist(string username)
+        {
+            username = username.ToLower();
+            var userExists = doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == username).Select(x => (string)x.Attribute("uName")).FirstOrDefault();
 
-            return false;
+            if (userExists == null)
+                return false;
+            else
+                return true;
         }
 
-        private void CheckForUsernameErrors()
+
+        /// <summary>
+        /// Checks if there are password errors present.
+        /// </summary>
+        /// <returns>
+        /// true if there are errors
+        /// false if there are no errors
+        /// </returns>
+        private bool CheckForPasswordErrors()
         {
+            // Password Validation
+            if (tbPassword.Text == "")
+            {
+                // Password
+                // Not Empty
+                lblPasswordError.Text = PASSWORD_EMPTY;
+                lblPasswordError.Visible = true;
+                pnlPassword.Visible = true;
+                return true;
+            }
+            // Minimum Length
+            else if (tbPassword.Text.Length < 8)
+            {
+                lblPasswordError.Text = PASSWORD_TOO_SHORT;
+                lblPasswordError.Visible = true;
+                pnlPassword.Visible = true;
+                return true;
 
+            }
+            // Check Password longer then 8 charecters and no spaces
+            else if (tbPassword.Text.Contains(' '))
+            {
+                lblPasswordError.Text = PASSWORD_INVALID_CHARECTERS;
+                lblPasswordError.Visible = true;
+                pnlPassword.Visible = true;
+                return true;
+
+            }
+            else
+            {
+                lblPasswordError.Text = "";
+                pnlPassword.Visible = false;
+                return false;
+            }
         }
-        private void CheckForPasswordErrors()
+        /// <summary>
+        /// Checks for second password errors
+        /// </summary>
+        /// <returns>
+        /// true if there are errors
+        /// false if there are no errors
+        /// </returns>
+        private bool CheckForConfirmErrors()
         {
+            // Matches Second
+            if (tbPassword.Text != tbPasswordConfirm.Text)
+            {
+                lblConfirmError.Text = PASSWORD_MISMATCH;
+                lblConfirmError.Visible = true;
+                pnlConfirmPass.Visible = true;
+                return true;
 
+            }
+            else
+            {
+                lblConfirmError.Text = "";
+                pnlConfirmPass.Visible = false;
+                return false;
+            }
         }
-        private void CheckForSecuirtyErrors()
+        /// <summary>
+        /// Checks if the user entred a secuirty error.
+        /// </summary>
+        /// <returns>
+        /// true if there are errors
+        /// false if there are no errors
+        /// </returns>
+        private bool CheckForSecuirtyErrors()
         {
+            // Security Question
+            if (tbSecuirtyQuestionAnswer.Text == "")
+            {
+                lblSecuirtyQuestionError.Text = SECURITY_QUESTION_EMPTY;
+                lblSecuirtyQuestionError.Visible = true;
+                pnlQuestionAnswer.Visible = true;
+                return true;
 
+            }
+            else
+            {
+                lblSecuirtyQuestionError.Text = "";
+                pnlQuestionAnswer.Visible = false;
+                return false;
+            }
         }
 
-
+        private void tbSecuirtyQuestionAnswer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnCreateAccount.PerformClick();
+            }
+        }
     }
 }
