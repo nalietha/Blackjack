@@ -77,6 +77,10 @@
     </Compile>
     <Compile Include="Classes\Player.cs" />
     <Compile Include="Forms\ProfileInfo.cs">
+    <Compile Include="GameState.cs" />
+    <Compile Include="Music.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="ProfileInfo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ProfileInfo.Designer.cs">

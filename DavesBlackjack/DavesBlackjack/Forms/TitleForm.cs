@@ -17,6 +17,7 @@ namespace DavesBlackjack
         
         GameBoard gameBoard;
         private bool validated = false;
+        public string username { get { return tbUsername.Text; } }
         private readonly Music Music;
 
         public TitleForm(GameBoard gameBoard, Music Music)

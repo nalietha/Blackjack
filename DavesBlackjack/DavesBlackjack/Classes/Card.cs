@@ -18,21 +18,31 @@ namespace DavesBlackjack
         /// <summary>
         /// The value of the card when held by a player
         /// </summary>
-        public int value { get; private set; }
+        public int value { get; set; }
         /// <summary>
         /// The suit of the card
         /// </summary>
-        public string suit { get; private set; }
+        public string suit { get; set; }
         /// <summary>
         /// Filename for the image that represents the card
         /// </summary>
-        public string imageName { get; private set; }
+        public string imageName { get; set; }
+        /// <summary>
+        /// Card constructor
+        /// </summary>
+        /// <param name="id">Used to create 1 of 52 (0-51) cards in a deck</param>
         public Card(int id)
         {
             this.id = id;
             ParseCardId();
         }
+        /// <summary>
+        /// Empty constructor for use with the XMLWriter
+        /// </summary>
+        public Card()
+        {
 
+        }
         /// <summary>
         /// Takes the id of the card that called this function, and assigns card information based on the id
         /// </summary>

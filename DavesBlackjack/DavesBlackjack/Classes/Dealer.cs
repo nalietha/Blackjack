@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DavesBlackjack
 {
-    class Dealer : Player
+   public class Dealer : Player
     {
         public Dealer()
         {
@@ -17,13 +17,13 @@ namespace DavesBlackjack
         /// Dealer chooses to take a card based on hand value
         /// </summary>
         /// <returns>True if card taken, otherwise falss</returns>
-        public bool Choice()
+        public bool Choice(Deck deck)
         {
             CalcuateCurrentHand();
             // check hand value
             if (handValue < 17)
             {
-                Hit();
+                Hit(deck);
                 return true;
             }
             else
