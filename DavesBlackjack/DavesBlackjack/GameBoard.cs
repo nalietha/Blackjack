@@ -20,7 +20,10 @@ namespace DavesBlackjack
         private Deck deck = new Deck();
         string cardLocation = "Resources\\Cards\\";
         string cardBack = "blue_back";
-        string SaveFileName = "Save1";
+        /// <summary>
+        /// The username of the current player, so each player has a different save file.
+        /// </summary>
+        string SaveFileName = "";
         string SaveFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Blackjack Saves//";
         List<PictureBox> playerHand = new List<PictureBox>();
         List<PictureBox> dealerHand = new List<PictureBox>();
@@ -53,6 +56,7 @@ namespace DavesBlackjack
 
             TitleForm titleForm = new TitleForm(this, Music);
             titleForm.ShowDialog();
+            SaveFileName = titleForm.username;
             if (Music.isPlaying)
             {
                 muteButton.BackgroundImage = Image.FromFile(Music.OnIcon);
