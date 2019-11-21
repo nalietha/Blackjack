@@ -495,6 +495,18 @@ namespace DavesBlackjack
             GameState gameState = new GameState(houseDealer, player_01, deck, betUpDown.Value, insuranceButton.Visible);
             gameState.SaveGame(SaveFileName, SaveFilePath);
         }
+
+        private void GameBoard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(SaveFileName != "")
+            {
+                DialogResult result = MessageBox.Show("Would you like to save your game?", "Save Game", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    saveButton.PerformClick();
+                }
+            }
+        }
     }
 }
 

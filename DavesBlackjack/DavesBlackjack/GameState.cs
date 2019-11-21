@@ -59,5 +59,6 @@ namespace DavesBlackjack
             XMLWriter.Serialize(file, this);
             file.Close();
         }
+
     }
 }

@@ -635,6 +635,7 @@ namespace DavesBlackjack
             this.MinimizeBox = false;
             this.Name = "GameBoard";
             this.Text = "BlackJack";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameBoard_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.p1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2)).EndInit();
