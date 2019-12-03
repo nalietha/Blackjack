@@ -107,6 +107,11 @@ namespace DavesBlackjack
         private void AddPaymentInfo()
         {
             // get all payment info
+            
+
+
+
+
             //XElement UserInfo = doc.Descendants("Username")
             //    .Where(x => (string)x.Attribute("uName") == username)
             //    .Select(x => (string)x.Element("SecurityQuestions")
