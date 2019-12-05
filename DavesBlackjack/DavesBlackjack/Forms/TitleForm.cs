@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using DavesBlackjack.Classes;
 
 namespace DavesBlackjack
 {
@@ -20,11 +21,11 @@ namespace DavesBlackjack
         public string username { get { return tbUsername.Text; } }
         private readonly Music Music;
 
-        public TitleForm(GameBoard gameBoard, Music Music)
+        public TitleForm()
         {
             InitializeComponent();
-            this.gameBoard = gameBoard;
-            this.Music = Music;
+            
+            this.Music = new Music();
             this.DatabaseFile = "..\\..\\Database.xml";
         }
 
@@ -67,12 +68,16 @@ namespace DavesBlackjack
 
             /* Fetch the stored value */
 
-            
+            Classes.User currentUser = new Classes.User();
 
             if (validated)
             {
                 // Open Game 
-                this.Close();
+                // Make form Invisable. 
+                this.Visible = false;
+                GameBoard gameBoard = new GameBoard(currentUser);
+                gameBoard.Show();
+
             }
             else
             {
