@@ -62,7 +62,12 @@ namespace DavesBlackjack
                     new XElement("CardNumber", null),
                     new XElement("NameOnCard", null),
                     new XElement("SecurityCode",null),
-                    new XElement("ExpireDate",null)),
+                    new XElement("ExpireDate",null),
+                    new XElement("BillingAddress", null),
+                    new XElement("City", null),
+                    new XElement("State", null),
+                    new XElement("Zip", null),
+                    new XElement("PhoneNumber",null)),
                 new XElement("GamesWon", 0),
                 new XElement("Cash", 0),
                 new XElement("GameInProgress",
@@ -83,7 +88,7 @@ namespace DavesBlackjack
             return "Success";
         }
 
-        private string HashPassword(string plainPass)
+        public static string HashPassword(string plainPass)
         {
             // Generate a random salt
             byte[] salt;

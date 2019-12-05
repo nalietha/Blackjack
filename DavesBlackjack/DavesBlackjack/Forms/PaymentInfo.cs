@@ -17,42 +17,51 @@ namespace DavesBlackjack
         {
             InitializeComponent();
             this.CenterToParent();
+            
+        }
+        public PaymentInfo(string username)
+        {
+            this._username = username;
         }
 
         XDocument doc = XDocument.Load("..\\..\\Database.xml");
+        private string _username;
 
-        //private bool CheckForRequired()
-        //{
-        //    if(CardNumberErrors()
-        //        || CSCError()
-        //        || NameOnCardError()
-        //        || BillingAddressError()
-        //        || ExperationDateErrors()
-        //        || CityErrors()
-        //        || StateError()
-        //        || ZipErrors()
-        //        || PhoneNumberErrors())
-        //    {
-        //        throw new NotImplementedException();
-
-        //    }
+        private void CheckForRequired()
+        {
+            CardNumberErrors();
+            CSCError();
+            NameOnCardError();
+            BillingAddressError();
+            ExperationDateErrors();
+            CityErrors();
+            StateError();
+            ZipErrors();
+            PhoneNumberErrors();
 
 
+            if (CardNumberErrors()
+                || CSCError()
+                || NameOnCardError()
+                || BillingAddressError()
+                || ExperationDateErrors()
+                || CityErrors()
+                || StateError()
+                || ZipErrors()
+                || PhoneNumberErrors())
+            {
+                lblErrors.Text = "ERROR: Check Required Infomation";
+            }
+            else
+            {
+                // No Errors, add to users data
+                AddPaymentInfo();
+            }
+
+        }
 
 
-
-
-
-        //    // Billing Address
-
-        //    // City
-
-        //    // State
-
-        //    // Zip
-
-        //    // Email
-        //}
+        // Error Checking Functions
         bool CardNumberErrors()
         {
             // Card number
@@ -66,7 +75,7 @@ namespace DavesBlackjack
             {
                 // Remove errors
                 pnlCardNumberError.Visible = false;
-                return true;
+                return false;
             }
         }
         bool CSCError()
@@ -106,48 +115,90 @@ namespace DavesBlackjack
         {
             // ExpireDate
             var currentDate = DateTime.Now;
+            string locCSC = mtbCSCNumber.Text;
             if (mtbExpires.Text == "")
             {
                 // Display errors
+                pnlExpeiresError.Visible = true;
                 return true;
             }
 
             else
             {
                 // Remove errors
+                pnlExpeiresError.Visible = true;
+                return false;
             }
-            string locCSC = mtbCSCNumber.Text;
-
-
-            return true;
+            // Add already expired error
 
         }
         bool BillingAddressError()
         {
-            throw new NotImplementedException();
-
+            if(tbBillingAddress.Text == "")
+            {
+                pnlBillingAddressError.Visible = true;
+                return true;
+            }
+            else
+            {
+                pnlBillingAddressError.Visible = false;
+                return false;
+            }
         }
         bool CityErrors()
         {
-            throw new NotImplementedException();
-
+            if (tbCity.Text == "")
+            {
+                pnlCityError.Visible = true;
+                return true;
+            }
+            else
+            {
+                pnlCityError.Visible = false;
+                return false;
+            }
         }
         bool StateError()
         {
-            throw new NotImplementedException();
+            if (mtbState.Text == "")
+            {
+                pnlStateError.Visible = true;
+                return true;
+            }
+            else
+            {
+                pnlStateError.Visible = false;
+                return false;
+            }
 
         }
         bool ZipErrors()
         {
-            throw new NotImplementedException();
+            if(mtbZip.Text == "")
+            {
+                pnlZipError.Visible = true;
+                return true;
+            }
+            else
+            {
+                pnlZipError.Visible = false;
+                return false;
+            }
 
         }
         bool PhoneNumberErrors()
         {
-            throw new NotImplementedException();
-
+            if(mtbPhoneNumber.Text.Length > 10 && mtbPhoneNumber.Text != "")
+            {
+                pnlPhoneNumberError.Visible = true;
+                lblPhoneNumberError.Visible = true;
+                lblPhoneNumberError.Text = "Phone Number too short";
+                return true;
+            }
+            pnlPhoneNumberError.Visible = false;
+            lblPhoneNumberError.Visible = false;
+            return false;
         }
-
 
 
 
@@ -170,10 +221,19 @@ namespace DavesBlackjack
         private void AddPaymentInfo()
         {
             // get all payment info
-            
+            var userAddInfo = doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == _username.ToLower()).FirstOrDefault();
 
+            // Card Info
+            userAddInfo.SetElementValue("CardNumber", mtbCardNumber.Text);
+            userAddInfo.SetElementValue("NameOnCard", tbName.Text);
+            userAddInfo.SetElementValue("SecurityCode", mtbCSCNumber.Text);
+            userAddInfo.SetElementValue("ExpireDate", mtbExpires.Text);
 
-
+            // Location
+            userAddInfo.SetElementValue("CardNumber", );
+            userAddInfo.SetElementValue("CardNumber", );
+            userAddInfo.SetElementValue("CardNumber", );
+            userAddInfo.SetElementValue("CardNumber", );
 
             //XElement UserInfo = doc.Descendants("Username")
             //    .Where(x => (string)x.Attribute("uName") == username)

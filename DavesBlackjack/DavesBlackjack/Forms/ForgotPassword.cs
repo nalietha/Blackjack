@@ -25,7 +25,7 @@ namespace DavesBlackjack
         public static string PASSWORD_EMPTY = "New password cannot be blank.";
         public static string PASSWORD_INVALID_CHARECTORS = "Password cannot contain spaces";
         public static string PASSWORD_TOO_SHORT = "Password must be longer then 8 characters";
-
+        public static string PASSWORDS_MISMATCH = "Passwords do not match";
 
         private static string DatabaseFile = "..\\..\\Database.xml";
         static XDocument doc = XDocument.Load(DatabaseFile);
@@ -72,30 +72,39 @@ namespace DavesBlackjack
         public bool CheckNewPasswordErrors()
         {
             // Empty Check
-            if (tbChangePass.Text == "")
+            if (tbNewPassword.Text == "")
             {
                 pnlChangePasswordError.Visible = true;
                 lblPasswordError.Text = PASSWORD_EMPTY;
                 lblPasswordError.Visible = true;
                 return true;
             }
-            else if (tbChangePass.Text.Contains(" "))
+            else if (tbNewPassword.Text.Contains(" "))
             {
                 pnlChangePasswordError.Visible = true;
                 lblPasswordError.Text = PASSWORD_INVALID_CHARECTORS;
                 lblPasswordError.Visible = true;
                 return true;
             }
-            else if (tbChangePass.Text.Length < 8)
+            else if (tbNewPassword.Text.Length < 8)
             {
                 pnlChangePasswordError.Visible = true;
                 lblPasswordError.Text = PASSWORD_TOO_SHORT;
                 lblPasswordError.Visible = true;
                 return true;
             }
+            else if (tbConfimPass.Text != tbNewPassword.Text)
+            {
+                pnlChangePasswordError.Visible = true;
+                pnlConfirmPassError.Visible = true;
+                lblPasswordError.Text = PASSWORDS_MISMATCH;
+                lblPasswordError.Visible = true;
+                return true;
+            }
             else
             {
                 pnlChangePasswordError.Visible = false;
+                pnlConfirmPassError.Visible = false;
                 lblPasswordError.Visible = false;
                 return false;
             }
@@ -113,7 +122,14 @@ namespace DavesBlackjack
 
         private void ChangePassword()
         {
-            throw new NotImplementedException();
+            string username = tbUsernameRecovery.Text;
+            var userChange = doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == username.ToLower()).FirstOrDefault();
+
+            string newPass = CreateProfile.HashPassword(tbNewPassword.Text);
+
+            userChange.SetAttributeValue("Password", newPass);
+
+            doc.Save(DatabaseFile);
             // Display Message saying password has been changed
             //close form
             this.Close();
@@ -129,12 +145,13 @@ namespace DavesBlackjack
             {
                 pnlPasswordDisplay.Visible = true;
                 tbSQAnswer.ReadOnly = true;
-                tbChangePass.Focus();
+                tbNewPassword.Focus();
                 pnlSecurityQuestionError.Visible = false;
                 lblSQError.Visible = false;
             }
             else
             {
+                btnSQEnter.Enabled = false;
                 pnlSecurityQuestionError.Visible = true;
                 lblSQError.Visible = true;
             }
@@ -170,10 +187,27 @@ namespace DavesBlackjack
             {
                 pnlChangePasswordError.Visible = false;
                 lblPasswordError.Visible = false;
-                //ChangePassword()
-
+                ChangePassword();
+                this.Close();
             }
 
+        }
+
+        private void btnNewPassShow_Click(object sender, EventArgs e)
+        {
+            if (tbNewPassword.UseSystemPasswordChar == true)
+                tbNewPassword.UseSystemPasswordChar = false;
+            else
+                tbNewPassword.UseSystemPasswordChar = true;
+
+        }
+
+        private void btnConfirmPassShow_Click(object sender, EventArgs e)
+        {
+            if (tbConfimPass.UseSystemPasswordChar == true)
+                tbConfimPass.UseSystemPasswordChar = false;
+            else
+                tbConfimPass.UseSystemPasswordChar = true;
         }
     }
 }

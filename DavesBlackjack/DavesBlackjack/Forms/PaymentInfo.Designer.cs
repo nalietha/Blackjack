@@ -67,6 +67,8 @@
             this.pnlCardNumberError = new System.Windows.Forms.Panel();
             this.pnlCSCError = new System.Windows.Forms.Panel();
             this.lblErrors = new System.Windows.Forms.Label();
+            this.pnlPhoneNumberError = new System.Windows.Forms.Panel();
+            this.lblPhoneNumberError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -390,6 +392,7 @@
             this.pnlZipError.Name = "pnlZipError";
             this.pnlZipError.Size = new System.Drawing.Size(267, 29);
             this.pnlZipError.TabIndex = 33;
+            this.pnlZipError.Visible = false;
             // 
             // pnlStateError
             // 
@@ -399,6 +402,7 @@
             this.pnlStateError.Name = "pnlStateError";
             this.pnlStateError.Size = new System.Drawing.Size(101, 24);
             this.pnlStateError.TabIndex = 34;
+            this.pnlStateError.Visible = false;
             // 
             // pnlCityError
             // 
@@ -408,6 +412,7 @@
             this.pnlCityError.Name = "pnlCityError";
             this.pnlCityError.Size = new System.Drawing.Size(461, 29);
             this.pnlCityError.TabIndex = 35;
+            this.pnlCityError.Visible = false;
             // 
             // pnlBillingAddressError
             // 
@@ -417,6 +422,7 @@
             this.pnlBillingAddressError.Name = "pnlBillingAddressError";
             this.pnlBillingAddressError.Size = new System.Drawing.Size(712, 31);
             this.pnlBillingAddressError.TabIndex = 36;
+            this.pnlBillingAddressError.Visible = false;
             // 
             // pnlExpeiresError
             // 
@@ -426,6 +432,7 @@
             this.pnlExpeiresError.Name = "pnlExpeiresError";
             this.pnlExpeiresError.Size = new System.Drawing.Size(99, 24);
             this.pnlExpeiresError.TabIndex = 37;
+            this.pnlExpeiresError.Visible = false;
             // 
             // pnlNameOnCardError
             // 
@@ -435,6 +442,7 @@
             this.pnlNameOnCardError.Name = "pnlNameOnCardError";
             this.pnlNameOnCardError.Size = new System.Drawing.Size(589, 24);
             this.pnlNameOnCardError.TabIndex = 38;
+            this.pnlNameOnCardError.Visible = false;
             // 
             // pnlCardNumberError
             // 
@@ -444,6 +452,7 @@
             this.pnlCardNumberError.Name = "pnlCardNumberError";
             this.pnlCardNumberError.Size = new System.Drawing.Size(581, 55);
             this.pnlCardNumberError.TabIndex = 39;
+            this.pnlCardNumberError.Visible = false;
             // 
             // pnlCSCError
             // 
@@ -453,6 +462,7 @@
             this.pnlCSCError.Name = "pnlCSCError";
             this.pnlCSCError.Size = new System.Drawing.Size(99, 28);
             this.pnlCSCError.TabIndex = 40;
+            this.pnlCSCError.Visible = false;
             // 
             // lblErrors
             // 
@@ -464,6 +474,29 @@
             this.lblErrors.Size = new System.Drawing.Size(34, 32);
             this.lblErrors.TabIndex = 41;
             this.lblErrors.Text = "X";
+            this.lblErrors.Visible = false;
+            // 
+            // pnlPhoneNumberError
+            // 
+            this.pnlPhoneNumberError.BackColor = System.Drawing.Color.Red;
+            this.pnlPhoneNumberError.Location = new System.Drawing.Point(80, 722);
+            this.pnlPhoneNumberError.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pnlPhoneNumberError.Name = "pnlPhoneNumberError";
+            this.pnlPhoneNumberError.Size = new System.Drawing.Size(260, 28);
+            this.pnlPhoneNumberError.TabIndex = 42;
+            this.pnlPhoneNumberError.Visible = false;
+            // 
+            // lblPhoneNumberError
+            // 
+            this.lblPhoneNumberError.AutoSize = true;
+            this.lblPhoneNumberError.BackColor = System.Drawing.SystemColors.Control;
+            this.lblPhoneNumberError.ForeColor = System.Drawing.Color.Red;
+            this.lblPhoneNumberError.Location = new System.Drawing.Point(72, 791);
+            this.lblPhoneNumberError.Name = "lblPhoneNumberError";
+            this.lblPhoneNumberError.Size = new System.Drawing.Size(34, 32);
+            this.lblPhoneNumberError.TabIndex = 43;
+            this.lblPhoneNumberError.Text = "X";
+            this.lblPhoneNumberError.Visible = false;
             // 
             // PaymentInfo
             // 
@@ -471,6 +504,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(2096, 1073);
+            this.Controls.Add(this.lblPhoneNumberError);
             this.Controls.Add(this.lblErrors);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
@@ -510,6 +544,7 @@
             this.Controls.Add(this.pnlNameOnCardError);
             this.Controls.Add(this.pnlCardNumberError);
             this.Controls.Add(this.pnlCSCError);
+            this.Controls.Add(this.pnlPhoneNumberError);
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "PaymentInfo";
             this.Text = "PaymentInfo";
@@ -559,5 +594,7 @@
         private System.Windows.Forms.Panel pnlCSCError;
         private System.Windows.Forms.Label lblErrors;
         private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.Panel pnlPhoneNumberError;
+        private System.Windows.Forms.Label lblPhoneNumberError;
     }
 }
