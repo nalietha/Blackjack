@@ -46,5 +46,27 @@
       </PlayerSave>
     </GameInProgress>
   </Username>
-  
+  <Username id="2" uName="bobby123" Password="vnrwsFglVYpB+qQTLDbOWgoVYC+dHUpTZMcj91mGaj9BGmM0">
+    <PlayerName>Bobby123</PlayerName>
+    <SecurityQuestions>
+      <Question>What dorm did you stay in freshman year?</Question>
+      <Answer>emry</Answer>
+    </SecurityQuestions>
+    <PaymentInfo>
+      <CardNumber />
+      <NameOnCard />
+      <SecurityCode />
+      <ExpireDate />
+    </PaymentInfo>
+    <GamesWon>0</GamesWon>
+    <Cash>0</Cash>
+    <GameInProgress>
+      <Status>false</Status>
+      <PlayerSave>
+        <SaveState />
+        <DealerSave />
+        <SaveState />
+      </PlayerSave>
+    </GameInProgress>
+  </Username>
 </Users>

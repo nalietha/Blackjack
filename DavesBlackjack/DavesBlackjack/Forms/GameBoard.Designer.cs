@@ -70,6 +70,8 @@ namespace DavesBlackjack
             this.skipButton = new System.Windows.Forms.Button();
             this.muteButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
+            this.addNewPlayerButton = new System.Windows.Forms.Button();
+            this.endTurnButton = new System.Windows.Forms.Button();
             label420 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.p1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2)).BeginInit();
@@ -304,9 +306,9 @@ namespace DavesBlackjack
             this.playerName.Location = new System.Drawing.Point(13, 6);
             this.playerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.playerName.Name = "playerName";
-            this.playerName.Size = new System.Drawing.Size(132, 41);
+            this.playerName.Size = new System.Drawing.Size(162, 41);
             this.playerName.TabIndex = 17;
-            this.playerName.Text = "Player";
+            this.playerName.Text = "Player 1";
             // 
             // dealerName
             // 
@@ -583,6 +585,28 @@ namespace DavesBlackjack
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // addNewPlayerButton
+            // 
+            this.addNewPlayerButton.Location = new System.Drawing.Point(706, 388);
+            this.addNewPlayerButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addNewPlayerButton.Name = "addNewPlayerButton";
+            this.addNewPlayerButton.Size = new System.Drawing.Size(92, 30);
+            this.addNewPlayerButton.TabIndex = 41;
+            this.addNewPlayerButton.Text = "New Player";
+            this.addNewPlayerButton.UseVisualStyleBackColor = true;
+            this.addNewPlayerButton.Click += new System.EventHandler(this.addNewPlayerButton_Click);
+            // 
+            // endTurnButton
+            // 
+            this.endTurnButton.Location = new System.Drawing.Point(706, 356);
+            this.endTurnButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.endTurnButton.Name = "endTurnButton";
+            this.endTurnButton.Size = new System.Drawing.Size(92, 30);
+            this.endTurnButton.TabIndex = 42;
+            this.endTurnButton.Text = "End Turn";
+            this.endTurnButton.UseVisualStyleBackColor = true;
+            this.endTurnButton.Click += new System.EventHandler(this.endTurnButton_Click);
+            // 
             // GameBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -591,6 +615,8 @@ namespace DavesBlackjack
             this.BackgroundImage = global::DavesBlackjack.Properties.Resources.background3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 473);
+            this.Controls.Add(this.endTurnButton);
+            this.Controls.Add(this.addNewPlayerButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.skipButton);
             this.Controls.Add(this.muteButton);
@@ -698,6 +724,8 @@ namespace DavesBlackjack
         private Button skipButton;
         private Button muteButton;
         private Button saveButton;
+        private Button addNewPlayerButton;
+        private Button endTurnButton;
     }
 }
 

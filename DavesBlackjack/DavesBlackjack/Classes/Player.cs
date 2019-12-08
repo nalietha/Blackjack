@@ -32,6 +32,10 @@ namespace DavesBlackjack
         public int handValue { get; set; } = 0;
         public int wins { get; set; } = 0;
         public decimal PlayerMoney { get { return playerMoney; } set { playerMoney = value; } }
+        public int currentBet { get; set; } = 10;
+        public int insurance { get; set; } = 0;
+        public bool done = false;
+
 
         public Player()
         {
