@@ -21,69 +21,132 @@ namespace DavesBlackjack
 
         XDocument doc = XDocument.Load("..\\..\\Database.xml");
 
-        private bool CheckForRequired()
+        //private bool CheckForRequired()
+        //{
+        //    if(CardNumberErrors()
+        //        || CSCError()
+        //        || NameOnCardError()
+        //        || BillingAddressError()
+        //        || ExperationDateErrors()
+        //        || CityErrors()
+        //        || StateError()
+        //        || ZipErrors()
+        //        || PhoneNumberErrors())
+        //    {
+        //        throw new NotImplementedException();
+
+        //    }
+
+
+
+
+
+
+
+        //    // Billing Address
+
+        //    // City
+
+        //    // State
+
+        //    // Zip
+
+        //    // Email
+        //}
+        bool CardNumberErrors()
         {
             // Card number
-            if(mtbCardNumber.Text == "" || mtbCardNumber.Text.Length > 16)
+            if (mtbCardNumber.Text == "" || mtbCardNumber.Text.Length < 16)
             {
                 // Display errors
+                pnlCardNumberError.Visible = true;
                 return true;
             }
             else
             {
                 // Remove errors
-                return false;
+                pnlCardNumberError.Visible = false;
+                return true;
             }
+        }
+        bool CSCError()
+        {
             // CSC
             if (mtbCSCNumber.Text == "" || mtbCSCNumber.Text.Length > 3)
             {
                 // Display errors
+                pnlCSCError.Visible = true;
                 return true;
             }
             else
             {
                 // Remove errors
+                pnlCSCError.Visible = false;
                 return false;
             }
-
+        }
+        bool NameOnCardError()
+        {
             // Name
             if (tbName.Text == "")
             {
                 // Display errors
+                pnlNameOnCardError.Visible = true;
                 return true;
             }
             else
             {
                 // Remove errors
+                pnlNameOnCardError.Visible = false;
                 return false;
             }
 
+        }
+        bool ExperationDateErrors()
+        {
             // ExpireDate
+            var currentDate = DateTime.Now;
             if (mtbExpires.Text == "")
             {
                 // Display errors
                 return true;
             }
+
             else
             {
                 // Remove errors
-                return false;
             }
+            string locCSC = mtbCSCNumber.Text;
 
-            // Billing Address
 
-            // City
-
-            // State
-
-            // Zip
-
-            // Email
-
+            return true;
 
         }
+        bool BillingAddressError()
+        {
+            throw new NotImplementedException();
 
+        }
+        bool CityErrors()
+        {
+            throw new NotImplementedException();
 
+        }
+        bool StateError()
+        {
+            throw new NotImplementedException();
+
+        }
+        bool ZipErrors()
+        {
+            throw new NotImplementedException();
+
+        }
+        bool PhoneNumberErrors()
+        {
+            throw new NotImplementedException();
+
+        }
 
 
 
@@ -95,11 +158,11 @@ namespace DavesBlackjack
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (CheckForRequired())
-            {
-                // Do nothing
-            }
-            else
+            //if (CheckForRequired())
+            //{
+            //    // Do nothing
+            //}
+            //else
                 AddPaymentInfo();
 
 

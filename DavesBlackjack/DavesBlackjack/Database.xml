@@ -2,6 +2,7 @@
 <Users>
   <Username id="2" uName="nalietha" Password="uBDeam+rSa5cKQrflpvJn17h0E2Qj0evtGm/5+Rnm70HLhcv">
     <PlayerName>nalietha</PlayerName>
+    <Email>Nathan.Lietha@gmail.com</Email>
     <SecurityQuestions>
       <Question>What was the house number and street name you lived in as a child?</Question>
       <Answer>111, fake ave</Answer>
@@ -23,7 +24,7 @@
       </PlayerSave>
     </GameInProgress>
   </Username>
-  <Username id="2" uName="default" Password="BQqQBw8uM66oEUXp8IFFOU3H6x4Xohb2OeGZfQBAlHpDN2kN">
+  <Username id="3" uName="default" Password="BQqQBw8uM66oEUXp8IFFOU3H6x4Xohb2OeGZfQBAlHpDN2kN">
     <PlayerName>Default</PlayerName>
     <SecurityQuestions>
       <Question>What was the house number and street name you lived in as a child?</Question>

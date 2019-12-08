@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-
 namespace DavesBlackjack
 {
     public partial class GameBoard : Form
@@ -31,11 +30,13 @@ namespace DavesBlackjack
         List<PictureBox> dealerHand = new List<PictureBox>();
         Music Music = new Music();
 
-        public GameBoard()
+        public GameBoard(Classes.User user)
         {
+            this.username = user._username;
             InitializeComponent();
-        }
 
+        }
+        string username;
         private void Form1_Load(object sender, EventArgs e)
         {
             playerHand.Add(p1);
@@ -56,9 +57,9 @@ namespace DavesBlackjack
             dealerHand.Add(d7);
             dealerHand.Add(d8);
 
-            TitleForm titleForm = new TitleForm(this, Music);
-            titleForm.ShowDialog();
-            SaveFileName = titleForm.username;
+            //TitleForm titleForm = new TitleForm(this, Music);
+            //titleForm.ShowDialog();
+            SaveFileName = this.username;
             if (Music.isPlaying)
             {
                 muteButton.BackgroundImage = Image.FromFile(Music.OnIcon);
@@ -668,8 +669,16 @@ namespace DavesBlackjack
                 if (result == DialogResult.Yes)
                 {
                     saveButton.PerformClick();
+
                 }
             }
+            
+        }
+
+        private void GameBoard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+
         }
 
     }

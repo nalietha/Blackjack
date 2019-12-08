@@ -32,7 +32,12 @@ namespace DavesBlackjack.Classes
 
         //public string GetPaymentInfo()
 
-        //public bool ChangePassword()
+        //public bool ChangePassword(string username, string newPass)
+        //{
+        //    username = username.ToLower();
+        //    var getChild = doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == username).Select(x.Element).FirstOrDefault();
+
+        //}
 
         //public bool ChangeUsername()
 

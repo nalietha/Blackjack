@@ -37,7 +37,6 @@
             this.lblDisplayCity = new System.Windows.Forms.Label();
             this.lblDisplayZipCode = new System.Windows.Forms.Label();
             this.lblDisplayPhoneNumber = new System.Windows.Forms.Label();
-            this.lblDisplayEmail = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbBillingAddress = new System.Windows.Forms.TextBox();
             this.tbCity = new System.Windows.Forms.TextBox();
@@ -48,7 +47,6 @@
             this.mtbCardNumber = new System.Windows.Forms.MaskedTextBox();
             this.mtbExpires = new System.Windows.Forms.MaskedTextBox();
             this.mtbState = new System.Windows.Forms.MaskedTextBox();
-            this.tbEmail = new System.Windows.Forms.TextBox();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblDisplayRequired = new System.Windows.Forms.Label();
@@ -59,9 +57,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.pnlEmailError = new System.Windows.Forms.Panel();
             this.pnlZipError = new System.Windows.Forms.Panel();
             this.pnlStateError = new System.Windows.Forms.Panel();
             this.pnlCityError = new System.Windows.Forms.Panel();
@@ -165,16 +161,6 @@
             this.lblDisplayPhoneNumber.TabIndex = 8;
             this.lblDisplayPhoneNumber.Text = "Phone Number";
             // 
-            // lblDisplayEmail
-            // 
-            this.lblDisplayEmail.AutoSize = true;
-            this.lblDisplayEmail.Location = new System.Drawing.Point(387, 689);
-            this.lblDisplayEmail.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblDisplayEmail.Name = "lblDisplayEmail";
-            this.lblDisplayEmail.Size = new System.Drawing.Size(198, 32);
-            this.lblDisplayEmail.TabIndex = 9;
-            this.lblDisplayEmail.Text = "Email Address";
-            // 
             // tbName
             // 
             this.tbName.Location = new System.Drawing.Point(72, 370);
@@ -266,14 +252,6 @@
             this.mtbState.Size = new System.Drawing.Size(95, 38);
             this.mtbState.TabIndex = 7;
             this.mtbState.ValidatingType = typeof(System.DateTime);
-            // 
-            // tbEmail
-            // 
-            this.tbEmail.Location = new System.Drawing.Point(395, 732);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(489, 38);
-            this.tbEmail.TabIndex = 10;
             // 
             // btnConfirm
             // 
@@ -392,18 +370,6 @@
             this.label7.TabIndex = 29;
             this.label7.Text = "*";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(579, 689);
-            this.label8.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(25, 31);
-            this.label8.TabIndex = 30;
-            this.label8.Text = "*";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -415,15 +381,6 @@
             this.label9.Size = new System.Drawing.Size(25, 31);
             this.label9.TabIndex = 31;
             this.label9.Text = "*";
-            // 
-            // pnlEmailError
-            // 
-            this.pnlEmailError.BackColor = System.Drawing.Color.Red;
-            this.pnlEmailError.Location = new System.Drawing.Point(395, 723);
-            this.pnlEmailError.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.pnlEmailError.Name = "pnlEmailError";
-            this.pnlEmailError.Size = new System.Drawing.Size(496, 24);
-            this.pnlEmailError.TabIndex = 32;
             // 
             // pnlZipError
             // 
@@ -516,7 +473,6 @@
             this.ClientSize = new System.Drawing.Size(2096, 1073);
             this.Controls.Add(this.lblErrors);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -527,7 +483,6 @@
             this.Controls.Add(this.lblDisplayRequired);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
-            this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.mtbState);
             this.Controls.Add(this.mtbCardNumber);
             this.Controls.Add(this.mtbCSCNumber);
@@ -538,7 +493,6 @@
             this.Controls.Add(this.tbCity);
             this.Controls.Add(this.tbBillingAddress);
             this.Controls.Add(this.tbName);
-            this.Controls.Add(this.lblDisplayEmail);
             this.Controls.Add(this.lblDisplayPhoneNumber);
             this.Controls.Add(this.lblDisplayZipCode);
             this.Controls.Add(this.lblDisplayCity);
@@ -549,7 +503,6 @@
             this.Controls.Add(this.lblDisplayCardNumber);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pnlZipError);
-            this.Controls.Add(this.pnlEmailError);
             this.Controls.Add(this.pnlStateError);
             this.Controls.Add(this.pnlCityError);
             this.Controls.Add(this.pnlBillingAddressError);
@@ -576,7 +529,6 @@
         private System.Windows.Forms.Label lblDisplayCity;
         private System.Windows.Forms.Label lblDisplayZipCode;
         private System.Windows.Forms.Label lblDisplayPhoneNumber;
-        private System.Windows.Forms.Label lblDisplayEmail;
         private System.Windows.Forms.TextBox tbBillingAddress;
         private System.Windows.Forms.TextBox tbCity;
         private System.Windows.Forms.Label lblDisplayExpireDate;
@@ -586,7 +538,6 @@
         private System.Windows.Forms.MaskedTextBox mtbCardNumber;
         private System.Windows.Forms.MaskedTextBox mtbExpires;
         private System.Windows.Forms.MaskedTextBox mtbState;
-        private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblDisplayRequired;
@@ -597,9 +548,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel pnlEmailError;
         private System.Windows.Forms.Panel pnlZipError;
         private System.Windows.Forms.Panel pnlStateError;
         private System.Windows.Forms.Panel pnlCityError;

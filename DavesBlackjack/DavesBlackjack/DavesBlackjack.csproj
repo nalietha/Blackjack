@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Card.cs" />
+    <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\XMLCommands.cs" />
     <Compile Include="Forms\CreateProfile.cs">
       <SubType>Form</SubType>
