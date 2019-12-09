@@ -621,6 +621,7 @@ namespace DavesBlackjack
         {
             endTurnButton.Visible = false;
             stayButton.Enabled = true;
+            hitButton.Enabled = true;
             FindNextPlayer();
             ChangePlayer();
         }
