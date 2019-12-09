@@ -35,7 +35,8 @@ namespace DavesBlackjack
         public int currentBet { get; set; } = 10;
         public int insurance { get; set; } = 0;
         public bool done = false;
-
+        public int playerNum;
+        public int originalMoney;
 
         public Player()
         {

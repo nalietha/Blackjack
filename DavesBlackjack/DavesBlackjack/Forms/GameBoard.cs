@@ -29,6 +29,9 @@ namespace DavesBlackjack
         List<PictureBox> playerHand = new List<PictureBox>();
         List<PictureBox> dealerHand = new List<PictureBox>();
         Music Music = new Music();
+        List<Player> splitpairs;
+
+
 
         public GameBoard(Classes.User user)
         {
@@ -95,6 +98,7 @@ namespace DavesBlackjack
 
             //Start login information
             //set all values
+            player.playerNum = 1;
             Players.Add(player);
             playerBalance.Text = "$" + player.PlayerMoney.ToString();
             endTurnButton.Visible = false;
@@ -173,44 +177,44 @@ namespace DavesBlackjack
         {
             saveButton.Enabled = false;
             string msg = "";
-            int playerCounter = 1;
+            
             foreach (Player player in Players)
             {
                 if (houseDealer.CheckBusted() && !player.CheckBusted())
                 {
-                    msg += "Player " + playerCounter + " Didn't bust and they won $" + player.currentBet + ".\n\n";
+                    msg += "Player " + player.playerNum + " Didn't bust and they won $" + player.currentBet + ".\n\n";
                     player.wins++;
                     player.PlayerMoney += player.currentBet;
                 }
                 else if (player.CheckBusted())
                 {
-                    msg += "Player " + playerCounter + " Busted and they lost $" + player.currentBet + ".\n\n";
+                    msg += "Player " + player.playerNum + " Busted and they lost $" + player.currentBet + ".\n\n";
                     houseDealer.wins++;
                     player.PlayerMoney -= player.currentBet;
                 }
                 else if (houseDealer.handValue > player.handValue)
                 {
-                    msg += "Player " + playerCounter + " Lost to the dealer and they lost $" + player.currentBet + ".\n\n";
+                    msg += "Player " + player.playerNum + " Lost to the dealer and they lost $" + player.currentBet + ".\n\n";
                     houseDealer.wins++;
                     player.PlayerMoney -= player.currentBet;
                 }
                 else if (houseDealer.handValue < player.handValue)
                 {
-                    msg += "Player " + playerCounter + " Has a higher hand than the dealer and they won $" + player.currentBet + ".\n\n"; ;
+                    msg += "Player " + player.playerNum + " Has a higher hand than the dealer and they won $" + player.currentBet + ".\n\n"; ;
                     player.wins++;
                     player.PlayerMoney += player.currentBet;
                 }
                 else
                 {
-                    msg += "Player " + playerCounter + " Tied the dealer and kept their bet money.\n\n";
+                    msg += "Player " + player.playerNum + " Tied the dealer and kept their bet money.\n\n";
                 }
-                playerCounter++;
             }
             msg += "Play Again?";
             
             DialogResult result = MessageBox.Show(msg, "Round Over", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (result == DialogResult.Yes)
             {
+                GetRidOfSplitPairs();
                 foreach (Player player in Players)
                 {
                     player.done = false;
@@ -328,6 +332,8 @@ namespace DavesBlackjack
                 saveButton.Enabled = true;
 
             //Set everyones hand to empty
+            splitpairs = new List<Player>();
+
             foreach (Player player in Players)
             {
                 ClearCards(playerHand);
@@ -335,6 +341,39 @@ namespace DavesBlackjack
                 player.ClearHand();
                 player.Hit(deck);
                 player.Hit(deck);
+             
+            }
+
+            if (player.CardList.Count == 2 && player.CardList[0].num == player.CardList[1].num)
+            {
+                DealCard(playerHand, player.CardList[0].imageName);
+                DealCard(playerHand, player.CardList[1].imageName);
+                DialogResult result = MessageBox.Show("Would you like to split your pairs?", "Split Pairs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (result == DialogResult.Yes)
+                {
+
+                    Player hand2 = new Player();
+                    hand2.CardList.Add(player.CardList[0]);
+                    hand2.playerNum = player.playerNum;
+                    player.CardList.RemoveAt(0);
+                    hand2.currentBet = player.currentBet;
+                    hand2.originalMoney = (int)player.PlayerMoney;
+                    hand2.PlayerMoney = player.PlayerMoney;
+                    splitpairs.Add(hand2);
+                    Players.Insert(Players.IndexOf(player), hand2);
+                    if(player.CardList[0].value == 1)
+                    {
+                        player.Hit(deck);
+                        player.done = true;
+                        hand2.Hit(deck);
+                        hand2.done = true;
+                        endTurnButton.Visible = true;
+                        hitButton.Enabled = false;
+                        stayButton.Enabled = false;
+
+                    }
+                    player = hand2;
+                }
             }
 
             //clearing the actual hand
@@ -363,7 +402,8 @@ namespace DavesBlackjack
 
             //seting up player
             DealCard(playerHand, player.CardList[0].imageName);
-            DealCard(playerHand, player.CardList[1].imageName);
+            if(player.CardList.Count > 1)
+                DealCard(playerHand, player.CardList[1].imageName);
             playerScore.Text = player.handValue.ToString();
 
             //insurance
@@ -387,19 +427,54 @@ namespace DavesBlackjack
         {
             //clearing images
             ClearCards(playerHand);
+            player = Players[currentPlayer];
+            for (int i = 0; i < player.CardList.Count; i++)
+                DealCard(playerHand, player.CardList[i].imageName);
+
+            if (player.CardList.Count == 2 && player.CardList[0].num == player.CardList[1].num)
+            {
+                DialogResult result = MessageBox.Show("Would you like to split your pairs?", "Split Pairs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (result == DialogResult.Yes)
+                {
+                    Player hand2 = new Player();
+                    hand2.CardList.Add(player.CardList[0]);
+                    hand2.playerNum = player.playerNum;
+                    player.CardList.RemoveAt(0);
+                    hand2.currentBet = player.currentBet;
+                    hand2.originalMoney = (int)player.PlayerMoney;
+                    hand2.PlayerMoney = player.PlayerMoney;
+                    splitpairs.Add(hand2);
+                    Players.Insert(Players.IndexOf(player), hand2);
+                    if (player.CardList[0].value == 1)
+                    {
+                        player.Hit(deck);
+                        player.done = true;
+                        hand2.Hit(deck);
+                        hand2.done = true;
+                        endTurnButton.Visible = true;
+                        hitButton.Enabled = false;
+                        stayButton.Enabled = false;
+
+                    }
+                    player = hand2;
+                }
+            }
 
             //setting players hand
-            player = Players[currentPlayer];
+            
             for (int i = 0; i < player.CardList.Count; i++)
                 DealCard(playerHand, player.CardList[i].imageName);
             player.CalcuateCurrentHand();
             playerScore.Text = player.handValue.ToString();
             wins.Text = player.wins.ToString();
             playerBalance.Text = "$" + player.PlayerMoney;
-            playerName.Text = "Player " + (currentPlayer + 1);
+            playerName.Text = "Player " + player.playerNum;
 
             //setting the bet
             betUpDown.Value = player.currentBet;
+
+
+            
         }
 
         /// <summary>
@@ -527,7 +602,10 @@ namespace DavesBlackjack
 
         private void addNewPlayerButton_Click(object sender, EventArgs e)
         {
-            Players.Add(new Player());
+            Player player = new Player();
+            //cool ternary
+            player.playerNum = (Players.Count == 0) ? 1 : (Players.Count + 1);
+            Players.Add(player);
             saveButton.Visible = false;
         }
 
@@ -581,21 +659,20 @@ namespace DavesBlackjack
                 if (houseDealer.CardList[1].value == 10)
                 {
                     string msg = "";
-                    int playerCounter = 1;
                     foreach (Player player in Players)
                     {
                         if (player.handValue == 21)
                         {
-                            msg += "Player " + playerCounter + " and the dealer both have Blackjacks. They keep their bet and insurance.\n\n";
+                            msg += "Player " + player.playerNum + " and the dealer both have Blackjacks. They keep their bet and insurance.\n\n";
                         }
                         else
                         {
-                            msg += "House has a Blackjack. Player " + playerCounter + " loses. Insurance will be paid out to them.\n\n";
+                            msg += "House has a Blackjack. Player " + player.playerNum + " loses. Insurance will be paid out to them.\n\n";
                             player.PlayerMoney -= player.currentBet;
                             player.PlayerMoney += 2 * player.insurance;
                             houseDealer.wins++;
                         }
-                        playerCounter++;
+                        
                     }
                     msg += "Play Again?";
                     DialogResult result = MessageBox.Show(msg, "Round Over", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -683,6 +760,16 @@ namespace DavesBlackjack
         {
             Application.Exit();
 
+        }
+
+        public void GetRidOfSplitPairs()
+        {
+            foreach(Player player in splitpairs)
+            {
+                int dif = (int) player.PlayerMoney - player.originalMoney;
+                Players[Players.IndexOf(player) + 1].PlayerMoney += dif;
+                Players.Remove(player);
+            }
         }
 
     }
