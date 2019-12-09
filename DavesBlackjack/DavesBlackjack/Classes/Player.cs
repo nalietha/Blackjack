@@ -11,7 +11,7 @@ namespace DavesBlackjack
 
     public class Player 
     {
-        public static string DatabaseFile = "..\\..\\Database.xml";
+        public static string DatabaseFile = "Database.xml";
         XDocument doc = XDocument.Load(DatabaseFile);
         /// <summary>
         /// A list of card objects that represents the cards in the players hand
@@ -32,6 +32,12 @@ namespace DavesBlackjack
         public int handValue { get; set; } = 0;
         public int wins { get; set; } = 0;
         public decimal PlayerMoney { get { return playerMoney; } set { playerMoney = value; } }
+        public int currentBet { get; set; } = 10;
+        public int insurance { get; set; } = 0;
+        public bool done = false;
+        public int playerNum;
+        public int originalMoney;
+        public bool aces = false;
 
         public Player()
         {

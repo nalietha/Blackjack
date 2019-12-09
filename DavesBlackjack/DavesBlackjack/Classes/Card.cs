@@ -11,6 +11,7 @@ namespace DavesBlackjack
     /// </summary>
     public class Card
     {
+        public int num;
         /// <summary>
         /// Used for card creation
         /// </summary>
@@ -49,6 +50,7 @@ namespace DavesBlackjack
         private void ParseCardId()
         {
             int parsevalue = id % 13 + 1;
+            num = parsevalue;
             if (parsevalue > 0 && parsevalue <= 10)
             {
                 value = parsevalue;

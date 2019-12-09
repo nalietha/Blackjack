@@ -108,8 +108,9 @@ namespace DavesBlackjack
 
         private void TitleForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-          
-                
+           
+            if(!validated && gameBoard != null)
+                gameBoard.Close();
             
         }
 
