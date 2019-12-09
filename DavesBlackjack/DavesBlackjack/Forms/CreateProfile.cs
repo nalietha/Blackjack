@@ -49,7 +49,7 @@ namespace DavesBlackjack
         public string CreateNewUser()
         {
             // Build XML tree
-            int currentUsers = doc.Descendants("Users").Count();
+            int currentUsers = doc.Descendants("Username").Count();
             XElement newUser = new XElement("Username",
                 new XAttribute("id", currentUsers + 1),
                 new XAttribute("uName", tbUsername.Text.ToLower()),

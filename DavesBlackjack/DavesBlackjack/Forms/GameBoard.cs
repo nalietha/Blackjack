@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DavesBlackjack.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,7 @@ namespace DavesBlackjack
         private Dealer houseDealer = new Dealer();
         private Player player_01 = new Player();
         private Deck deck = new Deck();
+        private User User_01;
         string cardLocation = "Resources\\Cards\\";
         string cardBack = "blue_back";
         /// <summary>
@@ -28,9 +30,10 @@ namespace DavesBlackjack
         List<PictureBox> dealerHand = new List<PictureBox>();
         Music Music = new Music();
 
-        public GameBoard(Classes.User user)
+        public GameBoard(string username)
         {
-            this.username = user.username;
+            this.username = username;
+            this.User_01 = new User(username);
             InitializeComponent();
 
         }
@@ -380,7 +383,7 @@ namespace DavesBlackjack
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            ProfileInfo profileInfo = new ProfileInfo(player_01);
+            ProfileInfo profileInfo = new ProfileInfo(player_01, User_01);
 
             profileInfo.ShowDialog();
             playerBalance.Text = "$" + player_01.PlayerMoney.ToString();

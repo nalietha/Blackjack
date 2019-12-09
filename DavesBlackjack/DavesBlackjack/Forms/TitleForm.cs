@@ -68,14 +68,14 @@ namespace DavesBlackjack
 
             /* Fetch the stored value */
 
-            Classes.User currentUser = new Classes.User();
+            //Classes.User currentUser = new Classes.User();
 
             if (validated)
             {
                 // Open Game 
                 // Make form Invisable. 
                 this.Visible = false;
-                GameBoard gameBoard = new GameBoard(currentUser);
+                GameBoard gameBoard = new GameBoard(this.tbUsername.Text);
                 gameBoard.Show();
 
             }

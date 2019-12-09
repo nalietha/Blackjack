@@ -82,7 +82,7 @@ namespace DavesBlackjack
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PaymentInfo NewInfo = new PaymentInfo(currentUser._username);
+            PaymentInfo NewInfo = new PaymentInfo(currentUser.username);
             NewInfo.Show();
         }
     }

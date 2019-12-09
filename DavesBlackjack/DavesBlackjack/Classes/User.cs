@@ -47,15 +47,8 @@ namespace DavesBlackjack.Classes
         public string zip;
         public string Address;
 
-        private string GetID()
-        {
-            return this.currentUser.Element("Username").Attribute("id").Value;
-        }
-        private string GetGamesWon()
-        {
-            return this.currentUser.Element("Username").Attribute("id").Value;
-
-        }
+        private string GetID() => this.currentUser.Attribute("id").Value;
+        private string GetGamesWon() => this.currentUser.Attribute("id").Value;
         private string GetMoney() => this.currentUser.Element("Cash").Value;
         private string GetEmail() => this.currentUser.Element("Email").Value;
         private string GetNameOnCard() => this.currentUser.Element("PaymentInfo").Element("NameOnCard").Value;

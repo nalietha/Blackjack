@@ -8,11 +8,15 @@
       <Answer>111, fake ave</Answer>
     </SecurityQuestions>
     <PaymentInfo>
-      <CardNumber />
-      <NameOnCard />
-      <SecurityCode />
-      <ExpireDate />
-      <State />
+      <CardNumber>1111 2222 3333 4444</CardNumber>
+      <NameOnCard>Nathan Lietha</NameOnCard>
+      <SecurityCode>555</SecurityCode>
+      <ExpireDate>12-34</ExpireDate>
+      <BillingAddress>820 N Washington Ave</BillingAddress>
+      <City>Madison</City>
+      <State>SD</State>
+      <Zip>57042</Zip>
+      <PhoneNumber>(555) 123-4567</PhoneNumber>
     </PaymentInfo>
     <GamesWon>0</GamesWon>
     <Cash>0</Cash>
@@ -27,15 +31,21 @@
   </Username>
   <Username id="2" uName="default" Password="BQqQBw8uM66oEUXp8IFFOU3H6x4Xohb2OeGZfQBAlHpDN2kN">
     <PlayerName>Default</PlayerName>
+    <Email></Email>
     <SecurityQuestions>
       <Question>What was the house number and street name you lived in as a child?</Question>
       <Answer>answer</Answer>
     </SecurityQuestions>
     <PaymentInfo>
-      <CardNumber />
-      <NameOnCard />
-      <SecurityCode />
-      <ExpireDate />
+      <CardNumber>1111 2222 3333 4444</CardNumber>
+      <NameOnCard>D Fault</NameOnCard>
+      <SecurityCode>555</SecurityCode>
+      <ExpireDate>12-34</ExpireDate>
+      <BillingAddress>820 N Washington Ave</BillingAddress>
+      <City>Madison</City>
+      <State>SD</State>
+      <Zip>57042</Zip>
+      <PhoneNumber>(555) 123-4567</PhoneNumber>
     </PaymentInfo>
     <GamesWon>0</GamesWon>
     <Cash>0</Cash>
@@ -48,7 +58,7 @@
       </PlayerSave>
     </GameInProgress>
   </Username>
-  <Username id="2" uName="user01" Password="6s6H9a0TQ5+XrsP/EZU4Nyv0ijoUYWtM9heooRMGSVKf4RKu">
+  <Username id="3" uName="user01" Password="6s6H9a0TQ5+XrsP/EZU4Nyv0ijoUYWtM9heooRMGSVKf4RKu">
     <PlayerName>User01</PlayerName>
     <SecurityQuestions>
       <Question>What was your first class with Tom?</Question>
@@ -62,7 +72,7 @@
       <BillingAddress>820 N Washington Ave</BillingAddress>
       <City>Madison</City>
       <State>SD</State>
-      <Zip>57042-</Zip>
+      <Zip>57042</Zip>
       <PhoneNumber>(555) 123-4567</PhoneNumber>
     </PaymentInfo>
     <GamesWon>0</GamesWon>
