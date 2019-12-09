@@ -15,36 +15,65 @@ namespace DavesBlackjack.Tests
         public void Calculate_HandValue_For_5_Cards_Test()
         {
             //Arrange
+            int ACE_OF_SPADES = 0;
+            int TWO_OF_SPADES = 1;
+            int THREE_OF_CLUBS = 28;
+            int FOUR_OF_HEARTS = 42;
+            int ACE_OF_DIAMONDS = 13;
+
             Player player = new Player();
-            player.CardList.Add(new Card(0));  // Ace of Spades
-            player.CardList.Add(new Card(1));  // 2 of Spades
-            player.CardList.Add(new Card(28)); // 3 of Clubs 
-            player.CardList.Add(new Card(42)); // 4 of Hearts
-            player.CardList.Add(new Card(13)); // Ace of Diamonds
+            player.CardList.Add(new Card(ACE_OF_SPADES));
+            player.CardList.Add(new Card(TWO_OF_SPADES));
+            player.CardList.Add(new Card(THREE_OF_CLUBS));
+            player.CardList.Add(new Card(FOUR_OF_HEARTS));
+            player.CardList.Add(new Card(ACE_OF_DIAMONDS));
 
             //Act
             player.CalcuateCurrentHand();
 
             //Assert
-            Assert.AreEqual(21, player.handValue);
+            const int EXPECTED_RESULT = 21;
+            Assert.AreEqual(EXPECTED_RESULT, player.handValue);
         }
 
         [TestMethod()]
         public void Check_For_Busted_With_5_Cards_Test()
         {
             //Arrange
+            int ACE_OF_SPADES = 0;
+            int TWO_OF_SPADES = 1;
+            int THREE_OF_CLUBS = 28;
+            int QUEEN_OF_SPADES = 11;
+            int KING_OF_SPADES = 12;
+
             Player player = new Player();
-            player.CardList.Add(new Card(0));  // Ace of Spades
-            player.CardList.Add(new Card(1));  // 2 of Spades
-            player.CardList.Add(new Card(28)); // 3 of Clubs
-            player.CardList.Add(new Card(11)); // Queen of Spades
-            player.CardList.Add(new Card(12)); // King of Spades
+            player.CardList.Add(new Card(ACE_OF_SPADES));
+            player.CardList.Add(new Card(TWO_OF_SPADES));
+            player.CardList.Add(new Card(THREE_OF_CLUBS));
+            player.CardList.Add(new Card(QUEEN_OF_SPADES));
+            player.CardList.Add(new Card(KING_OF_SPADES));
 
             //Act
-            bool result = player.CheckBusted();
+            bool RESULT = player.CheckBusted();
 
             //Assert
-            Assert.AreEqual(true, result);
+            const bool EXPECTED_RESULT = true;
+            Assert.AreEqual(EXPECTED_RESULT, RESULT);
+        }
+
+        [TestMethod()]
+        public void Player_Recieves_Card_On_Hit_Test()
+        {
+            //Arrange
+            Player player = new Player();
+            Deck deck = new Deck();
+
+            //Act
+            player.Hit(deck);
+
+            //Assert
+            const int EXPECTED_RESULT = 1;
+            Assert.AreEqual(EXPECTED_RESULT, player.CardList.Count());
         }
     }
 }

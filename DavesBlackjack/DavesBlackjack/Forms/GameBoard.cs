@@ -327,6 +327,9 @@ namespace DavesBlackjack
             if (Players.Count > 1)
                 saveButton.Enabled = true;
 
+            //shuffle
+            deck.Shuffle();
+
             //Set everyones hand to empty
             foreach (Player player in Players)
             {
@@ -351,9 +354,6 @@ namespace DavesBlackjack
             //enabling buttons
             hitButton.Enabled = true;
             stayButton.Enabled = true;
-
-            //shuffle
-            deck.Shuffle();
 
             //setting up dealer
             houseDealer.Hit(deck);

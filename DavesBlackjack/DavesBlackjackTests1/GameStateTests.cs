@@ -15,14 +15,19 @@ namespace DavesBlackjack.Tests
         public void Write_XML_File_From_GameState_Test()
         {
             //Arrange
-            GameState gamestate = new GameState(new Dealer(), new Player(), new Deck(), 25, true);
+            const int CURRENT_BET = 25;
+            const bool IS_BEFORE_INSURANCE = true;
+
+            GameState gamestate = new GameState(new Dealer(), new Player(), new Deck(), CURRENT_BET, IS_BEFORE_INSURANCE);
             string SaveFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Blackjack Saves//";
 
             //Act
             gamestate.SaveGame("Test", SaveFilePath);
 
             //Assert
-            Assert.AreEqual(true, System.IO.File.Exists(SaveFilePath + "Test.xml"));
+            const bool EXPECTED_RESULT = true;
+
+            Assert.AreEqual(EXPECTED_RESULT, System.IO.File.Exists(SaveFilePath + "Test.xml"));
             if(System.IO.File.Exists(SaveFilePath + "Test.xml"))
             {
                 System.IO.File.Delete(SaveFilePath + "Test.xml");
