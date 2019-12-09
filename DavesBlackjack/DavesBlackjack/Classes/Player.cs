@@ -37,6 +37,7 @@ namespace DavesBlackjack
         public bool done = false;
         public int playerNum;
         public int originalMoney;
+        public bool aces = false;
 
         public Player()
         {

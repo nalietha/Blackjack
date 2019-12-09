@@ -328,6 +328,7 @@ namespace DavesBlackjack
     /// </summary>
         public void RestartGame()
         {
+            
             if (Players.Count > 1)
                 saveButton.Enabled = true;
 
@@ -341,8 +342,14 @@ namespace DavesBlackjack
                 player.ClearHand();
                 player.Hit(deck);
                 player.Hit(deck);
+                player.aces = false;
              
             }
+
+            /*
+            player.CardList[0] = new Card(0);
+            player.CardList[1] = new Card(13);
+            */
 
             if (player.CardList.Count == 2 && player.CardList[0].num == player.CardList[1].num)
             {
@@ -364,12 +371,10 @@ namespace DavesBlackjack
                     if(player.CardList[0].value == 1)
                     {
                         player.Hit(deck);
-                        player.done = true;
                         hand2.Hit(deck);
-                        hand2.done = true;
-                        endTurnButton.Visible = true;
+                        player.aces = true;
+                        hand2.aces = true;
                         hitButton.Enabled = false;
-                        stayButton.Enabled = false;
 
                     }
                     player = hand2;
@@ -388,9 +393,10 @@ namespace DavesBlackjack
             dealerScore.Text = "XX";
 
             //enabling buttons
-            hitButton.Enabled = true;
+            if (!player.aces)
+                hitButton.Enabled = true;
             stayButton.Enabled = true;
-
+            
             //shuffle
             deck.Shuffle();
 
@@ -448,12 +454,11 @@ namespace DavesBlackjack
                     if (player.CardList[0].value == 1)
                     {
                         player.Hit(deck);
-                        player.done = true;
                         hand2.Hit(deck);
-                        hand2.done = true;
-                        endTurnButton.Visible = true;
+                        player.aces = true;
+                        hand2.aces = true;
+
                         hitButton.Enabled = false;
-                        stayButton.Enabled = false;
 
                     }
                     player = hand2;
@@ -473,8 +478,9 @@ namespace DavesBlackjack
             //setting the bet
             betUpDown.Value = player.currentBet;
 
+            if(!player.aces)
+                hitButton.Enabled = true;
 
-            
         }
 
         /// <summary>
@@ -540,7 +546,8 @@ namespace DavesBlackjack
                     insuranceButton.Enabled = false;
                     if (houseDealer.CardList[0].value == 1)
                         UnhideCard(dealerHand, houseDealer.CardList[1].imageName);
-                    hitButton.Enabled = true;
+                    if(!player.aces)
+                        hitButton.Enabled = true;
                     stayButton.Enabled = true;
                 }
             }
@@ -581,7 +588,7 @@ namespace DavesBlackjack
 
         private void stayButton_Click(object sender, EventArgs e)
         {
-            hitButton.Enabled = true;
+            
             endTurnButton.Visible = false;
             player.done = true;
             FindNextPlayer();
@@ -612,7 +619,6 @@ namespace DavesBlackjack
         private void endTurnButton_Click(object sender, EventArgs e)
         {
             endTurnButton.Visible = false;
-            hitButton.Enabled = true;
             stayButton.Enabled = true;
             FindNextPlayer();
             ChangePlayer();
@@ -700,7 +706,8 @@ namespace DavesBlackjack
                 }
                 else
                 {
-                    hitButton.Enabled = true;
+                    if(!player.aces)
+                        hitButton.Enabled = true;
                     stayButton.Enabled = true;
                     foreach (Player player in Players)
                     {
@@ -764,6 +771,8 @@ namespace DavesBlackjack
 
         public void GetRidOfSplitPairs()
         {
+            if (splitpairs == null)
+                return;
             foreach(Player player in splitpairs)
             {
                 int dif = (int) player.PlayerMoney - player.originalMoney;
