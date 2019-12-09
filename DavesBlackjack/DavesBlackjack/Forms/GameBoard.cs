@@ -420,6 +420,10 @@ namespace DavesBlackjack
 
                 //setting players hand
                 player = gamestate.player;
+
+                //condition to do nothing in response to static analysis
+                if (player.CardList.Count < 0 || player.CardList.Count > 8)
+                    return;
                 for (int i = 0; i < player.CardList.Count; i++)
                     DealCard(playerHand, player.CardList[i].imageName);
                 player.CalcuateCurrentHand();
