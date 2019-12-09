@@ -461,7 +461,7 @@ namespace DavesBlackjack
             }
 
             //setting players hand
-            
+            ClearCards(playerHand);
             for (int i = 0; i < player.CardList.Count; i++)
                 DealCard(playerHand, player.CardList[i].imageName);
             player.CalcuateCurrentHand();
