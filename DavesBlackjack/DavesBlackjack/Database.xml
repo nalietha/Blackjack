@@ -1,11 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Users>
-  <Username id="2" uName="nalietha" Password="Ladii86Pjs1Z7ISFML4P4g/ZCaMOwJ0utQQGFSiktAImofr1">
+  <Username id="1" uName="nalietha" Password="Ladii86Pjs1Z7ISFML4P4g/ZCaMOwJ0utQQGFSiktAImofr1">
     <PlayerName>nalietha</PlayerName>
     <Email>Nathan.Lietha@gmail.com</Email>
     <SecurityQuestions>
       <Question>What was the house number and street name you lived in as a child?</Question>
       <Answer>111, fake ave</Answer>
+    </SecurityQuestions>
+    <PaymentInfo>
+      <CardNumber />
+      <NameOnCard />
+      <SecurityCode />
+      <ExpireDate />
+      <State />
+    </PaymentInfo>
+    <GamesWon>0</GamesWon>
+    <Cash>0</Cash>
+    <GameInProgress>
+      <Status>false</Status>
+      <PlayerSave>
+        <SaveState />
+        <DealerSave />
+        <SaveState />
+      </PlayerSave>
+    </GameInProgress>
+  </Username>
+  <Username id="2" uName="default" Password="BQqQBw8uM66oEUXp8IFFOU3H6x4Xohb2OeGZfQBAlHpDN2kN">
+    <PlayerName>Default</PlayerName>
+    <SecurityQuestions>
+      <Question>What was the house number and street name you lived in as a child?</Question>
+      <Answer>answer</Answer>
     </SecurityQuestions>
     <PaymentInfo>
       <CardNumber />
@@ -24,17 +48,22 @@
       </PlayerSave>
     </GameInProgress>
   </Username>
-  <Username id="3" uName="default" Password="BQqQBw8uM66oEUXp8IFFOU3H6x4Xohb2OeGZfQBAlHpDN2kN">
-    <PlayerName>Default</PlayerName>
+  <Username id="2" uName="user01" Password="6s6H9a0TQ5+XrsP/EZU4Nyv0ijoUYWtM9heooRMGSVKf4RKu">
+    <PlayerName>User01</PlayerName>
     <SecurityQuestions>
-      <Question>What was the house number and street name you lived in as a child?</Question>
-      <Answer>answer</Answer>
+      <Question>What was your first class with Tom?</Question>
+      <Answer>150</Answer>
     </SecurityQuestions>
     <PaymentInfo>
-      <CardNumber />
-      <NameOnCard />
-      <SecurityCode />
-      <ExpireDate />
+      <CardNumber>1111 2222 3333 4444</CardNumber>
+      <NameOnCard>John Smith</NameOnCard>
+      <SecurityCode>555</SecurityCode>
+      <ExpireDate>12-34</ExpireDate>
+      <BillingAddress>820 N Washington Ave</BillingAddress>
+      <City>Madison</City>
+      <State>SD</State>
+      <Zip>57042-</Zip>
+      <PhoneNumber>(555) 123-4567</PhoneNumber>
     </PaymentInfo>
     <GamesWon>0</GamesWon>
     <Cash>0</Cash>

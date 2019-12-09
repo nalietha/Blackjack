@@ -13,21 +13,18 @@ namespace DavesBlackjack
 {
     public partial class PaymentInfo : Form
     {
-        public PaymentInfo()
+        public PaymentInfo(string username)
         {
             InitializeComponent();
             this.CenterToParent();
-            
-        }
-        public PaymentInfo(string username)
-        {
             this._username = username;
         }
 
-        XDocument doc = XDocument.Load("..\\..\\Database.xml");
+        public static string DatabaseConn = "..\\..\\Database.xml";
+        XDocument doc = XDocument.Load(DatabaseConn);
         private string _username;
 
-        private void CheckForRequired()
+        private bool CheckForRequired()
         {
             CardNumberErrors();
             CSCError();
@@ -51,11 +48,13 @@ namespace DavesBlackjack
                 || PhoneNumberErrors())
             {
                 lblErrors.Text = "ERROR: Check Required Infomation";
+                return true;
             }
             else
             {
-                // No Errors, add to users data
+                // No Errors
                 AddPaymentInfo();
+                return false;
             }
 
         }
@@ -81,7 +80,7 @@ namespace DavesBlackjack
         bool CSCError()
         {
             // CSC
-            if (mtbCSCNumber.Text == "" || mtbCSCNumber.Text.Length > 3)
+            if (mtbCSCNumber.Text == "" || mtbCSCNumber.Text.Length <3)
             {
                 // Display errors
                 pnlCSCError.Visible = true;
@@ -116,7 +115,7 @@ namespace DavesBlackjack
             // ExpireDate
             var currentDate = DateTime.Now;
             string locCSC = mtbCSCNumber.Text;
-            if (mtbExpires.Text == "")
+            if (mtbExpires.Text == "" || mtbExpires.Text.Length < 4)
             {
                 // Display errors
                 pnlExpeiresError.Visible = true;
@@ -126,7 +125,7 @@ namespace DavesBlackjack
             else
             {
                 // Remove errors
-                pnlExpeiresError.Visible = true;
+                pnlExpeiresError.Visible = false;
                 return false;
             }
             // Add already expired error
@@ -188,7 +187,7 @@ namespace DavesBlackjack
         }
         bool PhoneNumberErrors()
         {
-            if(mtbPhoneNumber.Text.Length > 10 && mtbPhoneNumber.Text != "")
+            if(mtbPhoneNumber.Text.Length < 10 && mtbPhoneNumber.Text != "")
             {
                 pnlPhoneNumberError.Visible = true;
                 lblPhoneNumberError.Visible = true;
@@ -209,39 +208,77 @@ namespace DavesBlackjack
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            //if (CheckForRequired())
-            //{
-            //    // Do nothing
-            //}
-            //else
+            if (CheckForRequired())
+            {
+                // Do nothing
+            }
+            else
+            {
                 AddPaymentInfo();
+                // Show success message
+                MessageBox.Show("Payment infomation added, to change, login and go to profile infomation.", "Success");
+                // close form
+                this.Close();
+            }
 
 
         }
         private void AddPaymentInfo()
         {
             // get all payment info
-            var userAddInfo = doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == _username.ToLower()).FirstOrDefault();
+            var userAddInfo = doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == _username.ToLower()).FirstOrDefault().Element("PaymentInfo");
 
             // Card Info
             userAddInfo.SetElementValue("CardNumber", mtbCardNumber.Text);
+
             userAddInfo.SetElementValue("NameOnCard", tbName.Text);
             userAddInfo.SetElementValue("SecurityCode", mtbCSCNumber.Text);
             userAddInfo.SetElementValue("ExpireDate", mtbExpires.Text);
 
             // Location
-            userAddInfo.SetElementValue("CardNumber", );
-            userAddInfo.SetElementValue("CardNumber", );
-            userAddInfo.SetElementValue("CardNumber", );
-            userAddInfo.SetElementValue("CardNumber", );
+            userAddInfo.SetElementValue("BillingAddress", tbBillingAddress.Text);
+            userAddInfo.SetElementValue("City", tbCity.Text);
+            userAddInfo.SetElementValue("State", mtbState.Text);
+            userAddInfo.SetElementValue("PhoneNumber", mtbPhoneNumber.Text );
+            
+            if(mtbZip.Text.Length == 6)
+                userAddInfo.SetElementValue("Zip",mtbZip.Text.Replace("-","") );
+            else
+                userAddInfo.SetElementValue("Zip", mtbZip.Text);
 
             //XElement UserInfo = doc.Descendants("Username")
             //    .Where(x => (string)x.Attribute("uName") == username)
             //    .Select(x => (string)x.Element("SecurityQuestions")
             //    .Element("Answer")).FirstOrDefault();
 
+            doc.Save(DatabaseConn);
 
         }
 
+        private void btnQuickFill_Click(object sender, EventArgs e)
+        {
+            mtbCardNumber.Text = "1111222233334444";
+            mtbCSCNumber.Text = "555";
+            tbName.Text = "John Smith";
+            mtbExpires.Text = "1234";
+            tbBillingAddress.Text = "820 N Washington Ave";
+            tbCity.Text = "Madison";
+            mtbState.Text = "SD";
+            mtbZip.Text = "57042";
+            mtbPhoneNumber.Text = "555123456789";
+
+        }
+        private void ClearForm()
+        {
+            mtbCardNumber.Text = "";
+            mtbCSCNumber.Text = "";
+            tbName.Text = "";
+            mtbExpires.Text = "";
+            tbBillingAddress.Text = "";
+            tbCity.Text = "";
+            mtbState.Text = "";
+            mtbZip.Text = "";
+            mtbPhoneNumber.Text = "";
+        }
     }
 }

@@ -69,6 +69,7 @@
             this.lblErrors = new System.Windows.Forms.Label();
             this.pnlPhoneNumberError = new System.Windows.Forms.Panel();
             this.lblPhoneNumberError = new System.Windows.Forms.Label();
+            this.btnQuickFill = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -76,191 +77,171 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTitle.Location = new System.Drawing.Point(35, 31);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblTitle.Location = new System.Drawing.Point(13, 13);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(651, 113);
+            this.lblTitle.Size = new System.Drawing.Size(266, 46);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Payment Info";
             // 
             // lblDisplayCardNumber
             // 
             this.lblDisplayCardNumber.AutoSize = true;
-            this.lblDisplayCardNumber.Location = new System.Drawing.Point(72, 210);
-            this.lblDisplayCardNumber.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDisplayCardNumber.Location = new System.Drawing.Point(27, 88);
             this.lblDisplayCardNumber.Name = "lblDisplayCardNumber";
-            this.lblDisplayCardNumber.Size = new System.Drawing.Size(183, 32);
+            this.lblDisplayCardNumber.Size = new System.Drawing.Size(69, 13);
             this.lblDisplayCardNumber.TabIndex = 1;
             this.lblDisplayCardNumber.Text = "Card Number";
             // 
             // lblDisplayCSC
             // 
             this.lblDisplayCSC.AutoSize = true;
-            this.lblDisplayCSC.Location = new System.Drawing.Point(669, 212);
-            this.lblDisplayCSC.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDisplayCSC.Location = new System.Drawing.Point(251, 89);
             this.lblDisplayCSC.Name = "lblDisplayCSC";
-            this.lblDisplayCSC.Size = new System.Drawing.Size(74, 32);
+            this.lblDisplayCSC.Size = new System.Drawing.Size(28, 13);
             this.lblDisplayCSC.TabIndex = 2;
             this.lblDisplayCSC.Text = "CSC";
             // 
             // lblDisplayName
             // 
             this.lblDisplayName.AutoSize = true;
-            this.lblDisplayName.Location = new System.Drawing.Point(72, 327);
-            this.lblDisplayName.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDisplayName.Location = new System.Drawing.Point(27, 137);
             this.lblDisplayName.Name = "lblDisplayName";
-            this.lblDisplayName.Size = new System.Drawing.Size(199, 32);
+            this.lblDisplayName.Size = new System.Drawing.Size(77, 13);
             this.lblDisplayName.TabIndex = 3;
             this.lblDisplayName.Text = "Name on card:";
             // 
             // lblDisplayBillingAddress
             // 
             this.lblDisplayBillingAddress.AutoSize = true;
-            this.lblDisplayBillingAddress.Location = new System.Drawing.Point(72, 446);
-            this.lblDisplayBillingAddress.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDisplayBillingAddress.Location = new System.Drawing.Point(27, 187);
             this.lblDisplayBillingAddress.Name = "lblDisplayBillingAddress";
-            this.lblDisplayBillingAddress.Size = new System.Drawing.Size(205, 32);
+            this.lblDisplayBillingAddress.Size = new System.Drawing.Size(75, 13);
             this.lblDisplayBillingAddress.TabIndex = 4;
             this.lblDisplayBillingAddress.Text = "Billing Address";
             // 
             // lblDisplayState
             // 
             this.lblDisplayState.AutoSize = true;
-            this.lblDisplayState.Location = new System.Drawing.Point(552, 563);
-            this.lblDisplayState.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDisplayState.Location = new System.Drawing.Point(207, 236);
             this.lblDisplayState.Name = "lblDisplayState";
-            this.lblDisplayState.Size = new System.Drawing.Size(201, 32);
+            this.lblDisplayState.Size = new System.Drawing.Size(79, 13);
             this.lblDisplayState.TabIndex = 5;
             this.lblDisplayState.Text = "State/Province";
             // 
             // lblDisplayCity
             // 
             this.lblDisplayCity.AutoSize = true;
-            this.lblDisplayCity.Location = new System.Drawing.Point(72, 563);
-            this.lblDisplayCity.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDisplayCity.Location = new System.Drawing.Point(27, 236);
             this.lblDisplayCity.Name = "lblDisplayCity";
-            this.lblDisplayCity.Size = new System.Drawing.Size(64, 32);
+            this.lblDisplayCity.Size = new System.Drawing.Size(24, 13);
             this.lblDisplayCity.TabIndex = 6;
             this.lblDisplayCity.Text = "City";
             // 
             // lblDisplayZipCode
             // 
             this.lblDisplayZipCode.AutoSize = true;
-            this.lblDisplayZipCode.Location = new System.Drawing.Point(779, 560);
-            this.lblDisplayZipCode.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDisplayZipCode.Location = new System.Drawing.Point(292, 235);
             this.lblDisplayZipCode.Name = "lblDisplayZipCode";
-            this.lblDisplayZipCode.Size = new System.Drawing.Size(218, 32);
+            this.lblDisplayZipCode.Size = new System.Drawing.Size(84, 13);
             this.lblDisplayZipCode.TabIndex = 7;
             this.lblDisplayZipCode.Text = "Zip/Postal Code";
             // 
             // lblDisplayPhoneNumber
             // 
             this.lblDisplayPhoneNumber.AutoSize = true;
-            this.lblDisplayPhoneNumber.Location = new System.Drawing.Point(72, 689);
-            this.lblDisplayPhoneNumber.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDisplayPhoneNumber.Location = new System.Drawing.Point(27, 289);
             this.lblDisplayPhoneNumber.Name = "lblDisplayPhoneNumber";
-            this.lblDisplayPhoneNumber.Size = new System.Drawing.Size(205, 32);
+            this.lblDisplayPhoneNumber.Size = new System.Drawing.Size(78, 13);
             this.lblDisplayPhoneNumber.TabIndex = 8;
             this.lblDisplayPhoneNumber.Text = "Phone Number";
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(72, 370);
-            this.tbName.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.tbName.Location = new System.Drawing.Point(27, 155);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(583, 38);
+            this.tbName.Size = new System.Drawing.Size(221, 20);
             this.tbName.TabIndex = 3;
             // 
             // tbBillingAddress
             // 
-            this.tbBillingAddress.Location = new System.Drawing.Point(72, 491);
-            this.tbBillingAddress.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.tbBillingAddress.Location = new System.Drawing.Point(27, 206);
             this.tbBillingAddress.Name = "tbBillingAddress";
-            this.tbBillingAddress.Size = new System.Drawing.Size(705, 38);
+            this.tbBillingAddress.Size = new System.Drawing.Size(267, 20);
             this.tbBillingAddress.TabIndex = 5;
             // 
             // tbCity
             // 
-            this.tbCity.Location = new System.Drawing.Point(72, 606);
-            this.tbCity.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.tbCity.Location = new System.Drawing.Point(27, 254);
             this.tbCity.Name = "tbCity";
-            this.tbCity.Size = new System.Drawing.Size(455, 38);
+            this.tbCity.Size = new System.Drawing.Size(173, 20);
             this.tbCity.TabIndex = 6;
             // 
             // lblDisplayExpireDate
             // 
             this.lblDisplayExpireDate.AutoSize = true;
-            this.lblDisplayExpireDate.Location = new System.Drawing.Point(669, 324);
-            this.lblDisplayExpireDate.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDisplayExpireDate.Location = new System.Drawing.Point(251, 136);
             this.lblDisplayExpireDate.Name = "lblDisplayExpireDate";
-            this.lblDisplayExpireDate.Size = new System.Drawing.Size(219, 32);
+            this.lblDisplayExpireDate.Size = new System.Drawing.Size(83, 13);
             this.lblDisplayExpireDate.TabIndex = 19;
             this.lblDisplayExpireDate.Text = "Experation Date";
             // 
             // mtbZip
             // 
-            this.mtbZip.Location = new System.Drawing.Point(789, 606);
-            this.mtbZip.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.mtbZip.Location = new System.Drawing.Point(296, 254);
             this.mtbZip.Mask = "00000-9999";
             this.mtbZip.Name = "mtbZip";
-            this.mtbZip.Size = new System.Drawing.Size(260, 38);
+            this.mtbZip.Size = new System.Drawing.Size(100, 20);
             this.mtbZip.TabIndex = 8;
             // 
             // mtbPhoneNumber
             // 
-            this.mtbPhoneNumber.Location = new System.Drawing.Point(80, 734);
-            this.mtbPhoneNumber.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.mtbPhoneNumber.Location = new System.Drawing.Point(30, 308);
             this.mtbPhoneNumber.Mask = "(999) 000-0000";
             this.mtbPhoneNumber.Name = "mtbPhoneNumber";
-            this.mtbPhoneNumber.Size = new System.Drawing.Size(260, 38);
+            this.mtbPhoneNumber.Size = new System.Drawing.Size(100, 20);
             this.mtbPhoneNumber.TabIndex = 9;
             // 
             // mtbCSCNumber
             // 
-            this.mtbCSCNumber.Location = new System.Drawing.Point(677, 255);
-            this.mtbCSCNumber.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.mtbCSCNumber.Location = new System.Drawing.Point(254, 107);
             this.mtbCSCNumber.Mask = "000";
             this.mtbCSCNumber.Name = "mtbCSCNumber";
-            this.mtbCSCNumber.Size = new System.Drawing.Size(95, 38);
+            this.mtbCSCNumber.Size = new System.Drawing.Size(38, 20);
             this.mtbCSCNumber.TabIndex = 2;
             this.mtbCSCNumber.ValidatingType = typeof(int);
             // 
             // mtbCardNumber
             // 
-            this.mtbCardNumber.Location = new System.Drawing.Point(80, 255);
-            this.mtbCardNumber.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.mtbCardNumber.Location = new System.Drawing.Point(30, 107);
             this.mtbCardNumber.Mask = "0000 0000 0000 0000";
             this.mtbCardNumber.Name = "mtbCardNumber";
-            this.mtbCardNumber.Size = new System.Drawing.Size(575, 38);
+            this.mtbCardNumber.Size = new System.Drawing.Size(218, 20);
             this.mtbCardNumber.TabIndex = 1;
             this.mtbCardNumber.ValidatingType = typeof(int);
             // 
             // mtbExpires
             // 
-            this.mtbExpires.Location = new System.Drawing.Point(677, 370);
-            this.mtbExpires.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.mtbExpires.Location = new System.Drawing.Point(254, 155);
             this.mtbExpires.Mask = "00/00";
             this.mtbExpires.Name = "mtbExpires";
-            this.mtbExpires.Size = new System.Drawing.Size(92, 38);
+            this.mtbExpires.Size = new System.Drawing.Size(37, 20);
             this.mtbExpires.TabIndex = 4;
             this.mtbExpires.ValidatingType = typeof(System.DateTime);
             // 
             // mtbState
             // 
-            this.mtbState.Location = new System.Drawing.Point(560, 606);
-            this.mtbState.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.mtbState.Location = new System.Drawing.Point(210, 254);
             this.mtbState.Mask = "LL";
             this.mtbState.Name = "mtbState";
-            this.mtbState.Size = new System.Drawing.Size(95, 38);
+            this.mtbState.Size = new System.Drawing.Size(38, 20);
             this.mtbState.TabIndex = 7;
             this.mtbState.ValidatingType = typeof(System.DateTime);
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(691, 837);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnConfirm.Location = new System.Drawing.Point(259, 351);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(200, 55);
+            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
             this.btnConfirm.TabIndex = 20;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
@@ -268,10 +249,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(475, 837);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnCancel.Location = new System.Drawing.Point(178, 351);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(200, 55);
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 21;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -281,10 +261,9 @@
             // 
             this.lblDisplayRequired.AutoSize = true;
             this.lblDisplayRequired.ForeColor = System.Drawing.Color.Red;
-            this.lblDisplayRequired.Location = new System.Drawing.Point(72, 162);
-            this.lblDisplayRequired.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDisplayRequired.Location = new System.Drawing.Point(27, 68);
             this.lblDisplayRequired.Name = "lblDisplayRequired";
-            this.lblDisplayRequired.Size = new System.Drawing.Size(180, 32);
+            this.lblDisplayRequired.Size = new System.Drawing.Size(71, 13);
             this.lblDisplayRequired.TabIndex = 22;
             this.lblDisplayRequired.Text = "* REQUIRED";
             // 
@@ -293,10 +272,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(256, 210);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Location = new System.Drawing.Point(96, 88);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 31);
+            this.label1.Size = new System.Drawing.Size(11, 13);
             this.label1.TabIndex = 23;
             this.label1.Text = "*";
             // 
@@ -305,10 +283,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(733, 212);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label2.Location = new System.Drawing.Point(275, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 31);
+            this.label2.Size = new System.Drawing.Size(11, 13);
             this.label2.TabIndex = 24;
             this.label2.Text = "*";
             // 
@@ -317,10 +294,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(885, 322);
-            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label3.Location = new System.Drawing.Point(332, 135);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 31);
+            this.label3.Size = new System.Drawing.Size(11, 13);
             this.label3.TabIndex = 25;
             this.label3.Text = "*";
             // 
@@ -329,10 +305,9 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(1000, 563);
-            this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label4.Location = new System.Drawing.Point(375, 236);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 31);
+            this.label4.Size = new System.Drawing.Size(11, 13);
             this.label4.TabIndex = 26;
             this.label4.Text = "*";
             // 
@@ -341,10 +316,9 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(275, 327);
-            this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label5.Location = new System.Drawing.Point(103, 137);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(25, 31);
+            this.label5.Size = new System.Drawing.Size(11, 13);
             this.label5.TabIndex = 27;
             this.label5.Text = "*";
             // 
@@ -353,10 +327,9 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(749, 568);
-            this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label6.Location = new System.Drawing.Point(281, 238);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(25, 31);
+            this.label6.Size = new System.Drawing.Size(11, 13);
             this.label6.TabIndex = 28;
             this.label6.Text = "*";
             // 
@@ -365,10 +338,9 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(139, 563);
-            this.label7.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label7.Location = new System.Drawing.Point(52, 236);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(25, 31);
+            this.label7.Size = new System.Drawing.Size(11, 13);
             this.label7.TabIndex = 29;
             this.label7.Text = "*";
             // 
@@ -377,90 +349,81 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(264, 446);
-            this.label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label9.Location = new System.Drawing.Point(99, 187);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(25, 31);
+            this.label9.Size = new System.Drawing.Size(11, 13);
             this.label9.TabIndex = 31;
             this.label9.Text = "*";
             // 
             // pnlZipError
             // 
             this.pnlZipError.BackColor = System.Drawing.Color.Red;
-            this.pnlZipError.Location = new System.Drawing.Point(789, 594);
-            this.pnlZipError.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pnlZipError.Location = new System.Drawing.Point(296, 249);
             this.pnlZipError.Name = "pnlZipError";
-            this.pnlZipError.Size = new System.Drawing.Size(267, 29);
+            this.pnlZipError.Size = new System.Drawing.Size(100, 12);
             this.pnlZipError.TabIndex = 33;
             this.pnlZipError.Visible = false;
             // 
             // pnlStateError
             // 
             this.pnlStateError.BackColor = System.Drawing.Color.Red;
-            this.pnlStateError.Location = new System.Drawing.Point(560, 594);
-            this.pnlStateError.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pnlStateError.Location = new System.Drawing.Point(210, 249);
             this.pnlStateError.Name = "pnlStateError";
-            this.pnlStateError.Size = new System.Drawing.Size(101, 24);
+            this.pnlStateError.Size = new System.Drawing.Size(38, 10);
             this.pnlStateError.TabIndex = 34;
             this.pnlStateError.Visible = false;
             // 
             // pnlCityError
             // 
             this.pnlCityError.BackColor = System.Drawing.Color.Red;
-            this.pnlCityError.Location = new System.Drawing.Point(72, 594);
-            this.pnlCityError.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pnlCityError.Location = new System.Drawing.Point(27, 249);
             this.pnlCityError.Name = "pnlCityError";
-            this.pnlCityError.Size = new System.Drawing.Size(461, 29);
+            this.pnlCityError.Size = new System.Drawing.Size(173, 12);
             this.pnlCityError.TabIndex = 35;
             this.pnlCityError.Visible = false;
             // 
             // pnlBillingAddressError
             // 
             this.pnlBillingAddressError.BackColor = System.Drawing.Color.Red;
-            this.pnlBillingAddressError.Location = new System.Drawing.Point(72, 482);
-            this.pnlBillingAddressError.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pnlBillingAddressError.Location = new System.Drawing.Point(27, 202);
             this.pnlBillingAddressError.Name = "pnlBillingAddressError";
-            this.pnlBillingAddressError.Size = new System.Drawing.Size(712, 31);
+            this.pnlBillingAddressError.Size = new System.Drawing.Size(267, 13);
             this.pnlBillingAddressError.TabIndex = 36;
             this.pnlBillingAddressError.Visible = false;
             // 
             // pnlExpeiresError
             // 
             this.pnlExpeiresError.BackColor = System.Drawing.Color.Red;
-            this.pnlExpeiresError.Location = new System.Drawing.Point(677, 360);
-            this.pnlExpeiresError.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pnlExpeiresError.Location = new System.Drawing.Point(254, 151);
             this.pnlExpeiresError.Name = "pnlExpeiresError";
-            this.pnlExpeiresError.Size = new System.Drawing.Size(99, 24);
+            this.pnlExpeiresError.Size = new System.Drawing.Size(37, 10);
             this.pnlExpeiresError.TabIndex = 37;
             this.pnlExpeiresError.Visible = false;
             // 
             // pnlNameOnCardError
             // 
             this.pnlNameOnCardError.BackColor = System.Drawing.Color.Red;
-            this.pnlNameOnCardError.Location = new System.Drawing.Point(72, 358);
-            this.pnlNameOnCardError.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pnlNameOnCardError.Location = new System.Drawing.Point(27, 150);
             this.pnlNameOnCardError.Name = "pnlNameOnCardError";
-            this.pnlNameOnCardError.Size = new System.Drawing.Size(589, 24);
+            this.pnlNameOnCardError.Size = new System.Drawing.Size(221, 10);
             this.pnlNameOnCardError.TabIndex = 38;
             this.pnlNameOnCardError.Visible = false;
             // 
             // pnlCardNumberError
             // 
             this.pnlCardNumberError.BackColor = System.Drawing.Color.Red;
-            this.pnlCardNumberError.Location = new System.Drawing.Point(80, 243);
-            this.pnlCardNumberError.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pnlCardNumberError.Location = new System.Drawing.Point(30, 102);
             this.pnlCardNumberError.Name = "pnlCardNumberError";
-            this.pnlCardNumberError.Size = new System.Drawing.Size(581, 55);
+            this.pnlCardNumberError.Size = new System.Drawing.Size(218, 23);
             this.pnlCardNumberError.TabIndex = 39;
             this.pnlCardNumberError.Visible = false;
             // 
             // pnlCSCError
             // 
             this.pnlCSCError.BackColor = System.Drawing.Color.Red;
-            this.pnlCSCError.Location = new System.Drawing.Point(677, 243);
-            this.pnlCSCError.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pnlCSCError.Location = new System.Drawing.Point(254, 102);
             this.pnlCSCError.Name = "pnlCSCError";
-            this.pnlCSCError.Size = new System.Drawing.Size(99, 28);
+            this.pnlCSCError.Size = new System.Drawing.Size(37, 12);
             this.pnlCSCError.TabIndex = 40;
             this.pnlCSCError.Visible = false;
             // 
@@ -469,9 +432,10 @@
             this.lblErrors.AutoSize = true;
             this.lblErrors.BackColor = System.Drawing.SystemColors.Control;
             this.lblErrors.ForeColor = System.Drawing.Color.Red;
-            this.lblErrors.Location = new System.Drawing.Point(475, 903);
+            this.lblErrors.Location = new System.Drawing.Point(178, 379);
+            this.lblErrors.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblErrors.Name = "lblErrors";
-            this.lblErrors.Size = new System.Drawing.Size(34, 32);
+            this.lblErrors.Size = new System.Drawing.Size(14, 13);
             this.lblErrors.TabIndex = 41;
             this.lblErrors.Text = "X";
             this.lblErrors.Visible = false;
@@ -479,10 +443,9 @@
             // pnlPhoneNumberError
             // 
             this.pnlPhoneNumberError.BackColor = System.Drawing.Color.Red;
-            this.pnlPhoneNumberError.Location = new System.Drawing.Point(80, 722);
-            this.pnlPhoneNumberError.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pnlPhoneNumberError.Location = new System.Drawing.Point(30, 303);
             this.pnlPhoneNumberError.Name = "pnlPhoneNumberError";
-            this.pnlPhoneNumberError.Size = new System.Drawing.Size(260, 28);
+            this.pnlPhoneNumberError.Size = new System.Drawing.Size(98, 12);
             this.pnlPhoneNumberError.TabIndex = 42;
             this.pnlPhoneNumberError.Visible = false;
             // 
@@ -491,19 +454,31 @@
             this.lblPhoneNumberError.AutoSize = true;
             this.lblPhoneNumberError.BackColor = System.Drawing.SystemColors.Control;
             this.lblPhoneNumberError.ForeColor = System.Drawing.Color.Red;
-            this.lblPhoneNumberError.Location = new System.Drawing.Point(72, 791);
+            this.lblPhoneNumberError.Location = new System.Drawing.Point(27, 332);
+            this.lblPhoneNumberError.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblPhoneNumberError.Name = "lblPhoneNumberError";
-            this.lblPhoneNumberError.Size = new System.Drawing.Size(34, 32);
+            this.lblPhoneNumberError.Size = new System.Drawing.Size(14, 13);
             this.lblPhoneNumberError.TabIndex = 43;
             this.lblPhoneNumberError.Text = "X";
             this.lblPhoneNumberError.Visible = false;
             // 
+            // btnQuickFill
+            // 
+            this.btnQuickFill.Location = new System.Drawing.Point(259, 322);
+            this.btnQuickFill.Name = "btnQuickFill";
+            this.btnQuickFill.Size = new System.Drawing.Size(75, 23);
+            this.btnQuickFill.TabIndex = 44;
+            this.btnQuickFill.Text = "QuickFill";
+            this.btnQuickFill.UseVisualStyleBackColor = true;
+            this.btnQuickFill.Click += new System.EventHandler(this.btnQuickFill_Click);
+            // 
             // PaymentInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(2096, 1073);
+            this.ClientSize = new System.Drawing.Size(786, 445);
+            this.Controls.Add(this.btnQuickFill);
             this.Controls.Add(this.lblPhoneNumberError);
             this.Controls.Add(this.lblErrors);
             this.Controls.Add(this.label9);
@@ -545,7 +520,6 @@
             this.Controls.Add(this.pnlCardNumberError);
             this.Controls.Add(this.pnlCSCError);
             this.Controls.Add(this.pnlPhoneNumberError);
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "PaymentInfo";
             this.Text = "PaymentInfo";
             this.ResumeLayout(false);
@@ -596,5 +570,6 @@
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Panel pnlPhoneNumberError;
         private System.Windows.Forms.Label lblPhoneNumberError;
+        private System.Windows.Forms.Button btnQuickFill;
     }
 }

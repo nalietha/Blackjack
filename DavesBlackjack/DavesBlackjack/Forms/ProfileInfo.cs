@@ -14,11 +14,14 @@ namespace DavesBlackjack
     public partial class ProfileInfo : Form
     {
         Player player;
-        public ProfileInfo(Player p)
+        User currentUser;
+        public ProfileInfo(Player p, User u)
         {
-            player = p;           
+            player = p;
+            currentUser = u;
             InitializeComponent();
             userMoneyLabel.Text = player.PlayerMoney.ToString();
+            
         }
 
 
@@ -75,6 +78,12 @@ namespace DavesBlackjack
         private void ProfileInfo_FormClosing(object sender, FormClosingEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PaymentInfo NewInfo = new PaymentInfo(currentUser._username);
+            NewInfo.Show();
         }
     }
     

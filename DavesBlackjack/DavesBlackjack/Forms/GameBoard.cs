@@ -30,7 +30,7 @@ namespace DavesBlackjack
 
         public GameBoard(Classes.User user)
         {
-            this.username = user._username;
+            this.username = user.username;
             InitializeComponent();
 
         }

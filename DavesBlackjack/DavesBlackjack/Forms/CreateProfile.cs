@@ -81,7 +81,7 @@ namespace DavesBlackjack
             // Load into Root Users
             doc.Root.Add(newUser);
             doc.Save(DatabaseFile);
-
+            
             // If any errors are present, return "Failure" with msg.
             MessageBox.Show("Successfully created user " + tbUsername.Text, "User Created!" );
             this.Close();
@@ -120,8 +120,8 @@ namespace DavesBlackjack
             else
             {
                 CreateNewUser();
-                PaymentInfo NewUser = new PaymentInfo();
-                NewUser.Show();
+                PaymentInfo AddPaymentInfo = new PaymentInfo(tbUsername.Text);
+                AddPaymentInfo.Show();
             }
         }
         private bool CheckForErrors()
@@ -307,6 +307,16 @@ namespace DavesBlackjack
             {
                 btnCreateAccount.PerformClick();
             }
+        }
+
+        private void btnQuickFill_Click(object sender, EventArgs e)
+        {
+            tbEmail.Text = "User01@gmail.com";
+            tbUsername.Text = "User01";
+            tbPassword.Text = "Password123";
+            tbPasswordConfirm.Text = "Password123";
+            tbSecuirtyQuestionAnswer.Text = "150";
+
         }
     }
 }

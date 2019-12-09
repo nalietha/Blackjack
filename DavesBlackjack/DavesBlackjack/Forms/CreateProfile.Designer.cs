@@ -56,6 +56,7 @@
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.lblEmailError = new System.Windows.Forms.Label();
             this.pnlEmailError = new System.Windows.Forms.Panel();
+            this.btnQuickFill = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -366,6 +367,16 @@
             this.pnlEmailError.TabIndex = 27;
             this.pnlEmailError.Visible = false;
             // 
+            // btnQuickFill
+            // 
+            this.btnQuickFill.Location = new System.Drawing.Point(262, 36);
+            this.btnQuickFill.Name = "btnQuickFill";
+            this.btnQuickFill.Size = new System.Drawing.Size(75, 23);
+            this.btnQuickFill.TabIndex = 28;
+            this.btnQuickFill.Text = "QuickFill";
+            this.btnQuickFill.UseVisualStyleBackColor = true;
+            this.btnQuickFill.Click += new System.EventHandler(this.btnQuickFill_Click);
+            // 
             // CreateProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,6 +385,7 @@
             this.BackgroundImage = global::DavesBlackjack.Properties.Resources.profilescreen;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(551, 434);
+            this.Controls.Add(this.btnQuickFill);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.lblEmailError);
             this.Controls.Add(this.pnlEmailError);
@@ -441,5 +453,6 @@
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label lblEmailError;
         private System.Windows.Forms.Panel pnlEmailError;
+        private System.Windows.Forms.Button btnQuickFill;
     }
 }
