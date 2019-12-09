@@ -346,10 +346,10 @@ namespace DavesBlackjack
              
             }
 
-           
+           /*
             Players[1].CardList[0] = new Card(0);
             Players[1].CardList[1] = new Card(13);
-            
+            */
 
             if (player.CardList.Count == 2 && player.CardList[0].num == player.CardList[1].num)
             {
