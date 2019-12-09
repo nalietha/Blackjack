@@ -332,6 +332,9 @@ namespace DavesBlackjack
             if (Players.Count > 1)
                 saveButton.Enabled = true;
 
+            //shuffle
+            deck.Shuffle();
+
             //Set everyones hand to empty
             splitpairs = new List<Player>();
 

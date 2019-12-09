@@ -22,7 +22,10 @@ namespace DavesBlackjack
 
         public Deck()
         {
-            Shuffle();
+            for (int x = 0; x < CARDS_PER_DECK; x++)
+            {
+                _cards.Add(new Card(x));
+            }
         }
 
         /// <summary>
