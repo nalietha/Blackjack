@@ -346,10 +346,10 @@ namespace DavesBlackjack
              
             }
 
-            /*
-            player.CardList[0] = new Card(0);
-            player.CardList[1] = new Card(13);
-            */
+           
+            Players[1].CardList[0] = new Card(0);
+            Players[1].CardList[1] = new Card(13);
+            
 
             if (player.CardList.Count == 2 && player.CardList[0].num == player.CardList[1].num)
             {
@@ -477,9 +477,7 @@ namespace DavesBlackjack
 
             //setting the bet
             betUpDown.Value = player.currentBet;
-
-            if(!player.aces)
-                hitButton.Enabled = true;
+            
 
         }
 
