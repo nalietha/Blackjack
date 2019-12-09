@@ -70,4 +70,27 @@
       </PlayerSave>
     </GameInProgress>
   </Username>
+  <Username id="2" uName="j" Password="U+PfUXe+8MRc0kvc64WeKFkAwLasAyXXOvIlsYhjri8ahN7A">
+    <PlayerName>j</PlayerName>
+    <SecurityQuestions>
+      <Question>What was your first class with Tom?</Question>
+      <Answer>j</Answer>
+    </SecurityQuestions>
+    <PaymentInfo>
+      <CardNumber />
+      <NameOnCard />
+      <SecurityCode />
+      <ExpireDate />
+    </PaymentInfo>
+    <GamesWon>0</GamesWon>
+    <Cash>0</Cash>
+    <GameInProgress>
+      <Status>false</Status>
+      <PlayerSave>
+        <SaveState />
+        <DealerSave />
+        <SaveState />
+      </PlayerSave>
+    </GameInProgress>
+  </Username>
 </Users>
