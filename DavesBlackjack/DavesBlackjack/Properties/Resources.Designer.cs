@@ -73,9 +73,39 @@ namespace DavesBlackjack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap forgotpassback__2_ {
+            get {
+                object obj = ResourceManager.GetObject("forgotpassback (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hit {
             get {
                 object obj = ResourceManager.GetObject("hit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paymentinfoback {
+            get {
+                object obj = ResourceManager.GetObject("paymentinfoback", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paymentinfoback2 {
+            get {
+                object obj = ResourceManager.GetObject("paymentinfoback2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

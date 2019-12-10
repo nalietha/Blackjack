@@ -121,8 +121,14 @@
   <data name="hit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="paymentinfoback" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\paymentinfoback.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="stay" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="skip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Misc\skip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,10 +139,13 @@
   <data name="titlescreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\titlescreen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="skip" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Misc\skip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="profilescreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\profilescreen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="forgotpassback (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\forgotpassback (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="paymentinfoback2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\paymentinfoback2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
