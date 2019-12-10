@@ -93,5 +93,4 @@ namespace DavesBlackjack
             lblGamesWon.Text = currentUser.gamesWon;
         }
     }
-    
 }

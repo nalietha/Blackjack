@@ -63,9 +63,9 @@ namespace DavesBlackjack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap background3 {
+        internal static System.Drawing.Bitmap createprofilebackground {
             get {
-                object obj = ResourceManager.GetObject("background3", resourceCulture);
+                object obj = ResourceManager.GetObject("createprofilebackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,19 @@ namespace DavesBlackjack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap forgotpassback__2_ {
+        internal static System.Drawing.Bitmap forgotpassbackground {
             get {
-                object obj = ResourceManager.GetObject("forgotpassback (2)", resourceCulture);
+                object obj = ResourceManager.GetObject("forgotpassbackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gameboardbackground {
+            get {
+                object obj = ResourceManager.GetObject("gameboardbackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +103,9 @@ namespace DavesBlackjack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paymentinfoback {
+        internal static System.Drawing.Bitmap paymentinfobackground {
             get {
-                object obj = ResourceManager.GetObject("paymentinfoback", resourceCulture);
+                object obj = ResourceManager.GetObject("paymentinfobackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,19 +113,9 @@ namespace DavesBlackjack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paymentinfoback2 {
+        internal static System.Drawing.Bitmap profilebackground {
             get {
-                object obj = ResourceManager.GetObject("paymentinfoback2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap profilescreen {
-            get {
-                object obj = ResourceManager.GetObject("profilescreen", resourceCulture);
+                object obj = ResourceManager.GetObject("profilebackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,6 +143,16 @@ namespace DavesBlackjack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap soundOn {
+            get {
+                object obj = ResourceManager.GetObject("soundOn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap stay {
             get {
                 object obj = ResourceManager.GetObject("stay", resourceCulture);
@@ -153,9 +163,9 @@ namespace DavesBlackjack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap titlescreen {
+        internal static System.Drawing.Bitmap titlescreenbackground {
             get {
-                object obj = ResourceManager.GetObject("titlescreen", resourceCulture);
+                object obj = ResourceManager.GetObject("titlescreenbackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -87,7 +87,7 @@
       </PlayerSave>
     </GameInProgress>
   </Username>
-  <Username id="5" uName="bob111" Password="n8dvpnINx9+Sq7lu7+UtRM0hh0+niBSwYdSjMYwd/S/rh2Po">
+  <Username id="5" uName="bob111" Password="rW5GKyM0EYZlfoihxgf0CiTlzLpvOZPnYRtVBhiVGQUhe6Za">
     <PlayerName>bob111</PlayerName>
     <Email>bob@bob.com</Email>
     <SecurityQuestions>
@@ -98,6 +98,64 @@
       <CardNumber>1111 2222 3333 4444</CardNumber>
       <NameOnCard>John Smith</NameOnCard>
       <SecurityCode>555</SecurityCode>
+      <ExpireDate>12/34</ExpireDate>
+      <BillingAddress>820 N Washington Ave</BillingAddress>
+      <City>Madison</City>
+      <State>SD</State>
+      <Zip>57042</Zip>
+      <PhoneNumber>(555) 123-4567</PhoneNumber>
+    </PaymentInfo>
+    <GamesWon>0</GamesWon>
+    <Cash>0</Cash>
+    <GameInProgress>
+      <Status>false</Status>
+      <PlayerSave>
+        <SaveState />
+        <DealerSave />
+        <SaveState />
+      </PlayerSave>
+    </GameInProgress>
+  </Username>
+  <Username id="5" uName="test1" Password="yikV5deEd8RI3xf/uBnXRHW0f7Riq8ZmeLiue/hceQzV4yC6">
+    <PlayerName>TEST1</PlayerName>
+    <Email>User01@gmail.com</Email>
+    <SecurityQuestions>
+      <Question>What was your first class with Tom?</Question>
+      <Answer>150</Answer>
+    </SecurityQuestions>
+    <PaymentInfo>
+      <CardNumber>1111 2222 3333 4444</CardNumber>
+      <NameOnCard>John Smith</NameOnCard>
+      <SecurityCode>555</SecurityCode>
+      <ExpireDate>12/34</ExpireDate>
+      <BillingAddress>820 N Washington Ave</BillingAddress>
+      <City>Madison</City>
+      <State>SD</State>
+      <Zip>57042</Zip>
+      <PhoneNumber>(555) 123-4567</PhoneNumber>
+    </PaymentInfo>
+    <GamesWon>0</GamesWon>
+    <Cash>0</Cash>
+    <GameInProgress>
+      <Status>false</Status>
+      <PlayerSave>
+        <SaveState />
+        <DealerSave />
+        <SaveState />
+      </PlayerSave>
+    </GameInProgress>
+  </Username>
+  <Username id="6" uName="user02" Password="xwuEUwbA59YMzlfn60UbxXrL0Xw8QAWo12d8USkmLI0Q1ISW">
+    <PlayerName>User02</PlayerName>
+    <Email>User01@gmail.com</Email>
+    <SecurityQuestions>
+      <Question>What was your first class with Tom?</Question>
+      <Answer>150</Answer>
+    </SecurityQuestions>
+    <PaymentInfo>
+      <CardNumber>1111 2222 3333 4444</CardNumber>
+      <NameOnCard>John Smith</NameOnCard>
+      <SecurityCode>  1</SecurityCode>
       <ExpireDate>12/34</ExpireDate>
       <BillingAddress>820 N Washington Ave</BillingAddress>
       <City>Madison</City>

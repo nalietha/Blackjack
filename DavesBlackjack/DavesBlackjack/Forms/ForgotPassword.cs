@@ -39,6 +39,7 @@ namespace DavesBlackjack
                 lblSecurityQuestion.Text = GetUserSecurityQuestion(tbUsernameRecovery.Text.ToLower());
                 pnlSecQuestions.Visible = true;
                 tbSQAnswer.Focus();
+                tbUsernameRecovery.TabStop = false;
             }
         }
 
@@ -145,13 +146,14 @@ namespace DavesBlackjack
             {
                 pnlPasswordDisplay.Visible = true;
                 tbSQAnswer.ReadOnly = true;
+                tbSQAnswer.TabStop = false;
                 tbNewPassword.Focus();
                 pnlSecurityQuestionError.Visible = false;
                 lblSQError.Visible = false;
+                btnSQEnter.Enabled = false;
             }
             else
             {
-                btnSQEnter.Enabled = false;
                 pnlSecurityQuestionError.Visible = true;
                 lblSQError.Visible = true;
             }

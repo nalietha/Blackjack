@@ -110,7 +110,7 @@ namespace DavesBlackjack
             // 
             this.p1.BackColor = System.Drawing.Color.Transparent;
             this.p1.Location = new System.Drawing.Point(15, 55);
-            this.p1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.p1.Margin = new System.Windows.Forms.Padding(2);
             this.p1.Name = "p1";
             this.p1.Size = new System.Drawing.Size(116, 148);
             this.p1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -122,7 +122,7 @@ namespace DavesBlackjack
             // 
             this.p2.BackColor = System.Drawing.Color.Transparent;
             this.p2.Location = new System.Drawing.Point(42, 55);
-            this.p2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.p2.Margin = new System.Windows.Forms.Padding(2);
             this.p2.Name = "p2";
             this.p2.Size = new System.Drawing.Size(116, 148);
             this.p2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -134,7 +134,7 @@ namespace DavesBlackjack
             // 
             this.p3.BackColor = System.Drawing.Color.Transparent;
             this.p3.Location = new System.Drawing.Point(69, 55);
-            this.p3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.p3.Margin = new System.Windows.Forms.Padding(2);
             this.p3.Name = "p3";
             this.p3.Size = new System.Drawing.Size(116, 148);
             this.p3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -146,7 +146,7 @@ namespace DavesBlackjack
             // 
             this.p4.BackColor = System.Drawing.Color.Transparent;
             this.p4.Location = new System.Drawing.Point(95, 55);
-            this.p4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.p4.Margin = new System.Windows.Forms.Padding(2);
             this.p4.Name = "p4";
             this.p4.Size = new System.Drawing.Size(116, 148);
             this.p4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -158,7 +158,7 @@ namespace DavesBlackjack
             // 
             this.p5.BackColor = System.Drawing.Color.Transparent;
             this.p5.Location = new System.Drawing.Point(122, 55);
-            this.p5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.p5.Margin = new System.Windows.Forms.Padding(2);
             this.p5.Name = "p5";
             this.p5.Size = new System.Drawing.Size(116, 148);
             this.p5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -170,7 +170,7 @@ namespace DavesBlackjack
             // 
             this.p6.BackColor = System.Drawing.Color.Transparent;
             this.p6.Location = new System.Drawing.Point(149, 55);
-            this.p6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.p6.Margin = new System.Windows.Forms.Padding(2);
             this.p6.Name = "p6";
             this.p6.Size = new System.Drawing.Size(116, 148);
             this.p6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -182,7 +182,7 @@ namespace DavesBlackjack
             // 
             this.p7.BackColor = System.Drawing.Color.Transparent;
             this.p7.Location = new System.Drawing.Point(175, 55);
-            this.p7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.p7.Margin = new System.Windows.Forms.Padding(2);
             this.p7.Name = "p7";
             this.p7.Size = new System.Drawing.Size(116, 148);
             this.p7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -194,7 +194,7 @@ namespace DavesBlackjack
             // 
             this.p8.BackColor = System.Drawing.Color.Transparent;
             this.p8.Location = new System.Drawing.Point(202, 55);
-            this.p8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.p8.Margin = new System.Windows.Forms.Padding(2);
             this.p8.Name = "p8";
             this.p8.Size = new System.Drawing.Size(116, 148);
             this.p8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -206,7 +206,7 @@ namespace DavesBlackjack
             // 
             this.d8.BackColor = System.Drawing.Color.Transparent;
             this.d8.Location = new System.Drawing.Point(682, 55);
-            this.d8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.d8.Margin = new System.Windows.Forms.Padding(2);
             this.d8.Name = "d8";
             this.d8.Size = new System.Drawing.Size(116, 148);
             this.d8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -218,7 +218,7 @@ namespace DavesBlackjack
             // 
             this.d7.BackColor = System.Drawing.Color.Transparent;
             this.d7.Location = new System.Drawing.Point(655, 55);
-            this.d7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.d7.Margin = new System.Windows.Forms.Padding(2);
             this.d7.Name = "d7";
             this.d7.Size = new System.Drawing.Size(116, 148);
             this.d7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -230,7 +230,7 @@ namespace DavesBlackjack
             // 
             this.d6.BackColor = System.Drawing.Color.Transparent;
             this.d6.Location = new System.Drawing.Point(629, 55);
-            this.d6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.d6.Margin = new System.Windows.Forms.Padding(2);
             this.d6.Name = "d6";
             this.d6.Size = new System.Drawing.Size(116, 148);
             this.d6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -242,7 +242,7 @@ namespace DavesBlackjack
             // 
             this.d5.BackColor = System.Drawing.Color.Transparent;
             this.d5.Location = new System.Drawing.Point(602, 55);
-            this.d5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.d5.Margin = new System.Windows.Forms.Padding(2);
             this.d5.Name = "d5";
             this.d5.Size = new System.Drawing.Size(116, 148);
             this.d5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -254,7 +254,7 @@ namespace DavesBlackjack
             // 
             this.d4.BackColor = System.Drawing.Color.Transparent;
             this.d4.Location = new System.Drawing.Point(575, 55);
-            this.d4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.d4.Margin = new System.Windows.Forms.Padding(2);
             this.d4.Name = "d4";
             this.d4.Size = new System.Drawing.Size(116, 148);
             this.d4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -266,7 +266,7 @@ namespace DavesBlackjack
             // 
             this.d3.BackColor = System.Drawing.Color.Transparent;
             this.d3.Location = new System.Drawing.Point(549, 55);
-            this.d3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.d3.Margin = new System.Windows.Forms.Padding(2);
             this.d3.Name = "d3";
             this.d3.Size = new System.Drawing.Size(116, 148);
             this.d3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -278,7 +278,7 @@ namespace DavesBlackjack
             // 
             this.d2.BackColor = System.Drawing.Color.Transparent;
             this.d2.Location = new System.Drawing.Point(522, 55);
-            this.d2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.d2.Margin = new System.Windows.Forms.Padding(2);
             this.d2.Name = "d2";
             this.d2.Size = new System.Drawing.Size(116, 148);
             this.d2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -290,7 +290,7 @@ namespace DavesBlackjack
             // 
             this.d1.BackColor = System.Drawing.Color.Transparent;
             this.d1.Location = new System.Drawing.Point(495, 55);
-            this.d1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.d1.Margin = new System.Windows.Forms.Padding(2);
             this.d1.Name = "d1";
             this.d1.Size = new System.Drawing.Size(116, 148);
             this.d1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -354,12 +354,12 @@ namespace DavesBlackjack
             // hitButton
             // 
             this.hitButton.BackColor = System.Drawing.Color.Transparent;
-            this.hitButton.BackgroundImage = global::DavesBlackjack.Properties.Resources.hit;
+            this.hitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("hitButton.BackgroundImage")));
             this.hitButton.Enabled = false;
             this.hitButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.hitButton.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hitButton.Location = new System.Drawing.Point(22, 299);
-            this.hitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hitButton.Margin = new System.Windows.Forms.Padding(2);
             this.hitButton.Name = "hitButton";
             this.hitButton.Size = new System.Drawing.Size(135, 49);
             this.hitButton.TabIndex = 21;
@@ -370,12 +370,12 @@ namespace DavesBlackjack
             // stayButton
             // 
             this.stayButton.BackColor = System.Drawing.Color.Transparent;
-            this.stayButton.BackgroundImage = global::DavesBlackjack.Properties.Resources.stay;
+            this.stayButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("stayButton.BackgroundImage")));
             this.stayButton.Enabled = false;
             this.stayButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stayButton.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stayButton.Location = new System.Drawing.Point(22, 360);
-            this.stayButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.stayButton.Margin = new System.Windows.Forms.Padding(2);
             this.stayButton.Name = "stayButton";
             this.stayButton.Size = new System.Drawing.Size(135, 49);
             this.stayButton.TabIndex = 22;
@@ -549,7 +549,7 @@ namespace DavesBlackjack
             // skipButton
             // 
             this.skipButton.BackColor = System.Drawing.Color.Transparent;
-            this.skipButton.BackgroundImage = global::DavesBlackjack.Properties.Resources.skip;
+            this.skipButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skipButton.BackgroundImage")));
             this.skipButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.skipButton.FlatAppearance.BorderSize = 0;
             this.skipButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -563,7 +563,7 @@ namespace DavesBlackjack
             // muteButton
             // 
             this.muteButton.BackColor = System.Drawing.Color.Transparent;
-            this.muteButton.BackgroundImage = global::DavesBlackjack.Properties.Resources.soundOff;
+            this.muteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("muteButton.BackgroundImage")));
             this.muteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.muteButton.FlatAppearance.BorderSize = 0;
             this.muteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -612,7 +612,7 @@ namespace DavesBlackjack
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.BackgroundImage = global::DavesBlackjack.Properties.Resources.background3;
+            this.BackgroundImage = global::DavesBlackjack.Properties.Resources.gameboardbackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(819, 462);
             this.Controls.Add(this.endTurnButton);
@@ -656,7 +656,7 @@ namespace DavesBlackjack
             this.Controls.Add(this.p2);
             this.Controls.Add(this.p1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GameBoard";
