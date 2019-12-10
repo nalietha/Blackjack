@@ -83,7 +83,9 @@ namespace DavesBlackjack
         private void button1_Click(object sender, EventArgs e)
         {
             PaymentInfo NewInfo = new PaymentInfo(currentUser.username);
-            NewInfo.Show();
+            Hide();
+            NewInfo.ShowDialog();
+            Show();
         }
 
         private void ProfileInfo_Load(object sender, EventArgs e)

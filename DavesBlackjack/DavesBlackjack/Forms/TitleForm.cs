@@ -15,7 +15,6 @@ namespace DavesBlackjack
 {
     public partial class TitleForm : Form
     {
-        
         GameBoard gameBoard;
         private bool validated = false;
         public string username { get { return tbUsername.Text; } }
@@ -27,16 +26,14 @@ namespace DavesBlackjack
             addingPlayerFlag = false;
             this.Music = new Music();
         }
+
         // New player form init
         public TitleForm(bool newPlayerFlag)
         {
             InitializeComponent();
             this.addingPlayerFlag = true;
             btnCancelNewPlayer.Visible = true;
-
-
         }
-
 
         private void TitleForm_Load(object sender, EventArgs e)
         {
@@ -140,10 +137,9 @@ namespace DavesBlackjack
         private void forgotPasswordButton_Click(object sender, EventArgs e)
         {
             ForgotPassword fForm = new ForgotPassword();
+            Hide();
             fForm.ShowDialog();
-
-            // MessageBox.Show("Haha you forgot", "lol", MessageBoxButtons.OK);
-
+            Show();
         }
 
         private void TitleForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -156,11 +152,6 @@ namespace DavesBlackjack
            
             if(!validated && gameBoard != null)
                 gameBoard.Close();
-
-
-
-            // return new Player(tbUsername.Text);
-
         }
 
         private void createAccountButton_Click(object sender, EventArgs e)

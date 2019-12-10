@@ -367,6 +367,7 @@
             this.Controls.Add(this.pnlUsername);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ForgotPassword";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ForgotPassword";
             this.pnlSecQuestions.ResumeLayout(false);
             this.pnlSecQuestions.PerformLayout();

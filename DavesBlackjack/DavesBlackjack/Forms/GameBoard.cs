@@ -635,7 +635,9 @@ namespace DavesBlackjack
             //Log in new player
             
             TitleForm newLogin = new TitleForm(true);
+            this.Hide();
             newLogin.ShowDialog();
+            this.Show();
 
             Player newPlayer = newLogin.AddNewPlayer;
             // If player is null, user exited add form, return to game
@@ -788,7 +790,9 @@ namespace DavesBlackjack
         {
             ProfileInfo profileInfo = new ProfileInfo(player, player.userCurrent);
 
+            Hide();
             profileInfo.ShowDialog();
+            Show();
             playerBalance.Text = "$" + player.PlayerMoney.ToString();
         }
 

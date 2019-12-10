@@ -297,7 +297,7 @@
             // 
             this.pnlQuestionAnswer.BackColor = System.Drawing.Color.Red;
             this.pnlQuestionAnswer.Location = new System.Drawing.Point(21, 412);
-            this.pnlQuestionAnswer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlQuestionAnswer.Margin = new System.Windows.Forms.Padding(4);
             this.pnlQuestionAnswer.Name = "pnlQuestionAnswer";
             this.pnlQuestionAnswer.Size = new System.Drawing.Size(428, 28);
             this.pnlQuestionAnswer.TabIndex = 20;
@@ -307,7 +307,7 @@
             // 
             this.pnlConfirmPass.BackColor = System.Drawing.Color.Red;
             this.pnlConfirmPass.Location = new System.Drawing.Point(21, 295);
-            this.pnlConfirmPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlConfirmPass.Margin = new System.Windows.Forms.Padding(4);
             this.pnlConfirmPass.Name = "pnlConfirmPass";
             this.pnlConfirmPass.Size = new System.Drawing.Size(432, 25);
             this.pnlConfirmPass.TabIndex = 21;
@@ -317,7 +317,7 @@
             // 
             this.pnlPassword.BackColor = System.Drawing.Color.Red;
             this.pnlPassword.Location = new System.Drawing.Point(21, 239);
-            this.pnlPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlPassword.Margin = new System.Windows.Forms.Padding(4);
             this.pnlPassword.Name = "pnlPassword";
             this.pnlPassword.Size = new System.Drawing.Size(432, 22);
             this.pnlPassword.TabIndex = 22;
@@ -368,7 +368,7 @@
             // btnQuickFill
             // 
             this.btnQuickFill.Location = new System.Drawing.Point(349, 44);
-            this.btnQuickFill.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQuickFill.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuickFill.Name = "btnQuickFill";
             this.btnQuickFill.Size = new System.Drawing.Size(100, 28);
             this.btnQuickFill.TabIndex = 28;
@@ -416,6 +416,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CreateProfile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateProfile";
             this.Load += new System.EventHandler(this.CreateProfile_Load);
             this.ResumeLayout(false);

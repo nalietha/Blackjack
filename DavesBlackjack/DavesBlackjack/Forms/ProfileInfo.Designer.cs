@@ -39,7 +39,7 @@
             this.WithdrawMoneyButton = new System.Windows.Forms.Button();
             this.DepositErrorLabel = new System.Windows.Forms.Label();
             this.WithdrawErrorLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.updatePaymentInfoButton = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblGamesWon = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -158,16 +158,16 @@
             this.WithdrawErrorLabel.Text = "Invalid Amount";
             this.WithdrawErrorLabel.Visible = false;
             // 
-            // button1
+            // updatePaymentInfoButton
             // 
-            this.button1.Location = new System.Drawing.Point(25, 216);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 29);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Update Payment Info";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.updatePaymentInfoButton.Location = new System.Drawing.Point(25, 216);
+            this.updatePaymentInfoButton.Margin = new System.Windows.Forms.Padding(4);
+            this.updatePaymentInfoButton.Name = "updatePaymentInfoButton";
+            this.updatePaymentInfoButton.Size = new System.Drawing.Size(197, 29);
+            this.updatePaymentInfoButton.TabIndex = 10;
+            this.updatePaymentInfoButton.Text = "Update Payment Info";
+            this.updatePaymentInfoButton.UseVisualStyleBackColor = true;
+            this.updatePaymentInfoButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblUsername
             // 
@@ -261,7 +261,7 @@
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblGamesWon);
             this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.updatePaymentInfoButton);
             this.Controls.Add(this.WithdrawErrorLabel);
             this.Controls.Add(this.DepositErrorLabel);
             this.Controls.Add(this.WithdrawText);
@@ -275,6 +275,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ProfileInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProfileInfo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProfileInfo_FormClosing);
             this.Load += new System.EventHandler(this.ProfileInfo_Load);
@@ -295,7 +296,7 @@
         private System.Windows.Forms.Button WithdrawMoneyButton;
         private System.Windows.Forms.Label DepositErrorLabel;
         private System.Windows.Forms.Label WithdrawErrorLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button updatePaymentInfoButton;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblGamesWon;
         private System.Windows.Forms.Label lblEmail;
