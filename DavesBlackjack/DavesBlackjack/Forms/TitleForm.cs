@@ -33,6 +33,7 @@ namespace DavesBlackjack
             InitializeComponent();
             this.addingPlayerFlag = true;
             btnCancelNewPlayer.Visible = true;
+
         }
 
 
@@ -42,6 +43,7 @@ namespace DavesBlackjack
         }
         private string DatabaseFile = "..\\..\\Database.xml";
         private string LOGIN_FAILED = "Login Failed";
+        private string BLANK_USERNAME = "Username cannot be blank";
         private bool addingPlayerFlag;
         Player newPlayer;
         public Player AddNewPlayer
@@ -55,11 +57,20 @@ namespace DavesBlackjack
         private void loginButton_Click(object sender, EventArgs e)
         {
             // Validate stuff
-            // Check if User exists
             validated = true;
+            string savedPasswordHash = null;
 
-            string savedPasswordHash = GetPassword(tbUsername.Text.ToLower());
-            if (savedPasswordHash == null)
+            if (tbUsername.Text.Replace(" ","") == "")
+            {
+                lblError.Text = BLANK_USERNAME;
+                validated = false;
+            }
+            else
+                savedPasswordHash = GetPassword(tbUsername.Text.ToLower());
+            // Check if User exists
+                
+
+            if (savedPasswordHash == null )
             {
                 validated = false;
             }
@@ -95,7 +106,7 @@ namespace DavesBlackjack
                 gameBoard.Show();
 
             }
-            else if(addingPlayerFlag)
+            else if(validated && addingPlayerFlag)
             {
                 this.newPlayer = new Player(tbUsername.Text);
                 //Create new player Object and return it to main form
@@ -112,6 +123,7 @@ namespace DavesBlackjack
         }
         public string GetPassword(string username)
         {
+
             // Open DB file
             XDocument doc = XDocument.Load(DatabaseFile);
             var pass = doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == username).Select(x => (string)x.Attribute("Password")).FirstOrDefault();

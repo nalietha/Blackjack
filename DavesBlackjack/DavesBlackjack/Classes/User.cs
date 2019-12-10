@@ -56,18 +56,18 @@ namespace DavesBlackjack.Classes
         public string zip;
         public string Address;
 
-        private string GetID() => this.currentUser.Attribute("id").Value;
-        private string GetGamesWon() => this.currentUser.Attribute("id").Value;
-        private string GetMoney() => this.currentUser.Element("Cash").Value;
-        private string GetEmail() => this.currentUser.Element("Email").Value;
-        private string GetNameOnCard() => this.currentUser.Element("PaymentInfo").Element("NameOnCard").Value;
-        private string GetCardNumber() => this.currentUser.Element("PaymentInfo").Element("CardNumber").Value;
-        private string GetCardExpires() => this.currentUser.Element("PaymentInfo").Element("ExpireDate").Value;
-        private string GetCity() => this.currentUser.Element("PaymentInfo").Element("City").Value;
-        private string GetState() => this.currentUser.Element("PaymentInfo").Element("State").Value;
-        private string GetBillingAddress() => this.currentUser.Element("PaymentInfo").Element("BillingAddress").Value;
-        private string GetZip() => this.currentUser.Element("PaymentInfo").Element("Zip").Value;
-        private string GetPhoneNumber() => this.currentUser.Element("PaymentInfo").Element("PhoneNumber").Value;
+        private string GetID() => currentUser == null ? "" : this.currentUser.Attribute("id").Value;
+        private string GetGamesWon() => currentUser == null ? "" : this.currentUser.Attribute("id").Value;
+        private string GetMoney() => currentUser == null ? "" : this.currentUser.Element("Cash").Value;
+        private string GetEmail() => currentUser == null ? "" : this.currentUser.Element("Email").Value;
+        private string GetNameOnCard() => currentUser == null ? "" : this.currentUser.Element("PaymentInfo").Element("NameOnCard").Value;
+        private string GetCardNumber() => currentUser == null ? "" : this.currentUser.Element("PaymentInfo").Element("CardNumber").Value;
+        private string GetCardExpires() => currentUser == null ? "" : this.currentUser.Element("PaymentInfo").Element("ExpireDate").Value;
+        private string GetCity() => currentUser == null ? "" : this.currentUser.Element("PaymentInfo").Element("City").Value;
+        private string GetState() => currentUser == null ? "" : this.currentUser.Element("PaymentInfo").Element("State").Value;
+        private string GetBillingAddress() => currentUser == null ? "" : this.currentUser.Element("PaymentInfo").Element("BillingAddress").Value;
+        private string GetZip() => currentUser == null ? "" : this.currentUser.Element("PaymentInfo").Element("Zip").Value;
+        private string GetPhoneNumber() => currentUser == null ? "" : this.currentUser.Element("PaymentInfo").Element("PhoneNumber").Value;
 
 
 

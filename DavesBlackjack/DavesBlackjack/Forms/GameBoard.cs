@@ -658,6 +658,9 @@ namespace DavesBlackjack
                     if (unique)
                     {
                         // display login errors, pull up title form again.
+
+                        // clear presesant player info,
+                        // 
                         MessageBox.Show("User already logged in, try a different account", "Invalid user");
                         newLogin.ShowDialog();
                         newPlayer = newLogin.AddNewPlayer;
