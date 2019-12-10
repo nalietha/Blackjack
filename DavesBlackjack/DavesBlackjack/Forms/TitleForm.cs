@@ -34,12 +34,16 @@ namespace DavesBlackjack
             this.addingPlayerFlag = true;
             btnCancelNewPlayer.Visible = true;
 
+
         }
 
 
         private void TitleForm_Load(object sender, EventArgs e)
         {
-
+            tbUsername.Focus();
+            tbPassword.Text = "";
+            tbUsername.Text = "";
+            this.newPlayer = null;
         }
         private string DatabaseFile = "..\\..\\Database.xml";
         private string LOGIN_FAILED = "Login Failed";

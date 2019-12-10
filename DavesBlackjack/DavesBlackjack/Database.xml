@@ -2,16 +2,16 @@
 <Users>
   <Username id="1" uName="nalietha" Password="Ladii86Pjs1Z7ISFML4P4g/ZCaMOwJ0utQQGFSiktAImofr1">
     <PlayerName>nalietha</PlayerName>
-    <Email>Nathan.Lietha@gmail.com</Email>
+    <Email>fake@gmail.com</Email>
     <SecurityQuestions>
       <Question>What was the house number and street name you lived in as a child?</Question>
       <Answer>111, fake ave</Answer>
     </SecurityQuestions>
     <PaymentInfo>
       <CardNumber>1111 2222 3333 4444</CardNumber>
-      <NameOnCard>Nathan Lietha</NameOnCard>
+      <NameOnCard>John Smith</NameOnCard>
       <SecurityCode>555</SecurityCode>
-      <ExpireDate>12-34</ExpireDate>
+      <ExpireDate>12/34</ExpireDate>
       <BillingAddress>820 N Washington Ave</BillingAddress>
       <City>Madison</City>
       <State>SD</State>
@@ -31,7 +31,7 @@
   </Username>
   <Username id="2" uName="default" Password="BQqQBw8uM66oEUXp8IFFOU3H6x4Xohb2OeGZfQBAlHpDN2kN">
     <PlayerName>Default</PlayerName>
-    <Email></Email>
+    <Email>dfault@fault.de</Email>
     <SecurityQuestions>
       <Question>What was the house number and street name you lived in as a child?</Question>
       <Answer>answer</Answer>
@@ -47,7 +47,7 @@
       <Zip>57042</Zip>
       <PhoneNumber>(555) 123-4567</PhoneNumber>
     </PaymentInfo>
-    <GamesWon>0</GamesWon>
+    <GamesWon>8000</GamesWon>
     <Cash>0</Cash>
     <GameInProgress>
       <Status>false</Status>
