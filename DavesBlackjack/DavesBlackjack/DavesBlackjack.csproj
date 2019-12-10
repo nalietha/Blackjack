@@ -137,6 +137,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database.xml" />
+    <None Include="Resources\paymentinfoback2.jpg" />
+    <None Include="Resources\paymentinfoback.jpg" />
+    <None Include="Resources\forgotpassback %282%29.jpg" />
     <Content Include="Resources\Misc\skip.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
