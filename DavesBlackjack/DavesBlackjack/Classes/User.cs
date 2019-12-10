@@ -32,6 +32,15 @@ namespace DavesBlackjack.Classes
             this.Address = GetBillingAddress();
 
         }
+
+        /// <summary>
+        /// Parameterless constructor used by the XMLWriter
+        /// </summary>
+        public User()
+        { 
+        
+        }
+
         XElement currentUser;
         public string username;
         public string id;

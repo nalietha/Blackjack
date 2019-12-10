@@ -87,18 +87,23 @@
       </PlayerSave>
     </GameInProgress>
   </Username>
-  <Username id="2" uName="bobby123" Password="vnrwsFglVYpB+qQTLDbOWgoVYC+dHUpTZMcj91mGaj9BGmM0">
-    <PlayerName>Bobby123</PlayerName>
-    <Email></Email>
+  <Username id="5" uName="bob111" Password="n8dvpnINx9+Sq7lu7+UtRM0hh0+niBSwYdSjMYwd/S/rh2Po">
+    <PlayerName>bob111</PlayerName>
+    <Email>bob@bob.com</Email>
     <SecurityQuestions>
-      <Question>What dorm did you stay in freshman year?</Question>
-      <Answer>emry</Answer>
+      <Question>What primary school did you attend?</Question>
+      <Answer>1</Answer>
     </SecurityQuestions>
     <PaymentInfo>
-      <CardNumber />
-      <NameOnCard />
-      <SecurityCode />
-      <ExpireDate />
+      <CardNumber>1111 2222 3333 4444</CardNumber>
+      <NameOnCard>John Smith</NameOnCard>
+      <SecurityCode>555</SecurityCode>
+      <ExpireDate>12/34</ExpireDate>
+      <BillingAddress>820 N Washington Ave</BillingAddress>
+      <City>Madison</City>
+      <State>SD</State>
+      <Zip>57042</Zip>
+      <PhoneNumber>(555) 123-4567</PhoneNumber>
     </PaymentInfo>
     <GamesWon>0</GamesWon>
     <Cash>0</Cash>

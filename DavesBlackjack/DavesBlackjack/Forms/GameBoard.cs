@@ -197,13 +197,13 @@ namespace DavesBlackjack
                 else if (player.CheckBusted())
                 {
                     msg += player.userCurrent.username + " Busted and they lost $" + player.currentBet + ".\n\n";
-                    houseDealer.wins++;
+                    player.losses++;
                     player.PlayerMoney -= player.currentBet;
                 }
                 else if (houseDealer.handValue > player.handValue)
                 {
                     msg += player.userCurrent.username + " Lost to the dealer and they lost $" + player.currentBet + ".\n\n";
-                    houseDealer.wins++;
+                    player.losses++;
                     player.PlayerMoney -= player.currentBet;
                 }
                 else if (houseDealer.handValue < player.handValue)
@@ -336,8 +336,7 @@ namespace DavesBlackjack
     /// </summary>
         public void RestartGame()
         {
-            
-            if (Players.Count > 1)
+            if (Players.Count == 1)
                 saveButton.Enabled = true;
 
             //shuffle
@@ -443,13 +442,13 @@ namespace DavesBlackjack
         /// </summary>
         public void ChangePlayer()
         {
-            // Get players name
-            playerName.Text = player.userCurrent.username;
-
-
             //clearing images
             ClearCards(playerHand);
             player = Players[currentPlayer];
+
+            // Get players name
+            playerName.Text = player.userCurrent.username;
+
             for (int i = 0; i < player.CardList.Count; i++)
                 DealCard(playerHand, player.CardList[i].imageName);
 
@@ -488,12 +487,12 @@ namespace DavesBlackjack
             player.CalcuateCurrentHand();
             playerScore.Text = player.handValue.ToString();
             wins.Text = player.wins.ToString();
+            losses.Text = player.losses.ToString();
             playerBalance.Text = "$" + player.PlayerMoney;
 
             
             //playerName.Text = player.userCurrent.username;
         }
-
 
         /// <summary>
         /// Sets the blackjack game. This should be used when a previous save game is found.
@@ -528,7 +527,7 @@ namespace DavesBlackjack
                 DealCard(dealerHand, houseDealer.CardList[0].imageName);
                 HideCard(dealerHand, cardBack);
                 houseDealer.CalcuateCurrentHand();
-                losses.Text = houseDealer.wins.ToString();
+                losses.Text = player.losses.ToString();
 
                 //setting the deck and bet
                 deck.SetDeck(gamestate.deck);
@@ -594,14 +593,19 @@ namespace DavesBlackjack
 
         private void hitButton_Click(object sender, EventArgs e)
         {
-            endTurnButton.Visible = true;
+            if (Players.Count > 1)
+            {
+                endTurnButton.Visible = true;
+            }
             PlayersTurn();
         }
 
         private void stayButton_Click(object sender, EventArgs e)
         {
-            
-            endTurnButton.Visible = false;
+            if (Players.Count > 1)
+            {
+                endTurnButton.Visible = false;
+            }
             hitButton.Enabled = true;
             player.done = true;
             FindNextPlayer();
@@ -632,6 +636,7 @@ namespace DavesBlackjack
             
             TitleForm newLogin = new TitleForm(true);
             newLogin.ShowDialog();
+
             Player newPlayer = newLogin.AddNewPlayer;
             // If player is null, user exited add form, return to game
             if(newPlayer != null)
@@ -730,7 +735,7 @@ namespace DavesBlackjack
                             msg += "House has a Blackjack. " + player.userCurrent.username + " loses. Insurance will be paid out to them.\n\n";
                             player.PlayerMoney -= player.currentBet;
                             player.PlayerMoney += 2 * player.insurance;
-                            houseDealer.wins++;
+                            player.losses++;
                         }
                         
                     }
@@ -811,10 +816,8 @@ namespace DavesBlackjack
                 if (result == DialogResult.Yes)
                 {
                     saveButton.PerformClick();
-
                 }
             }
-            
         }
 
         private void GameBoard_FormClosed(object sender, FormClosedEventArgs e)
