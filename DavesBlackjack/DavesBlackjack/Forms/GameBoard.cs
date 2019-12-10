@@ -373,13 +373,15 @@ namespace DavesBlackjack
                     Player hand2 = new Player();
                     hand2.CardList.Add(player.CardList[0]);
                     hand2.playerNum = player.playerNum;
+                    hand2.userCurrent = player.userCurrent;
                     player.CardList.RemoveAt(0);
                     hand2.currentBet = player.currentBet;
                     hand2.originalMoney = (int)player.PlayerMoney;
                     hand2.PlayerMoney = player.PlayerMoney;
                     splitpairs.Add(hand2);
                     Players.Insert(Players.IndexOf(player), hand2);
-                    if(player.CardList[0].value == 1)
+                    
+                    if (player.CardList[0].value == 1)
                     {
                         player.Hit(deck);
                         hand2.Hit(deck);
@@ -408,8 +410,7 @@ namespace DavesBlackjack
                 hitButton.Enabled = true;
             stayButton.Enabled = true;
             
-            //shuffle
-            deck.Shuffle();
+            
 
             //setting up dealer
             houseDealer.Hit(deck);
@@ -442,6 +443,10 @@ namespace DavesBlackjack
         /// </summary>
         public void ChangePlayer()
         {
+            // Get players name
+            playerName.Text = player.userCurrent.username;
+
+
             //clearing images
             ClearCards(playerHand);
             player = Players[currentPlayer];
@@ -456,6 +461,7 @@ namespace DavesBlackjack
                     Player hand2 = new Player();
                     hand2.CardList.Add(player.CardList[0]);
                     hand2.playerNum = player.playerNum;
+                    hand2.userCurrent = player.userCurrent;
                     player.CardList.RemoveAt(0);
                     hand2.currentBet = player.currentBet;
                     hand2.originalMoney = (int)player.PlayerMoney;
@@ -484,9 +490,7 @@ namespace DavesBlackjack
             wins.Text = player.wins.ToString();
             playerBalance.Text = "$" + player.PlayerMoney;
 
-            // Get players name
-            playerName.Text = player.userCurrent.username;
-
+            
             //playerName.Text = player.userCurrent.username;
         }
 
