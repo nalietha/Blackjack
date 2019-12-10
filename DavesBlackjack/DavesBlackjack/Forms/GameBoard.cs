@@ -190,31 +190,31 @@ namespace DavesBlackjack
             {
                 if (houseDealer.CheckBusted() && !player.CheckBusted())
                 {
-                    msg += "Player " + player.playerNum + " Didn't bust and they won $" + player.currentBet + ".\n\n";
+                    msg += player.userCurrent.username + " Didn't bust and they won $" + player.currentBet + ".\n\n";
                     player.wins++;
                     player.PlayerMoney += player.currentBet;
                 }
                 else if (player.CheckBusted())
                 {
-                    msg += "Player " + player.playerNum + " Busted and they lost $" + player.currentBet + ".\n\n";
+                    msg += player.userCurrent.username + " Busted and they lost $" + player.currentBet + ".\n\n";
                     houseDealer.wins++;
                     player.PlayerMoney -= player.currentBet;
                 }
                 else if (houseDealer.handValue > player.handValue)
                 {
-                    msg += "Player " + player.playerNum + " Lost to the dealer and they lost $" + player.currentBet + ".\n\n";
+                    msg += player.userCurrent.username + " Lost to the dealer and they lost $" + player.currentBet + ".\n\n";
                     houseDealer.wins++;
                     player.PlayerMoney -= player.currentBet;
                 }
                 else if (houseDealer.handValue < player.handValue)
                 {
-                    msg += "Player " + player.playerNum + " Has a higher hand than the dealer and they won $" + player.currentBet + ".\n\n"; ;
+                    msg += player.userCurrent.username + " Has a higher hand than the dealer and they won $" + player.currentBet + ".\n\n"; ;
                     player.wins++;
                     player.PlayerMoney += player.currentBet;
                 }
                 else
                 {
-                    msg += "Player " + player.playerNum + " Tied the dealer and kept their bet money.\n\n";
+                    msg += player.userCurrent.username + " Tied the dealer and kept their bet money.\n\n";
                 }
             }
             msg += "Play Again?";
@@ -487,7 +487,7 @@ namespace DavesBlackjack
             // Get players name
             playerName.Text = player.userCurrent.username;
 
-            //playerName.Text = "Player " + player.playerNum;
+            //playerName.Text = player.userCurrent.username;
         }
 
 
@@ -689,11 +689,11 @@ namespace DavesBlackjack
                     {
                         if (player.handValue == 21)
                         {
-                            msg += "Player " + player.playerNum + " and the dealer both have Blackjacks. They keep their bet and insurance.\n\n";
+                            msg += player.userCurrent.username + " and the dealer both have Blackjacks. They keep their bet and insurance.\n\n";
                         }
                         else
                         {
-                            msg += "House has a Blackjack. Player " + player.playerNum + " loses. Insurance will be paid out to them.\n\n";
+                            msg += "House has a Blackjack. " + player.userCurrent.username + " loses. Insurance will be paid out to them.\n\n";
                             player.PlayerMoney -= player.currentBet;
                             player.PlayerMoney += 2 * player.insurance;
                             houseDealer.wins++;
