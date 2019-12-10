@@ -591,6 +591,7 @@ namespace DavesBlackjack
         {
             
             endTurnButton.Visible = false;
+            hitButton.Enabled = true;
             player.done = true;
             FindNextPlayer();
             ChangePlayer();
@@ -615,6 +616,10 @@ namespace DavesBlackjack
             player.playerNum = (Players.Count == 0) ? 1 : (Players.Count + 1);
             Players.Add(player);
             saveButton.Visible = false;
+            if (Players.Count == 3)
+            {
+                addNewPlayerButton.Visible = false;
+            }
         }
 
         private void endTurnButton_Click(object sender, EventArgs e)
