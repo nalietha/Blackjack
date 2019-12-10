@@ -618,20 +618,50 @@ namespace DavesBlackjack
 
         private void addNewPlayerButton_Click(object sender, EventArgs e)
         {
-            //Player player = new Player();
-            //Log in new player
-            TitleForm newLogin = new TitleForm(true);
-            newLogin.ShowDialog();
-            Player newPlayer = newLogin.AddNewPlayer;
-
+            // Used for usercontrol
             //cool ternary
             player.playerNum = (Players.Count == 0) ? 1 : (Players.Count + 1);
 
-            Players.Add(newPlayer);
-            saveButton.Visible = false;
-            if (Players.Count == 3)
+            bool unique = true;
+            //Player player = new Player();
+            //Log in new player
+            
+            TitleForm newLogin = new TitleForm(true);
+            newLogin.ShowDialog();
+            Player newPlayer = newLogin.AddNewPlayer;
+            // If player is null, user exited add form, return to game
+            if(newPlayer != null)
             {
-                addNewPlayerButton.Visible = false;
+                while(unique)
+                {
+                    if(newPlayer == null)
+                    {
+                        // Break out
+                        return;
+                    }
+
+                    unique = false;
+                    for( int i = 0; i < Players.Count; i++)
+                    {
+                        if (Players[i].userCurrent.username == newPlayer.userCurrent.username)
+                            unique = true;
+                    }
+                    if (unique)
+                    {
+                        // display login errors, pull up title form again.
+                        MessageBox.Show("User already logged in, try a different account", "Invalid user");
+                        newLogin.ShowDialog();
+                        newPlayer = newLogin.AddNewPlayer;
+                    }
+                }
+                // Player is now unique
+                Players.Add(newPlayer);
+                saveButton.Visible = false;
+                if (Players.Count == 3)
+                {
+                    addNewPlayerButton.Visible = false;
+                }
+
             }
         }
 

@@ -32,6 +32,7 @@ namespace DavesBlackjack
         {
             InitializeComponent();
             this.addingPlayerFlag = true;
+            btnCancelNewPlayer.Visible = true;
         }
 
 
@@ -131,9 +132,16 @@ namespace DavesBlackjack
 
         private void TitleForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if(addingPlayerFlag)
+            {
+                // closes form
+                return;
+            }
            
             if(!validated && gameBoard != null)
                 gameBoard.Close();
+
+
 
             // return new Player(tbUsername.Text);
 
@@ -170,6 +178,11 @@ namespace DavesBlackjack
             {
                 loginButton.PerformClick();
             }
+        }
+
+        private void btnCancelNewPlayer_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
