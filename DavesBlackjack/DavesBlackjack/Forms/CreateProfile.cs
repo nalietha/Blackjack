@@ -55,6 +55,7 @@ namespace DavesBlackjack
                 new XAttribute("uName", tbUsername.Text.ToLower()),
                 new XAttribute("Password", HashPassword(tbPassword.Text)),
                 new XElement("PlayerName", tbUsername.Text),
+                new XElement("Email", tbEmail.Text),
                 new XElement("SecurityQuestions",
                     new XElement("Question", cbSecurityQuestion.Text ),
                     new XElement("Answer", tbSecuirtyQuestionAnswer.Text.ToLower())),

@@ -58,8 +58,9 @@
       </PlayerSave>
     </GameInProgress>
   </Username>
-  <Username id="3" uName="user01" Password="6s6H9a0TQ5+XrsP/EZU4Nyv0ijoUYWtM9heooRMGSVKf4RKu">
+  <Username id="3" uName="user01" Password="amY22Ykv3dzGxplNNVmMwY1XX+q/CS8ps/7ly637jsF9Eme+">
     <PlayerName>User01</PlayerName>
+    <Email></Email>
     <SecurityQuestions>
       <Question>What was your first class with Tom?</Question>
       <Answer>150</Answer>
@@ -88,6 +89,7 @@
   </Username>
   <Username id="2" uName="bobby123" Password="vnrwsFglVYpB+qQTLDbOWgoVYC+dHUpTZMcj91mGaj9BGmM0">
     <PlayerName>Bobby123</PlayerName>
+    <Email></Email>
     <SecurityQuestions>
       <Question>What dorm did you stay in freshman year?</Question>
       <Answer>emry</Answer>

@@ -85,6 +85,13 @@ namespace DavesBlackjack
             PaymentInfo NewInfo = new PaymentInfo(currentUser.username);
             NewInfo.Show();
         }
+
+        private void ProfileInfo_Load(object sender, EventArgs e)
+        {
+            lblUsername.Text = currentUser.username;
+            lblEmail.Text = currentUser.email;
+            lblGamesWon.Text = currentUser.gamesWon;
+        }
     }
     
 }

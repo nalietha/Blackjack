@@ -24,17 +24,33 @@ namespace DavesBlackjack
         public TitleForm()
         {
             InitializeComponent();
-            
+            addingPlayerFlag = false;
             this.Music = new Music();
-            this.DatabaseFile = "..\\..\\Database.xml";
         }
+        // New player form init
+        public TitleForm(bool newPlayerFlag)
+        {
+            InitializeComponent();
+            this.addingPlayerFlag = true;
+        }
+
 
         private void TitleForm_Load(object sender, EventArgs e)
         {
 
         }
-        private string DatabaseFile;
+        private string DatabaseFile = "..\\..\\Database.xml";
         private string LOGIN_FAILED = "Login Failed";
+        private bool addingPlayerFlag;
+        Player newPlayer;
+        public Player AddNewPlayer
+        {
+            get
+            {
+                return this.newPlayer;
+            }
+        }
+
         private void loginButton_Click(object sender, EventArgs e)
         {
             // Validate stuff
@@ -48,6 +64,7 @@ namespace DavesBlackjack
             }
             else
             {
+            /* Fetch the stored value */    
                 /* Extract the bytes */
                 byte[] hashBytes = Convert.FromBase64String(savedPasswordHash);
 
@@ -63,14 +80,12 @@ namespace DavesBlackjack
                 for (int i = 0; i < 20; i++)
                     if (hashBytes[i + 16] != hash[i])
                         validated = false;
-
             }
-
-            /* Fetch the stored value */
+            
 
             //Classes.User currentUser = new Classes.User();
 
-            if (validated)
+            if (validated && !addingPlayerFlag)
             {
                 // Open Game 
                 // Make form Invisable. 
@@ -79,12 +94,20 @@ namespace DavesBlackjack
                 gameBoard.Show();
 
             }
+            else if(addingPlayerFlag)
+            {
+                this.newPlayer = new Player(tbUsername.Text);
+                //Create new player Object and return it to main form
+                this.Close();
+                
+            }
             else
             {
                 lblError.Text = LOGIN_FAILED;
                 lblError.Visible = true;
 
             }
+            
         }
         public string GetPassword(string username)
         {
@@ -111,7 +134,9 @@ namespace DavesBlackjack
            
             if(!validated && gameBoard != null)
                 gameBoard.Close();
-            
+
+            // return new Player(tbUsername.Text);
+
         }
 
         private void createAccountButton_Click(object sender, EventArgs e)

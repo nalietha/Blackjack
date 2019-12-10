@@ -40,12 +40,15 @@
             this.DepositErrorLabel = new System.Windows.Forms.Label();
             this.WithdrawErrorLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblGamesWon = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(176, 227);
-            this.backButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.backButton.Location = new System.Drawing.Point(188, 248);
+            this.backButton.Margin = new System.Windows.Forms.Padding(2);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(80, 45);
             this.backButton.TabIndex = 0;
@@ -96,7 +99,7 @@
             // DepositMoneyButton
             // 
             this.DepositMoneyButton.Location = new System.Drawing.Point(51, 130);
-            this.DepositMoneyButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DepositMoneyButton.Margin = new System.Windows.Forms.Padding(2);
             this.DepositMoneyButton.Name = "DepositMoneyButton";
             this.DepositMoneyButton.Size = new System.Drawing.Size(68, 21);
             this.DepositMoneyButton.TabIndex = 4;
@@ -107,7 +110,7 @@
             // AddMoneyText
             // 
             this.AddMoneyText.Location = new System.Drawing.Point(124, 132);
-            this.AddMoneyText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddMoneyText.Margin = new System.Windows.Forms.Padding(2);
             this.AddMoneyText.Name = "AddMoneyText";
             this.AddMoneyText.Size = new System.Drawing.Size(76, 20);
             this.AddMoneyText.TabIndex = 5;
@@ -115,7 +118,7 @@
             // WithdrawText
             // 
             this.WithdrawText.Location = new System.Drawing.Point(124, 158);
-            this.WithdrawText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.WithdrawText.Margin = new System.Windows.Forms.Padding(2);
             this.WithdrawText.Name = "WithdrawText";
             this.WithdrawText.Size = new System.Drawing.Size(76, 20);
             this.WithdrawText.TabIndex = 7;
@@ -123,7 +126,7 @@
             // WithdrawMoneyButton
             // 
             this.WithdrawMoneyButton.Location = new System.Drawing.Point(51, 156);
-            this.WithdrawMoneyButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.WithdrawMoneyButton.Margin = new System.Windows.Forms.Padding(2);
             this.WithdrawMoneyButton.Name = "WithdrawMoneyButton";
             this.WithdrawMoneyButton.Size = new System.Drawing.Size(68, 21);
             this.WithdrawMoneyButton.TabIndex = 6;
@@ -159,13 +162,49 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(261, 227);
+            this.button1.Location = new System.Drawing.Point(273, 248);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 45);
             this.button1.TabIndex = 10;
             this.button1.Text = "Update Payment Info";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblUsername.Location = new System.Drawing.Point(384, 94);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(21, 20);
+            this.lblUsername.TabIndex = 11;
+            this.lblUsername.Text = "X";
+            // 
+            // lblGamesWon
+            // 
+            this.lblGamesWon.AutoSize = true;
+            this.lblGamesWon.BackColor = System.Drawing.Color.Transparent;
+            this.lblGamesWon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGamesWon.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblGamesWon.Location = new System.Drawing.Point(384, 156);
+            this.lblGamesWon.Name = "lblGamesWon";
+            this.lblGamesWon.Size = new System.Drawing.Size(21, 20);
+            this.lblGamesWon.TabIndex = 12;
+            this.lblGamesWon.Text = "X";
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblEmail.Location = new System.Drawing.Point(384, 125);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(21, 20);
+            this.lblEmail.TabIndex = 13;
+            this.lblEmail.Text = "X";
             // 
             // ProfileInfo
             // 
@@ -174,7 +213,10 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = global::DavesBlackjack.Properties.Resources.background3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(533, 292);
+            this.ClientSize = new System.Drawing.Size(657, 355);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.lblGamesWon);
+            this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.WithdrawErrorLabel);
             this.Controls.Add(this.DepositErrorLabel);
@@ -187,10 +229,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.backButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ProfileInfo";
             this.Text = "ProfileInfo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProfileInfo_FormClosing);
+            this.Load += new System.EventHandler(this.ProfileInfo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,5 +252,8 @@
         private System.Windows.Forms.Label DepositErrorLabel;
         private System.Windows.Forms.Label WithdrawErrorLabel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label lblGamesWon;
+        private System.Windows.Forms.Label lblEmail;
     }
 }

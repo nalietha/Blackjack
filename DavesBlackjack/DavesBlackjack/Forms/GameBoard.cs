@@ -15,7 +15,7 @@ namespace DavesBlackjack
     public partial class GameBoard : Form
     {
         // Create dealer and player objects
-        private Player player = new Player();
+        private Player player;
         private Dealer houseDealer = new Dealer();
         private Deck deck = new Deck();
         private List<Player> Players = new List<Player>();
@@ -35,6 +35,7 @@ namespace DavesBlackjack
 
         public GameBoard(string username)
         {
+            player = new Player(username);
             this.username = username;
             this.User_01 = new User(username);
             InitializeComponent();
@@ -103,6 +104,12 @@ namespace DavesBlackjack
             Players.Add(player);
             playerBalance.Text = "$" + player.PlayerMoney.ToString();
             endTurnButton.Visible = false;
+
+            playerName.Text = User_01.username;
+
+
+
+
         }
 
         /// <summary>
@@ -468,7 +475,6 @@ namespace DavesBlackjack
                     player = hand2;
                 }
             }
-
             //setting players hand
             ClearCards(playerHand);
             for (int i = 0; i < player.CardList.Count; i++)
@@ -477,16 +483,13 @@ namespace DavesBlackjack
             playerScore.Text = player.handValue.ToString();
             wins.Text = player.wins.ToString();
             playerBalance.Text = "$" + player.PlayerMoney;
-            playerName.Text = "Player " + player.playerNum;
-        private void profileButton_Click(object sender, EventArgs e)
-        {
-            ProfileInfo profileInfo = new ProfileInfo(player_01, User_01);
 
-            //setting the bet
-            betUpDown.Value = player.currentBet;
-            
+            // Get players name
+            playerName.Text = player.userCurrent.username;
 
+            //playerName.Text = "Player " + player.playerNum;
         }
+
 
         /// <summary>
         /// Sets the blackjack game. This should be used when a previous save game is found.
@@ -614,10 +617,16 @@ namespace DavesBlackjack
 
         private void addNewPlayerButton_Click(object sender, EventArgs e)
         {
-            Player player = new Player();
+            //Player player = new Player();
+            //Log in new player
+            TitleForm newLogin = new TitleForm(true);
+            newLogin.ShowDialog();
+            Player newPlayer = newLogin.AddNewPlayer;
+
             //cool ternary
             player.playerNum = (Players.Count == 0) ? 1 : (Players.Count + 1);
-            Players.Add(player);
+
+            Players.Add(newPlayer);
             saveButton.Visible = false;
         }
 
@@ -730,7 +739,7 @@ namespace DavesBlackjack
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            ProfileInfo profileInfo = new ProfileInfo(player);
+            ProfileInfo profileInfo = new ProfileInfo(player, player.userCurrent);
 
             profileInfo.ShowDialog();
             playerBalance.Text = "$" + player.PlayerMoney.ToString();

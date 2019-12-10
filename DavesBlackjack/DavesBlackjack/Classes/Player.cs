@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DavesBlackjack.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,8 +50,9 @@ namespace DavesBlackjack
         public Player(string username)
         {
             this._username = username;
+            this.userCurrent = new User(username);
         }
-
+        public User userCurrent;
         public string _username;
         public string _playerWins;
 
