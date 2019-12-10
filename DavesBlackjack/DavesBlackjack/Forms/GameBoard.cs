@@ -106,10 +106,6 @@ namespace DavesBlackjack
             endTurnButton.Visible = false;
 
             playerName.Text = User_01.username;
-
-
-
-
         }
 
         /// <summary>
@@ -278,7 +274,7 @@ namespace DavesBlackjack
             //Player
             if (player.CheckBusted())
             {
-                MessageBox.Show("You Busted", "Busted", MessageBoxButtons.OK);
+                MessageBox.Show("You Busted, Sorry!", "Busted", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 player.done = true;
                 hitButton.Enabled = false;
                 stayButton.Enabled = false;
