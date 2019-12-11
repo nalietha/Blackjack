@@ -63,6 +63,16 @@ namespace DavesBlackjack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blue_back {
+            get {
+                object obj = ResourceManager.GetObject("blue_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap createprofilebackground {
             get {
                 object obj = ResourceManager.GetObject("createprofilebackground", resourceCulture);
@@ -93,6 +103,26 @@ namespace DavesBlackjack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gray_back {
+            get {
+                object obj = ResourceManager.GetObject("gray_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap green_back {
+            get {
+                object obj = ResourceManager.GetObject("green_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hit {
             get {
                 object obj = ResourceManager.GetObject("hit", resourceCulture);
@@ -116,6 +146,26 @@ namespace DavesBlackjack.Properties {
         internal static System.Drawing.Bitmap profilebackground {
             get {
                 object obj = ResourceManager.GetObject("profilebackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap purple_back {
+            get {
+                object obj = ResourceManager.GetObject("purple_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap red_back {
+            get {
+                object obj = ResourceManager.GetObject("red_back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +216,16 @@ namespace DavesBlackjack.Properties {
         internal static System.Drawing.Bitmap titlescreenbackground {
             get {
                 object obj = ResourceManager.GetObject("titlescreenbackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yellow_back {
+            get {
+                object obj = ResourceManager.GetObject("yellow_back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -80,6 +80,12 @@
       <DependentUpon>PaymentInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Player.cs" />
+    <Compile Include="Forms\ChooseDeck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChooseDeck.Designer.cs">
+      <DependentUpon>ChooseDeck.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ProfileInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PaymentInfo.resx">
       <DependentUpon>PaymentInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChooseDeck.resx">
+      <DependentUpon>ChooseDeck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProfileInfo.resx">
       <DependentUpon>ProfileInfo.cs</DependentUpon>
@@ -143,6 +152,7 @@
     <None Include="Resources\Misc\paymentinfobackground.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Resources\Image1.bmp" />
     <Content Include="Resources\Misc\profilebackground.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

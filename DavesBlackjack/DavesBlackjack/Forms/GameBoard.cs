@@ -44,6 +44,13 @@ namespace DavesBlackjack
         string username;
         private void Form1_Load(object sender, EventArgs e)
         {
+            DavesBlackjack.Forms.ChooseDeck ChooseDeck = new DavesBlackjack.Forms.ChooseDeck();
+            Hide();
+            ChooseDeck.ShowDialog();
+            cardBack = ChooseDeck.cardBack;
+            Show();
+
+
             playerHand.Add(p1);
             playerHand.Add(p2);
             playerHand.Add(p3);

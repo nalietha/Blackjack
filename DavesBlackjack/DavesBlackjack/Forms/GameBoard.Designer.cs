@@ -109,11 +109,12 @@ namespace DavesBlackjack
             // p1
             // 
             this.p1.BackColor = System.Drawing.Color.Transparent;
+            this.p1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.p1.Location = new System.Drawing.Point(15, 55);
             this.p1.Margin = new System.Windows.Forms.Padding(2);
             this.p1.Name = "p1";
-            this.p1.Size = new System.Drawing.Size(116, 148);
-            this.p1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.p1.Size = new System.Drawing.Size(103, 148);
+            this.p1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.p1.TabIndex = 1;
             this.p1.TabStop = false;
             this.p1.Visible = false;
@@ -121,11 +122,12 @@ namespace DavesBlackjack
             // p2
             // 
             this.p2.BackColor = System.Drawing.Color.Transparent;
+            this.p2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.p2.Location = new System.Drawing.Point(42, 55);
             this.p2.Margin = new System.Windows.Forms.Padding(2);
             this.p2.Name = "p2";
-            this.p2.Size = new System.Drawing.Size(116, 148);
-            this.p2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.p2.Size = new System.Drawing.Size(103, 148);
+            this.p2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.p2.TabIndex = 2;
             this.p2.TabStop = false;
             this.p2.Visible = false;
@@ -133,11 +135,12 @@ namespace DavesBlackjack
             // p3
             // 
             this.p3.BackColor = System.Drawing.Color.Transparent;
+            this.p3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.p3.Location = new System.Drawing.Point(69, 55);
             this.p3.Margin = new System.Windows.Forms.Padding(2);
             this.p3.Name = "p3";
-            this.p3.Size = new System.Drawing.Size(116, 148);
-            this.p3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.p3.Size = new System.Drawing.Size(103, 148);
+            this.p3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.p3.TabIndex = 3;
             this.p3.TabStop = false;
             this.p3.Visible = false;
@@ -145,11 +148,12 @@ namespace DavesBlackjack
             // p4
             // 
             this.p4.BackColor = System.Drawing.Color.Transparent;
+            this.p4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.p4.Location = new System.Drawing.Point(95, 55);
             this.p4.Margin = new System.Windows.Forms.Padding(2);
             this.p4.Name = "p4";
-            this.p4.Size = new System.Drawing.Size(116, 148);
-            this.p4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.p4.Size = new System.Drawing.Size(103, 148);
+            this.p4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.p4.TabIndex = 4;
             this.p4.TabStop = false;
             this.p4.Visible = false;
@@ -157,11 +161,12 @@ namespace DavesBlackjack
             // p5
             // 
             this.p5.BackColor = System.Drawing.Color.Transparent;
+            this.p5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.p5.Location = new System.Drawing.Point(122, 55);
             this.p5.Margin = new System.Windows.Forms.Padding(2);
             this.p5.Name = "p5";
-            this.p5.Size = new System.Drawing.Size(116, 148);
-            this.p5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.p5.Size = new System.Drawing.Size(103, 148);
+            this.p5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.p5.TabIndex = 5;
             this.p5.TabStop = false;
             this.p5.Visible = false;
@@ -169,11 +174,12 @@ namespace DavesBlackjack
             // p6
             // 
             this.p6.BackColor = System.Drawing.Color.Transparent;
+            this.p6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.p6.Location = new System.Drawing.Point(149, 55);
             this.p6.Margin = new System.Windows.Forms.Padding(2);
             this.p6.Name = "p6";
-            this.p6.Size = new System.Drawing.Size(116, 148);
-            this.p6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.p6.Size = new System.Drawing.Size(103, 148);
+            this.p6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.p6.TabIndex = 6;
             this.p6.TabStop = false;
             this.p6.Visible = false;
@@ -181,11 +187,12 @@ namespace DavesBlackjack
             // p7
             // 
             this.p7.BackColor = System.Drawing.Color.Transparent;
+            this.p7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.p7.Location = new System.Drawing.Point(175, 55);
             this.p7.Margin = new System.Windows.Forms.Padding(2);
             this.p7.Name = "p7";
-            this.p7.Size = new System.Drawing.Size(116, 148);
-            this.p7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.p7.Size = new System.Drawing.Size(103, 148);
+            this.p7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.p7.TabIndex = 7;
             this.p7.TabStop = false;
             this.p7.Visible = false;
@@ -193,11 +200,12 @@ namespace DavesBlackjack
             // p8
             // 
             this.p8.BackColor = System.Drawing.Color.Transparent;
+            this.p8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.p8.Location = new System.Drawing.Point(202, 55);
             this.p8.Margin = new System.Windows.Forms.Padding(2);
             this.p8.Name = "p8";
-            this.p8.Size = new System.Drawing.Size(116, 148);
-            this.p8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.p8.Size = new System.Drawing.Size(103, 148);
+            this.p8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.p8.TabIndex = 8;
             this.p8.TabStop = false;
             this.p8.Visible = false;
@@ -205,11 +213,12 @@ namespace DavesBlackjack
             // d8
             // 
             this.d8.BackColor = System.Drawing.Color.Transparent;
+            this.d8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.d8.Location = new System.Drawing.Point(682, 55);
             this.d8.Margin = new System.Windows.Forms.Padding(2);
             this.d8.Name = "d8";
-            this.d8.Size = new System.Drawing.Size(116, 148);
-            this.d8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.d8.Size = new System.Drawing.Size(103, 148);
+            this.d8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.d8.TabIndex = 16;
             this.d8.TabStop = false;
             this.d8.Visible = false;
@@ -217,11 +226,12 @@ namespace DavesBlackjack
             // d7
             // 
             this.d7.BackColor = System.Drawing.Color.Transparent;
+            this.d7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.d7.Location = new System.Drawing.Point(655, 55);
             this.d7.Margin = new System.Windows.Forms.Padding(2);
             this.d7.Name = "d7";
-            this.d7.Size = new System.Drawing.Size(116, 148);
-            this.d7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.d7.Size = new System.Drawing.Size(103, 148);
+            this.d7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.d7.TabIndex = 15;
             this.d7.TabStop = false;
             this.d7.Visible = false;
@@ -229,11 +239,12 @@ namespace DavesBlackjack
             // d6
             // 
             this.d6.BackColor = System.Drawing.Color.Transparent;
+            this.d6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.d6.Location = new System.Drawing.Point(629, 55);
             this.d6.Margin = new System.Windows.Forms.Padding(2);
             this.d6.Name = "d6";
-            this.d6.Size = new System.Drawing.Size(116, 148);
-            this.d6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.d6.Size = new System.Drawing.Size(103, 148);
+            this.d6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.d6.TabIndex = 14;
             this.d6.TabStop = false;
             this.d6.Visible = false;
@@ -241,11 +252,12 @@ namespace DavesBlackjack
             // d5
             // 
             this.d5.BackColor = System.Drawing.Color.Transparent;
+            this.d5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.d5.Location = new System.Drawing.Point(602, 55);
             this.d5.Margin = new System.Windows.Forms.Padding(2);
             this.d5.Name = "d5";
-            this.d5.Size = new System.Drawing.Size(116, 148);
-            this.d5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.d5.Size = new System.Drawing.Size(103, 148);
+            this.d5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.d5.TabIndex = 13;
             this.d5.TabStop = false;
             this.d5.Visible = false;
@@ -253,11 +265,12 @@ namespace DavesBlackjack
             // d4
             // 
             this.d4.BackColor = System.Drawing.Color.Transparent;
+            this.d4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.d4.Location = new System.Drawing.Point(575, 55);
             this.d4.Margin = new System.Windows.Forms.Padding(2);
             this.d4.Name = "d4";
-            this.d4.Size = new System.Drawing.Size(116, 148);
-            this.d4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.d4.Size = new System.Drawing.Size(103, 148);
+            this.d4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.d4.TabIndex = 12;
             this.d4.TabStop = false;
             this.d4.Visible = false;
@@ -265,11 +278,12 @@ namespace DavesBlackjack
             // d3
             // 
             this.d3.BackColor = System.Drawing.Color.Transparent;
+            this.d3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.d3.Location = new System.Drawing.Point(549, 55);
             this.d3.Margin = new System.Windows.Forms.Padding(2);
             this.d3.Name = "d3";
-            this.d3.Size = new System.Drawing.Size(116, 148);
-            this.d3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.d3.Size = new System.Drawing.Size(103, 148);
+            this.d3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.d3.TabIndex = 11;
             this.d3.TabStop = false;
             this.d3.Visible = false;
@@ -277,11 +291,12 @@ namespace DavesBlackjack
             // d2
             // 
             this.d2.BackColor = System.Drawing.Color.Transparent;
+            this.d2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.d2.Location = new System.Drawing.Point(522, 55);
             this.d2.Margin = new System.Windows.Forms.Padding(2);
             this.d2.Name = "d2";
-            this.d2.Size = new System.Drawing.Size(116, 148);
-            this.d2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.d2.Size = new System.Drawing.Size(103, 148);
+            this.d2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.d2.TabIndex = 10;
             this.d2.TabStop = false;
             this.d2.Visible = false;
@@ -289,11 +304,12 @@ namespace DavesBlackjack
             // d1
             // 
             this.d1.BackColor = System.Drawing.Color.Transparent;
+            this.d1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.d1.Location = new System.Drawing.Point(495, 55);
             this.d1.Margin = new System.Windows.Forms.Padding(2);
             this.d1.Name = "d1";
-            this.d1.Size = new System.Drawing.Size(116, 148);
-            this.d1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.d1.Size = new System.Drawing.Size(103, 148);
+            this.d1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.d1.TabIndex = 9;
             this.d1.TabStop = false;
             // 
