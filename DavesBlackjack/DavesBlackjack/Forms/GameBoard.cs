@@ -44,6 +44,13 @@ namespace DavesBlackjack
         string username;
         private void Form1_Load(object sender, EventArgs e)
         {
+            DavesBlackjack.Forms.ChooseDeck ChooseDeck = new DavesBlackjack.Forms.ChooseDeck();
+            Hide();
+            ChooseDeck.ShowDialog();
+            cardBack = ChooseDeck.cardBack;
+            Show();
+
+
             playerHand.Add(p1);
             playerHand.Add(p2);
             playerHand.Add(p3);
@@ -106,10 +113,6 @@ namespace DavesBlackjack
             endTurnButton.Visible = false;
 
             playerName.Text = User_01.username;
-
-
-
-
         }
 
         /// <summary>
@@ -278,7 +281,7 @@ namespace DavesBlackjack
             //Player
             if (player.CheckBusted())
             {
-                MessageBox.Show("You Busted", "Busted", MessageBoxButtons.OK);
+                MessageBox.Show("You Busted, Sorry!", "Busted", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 player.done = true;
                 hitButton.Enabled = false;
                 stayButton.Enabled = false;
@@ -635,7 +638,9 @@ namespace DavesBlackjack
             //Log in new player
             
             TitleForm newLogin = new TitleForm(true);
+            this.Hide();
             newLogin.ShowDialog();
+            this.Show();
 
             Player newPlayer = newLogin.AddNewPlayer;
             // If player is null, user exited add form, return to game
@@ -788,7 +793,9 @@ namespace DavesBlackjack
         {
             ProfileInfo profileInfo = new ProfileInfo(player, player.userCurrent);
 
+            Hide();
             profileInfo.ShowDialog();
+            Show();
             playerBalance.Text = "$" + player.PlayerMoney.ToString();
         }
 
