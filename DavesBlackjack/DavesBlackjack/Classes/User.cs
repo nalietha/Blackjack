@@ -57,7 +57,7 @@ namespace DavesBlackjack.Classes
         public string Address;
 
         private string GetID() => currentUser == null ? "" : this.currentUser.Attribute("id").Value;
-        private string GetGamesWon() => currentUser == null ? "" : this.currentUser.Attribute("id").Value;
+        private string GetGamesWon() => currentUser == null ? "" : this.currentUser.Element("GamesWon").Value;
         private string GetMoney() => currentUser == null ? "" : this.currentUser.Element("Cash").Value;
         private string GetEmail() => currentUser == null ? "" : this.currentUser.Element("Email").Value;
         private string GetNameOnCard() => currentUser == null ? "" : this.currentUser.Element("PaymentInfo").Element("NameOnCard").Value;
@@ -69,7 +69,15 @@ namespace DavesBlackjack.Classes
         private string GetZip() => currentUser == null ? "" : this.currentUser.Element("PaymentInfo").Element("Zip").Value;
         private string GetPhoneNumber() => currentUser == null ? "" : this.currentUser.Element("PaymentInfo").Element("PhoneNumber").Value;
 
+        private void UpdateGameWins(int currentWins)
+        {
+            XElement wonGames = this.currentUser.Element("GamesWon");
+            int savedWins = Int32.Parse(this.gamesWon);
 
+
+            wonGames.SetElementValue("GamesWon", (currentWins + savedWins).ToString());
+           
+        }
 
 
 

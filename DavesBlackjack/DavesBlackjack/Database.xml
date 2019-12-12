@@ -8,7 +8,7 @@
       <Answer>111, fake ave</Answer>
     </SecurityQuestions>
     <PaymentInfo>
-      <CardNumber>1111 2222 3333 4444</CardNumber>
+      <CardNumber>1111 2222 3333 444</CardNumber>
       <NameOnCard>John Smith</NameOnCard>
       <SecurityCode>555</SecurityCode>
       <ExpireDate>12/34</ExpireDate>
