@@ -70,7 +70,15 @@ namespace DavesBlackjack.Classes
         private string GetZip() => currentUser == null ? "" : this.currentUser.Element("PaymentInfo").Element("Zip").Value;
         private string GetPhoneNumber() => currentUser == null ? "" : this.currentUser.Element("PaymentInfo").Element("PhoneNumber").Value;
 
+        private void UpdateGameWins(int currentWins)
+        {
+            XElement wonGames = this.currentUser.Element("GamesWon");
+            int savedWins = Int32.Parse(this.gamesWon);
 
+
+            wonGames.SetElementValue("GamesWon", (currentWins + savedWins).ToString());
+           
+        }
 
 
 
