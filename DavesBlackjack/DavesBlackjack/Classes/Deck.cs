@@ -68,7 +68,7 @@ namespace DavesBlackjack
         {
             //No next card
             if (_cards.Count == 0)
-                return null;
+                Shuffle();
 
             //Get next card
             Card card = _cards.First();

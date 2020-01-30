@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentInfo));
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblDisplayCardNumber = new System.Windows.Forms.Label();
             this.lblDisplayCSC = new System.Windows.Forms.Label();
@@ -590,10 +591,13 @@
             this.Controls.Add(this.pnlCardNumberError);
             this.Controls.Add(this.pnlCSCError);
             this.Controls.Add(this.pnlPhoneNumberError);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "PaymentInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PaymentInfo";
+            this.Text = "Payment Info";
+            this.Load += new System.EventHandler(this.PaymentInfo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

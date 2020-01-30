@@ -27,9 +27,8 @@ namespace DavesBlackjack
         public static string PASSWORD_TOO_SHORT = "Password must be longer then 8 characters";
         public static string PASSWORDS_MISMATCH = "Passwords do not match";
 
-        private static string DatabaseFile = "..\\..\\Database.xml";
-        static XDocument doc = XDocument.Load(DatabaseFile);
-
+        private static readonly string DatabaseFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Blackjack/Database.xml";
+        static readonly XDocument doc = XDocument.Load(DatabaseFile);
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
@@ -210,6 +209,11 @@ namespace DavesBlackjack
                 tbConfimPass.UseSystemPasswordChar = false;
             else
                 tbConfimPass.UseSystemPasswordChar = true;
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

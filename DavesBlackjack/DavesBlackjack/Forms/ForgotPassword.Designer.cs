@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ForgotPassword));
             this.lblFormTitle = new System.Windows.Forms.Label();
             this.lblDisplayUsername = new System.Windows.Forms.Label();
             this.tbUsernameRecovery = new System.Windows.Forms.TextBox();
@@ -53,6 +54,7 @@
             this.lblPasswordError = new System.Windows.Forms.Label();
             this.lblUserErrorDisplay = new System.Windows.Forms.Label();
             this.pnlUsername = new System.Windows.Forms.Panel();
+            this.closeButton = new System.Windows.Forms.Button();
             this.pnlSecQuestions.SuspendLayout();
             this.pnlPasswordDisplay.SuspendLayout();
             this.SuspendLayout();
@@ -349,6 +351,20 @@
             this.pnlUsername.TabIndex = 13;
             this.pnlUsername.Visible = false;
             // 
+            // closeButton
+            // 
+            this.closeButton.BackColor = System.Drawing.Color.Transparent;
+            this.closeButton.BackgroundImage = global::DavesBlackjack.Properties.Resources.close;
+            this.closeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.closeButton.FlatAppearance.BorderSize = 0;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.closeButton.Location = new System.Drawing.Point(583, 12);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(32, 32);
+            this.closeButton.TabIndex = 46;
+            this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
             // ForgotPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -356,6 +372,7 @@
             this.BackgroundImage = global::DavesBlackjack.Properties.Resources.forgotpassbackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(627, 383);
+            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.lblUserErrorDisplay);
             this.Controls.Add(this.pnlPasswordDisplay);
             this.Controls.Add(this.pnlSecQuestions);
@@ -365,10 +382,12 @@
             this.Controls.Add(this.lblFormTitle);
             this.Controls.Add(this.lblPasswordError);
             this.Controls.Add(this.pnlUsername);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ForgotPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ForgotPassword";
+            this.Text = "Forgot Password";
             this.pnlSecQuestions.ResumeLayout(false);
             this.pnlSecQuestions.PerformLayout();
             this.pnlPasswordDisplay.ResumeLayout(false);
@@ -405,5 +424,6 @@
         private System.Windows.Forms.Panel pnlConfirmPassError;
         private System.Windows.Forms.Button btnNewPassShow;
         private System.Windows.Forms.Button btnConfirmPassShow;
+        private System.Windows.Forms.Button closeButton;
     }
 }

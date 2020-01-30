@@ -13,7 +13,8 @@ namespace DavesBlackjack.Classes
     /// </summary>
     abstract class XMLCommands
     {
-        XDocument doc = XDocument.Load("..\\..\\Database.xml");
+        private static readonly string DatabaseFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Blackjack//Database.xml";
+        readonly XDocument doc = XDocument.Load(DatabaseFile);
 
         public bool DoesUserExist(string username)
         {
@@ -36,7 +37,6 @@ namespace DavesBlackjack.Classes
         //{
         //    username = username.ToLower();
         //    var getChild = doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == username).Select(x.Element).FirstOrDefault();
-
         //}
 
         //public bool ChangeUsername()
@@ -46,8 +46,5 @@ namespace DavesBlackjack.Classes
         //public bool DeleteUser()
 
         //public bool 
-
-
-
     }
 }

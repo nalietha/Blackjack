@@ -19,7 +19,7 @@ namespace DavesBlackjack.Tests
             const bool IS_BEFORE_INSURANCE = true;
 
             GameState gamestate = new GameState(new Dealer(), new Player(), new Deck(), CURRENT_BET, IS_BEFORE_INSURANCE);
-            string SaveFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Blackjack Saves//";
+            string SaveFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Blackjack/Saved Games";
 
             //Act
             gamestate.SaveGame("Test", SaveFilePath);

@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DavesBlackjack.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class PlayerTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void Calculate_HandValue_For_5_Cards_Test()
         {
             //Arrange

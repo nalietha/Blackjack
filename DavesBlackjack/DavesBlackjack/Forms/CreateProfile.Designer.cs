@@ -65,7 +65,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 34);
+            this.label1.Location = new System.Drawing.Point(13, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(239, 39);
             this.label1.TabIndex = 0;
@@ -73,10 +73,10 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(204, 457);
+            this.btnCancel.Location = new System.Drawing.Point(240, 431);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(92, 34);
+            this.btnCancel.Size = new System.Drawing.Size(100, 35);
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -84,10 +84,10 @@
             // 
             // btnCreateAccount
             // 
-            this.btnCreateAccount.Location = new System.Drawing.Point(301, 457);
+            this.btnCreateAccount.Location = new System.Drawing.Point(349, 431);
             this.btnCreateAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCreateAccount.Name = "btnCreateAccount";
-            this.btnCreateAccount.Size = new System.Drawing.Size(148, 33);
+            this.btnCreateAccount.Size = new System.Drawing.Size(100, 35);
             this.btnCreateAccount.TabIndex = 7;
             this.btnCreateAccount.Text = "Create";
             this.btnCreateAccount.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(21, 191);
+            this.tbUsername.Location = new System.Drawing.Point(20, 174);
             this.tbUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(431, 22);
@@ -103,7 +103,7 @@
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(21, 244);
+            this.tbPassword.Location = new System.Drawing.Point(20, 227);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(431, 22);
@@ -115,7 +115,7 @@
             this.lblUsername.AutoSize = true;
             this.lblUsername.BackColor = System.Drawing.Color.Transparent;
             this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(21, 166);
+            this.lblUsername.Location = new System.Drawing.Point(20, 149);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(77, 17);
             this.lblUsername.TabIndex = 5;
@@ -126,7 +126,7 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword.ForeColor = System.Drawing.Color.White;
-            this.lblPassword.Location = new System.Drawing.Point(21, 222);
+            this.lblPassword.Location = new System.Drawing.Point(20, 205);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(73, 17);
             this.lblPassword.TabIndex = 6;
@@ -137,7 +137,7 @@
             this.lblConfirmPassword.AutoSize = true;
             this.lblConfirmPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblConfirmPassword.ForeColor = System.Drawing.Color.White;
-            this.lblConfirmPassword.Location = new System.Drawing.Point(21, 279);
+            this.lblConfirmPassword.Location = new System.Drawing.Point(20, 262);
             this.lblConfirmPassword.Name = "lblConfirmPassword";
             this.lblConfirmPassword.Size = new System.Drawing.Size(121, 17);
             this.lblConfirmPassword.TabIndex = 7;
@@ -145,7 +145,7 @@
             // 
             // tbPasswordConfirm
             // 
-            this.tbPasswordConfirm.Location = new System.Drawing.Point(21, 300);
+            this.tbPasswordConfirm.Location = new System.Drawing.Point(20, 283);
             this.tbPasswordConfirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPasswordConfirm.Name = "tbPasswordConfirm";
             this.tbPasswordConfirm.PasswordChar = '1';
@@ -169,7 +169,7 @@
             "What primary school did you attend?",
             "What was the house number and street name you lived in as a child?",
             "What were the last four digits of your childhood telephone number?"});
-            this.cbSecurityQuestion.Location = new System.Drawing.Point(21, 357);
+            this.cbSecurityQuestion.Location = new System.Drawing.Point(20, 340);
             this.cbSecurityQuestion.Margin = new System.Windows.Forms.Padding(1);
             this.cbSecurityQuestion.Name = "cbSecurityQuestion";
             this.cbSecurityQuestion.Size = new System.Drawing.Size(431, 24);
@@ -180,7 +180,7 @@
             this.lblSecuirtyQuestionChoice.AutoSize = true;
             this.lblSecuirtyQuestionChoice.BackColor = System.Drawing.Color.Transparent;
             this.lblSecuirtyQuestionChoice.ForeColor = System.Drawing.Color.White;
-            this.lblSecuirtyQuestionChoice.Location = new System.Drawing.Point(21, 337);
+            this.lblSecuirtyQuestionChoice.Location = new System.Drawing.Point(20, 320);
             this.lblSecuirtyQuestionChoice.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblSecuirtyQuestionChoice.Name = "lblSecuirtyQuestionChoice";
             this.lblSecuirtyQuestionChoice.Size = new System.Drawing.Size(163, 17);
@@ -192,7 +192,7 @@
             this.lblSecurityQuestionAnswer.AutoSize = true;
             this.lblSecurityQuestionAnswer.BackColor = System.Drawing.Color.Transparent;
             this.lblSecurityQuestionAnswer.ForeColor = System.Drawing.Color.White;
-            this.lblSecurityQuestionAnswer.Location = new System.Drawing.Point(21, 395);
+            this.lblSecurityQuestionAnswer.Location = new System.Drawing.Point(20, 378);
             this.lblSecurityQuestionAnswer.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblSecurityQuestionAnswer.Name = "lblSecurityQuestionAnswer";
             this.lblSecurityQuestionAnswer.Size = new System.Drawing.Size(58, 17);
@@ -201,7 +201,7 @@
             // 
             // tbSecuirtyQuestionAnswer
             // 
-            this.tbSecuirtyQuestionAnswer.Location = new System.Drawing.Point(21, 417);
+            this.tbSecuirtyQuestionAnswer.Location = new System.Drawing.Point(20, 400);
             this.tbSecuirtyQuestionAnswer.Margin = new System.Windows.Forms.Padding(1);
             this.tbSecuirtyQuestionAnswer.Name = "tbSecuirtyQuestionAnswer";
             this.tbSecuirtyQuestionAnswer.Size = new System.Drawing.Size(427, 22);
@@ -213,7 +213,7 @@
             this.lblUsernameError.AutoSize = true;
             this.lblUsernameError.BackColor = System.Drawing.Color.Transparent;
             this.lblUsernameError.ForeColor = System.Drawing.Color.White;
-            this.lblUsernameError.Location = new System.Drawing.Point(453, 186);
+            this.lblUsernameError.Location = new System.Drawing.Point(452, 169);
             this.lblUsernameError.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblUsernameError.Name = "lblUsernameError";
             this.lblUsernameError.Size = new System.Drawing.Size(17, 17);
@@ -226,7 +226,7 @@
             this.lblPasswordError.AutoSize = true;
             this.lblPasswordError.BackColor = System.Drawing.Color.Transparent;
             this.lblPasswordError.ForeColor = System.Drawing.Color.White;
-            this.lblPasswordError.Location = new System.Drawing.Point(456, 244);
+            this.lblPasswordError.Location = new System.Drawing.Point(455, 227);
             this.lblPasswordError.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblPasswordError.Name = "lblPasswordError";
             this.lblPasswordError.Size = new System.Drawing.Size(17, 17);
@@ -239,7 +239,7 @@
             this.lblConfirmError.AutoSize = true;
             this.lblConfirmError.BackColor = System.Drawing.Color.Transparent;
             this.lblConfirmError.ForeColor = System.Drawing.Color.White;
-            this.lblConfirmError.Location = new System.Drawing.Point(456, 300);
+            this.lblConfirmError.Location = new System.Drawing.Point(455, 283);
             this.lblConfirmError.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblConfirmError.Name = "lblConfirmError";
             this.lblConfirmError.Size = new System.Drawing.Size(17, 17);
@@ -252,7 +252,7 @@
             this.lblSecuirtyQuestionError.AutoSize = true;
             this.lblSecuirtyQuestionError.BackColor = System.Drawing.Color.Transparent;
             this.lblSecuirtyQuestionError.ForeColor = System.Drawing.Color.White;
-            this.lblSecuirtyQuestionError.Location = new System.Drawing.Point(456, 417);
+            this.lblSecuirtyQuestionError.Location = new System.Drawing.Point(455, 400);
             this.lblSecuirtyQuestionError.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblSecuirtyQuestionError.Name = "lblSecuirtyQuestionError";
             this.lblSecuirtyQuestionError.Size = new System.Drawing.Size(17, 17);
@@ -265,7 +265,7 @@
             this.lblSelectSecuirtyError.AutoSize = true;
             this.lblSelectSecuirtyError.BackColor = System.Drawing.Color.Transparent;
             this.lblSelectSecuirtyError.ForeColor = System.Drawing.Color.White;
-            this.lblSelectSecuirtyError.Location = new System.Drawing.Point(453, 358);
+            this.lblSelectSecuirtyError.Location = new System.Drawing.Point(452, 341);
             this.lblSelectSecuirtyError.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblSelectSecuirtyError.Name = "lblSelectSecuirtyError";
             this.lblSelectSecuirtyError.Size = new System.Drawing.Size(17, 17);
@@ -276,7 +276,7 @@
             // pnlUsername
             // 
             this.pnlUsername.BackColor = System.Drawing.Color.Red;
-            this.pnlUsername.Location = new System.Drawing.Point(21, 185);
+            this.pnlUsername.Location = new System.Drawing.Point(20, 168);
             this.pnlUsername.Margin = new System.Windows.Forms.Padding(1);
             this.pnlUsername.Name = "pnlUsername";
             this.pnlUsername.Size = new System.Drawing.Size(429, 28);
@@ -296,7 +296,7 @@
             // pnlQuestionAnswer
             // 
             this.pnlQuestionAnswer.BackColor = System.Drawing.Color.Red;
-            this.pnlQuestionAnswer.Location = new System.Drawing.Point(21, 412);
+            this.pnlQuestionAnswer.Location = new System.Drawing.Point(20, 395);
             this.pnlQuestionAnswer.Margin = new System.Windows.Forms.Padding(4);
             this.pnlQuestionAnswer.Name = "pnlQuestionAnswer";
             this.pnlQuestionAnswer.Size = new System.Drawing.Size(428, 28);
@@ -306,7 +306,7 @@
             // pnlConfirmPass
             // 
             this.pnlConfirmPass.BackColor = System.Drawing.Color.Red;
-            this.pnlConfirmPass.Location = new System.Drawing.Point(21, 295);
+            this.pnlConfirmPass.Location = new System.Drawing.Point(20, 278);
             this.pnlConfirmPass.Margin = new System.Windows.Forms.Padding(4);
             this.pnlConfirmPass.Name = "pnlConfirmPass";
             this.pnlConfirmPass.Size = new System.Drawing.Size(432, 25);
@@ -316,7 +316,7 @@
             // pnlPassword
             // 
             this.pnlPassword.BackColor = System.Drawing.Color.Red;
-            this.pnlPassword.Location = new System.Drawing.Point(21, 239);
+            this.pnlPassword.Location = new System.Drawing.Point(20, 222);
             this.pnlPassword.Margin = new System.Windows.Forms.Padding(4);
             this.pnlPassword.Name = "pnlPassword";
             this.pnlPassword.Size = new System.Drawing.Size(432, 22);
@@ -328,7 +328,7 @@
             this.lblDisplayEmail.AutoSize = true;
             this.lblDisplayEmail.BackColor = System.Drawing.Color.Transparent;
             this.lblDisplayEmail.ForeColor = System.Drawing.Color.White;
-            this.lblDisplayEmail.Location = new System.Drawing.Point(17, 97);
+            this.lblDisplayEmail.Location = new System.Drawing.Point(16, 97);
             this.lblDisplayEmail.Name = "lblDisplayEmail";
             this.lblDisplayEmail.Size = new System.Drawing.Size(46, 17);
             this.lblDisplayEmail.TabIndex = 24;
@@ -336,7 +336,7 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(21, 123);
+            this.tbEmail.Location = new System.Drawing.Point(20, 123);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(431, 22);
@@ -347,7 +347,7 @@
             this.lblEmailError.AutoSize = true;
             this.lblEmailError.BackColor = System.Drawing.Color.Transparent;
             this.lblEmailError.ForeColor = System.Drawing.Color.White;
-            this.lblEmailError.Location = new System.Drawing.Point(453, 118);
+            this.lblEmailError.Location = new System.Drawing.Point(452, 118);
             this.lblEmailError.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblEmailError.Name = "lblEmailError";
             this.lblEmailError.Size = new System.Drawing.Size(17, 17);
@@ -358,7 +358,7 @@
             // pnlEmailError
             // 
             this.pnlEmailError.BackColor = System.Drawing.Color.Red;
-            this.pnlEmailError.Location = new System.Drawing.Point(21, 117);
+            this.pnlEmailError.Location = new System.Drawing.Point(20, 117);
             this.pnlEmailError.Margin = new System.Windows.Forms.Padding(1);
             this.pnlEmailError.Name = "pnlEmailError";
             this.pnlEmailError.Size = new System.Drawing.Size(429, 28);
@@ -367,10 +367,10 @@
             // 
             // btnQuickFill
             // 
-            this.btnQuickFill.Location = new System.Drawing.Point(349, 44);
+            this.btnQuickFill.Location = new System.Drawing.Point(133, 431);
             this.btnQuickFill.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuickFill.Name = "btnQuickFill";
-            this.btnQuickFill.Size = new System.Drawing.Size(100, 28);
+            this.btnQuickFill.Size = new System.Drawing.Size(100, 35);
             this.btnQuickFill.TabIndex = 28;
             this.btnQuickFill.Text = "QuickFill";
             this.btnQuickFill.UseVisualStyleBackColor = true;
@@ -380,10 +380,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Green;
-            this.BackgroundImage = global::DavesBlackjack.Properties.Resources.createprofilebackground;
+            this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(735, 534);
+            this.ClientSize = new System.Drawing.Size(735, 487);
             this.Controls.Add(this.btnQuickFill);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.lblEmailError);
@@ -411,13 +411,14 @@
             this.Controls.Add(this.pnlQuestionAnswer);
             this.Controls.Add(this.pnlConfirmPass);
             this.Controls.Add(this.pnlPassword);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CreateProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CreateProfile";
+            this.Text = "Create Profile";
             this.Load += new System.EventHandler(this.CreateProfile_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

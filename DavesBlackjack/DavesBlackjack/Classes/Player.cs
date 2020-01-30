@@ -12,31 +12,29 @@ namespace DavesBlackjack
 
     public class Player 
     {
-        public static string DatabaseFile = "Database.xml";
-        XDocument doc = XDocument.Load(DatabaseFile);
+        public static string DatabaseFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Blackjack//Database.xml";
+        readonly XDocument doc = XDocument.Load(DatabaseFile);
         /// <summary>
         /// A list of card objects that represents the cards in the players hand
         /// </summary>
         public List<Card> CardList = new List<Card>();
         /// <summary>
-        /// The amount of money the player has
-        /// </summary>
-        private decimal playerMoney = 1000.00m;
-  
-        /// <summary>
         /// Minimum amount you could bet
         /// </summary>
         public static decimal MinBet = 10.00m;
+        public User user;
         /// <summary>
         /// The sum value of all the cards in the players hand
         /// </summary>
+        /// 
         public int handValue { get; set; } = 0;
         public int wins { get; set; } = 0;
         public int losses { get; set; } = 0;
-        public decimal PlayerMoney { get { return playerMoney; } set { playerMoney = value; } }
+        public decimal PlayerMoney { get; set; } = 0.00m;
         public int currentBet { get; set; } = 10;
         public int insurance { get; set; } = 0;
         public bool done = false;
+        public bool isSplitHand = false;
         public int playerNum;
         public int originalMoney;
         public bool aces = false;
@@ -50,12 +48,10 @@ namespace DavesBlackjack
         }
         public Player(string username)
         {
-            this._username = username;
-            this.userCurrent = new User(username);
+            user = new User(username);
+            PlayerMoney = Convert.ToDecimal(user.money);
+            wins = Convert.ToInt32(user.gamesWon);
         }
-        public User userCurrent;
-        public string _username;
-        public string _playerWins;
 
         /// <summary>
         /// Gets the value that the player currently has in their hand
@@ -127,7 +123,7 @@ namespace DavesBlackjack
         public bool Bet(decimal amount)
         {
             
-            if(playerMoney-amount < 0)
+            if(PlayerMoney-amount < 0)
             {
                 // Insignifant Money
                 // Display and cancel bet
@@ -136,7 +132,7 @@ namespace DavesBlackjack
             else
             {
                 // Place Bet
-                playerMoney -= amount;
+                PlayerMoney -= amount;
                 return true;
             }
         }
@@ -150,9 +146,27 @@ namespace DavesBlackjack
             handValue = 0;
         }
 
+        /// <summary>
+        /// Updates the XML Database with the current info of the user being logged out
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public void LogOutUser()
+        {
+            string username = user.username;
+            var userChange = doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == username.ToLower()).FirstOrDefault();
+
+            string newCash = PlayerMoney.ToString();
+            string newWins = wins.ToString();
+
+            userChange.SetElementValue("Cash", newCash);
+            userChange.SetElementValue("GamesWon", newWins);
+
+            doc.Save(DatabaseFile);
+        }
+        
         //public string GetUsername() => doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == _username.ToLower()).Select(x => (string)x.Element("GamesWon")).FirstOrDefault();
         //public string GetPlayerWins() => doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == _username.ToLower()).Select(x => (string)x.Element("GamesWon")).FirstOrDefault();
         //public string GetCurrentMoneyCount() => doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == _username.ToLower()).Select(x => (string)x.Element("Cash")).FirstOrDefault();
-
     }
 }

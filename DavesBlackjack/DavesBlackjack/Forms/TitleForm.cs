@@ -10,29 +10,30 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using DavesBlackjack.Classes;
+using DavesBlackjack.Properties;
 
 namespace DavesBlackjack
 {
     public partial class TitleForm : Form
     {
-        GameBoard gameBoard;
         private bool validated = false;
         public string username { get { return tbUsername.Text; } }
-        private readonly Music Music;
+        public Music Music;
 
         public TitleForm()
         {
             InitializeComponent();
             addingPlayerFlag = false;
-            this.Music = new Music();
+            Music = new Music();
         }
 
         // New player form init
         public TitleForm(bool newPlayerFlag)
         {
             InitializeComponent();
-            this.addingPlayerFlag = true;
-            btnCancelNewPlayer.Visible = true;
+            if (newPlayerFlag)
+                btnCancelNewPlayer.Text = "Cancel";
+            addingPlayerFlag = true;
         }
 
         private void TitleForm_Load(object sender, EventArgs e)
@@ -40,20 +41,23 @@ namespace DavesBlackjack
             tbUsername.Focus();
             tbPassword.Text = "";
             tbUsername.Text = "";
-            this.newPlayer = null;
-        }
-        private string DatabaseFile = "..\\..\\Database.xml";
-        private string LOGIN_FAILED = "Login Failed";
-        private string BLANK_USERNAME = "Username cannot be blank";
-        private bool addingPlayerFlag;
-        Player newPlayer;
-        public Player AddNewPlayer
-        {
-            get
+            AddNewPlayer = null;
+            if (Music.isPlaying)
             {
-                return this.newPlayer;
+                muteButton.BackgroundImage = Resources.soundOn;
+            }
+            else
+            {
+                muteButton.BackgroundImage = Resources.soundOff;
             }
         }
+        
+        private readonly string DatabaseFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Blackjack//Database.xml";
+        private readonly string LOGIN_FAILED = "Login Failed";
+        private readonly string BLANK_USERNAME = "Username cannot be blank";
+        private readonly bool addingPlayerFlag;
+
+        public Player AddNewPlayer { get; private set; }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
@@ -103,16 +107,17 @@ namespace DavesBlackjack
                 // Open Game 
                 // Make form Invisable. 
                 this.Visible = false;
-                GameBoard gameBoard = new GameBoard(this.tbUsername.Text);
+                GameBoard gameBoard = new GameBoard(this.tbUsername.Text)
+                {
+                    Music = Music
+                };
                 gameBoard.Show();
-
             }
             else if(validated && addingPlayerFlag)
             {
-                this.newPlayer = new Player(tbUsername.Text);
+                this.AddNewPlayer = new Player(tbUsername.Text);
                 //Create new player Object and return it to main form
-                this.Close();
-                
+                Close();
             }
             else
             {
@@ -122,6 +127,7 @@ namespace DavesBlackjack
             }
             
         }
+
         public string GetPassword(string username)
         {
 
@@ -142,22 +148,12 @@ namespace DavesBlackjack
             Show();
         }
 
-        private void TitleForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if(addingPlayerFlag)
-            {
-                // closes form
-                return;
-            }
-           
-            if(!validated && gameBoard != null)
-                gameBoard.Close();
-        }
-
         private void createAccountButton_Click(object sender, EventArgs e)
         {
             CreateProfile createProfile = new CreateProfile();
+            Hide();
             createProfile.ShowDialog();
+            Show();
         }
 
         private void muteButton_Click(object sender, EventArgs e)
@@ -165,12 +161,12 @@ namespace DavesBlackjack
             if(Music.isPlaying)
             {
                 Music.Stop();
-                muteButton.BackgroundImage = Image.FromFile(Music.OffIcon);
+                muteButton.BackgroundImage = Resources.soundOff;
             }
             else
             {
                 Music.Resume();
-                muteButton.BackgroundImage = Image.FromFile(Music.OnIcon);
+                muteButton.BackgroundImage = Resources.soundOn;
             }
         }
 
@@ -189,7 +185,12 @@ namespace DavesBlackjack
 
         private void btnCancelNewPlayer_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
+        }
+
+        private void creditsButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Properties.Resources.credits + Environment.NewLine + Environment.NewLine + Properties.Resources.licenses, "Credits and Licenses", MessageBoxButtons.OK);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace DavesBlackjack
 {
     public partial class ProfileInfo : Form
     {
-        Player player;
-        User currentUser;
+        readonly Player player;
+        readonly User currentUser;
         public ProfileInfo(Player p, User u)
         {
             player = p;
@@ -39,8 +39,7 @@ namespace DavesBlackjack
 
         private void depositMoneyButton_Click(object sender, EventArgs e)
         {
-            int money;
-            if (Int32.TryParse(AddMoneyText.Text, out money))
+            if (int.TryParse(AddMoneyText.Text, out int money))
             {
                 if (money < 0)
                     DepositErrorLabel.Visible = true;
@@ -48,7 +47,7 @@ namespace DavesBlackjack
                 {
                     player.PlayerMoney += money;
                     DepositErrorLabel.Visible = false;
-                    userMoneyLabel.Text = player.PlayerMoney.ToString();                   
+                    userMoneyLabel.Text = player.PlayerMoney.ToString();
                 }
             }
             else
@@ -58,8 +57,7 @@ namespace DavesBlackjack
 
         private void WithdrawMoneyButton_Click(object sender, EventArgs e)
         {
-            int money;
-            if (Int32.TryParse(WithdrawText.Text, out money))
+            if (Int32.TryParse(WithdrawText.Text, out int money))
             {
                 if (money < 0 || money > player.PlayerMoney)
                     WithdrawErrorLabel.Visible = true;
@@ -92,7 +90,7 @@ namespace DavesBlackjack
         {
             lblUsername.Text = currentUser.username;
             lblEmail.Text = currentUser.email;
-            lblGamesWon.Text = currentUser.gamesWon;
+            lblGamesWon.Text = player.wins.ToString();
         }
     }
 }

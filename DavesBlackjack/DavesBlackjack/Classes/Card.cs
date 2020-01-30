@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DavesBlackjack.Properties;
 
 namespace DavesBlackjack
 {
@@ -91,6 +92,15 @@ namespace DavesBlackjack
                 this.suit = "Diamonds";
                 imageName += "D";
             }
+        }
+
+        /// <summary>
+        /// Used to retrieve the card's image
+        /// </summary>
+        /// <returns></returns>
+        public System.Drawing.Bitmap GetCardImage()
+        {
+            return Resources.ResourceManager.GetObject(imageName) as System.Drawing.Bitmap;
         }
     }
 }

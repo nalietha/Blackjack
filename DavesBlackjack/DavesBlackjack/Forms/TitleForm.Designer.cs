@@ -41,6 +41,7 @@
             this.muteButton = new System.Windows.Forms.Button();
             this.skipButton = new System.Windows.Forms.Button();
             this.btnCancelNewPlayer = new System.Windows.Forms.Button();
+            this.creditsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -68,7 +69,7 @@
             // 
             // forgotPasswordButton
             // 
-            this.forgotPasswordButton.Location = new System.Drawing.Point(400, 251);
+            this.forgotPasswordButton.Location = new System.Drawing.Point(400, 280);
             this.forgotPasswordButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.forgotPasswordButton.Name = "forgotPasswordButton";
             this.forgotPasswordButton.Size = new System.Drawing.Size(160, 33);
@@ -122,7 +123,7 @@
             // 
             // createAccountButton
             // 
-            this.createAccountButton.Location = new System.Drawing.Point(400, 295);
+            this.createAccountButton.Location = new System.Drawing.Point(400, 243);
             this.createAccountButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.createAccountButton.Name = "createAccountButton";
             this.createAccountButton.Size = new System.Drawing.Size(160, 33);
@@ -150,7 +151,7 @@
             this.muteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.muteButton.FlatAppearance.BorderSize = 0;
             this.muteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.muteButton.Location = new System.Drawing.Point(631, 340);
+            this.muteButton.Location = new System.Drawing.Point(631, 354);
             this.muteButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.muteButton.Name = "muteButton";
             this.muteButton.Size = new System.Drawing.Size(32, 32);
@@ -165,7 +166,7 @@
             this.skipButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.skipButton.FlatAppearance.BorderSize = 0;
             this.skipButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.skipButton.Location = new System.Drawing.Point(669, 340);
+            this.skipButton.Location = new System.Drawing.Point(669, 354);
             this.skipButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.skipButton.Name = "skipButton";
             this.skipButton.Size = new System.Drawing.Size(32, 32);
@@ -175,24 +176,35 @@
             // 
             // btnCancelNewPlayer
             // 
-            this.btnCancelNewPlayer.Location = new System.Drawing.Point(400, 340);
+            this.btnCancelNewPlayer.Location = new System.Drawing.Point(400, 354);
             this.btnCancelNewPlayer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelNewPlayer.Name = "btnCancelNewPlayer";
             this.btnCancelNewPlayer.Size = new System.Drawing.Size(160, 33);
             this.btnCancelNewPlayer.TabIndex = 8;
-            this.btnCancelNewPlayer.Text = "Cancel";
+            this.btnCancelNewPlayer.Text = "Exit Game";
             this.btnCancelNewPlayer.UseVisualStyleBackColor = true;
-            this.btnCancelNewPlayer.Visible = false;
             this.btnCancelNewPlayer.Click += new System.EventHandler(this.btnCancelNewPlayer_Click);
+            // 
+            // creditsButton
+            // 
+            this.creditsButton.Location = new System.Drawing.Point(400, 317);
+            this.creditsButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.creditsButton.Name = "creditsButton";
+            this.creditsButton.Size = new System.Drawing.Size(160, 33);
+            this.creditsButton.TabIndex = 9;
+            this.creditsButton.Text = "Credits and Licenses";
+            this.creditsButton.UseVisualStyleBackColor = true;
+            this.creditsButton.Click += new System.EventHandler(this.creditsButton_Click);
             // 
             // TitleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Green;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::DavesBlackjack.Properties.Resources.titlescreenbackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(713, 384);
+            this.ClientSize = new System.Drawing.Size(713, 406);
+            this.Controls.Add(this.creditsButton);
             this.Controls.Add(this.btnCancelNewPlayer);
             this.Controls.Add(this.skipButton);
             this.Controls.Add(this.muteButton);
@@ -205,12 +217,12 @@
             this.Controls.Add(this.forgotPasswordButton);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TitleForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TitleForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TitleForm_FormClosing);
+            this.Text = "Blackjack";
             this.Load += new System.EventHandler(this.TitleForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -231,5 +243,6 @@
         private System.Windows.Forms.Button muteButton;
         private System.Windows.Forms.Button skipButton;
         private System.Windows.Forms.Button btnCancelNewPlayer;
+        private System.Windows.Forms.Button creditsButton;
     }
 }

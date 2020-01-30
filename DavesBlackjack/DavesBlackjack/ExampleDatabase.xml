@@ -174,4 +174,33 @@
       </PlayerSave>
     </GameInProgress>
   </Username>
+  <Username id="7" uName="test2" Password="gSkYMDcpcaaYSWQB5aP6Y4ZUdSgmM8kpbvYbrsWM03KdWvT4">
+    <PlayerName>test2</PlayerName>
+    <Email>User01@gmail.com</Email>
+    <SecurityQuestions>
+      <Question>What was your first class with Tom?</Question>
+      <Answer>150</Answer>
+    </SecurityQuestions>
+    <PaymentInfo>
+      <CardNumber />
+      <NameOnCard />
+      <SecurityCode />
+      <ExpireDate />
+      <BillingAddress />
+      <City />
+      <State />
+      <Zip />
+      <PhoneNumber />
+    </PaymentInfo>
+    <GamesWon>0</GamesWon>
+    <Cash>0</Cash>
+    <GameInProgress>
+      <Status>false</Status>
+      <PlayerSave>
+        <SaveState />
+        <DealerSave />
+        <SaveState />
+      </PlayerSave>
+    </GameInProgress>
+  </Username>
 </Users>

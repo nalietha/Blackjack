@@ -1,4 +1,5 @@
 ﻿using DavesBlackjack.Classes;
+using DavesBlackjack.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,34 +15,35 @@ namespace DavesBlackjack
 {
     public partial class GameBoard : Form
     {
-        // Create dealer and player objects
-        private Player player;
-        private Dealer houseDealer = new Dealer();
-        private Deck deck = new Deck();
-        private List<Player> Players = new List<Player>();
-        private int currentPlayer = 0;
-        private User User_01;
-        string cardLocation = "Resources\\Cards\\";
-        string cardBack = "blue_back";
         /// <summary>
-        /// The username of the current player, so each player has a different save file.
+        /// Current player object loaded into the board
         /// </summary>
+        private Player player;
+        /// <summary>
+        /// Dealer object
+        /// </summary>
+        private Dealer houseDealer = new Dealer();
+        /// <summary>
+        /// Deck of cards
+        /// </summary>
+        private readonly Deck deck = new Deck();
+        private readonly List<Player> Players = new List<Player>();
+        private readonly List<Player> splitpairs = new List<Player>();
+        private bool recentlySaved = false;
+        private int currentPlayer = 0;
+        private Bitmap cardBack;
         string SaveFileName = "";
-        string SaveFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Blackjack Saves//";
-        List<PictureBox> playerHand = new List<PictureBox>();
-        List<PictureBox> dealerHand = new List<PictureBox>();
-        Music Music = new Music();
-        List<Player> splitpairs;
+        readonly string  SaveFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Blackjack/Saved Games//";
+        readonly List<PictureBox> playerHand = new List<PictureBox>();
+        readonly List<PictureBox> dealerHand = new List<PictureBox>();
+        public Music Music;
 
         public GameBoard(string username)
         {
             player = new Player(username);
-            this.username = username;
-            this.User_01 = new User(username);
             InitializeComponent();
-
         }
-        string username;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             DavesBlackjack.Forms.ChooseDeck ChooseDeck = new DavesBlackjack.Forms.ChooseDeck();
@@ -49,7 +51,6 @@ namespace DavesBlackjack
             ChooseDeck.ShowDialog();
             cardBack = ChooseDeck.cardBack;
             Show();
-
 
             playerHand.Add(p1);
             playerHand.Add(p2);
@@ -69,16 +70,14 @@ namespace DavesBlackjack
             dealerHand.Add(d7);
             dealerHand.Add(d8);
 
-            //TitleForm titleForm = new TitleForm(this, Music);
-            //titleForm.ShowDialog();
-            SaveFileName = this.username;
+            SaveFileName = player.user.username;
             if (Music.isPlaying)
             {
-                muteButton.BackgroundImage = Image.FromFile(Music.OnIcon);
+                muteButton.BackgroundImage = Resources.soundOn;
             }
             else
             {
-                muteButton.BackgroundImage = Image.FromFile(Music.OffIcon);
+                muteButton.BackgroundImage = Resources.soundOff;
             }
 
             if (System.IO.File.Exists(SaveFilePath + SaveFileName + ".xml"))
@@ -100,7 +99,6 @@ namespace DavesBlackjack
                 }
                 else
                 {
-                    betUpDown.Maximum = player.PlayerMoney;
                     //Delete file because the player has chosen not to load the save?
                 }
             }
@@ -110,9 +108,9 @@ namespace DavesBlackjack
             player.playerNum = 1;
             Players.Add(player);
             playerBalance.Text = "$" + player.PlayerMoney.ToString();
+            wins.Text = player.wins.ToString();
             endTurnButton.Visible = false;
-
-            playerName.Text = User_01.username;
+            playerName.Text = player.user.username;
         }
 
         /// <summary>
@@ -120,9 +118,9 @@ namespace DavesBlackjack
         /// </summary>
         /// <param name="p">Picture box where the image should go</param>
         /// <param name="url">Link of the PNG. This is just the file name with no extention</param>
-        public void ChangeCard(PictureBox p, String cardString)
+        public void ChangeCard(PictureBox p, Bitmap card)
         {
-            p.Load(cardLocation + cardString + ".png");
+            p.Image = card;
             p.BringToFront();
             p.Visible = true;
         }
@@ -145,9 +143,9 @@ namespace DavesBlackjack
         /// </summary>
         /// <param name="p">Dealers List of Images</param>
         /// <param name="cardString">file location of PNG of back of card image</param>
-        private void HideCard(List<PictureBox> p, string cardString)
+        private void HideCard(List<PictureBox> p, Bitmap card)
         {
-            p[1].Load(cardLocation + cardString + ".png");
+            p[1].Image = card;
             p[1].Visible = true;
             p[1].BringToFront();
         }
@@ -157,9 +155,9 @@ namespace DavesBlackjack
         /// </summary>
         /// <param name="p">Dealers List of Images</param>
         /// <param name="cardString">file location of PNG of the hidden card</param>
-        private void UnhideCard(List<PictureBox> p, string cardString)
+        private void UnhideCard(List<PictureBox> p, Bitmap card)
         {
-            p[1].Load(cardLocation + cardString + ".png");
+            p[1].Image = card;
             p[1].Visible = true;
         }
 
@@ -168,13 +166,13 @@ namespace DavesBlackjack
         /// </summary>
         /// <param name="p"></param>
         /// <param name="cardString"></param>
-        public void DealCard(List<PictureBox> p, string cardString)
+        public void DealCard(List<PictureBox> p, Bitmap card)
         {
             for(int i = 0; i < p.Count; i++)
             {
                 if(p[i].Visible == false)
                 {
-                    ChangeCard(p[i], cardString);
+                    ChangeCard(p[i], card);
                     break;
                 }
             }
@@ -193,56 +191,51 @@ namespace DavesBlackjack
             {
                 if (houseDealer.CheckBusted() && !player.CheckBusted())
                 {
-                    msg += player.userCurrent.username + " Didn't bust and they won $" + player.currentBet + ".\n\n";
+                    msg += player.user.username + " Didn't bust and they won $" + player.currentBet + ".\n\n";
                     player.wins++;
                     player.PlayerMoney += player.currentBet;
                 }
                 else if (player.CheckBusted())
                 {
-                    msg += player.userCurrent.username + " Busted and they lost $" + player.currentBet + ".\n\n";
+                    msg += player.user.username + " Busted and they lost $" + player.currentBet + ".\n\n";
                     player.losses++;
                     player.PlayerMoney -= player.currentBet;
                 }
                 else if (houseDealer.handValue > player.handValue)
                 {
-                    msg += player.userCurrent.username + " Lost to the dealer and they lost $" + player.currentBet + ".\n\n";
+                    msg += player.user.username + " Lost to the dealer and they lost $" + player.currentBet + ".\n\n";
                     player.losses++;
                     player.PlayerMoney -= player.currentBet;
                 }
                 else if (houseDealer.handValue < player.handValue)
                 {
-                    msg += player.userCurrent.username + " Has a higher hand than the dealer and they won $" + player.currentBet + ".\n\n"; ;
+                    msg += player.user.username + " Has a higher hand than the dealer and they won $" + player.currentBet + ".\n\n"; ;
                     player.wins++;
                     player.PlayerMoney += player.currentBet;
                 }
                 else
                 {
-                    msg += player.userCurrent.username + " Tied the dealer and kept their bet money.\n\n";
+                    msg += player.user.username + " Tied the dealer and kept their bet money.\n\n";
                 }
             }
-            msg += "Play Again?";
             
-            DialogResult result = MessageBox.Show(msg, "Round Over", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (result == DialogResult.Yes)
+            MessageBox.Show(msg, "Round Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            GetRidOfSplitPairs();
+            foreach (Player player in Players)
             {
-                GetRidOfSplitPairs();
-                foreach (Player player in Players)
-                {
-                    player.done = false;
-                    player.currentBet = 10;
-                    player.ClearHand();
-                }
-                currentPlayer = 0;
-                ChangePlayer();
-                addNewPlayerButton.Visible = true;
-                betUpDown.Enabled = true;
-                betButton.Enabled = true;
-                betUpDown.Maximum = player.PlayerMoney;
-                ClearCards(dealerHand);
-                ClearCards(playerHand);
+                player.done = false;
+                player.currentBet = 10;
+                player.ClearHand();
             }
-            else
-                Close();
+            currentPlayer = 0;
+            ChangePlayer();
+                
+            addNewPlayerButton.Visible = true;
+            logOutButton.Visible = true;
+            betUpDown.Enabled = true;
+            betButton.Enabled = true;
+            ClearCards(dealerHand);
+            ClearCards(playerHand);
         }
 
         /// <summary>
@@ -255,10 +248,10 @@ namespace DavesBlackjack
             // Display dealers choice
             //lblDealersChoice.Visible = true;
           
-            UnhideCard(dealerHand, houseDealer.CardList[1].imageName);
+            UnhideCard(dealerHand, houseDealer.CardList[1].GetCardImage() as Bitmap);
             while (houseDealer.Choice(deck))
             {
-                DealCard(dealerHand, houseDealer.CardList[houseDealer.CardList.Count() - 1].imageName);
+                DealCard(dealerHand, houseDealer.CardList[houseDealer.CardList.Count() - 1].GetCardImage() as Bitmap);
             }
             dealerScore.Text = houseDealer.handValue.ToString();
             CheckForWin();
@@ -271,23 +264,18 @@ namespace DavesBlackjack
         public void PlayersTurn()
         {
             player.Hit(deck);
-            if (Players.Count > 1)
-            {
-                hitButton.Enabled = false;
-            }
-            DealCard(playerHand, player.CardList[player.CardList.Count() - 1].imageName);
+            DealCard(playerHand, player.CardList[player.CardList.Count() - 1].GetCardImage() as Bitmap);
             playerScore.Text = player.handValue.ToString();
 
-            //Player
             if (player.CheckBusted())
             {
-                MessageBox.Show("You Busted, Sorry!", "Busted", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 player.done = true;
+                endTurnButton.Visible = true;
                 hitButton.Enabled = false;
                 stayButton.Enabled = false;
             }
 
-            if(EveryoneDone())
+            if (EveryoneDone())
             {
                 endTurnButton.Visible = false;
                 DealersTurn();
@@ -335,18 +323,15 @@ namespace DavesBlackjack
         }
 
         /// <summary>
-    /// Clears everyone's hand, clear the board, payout all bets, and shuffle the deck
-    /// </summary>
+        /// Clears everyone's hand, clear the board, payout all bets
+        /// </summary>
         public void RestartGame()
         {
             if (Players.Count == 1)
                 saveButton.Enabled = true;
 
-            //shuffle
-            deck.Shuffle();
-
             //Set everyones hand to empty
-            splitpairs = new List<Player>();
+            splitpairs.Clear();
 
             foreach (Player player in Players)
             {
@@ -356,43 +341,46 @@ namespace DavesBlackjack
                 player.Hit(deck);
                 player.Hit(deck);
                 player.aces = false;
-             
             }
-
-           /*
-            Players[1].CardList[0] = new Card(0);
-            Players[1].CardList[1] = new Card(13);
-            */
 
             if (player.CardList.Count == 2 && player.CardList[0].num == player.CardList[1].num)
             {
-                DealCard(playerHand, player.CardList[0].imageName);
-                DealCard(playerHand, player.CardList[1].imageName);
-                DialogResult result = MessageBox.Show("Would you like to split your pairs?", "Split Pairs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (result == DialogResult.Yes)
+                DealCard(playerHand, player.CardList[0].GetCardImage());
+                DealCard(playerHand, player.CardList[1].GetCardImage());
+
+                if (player.PlayerMoney < betUpDown.Value * 2)
+                    MessageBox.Show("As you cannot afford to match your original bet, you cannot split your pairs. Play will resume as normal.", "Split Pairs", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
                 {
-
-                    Player hand2 = new Player();
-                    hand2.CardList.Add(player.CardList[0]);
-                    hand2.playerNum = player.playerNum;
-                    hand2.userCurrent = player.userCurrent;
-                    player.CardList.RemoveAt(0);
-                    hand2.currentBet = player.currentBet;
-                    hand2.originalMoney = (int)player.PlayerMoney;
-                    hand2.PlayerMoney = player.PlayerMoney;
-                    splitpairs.Add(hand2);
-                    Players.Insert(Players.IndexOf(player), hand2);
-                    
-                    if (player.CardList[0].value == 1)
+                    DialogResult result = MessageBox.Show("Would you like to split your pairs?", "Split Pairs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
                     {
-                        player.Hit(deck);
-                        hand2.Hit(deck);
-                        player.aces = true;
-                        hand2.aces = true;
-                        hitButton.Enabled = false;
 
+                        Player hand2 = new Player
+                        {
+                            isSplitHand = true
+                        };
+                        hand2.CardList.Add(player.CardList[0]);
+                        hand2.playerNum = player.playerNum;
+                        hand2.user = player.user;
+                        player.isSplitHand = true;
+                        player.CardList.RemoveAt(0);
+                        hand2.currentBet = player.currentBet;
+                        hand2.originalMoney = (int)player.PlayerMoney;
+                        hand2.PlayerMoney = player.PlayerMoney;
+                        splitpairs.Add(hand2);
+                        Players.Insert(Players.IndexOf(player), hand2);
+
+                        if (player.CardList[0].value == 1)
+                        {
+                            player.Hit(deck);
+                            hand2.Hit(deck);
+                            player.aces = true;
+                            hand2.aces = true;
+                            hitButton.Enabled = false;
+                        }
+                        player = hand2;
                     }
-                    player = hand2;
                 }
             }
 
@@ -411,19 +399,17 @@ namespace DavesBlackjack
             if (!player.aces)
                 hitButton.Enabled = true;
             stayButton.Enabled = true;
-            
-            
 
             //setting up dealer
             houseDealer.Hit(deck);
             houseDealer.Hit(deck);
-            DealCard(dealerHand, houseDealer.CardList[0].imageName);
+            DealCard(dealerHand, houseDealer.CardList[0].GetCardImage());
             HideCard(dealerHand, cardBack);
 
             //seting up player
-            DealCard(playerHand, player.CardList[0].imageName);
+            DealCard(playerHand, player.CardList[0].GetCardImage());
             if(player.CardList.Count > 1)
-                DealCard(playerHand, player.CardList[1].imageName);
+                DealCard(playerHand, player.CardList[1].GetCardImage());
             playerScore.Text = player.handValue.ToString();
 
             //insurance
@@ -433,7 +419,10 @@ namespace DavesBlackjack
                 insuranceUpDown.Visible = true;
                 insuranceButton.Enabled = true;
                 insuranceUpDown.Value = 0;
-                insuranceUpDown.Maximum = player.currentBet / 2;
+                if (player.PlayerMoney >= player.currentBet / 2)
+                    insuranceUpDown.Maximum = player.currentBet / 2;
+                else
+                    insuranceUpDown.Maximum = player.PlayerMoney;
                 hitButton.Enabled = false;
                 stayButton.Enabled = false;
                 MessageBox.Show("Dealer has an ace. You can now place insurance.", "Insurance", MessageBoxButtons.OK);
@@ -450,21 +439,25 @@ namespace DavesBlackjack
             player = Players[currentPlayer];
 
             // Get players name
-            playerName.Text = player.userCurrent.username;
+            playerName.Text = player.user.username;
 
             for (int i = 0; i < player.CardList.Count; i++)
-                DealCard(playerHand, player.CardList[i].imageName);
+                DealCard(playerHand, player.CardList[i].GetCardImage());
 
             if (player.CardList.Count == 2 && player.CardList[0].num == player.CardList[1].num)
             {
                 DialogResult result = MessageBox.Show("Would you like to split your pairs?", "Split Pairs", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                 {
-                    Player hand2 = new Player();
+                    Player hand2 = new Player
+                    {
+                        isSplitHand = true
+                    };
                     hand2.CardList.Add(player.CardList[0]);
                     hand2.playerNum = player.playerNum;
-                    hand2.userCurrent = player.userCurrent;
+                    hand2.user = player.user;
                     player.CardList.RemoveAt(0);
+                    player.isSplitHand = true;
                     hand2.currentBet = player.currentBet;
                     hand2.originalMoney = (int)player.PlayerMoney;
                     hand2.PlayerMoney = player.PlayerMoney;
@@ -476,9 +469,7 @@ namespace DavesBlackjack
                         hand2.Hit(deck);
                         player.aces = true;
                         hand2.aces = true;
-
                         hitButton.Enabled = false;
-
                     }
                     player = hand2;
                 }
@@ -486,15 +477,13 @@ namespace DavesBlackjack
             //setting players hand
             ClearCards(playerHand);
             for (int i = 0; i < player.CardList.Count; i++)
-                DealCard(playerHand, player.CardList[i].imageName);
+                DealCard(playerHand, player.CardList[i].GetCardImage());
             player.CalcuateCurrentHand();
             playerScore.Text = player.handValue.ToString();
+            dealerScore.Text = "XX";
             wins.Text = player.wins.ToString();
             losses.Text = player.losses.ToString();
             playerBalance.Text = "$" + player.PlayerMoney;
-
-            
-            //playerName.Text = player.userCurrent.username;
         }
 
         /// <summary>
@@ -520,14 +509,14 @@ namespace DavesBlackjack
                 if (player.CardList.Count < 0 || player.CardList.Count > 8)
                     return;
                 for (int i = 0; i < player.CardList.Count; i++)
-                    DealCard(playerHand, player.CardList[i].imageName);
+                    DealCard(playerHand, player.CardList[i].GetCardImage());
                 player.CalcuateCurrentHand();
                 playerScore.Text = player.handValue.ToString();
                 wins.Text = player.wins.ToString();
 
                 //setting dealers hand
                 houseDealer = gamestate.dealer;
-                DealCard(dealerHand, houseDealer.CardList[0].imageName);
+                DealCard(dealerHand, houseDealer.CardList[0].GetCardImage());
                 HideCard(dealerHand, cardBack);
                 houseDealer.CalcuateCurrentHand();
                 losses.Text = player.losses.ToString();
@@ -539,7 +528,8 @@ namespace DavesBlackjack
                 //disabling buttons
                 betUpDown.Enabled = false;
                 betButton.Enabled = false;
-
+                saveButton.Enabled = true;
+                recentlySaved = true;
 
                 //calling appropiate next step
                 if (gamestate.beforeInsurance)
@@ -559,7 +549,7 @@ namespace DavesBlackjack
                     insuranceUpDown.Visible = false;
                     insuranceButton.Enabled = false;
                     if (houseDealer.CardList[0].value == 1)
-                        UnhideCard(dealerHand, houseDealer.CardList[1].imageName);
+                        UnhideCard(dealerHand, houseDealer.CardList[1].GetCardImage());
                     if(!player.aces)
                         hitButton.Enabled = true;
                     stayButton.Enabled = true;
@@ -575,9 +565,9 @@ namespace DavesBlackjack
         private void betUpDown_ValueChanged(object sender, EventArgs e)
         {
             if (betUpDown.Value > betUpDown.Maximum)
-                betUpDown.Value = betUpDown.Maximum;
+                betUpDown.Value = betUpDown.Minimum;
             if(betUpDown.Value > player.PlayerMoney)
-                betUpDown.Value = player.PlayerMoney;
+                betUpDown.Value = betUpDown.Minimum;
             if (betUpDown.Value < betUpDown.Minimum)
                 betUpDown.Value = betUpDown.Minimum;
             betUpDown.Value = (int)betUpDown.Value;
@@ -596,15 +586,13 @@ namespace DavesBlackjack
 
         private void hitButton_Click(object sender, EventArgs e)
         {
-            if (Players.Count > 1)
-            {
-                endTurnButton.Visible = true;
-            }
+            recentlySaved = false;
             PlayersTurn();
         }
 
         private void stayButton_Click(object sender, EventArgs e)
         {
+            recentlySaved = false;
             if (Players.Count > 1)
             {
                 endTurnButton.Visible = false;
@@ -623,8 +611,11 @@ namespace DavesBlackjack
 
         private void saveButton_Click(object    sender, EventArgs e)
         {
+            recentlySaved = true;
             GameState gameState = new GameState(houseDealer, player, deck, betUpDown.Value, insuranceButton.Visible);
+            SaveFileName = player.user.username;
             gameState.SaveGame(SaveFileName, SaveFilePath);
+            MessageBox.Show("Game successfully saved.", "Game Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void addNewPlayerButton_Click(object sender, EventArgs e)
@@ -636,8 +627,11 @@ namespace DavesBlackjack
             bool unique = true;
             //Player player = new Player();
             //Log in new player
-            
-            TitleForm newLogin = new TitleForm(true);
+
+            TitleForm newLogin = new TitleForm(true)
+            {
+                Music = Music
+            };
             this.Hide();
             newLogin.ShowDialog();
             this.Show();
@@ -657,7 +651,7 @@ namespace DavesBlackjack
                     unique = false;
                     for( int i = 0; i < Players.Count; i++)
                     {
-                        if (Players[i].userCurrent.username == newPlayer.userCurrent.username)
+                        if (Players[i].user.username == newPlayer.user.username)
                             unique = true;
                     }
                     if (unique)
@@ -667,18 +661,18 @@ namespace DavesBlackjack
                         // clear presesant player info,
                         // 
                         MessageBox.Show("User already logged in, try a different account", "Invalid user");
+                        Hide();
                         newLogin.ShowDialog();
+                        Show();
                         newPlayer = newLogin.AddNewPlayer;
                     }
                 }
                 // Player is now unique
                 Players.Add(newPlayer);
                 saveButton.Visible = false;
+                logOutButton.Visible = true;
                 if (Players.Count == 3)
-                {
                     addNewPlayerButton.Visible = false;
-                }
-
             }
         }
 
@@ -693,21 +687,37 @@ namespace DavesBlackjack
 
         private void betButton_Click(object sender, EventArgs e)
         {
-            addNewPlayerButton.Visible = false;
-            player.currentBet = (int)betUpDown.Value;
-            if (currentPlayer < Players.Count - 1)
+            if(betUpDown.Value > player.PlayerMoney)
             {
-                betUpDown.Value = 10;
-                currentPlayer++;
-                ChangePlayer();
+                MessageBox.Show("You can't afford that bet, add more money or choose a smaller bet (Minimum $10).", "Place a valid bet", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (betUpDown.Value < betUpDown.Minimum)
+            {
+                MessageBox.Show("You must place a valid bet to participate in the round (Minimum $10).", "Place a valid bet", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (betUpDown.Value > betUpDown.Maximum)
+            {
+                //Shouldn't be possible to get here, but you never know.
+                MessageBox.Show("You must place a valid bet to participate in the round (Maximum $500).", "Place a valid bet", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                currentPlayer = 0;
-                ChangePlayer();
-                betUpDown.Enabled = false;
-                betButton.Enabled = false;
-                RestartGame();
+                logOutButton.Visible = false;
+                addNewPlayerButton.Visible = false;
+                player.currentBet = (int)betUpDown.Value;
+                if (currentPlayer < Players.Count - 1)
+                {
+                    currentPlayer++;
+                    ChangePlayer();
+                }
+                else
+                {
+                    currentPlayer = 0;
+                    ChangePlayer();
+                    betUpDown.Enabled = false;
+                    betButton.Enabled = false;
+                    RestartGame();
+                }
             }
         }
 
@@ -723,7 +733,7 @@ namespace DavesBlackjack
             }
             else
             {
-                UnhideCard(dealerHand, houseDealer.CardList[1].imageName);
+                UnhideCard(dealerHand, houseDealer.CardList[1].GetCardImage());
                 currentPlayer = 0;
                 ChangePlayer();
                 insuranceButton.Visible = false;
@@ -736,11 +746,11 @@ namespace DavesBlackjack
                     {
                         if (player.handValue == 21)
                         {
-                            msg += player.userCurrent.username + " and the dealer both have Blackjacks. They keep their bet and insurance.\n\n";
+                            msg += player.user.username + " and the dealer both have Blackjacks. They keep their bet and insurance.\n\n";
                         }
                         else
                         {
-                            msg += "House has a Blackjack. " + player.userCurrent.username + " loses. Insurance will be paid out to them.\n\n";
+                            msg += "House has a Blackjack. " + player.user.username + " loses. Insurance will be paid out to them.\n\n";
                             player.PlayerMoney -= player.currentBet;
                             player.PlayerMoney += 2 * player.insurance;
                             player.losses++;
@@ -759,10 +769,10 @@ namespace DavesBlackjack
                             player.ClearHand();
                         }
 
+                        logOutButton.Visible = true;
                         addNewPlayerButton.Visible = true;
                         betUpDown.Enabled = true;
                         betButton.Enabled = true;
-                        betUpDown.Maximum = player.PlayerMoney;
                         ClearCards(dealerHand);
                         ClearCards(playerHand);
                         currentPlayer = 0;
@@ -791,7 +801,7 @@ namespace DavesBlackjack
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            ProfileInfo profileInfo = new ProfileInfo(player, player.userCurrent);
+            ProfileInfo profileInfo = new ProfileInfo(player, player.user);
 
             Hide();
             profileInfo.ShowDialog();
@@ -804,12 +814,12 @@ namespace DavesBlackjack
             if (Music.isPlaying)
             {
                 Music.Stop();
-                muteButton.BackgroundImage = Image.FromFile(Music.OffIcon);
+                muteButton.BackgroundImage = Resources.soundOff;
             }
             else
             {
                 Music.Resume();
-                muteButton.BackgroundImage = Image.FromFile(Music.OnIcon);
+                muteButton.BackgroundImage = Resources.soundOn;
             }
         }
 
@@ -818,9 +828,71 @@ namespace DavesBlackjack
             Music.Skip();
         }
 
+        private void logOutButton_Click(object sender, EventArgs e)
+        {
+            if (Players.Count == 1)
+            {
+                player.LogOutUser();
+                Players.Clear();
+                TitleForm newLogin = new TitleForm(false)
+                {
+                    Music = Music
+                };
+                Hide();
+                newLogin.ShowDialog();
+                Show();
+                if (newLogin.AddNewPlayer == null)
+                    Application.Exit();
+                else
+                    Players.Add(newLogin.AddNewPlayer);
+
+            }
+            else
+            {
+                Forms.LogoutUser logoutUser = new Forms.LogoutUser();
+                logoutUser.loggedInUsersListBox.Items.Clear();
+                foreach (Player player in Players)
+                {
+                    logoutUser.loggedInUsersListBox.Items.Add(player.user.username);
+                }
+                Hide();
+                logoutUser.ShowDialog();
+                if (logoutUser.DialogResult == DialogResult.OK)
+                {
+                    foreach (String logOutPlayerString in logoutUser.loggedInUsersListBox.CheckedItems)
+                    {
+                        Player logOutPlayer = Players.Find(Player => Player.user.username == logOutPlayerString);
+                        logOutPlayer.LogOutUser();
+                        Players.Remove(logOutPlayer);
+                    }
+                    if (Players.Count == 0)
+                    {
+                        TitleForm newLogin = new TitleForm(false)
+                        {
+                            Music = Music
+                        };
+                        Hide();
+                        newLogin.ShowDialog();
+                        Show();
+                        Players.Add(newLogin.AddNewPlayer);
+                    }
+                }
+            }
+            if (Players.Count == 1)
+                saveButton.Visible = true;
+            if (Players.Count > 0 )
+            {
+                addNewPlayerButton.Visible = true;
+                logOutButton.Visible = true;
+                currentPlayer = 0;
+                ChangePlayer();
+                Show();
+            }
+        }
+
         private void GameBoard_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (SaveFileName != "" && Players.Count == 1)
+            if (SaveFileName != "" && Players.Count == 1 && saveButton.Enabled == true && !recentlySaved)
             {
                 DialogResult result = MessageBox.Show("Would you like to save your game?", "Save Game", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
@@ -828,12 +900,19 @@ namespace DavesBlackjack
                     saveButton.PerformClick();
                 }
             }
+            if (Players.Count != 0)
+            {
+                foreach (Player player in Players)
+                {
+
+                    player.LogOutUser();
+                }
+            }
         }
 
         private void GameBoard_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-
         }
 
         public void GetRidOfSplitPairs()
@@ -846,8 +925,18 @@ namespace DavesBlackjack
                 Players[Players.IndexOf(player) + 1].PlayerMoney += dif;
                 Players.Remove(player);
             }
+            foreach (Player player in Players)
+            {
+                if (player.isSplitHand == true)
+                    player.isSplitHand = false;
+            }
         }
 
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to quit?", "Exit Game", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(result == DialogResult.Yes)
+                Close();
+        }
     }
 }
-

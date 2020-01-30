@@ -14,7 +14,8 @@ namespace DavesBlackjack.Classes
     {
         public User(string username)
         {
-            XDocument doc = XDocument.Load("..\\..\\Database.xml");
+            string DatabaseFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Blackjack//Database.xml";
+            XDocument doc = XDocument.Load(DatabaseFile);
             this.currentUser = doc.Descendants("Username").Where(x => (string)x.Attribute("uName") == username.ToLower()).FirstOrDefault();
             
             this.username = username;
@@ -57,7 +58,7 @@ namespace DavesBlackjack.Classes
         public string Address;
 
         private string GetID() => currentUser == null ? "" : this.currentUser.Attribute("id").Value;
-        private string GetGamesWon() => currentUser == null ? "" : this.currentUser.Attribute("id").Value;
+        private string GetGamesWon() => currentUser == null ? "" : this.currentUser.Element("GamesWon").Value;
         private string GetMoney() => currentUser == null ? "" : this.currentUser.Element("Cash").Value;
         private string GetEmail() => currentUser == null ? "" : this.currentUser.Element("Email").Value;
         private string GetNameOnCard() => currentUser == null ? "" : this.currentUser.Element("PaymentInfo").Element("NameOnCard").Value;

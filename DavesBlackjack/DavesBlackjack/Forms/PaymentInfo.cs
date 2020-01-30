@@ -20,9 +20,9 @@ namespace DavesBlackjack
             this._username = username;
         }
 
-        public static string DatabaseConn = "..\\..\\Database.xml";
-        XDocument doc = XDocument.Load(DatabaseConn);
-        private string _username;
+        public static string DatabaseConn = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Blackjack//Database.xml";
+        readonly XDocument doc = XDocument.Load(DatabaseConn);
+        private readonly string _username;
 
         private bool CheckForRequired()
         {
@@ -216,7 +216,7 @@ namespace DavesBlackjack
             {
                 AddPaymentInfo();
                 // Show success message
-                MessageBox.Show("Payment infomation added, to change, login and go to profile infomation.", "Success");
+                MessageBox.Show("Payment infomation successfully added.", "Success");
                 // close form
                 this.Close();
             }
@@ -279,6 +279,11 @@ namespace DavesBlackjack
             mtbState.Text = "";
             mtbZip.Text = "";
             mtbPhoneNumber.Text = "";
+        }
+
+        private void PaymentInfo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

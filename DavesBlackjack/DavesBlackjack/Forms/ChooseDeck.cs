@@ -1,4 +1,5 @@
 ﻿using System;
+using DavesBlackjack.Properties;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,8 @@ namespace DavesBlackjack.Forms
 {
     public partial class ChooseDeck : Form
     {
-        private string deckString = "";
-        public string cardBack { get { return deckString; } }
+        private Bitmap selectedDeck;
+        public Bitmap cardBack { get { return selectedDeck; } }
         public ChooseDeck()
         {
             InitializeComponent();
@@ -21,38 +22,43 @@ namespace DavesBlackjack.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            deckString = "red_back";
+            selectedDeck = Resources.red_back;
             Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            deckString = "yellow_back";
+            selectedDeck = Resources.yellow_back;
             Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            deckString = "green_back";
+            selectedDeck = Resources.green_back;
             Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            deckString = "blue_back";
+            selectedDeck = Resources.blue_back;
             Close();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            deckString = "purple_back";
+            selectedDeck = Resources.purple_back;
             Close();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            deckString = "gray_back";
+            selectedDeck = Resources.gray_back;
             Close();
+        }
+
+        private void ChooseDeck_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

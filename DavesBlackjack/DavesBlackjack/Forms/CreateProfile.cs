@@ -22,8 +22,8 @@ namespace DavesBlackjack
 
         
 
-        private static string DatabaseFile = "..\\..\\Database.xml";
-        XDocument doc = XDocument.Load(DatabaseFile);
+        private static readonly string DatabaseFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Blackjack/Database.xml";
+        readonly XDocument doc = XDocument.Load(DatabaseFile);
         // Command Object, Move to third sprint
         // XMLCommands XCom = new XMLCommands();
 
@@ -116,13 +116,13 @@ namespace DavesBlackjack
             {
                 lblErrorsExist.Text = FIX_ERRORS;
                 lblErrorsExist.Visible = true;
-
             }
             else
             {
                 CreateNewUser();
                 PaymentInfo AddPaymentInfo = new PaymentInfo(tbUsername.Text);
-                AddPaymentInfo.Show();
+                Hide();
+                AddPaymentInfo.ShowDialog();
             }
         }
         private bool CheckForErrors()

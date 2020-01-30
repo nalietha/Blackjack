@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Media;
+using DavesBlackjack.Properties;
 
 namespace DavesBlackjack
 {
@@ -16,38 +17,29 @@ namespace DavesBlackjack
         /// <summary>
         /// The title of the currently playing song
         /// </summary>
-        public string currentSong { get; private set; }
-        public string OnIcon { get; private set; }
-        public string OffIcon { get; private set; }
+        public System.IO.UnmanagedMemoryStream currentSong { get; private set; }
 
-        private const string songOne = "Lobby Time";
-        private const string songTwo = "Bossa Antigua";
-        private const string songThree = "Intractable";
-        private const string songFour = "Jazz Brunch";
-        private const string songFive = "Acid Trumpet";
         /// <summary>
         /// A list of songs used to provide song skipping functionality
         /// </summary>
-        private static readonly List<string> songList = new List<string>()
+        private readonly List<System.IO.UnmanagedMemoryStream> songList = new List<System.IO.UnmanagedMemoryStream>()
         {
-            songOne, songTwo, songThree, songFour, songFive
+            Resources.Lobby_Time, Resources.Bossa_Antigua, Resources.Intractable, Resources.Jazz_Brunch, Resources.Acid_Trumpet
         };
-        private SoundPlayer SoundPlayer = new SoundPlayer();
+        private readonly SoundPlayer SoundPlayer = new SoundPlayer();
 
         public Music()
         {
-            currentSong = songOne;
+            currentSong = songList[0];
             isPlaying = false;
-            OnIcon = "Resources/Misc/soundOn.png";
-            OffIcon = "Resources/Misc/soundOff.png";
         }
 
         /// <summary>
-        /// Starts playing songOne from the songplayer
+        /// Starts playing song one from the songplayer
         /// </summary>
         public void Start()
         {
-            currentSong = songOne;
+            currentSong = songList[0];
             Resume();
         }
 
@@ -66,10 +58,8 @@ namespace DavesBlackjack
         public void Resume()
         {
             isPlaying = true;
-            string songPath = "Resources/Music/";
-            songPath += currentSong;
-            songPath += ".wav";
-            SoundPlayer.SoundLocation = songPath;
+            SoundPlayer.Stream = currentSong;
+            SoundPlayer.Stream.Position = 0;
             SoundPlayer.PlayLooping();
         }
 
